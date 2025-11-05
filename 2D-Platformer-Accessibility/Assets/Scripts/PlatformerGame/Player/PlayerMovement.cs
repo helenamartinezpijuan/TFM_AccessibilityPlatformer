@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PlatformerGame
+namespace PlatformerGame.Player
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerMovement : MonoBehaviour
@@ -53,11 +53,11 @@ namespace PlatformerGame
             animator.SetFloat("Speed", Mathf.Abs(horizontalAxis));
 
             // Apply jump if requested
-            if (canJump && isGrounded)
+            /*if (canJump && isGrounded)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
                 canJump = false;
-            }
+            }*/
         }
 
         private void Flip()
@@ -76,20 +76,20 @@ namespace PlatformerGame
             }
         }
 
-        // Input System Callbacks
+        #region Input System Callbacks
         public void OnMove(InputAction.CallbackContext context)
         {
             horizontalAxis = context.ReadValue<Vector2>().x;
             Debug.Log($"Move input received: {horizontalAxis}");
         }
 
-        public void OnJump(InputAction.CallbackContext context)
+        /*public void OnJump(InputAction.CallbackContext context)
         {
             if (context.performed && isGrounded)
             {
                 canJump = true;
             }
-        }
+        }*/
 
         public void OnInteract(InputAction.CallbackContext context)
         {
@@ -108,5 +108,6 @@ namespace PlatformerGame
                 Debug.Log("Attack action performed");
             }
         }
+        #endregion
     }
 }

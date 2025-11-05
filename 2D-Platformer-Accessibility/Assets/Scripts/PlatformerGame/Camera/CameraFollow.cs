@@ -10,19 +10,18 @@ namespace PlatformerGame
 
         private Vector2 threshold;
 
-        private Rigidbody2D mario;
+        private Rigidbody2D player;
 
 
         private void Start()
         {
-            //offset = Mario.transform.position - transform.position;
+            //offset = player.transform.position - transform.position;
             threshold = calculateThreshold();
-            mario = FollowObject.GetComponent<Rigidbody2D>();
+            player = FollowObject.GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
         {
-            //transform.position = Mario.position - offset;
             Vector2 follow = FollowObject.transform.position;
             float xDifference = Vector2.Distance(Vector2.right * transform.position.x, Vector2.right * follow.x);
             float yDifference = Vector2.Distance(Vector2.up * transform.position.y, Vector2.up * follow.y);
@@ -38,7 +37,7 @@ namespace PlatformerGame
                 newPosition.y = follow.y;
             }
 
-            float moveSpeed = mario.linearVelocity.magnitude > speed ? mario.linearVelocity.magnitude : speed;
+            float moveSpeed = player.linearVelocity.magnitude > speed ? player.linearVelocity.magnitude : speed;
             transform.position = Vector3.MoveTowards(transform.position, newPosition, moveSpeed * Time.deltaTime);
         }
 
