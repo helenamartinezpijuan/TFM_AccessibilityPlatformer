@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PlatformerGame.Inventory;
 
 namespace PlatformerGame.Inventory
 {

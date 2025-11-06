@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using PlatformerGame.Inventory;
 
 namespace PlatformerGame.Inventory
 {
@@ -13,7 +14,7 @@ namespace PlatformerGame.Inventory
 
         private int currentSelectedPosition = 0;
 
-        private List<Item> items = new List<Item>();
+        public List<Item> items = new List<Item>();
         private bool isOpen;
         private bool inventorySceneLoaded = false;
 
@@ -22,6 +23,9 @@ namespace PlatformerGame.Inventory
         public System.Action<bool> OnInventoryToggle;
         public System.Action<int> OnSelectionChanged;
 
+        public bool IsOpen => isOpen;
+        public int CurrentSelectedPosition => currentSelectedPosition;
+        public List<Item> Items => items;
 
 
         private void Awake()
@@ -38,7 +42,7 @@ namespace PlatformerGame.Inventory
 
         }
 
-        private Item GetItem(int position)
+        public Item GetItem(int position)
         {
             if (position >= 0 && position < inventorySize)
             {
@@ -149,11 +153,23 @@ namespace PlatformerGame.Inventory
             if (selectedItem != null)
             {
                 selectedItem.Use(this);
-                
+
                 // If item is consumable, remove it after use
                 if (selectedItem.isConsumable)
                 {
                     RemoveItem(currentSelectedPosition);
+                }
+            }
+        }
+
+        public void OnTriggerEnter2D(Collider2D collision)
+        {
+            ItemPickup pickup = collision.GetComponent<ItemPickup>();
+            if (pickup != null && pickup.item != null)
+            {
+                if (AddItem(pickup.item))
+                {
+                    Destroy(pickup.gameObject);
                 }
             }
         }
@@ -196,6 +212,7 @@ namespace PlatformerGame.Inventory
                 else
                 {
                     OpenInventory();
+                    Debug.Log("Inventory action performed");
                 }
             }
         }
