@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3283104770862830741}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 2022724308815874709}
   - component: {fileID: 1892636346546948337}
   - component: {fileID: 2620535277688717429}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,3 +443,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySceneName: InventoryUI
   inventorySize: 10
+  items: []
