@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using System.Collections.Generic;
 using PlatformerGame.Inventory;
 
@@ -134,6 +135,18 @@ namespace PlatformerGame.Inventory
             if (newPosition >= 0 && newPosition < slotUIs.Count)
             {
                 slotUIs[newPosition].SetSelected(true);
+
+                // Move highlight image to the selected slot
+                if (selectedSlotHighlight != null)
+                {
+                    selectedSlotHighlight.transform.SetParent(slotUIs[newPosition].transform);
+                    selectedSlotHighlight.transform.localPosition = Vector3.zero;
+                    selectedSlotHighlight.rectTransform.anchorMin = Vector2.zero;
+                    selectedSlotHighlight.rectTransform.anchorMax = Vector2.one;
+                    selectedSlotHighlight.rectTransform.offsetMin = Vector2.zero;
+                    selectedSlotHighlight.rectTransform.offsetMax = Vector2.zero;
+                }
+
                 lastSelectedPosition = newPosition;
             }
         }
