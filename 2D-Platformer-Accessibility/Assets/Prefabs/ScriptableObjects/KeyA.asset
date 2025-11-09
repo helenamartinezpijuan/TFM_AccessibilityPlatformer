@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b5435a943e19d45980917163099771, type: 3}
+  m_Name: KeyA
+  m_EditorClassIdentifier: 
+  itemName: Key A
+  description: Key that only unlocks doors type A
+  icon: {fileID: 6482484891331493372, guid: cd998c8a0f5ae2747a2f7c3b8fe0194d, type: 3}
+  maxStackSize: 1
+  isConsumable: 0
+  inventoryPosition: -1
+  doorId: 

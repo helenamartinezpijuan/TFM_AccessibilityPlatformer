@@ -231,8 +231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab004f8e59ac364eb1eaf5de77defed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowObject: {fileID: 0}
-  FollowOffset: {x: 3, y: 3}
+  FollowObject: {fileID: 699990333}
+  FollowOffset: {x: 3, y: 2}
   speed: 5
 --- !u!114 &659864241
 MonoBehaviour:
@@ -278,6 +278,11 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1 &699990333 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2550353124218349470, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
+  m_PrefabInstance: {fileID: 1282094815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1107097263
 GameObject:
   m_ObjectHideFlags: 0

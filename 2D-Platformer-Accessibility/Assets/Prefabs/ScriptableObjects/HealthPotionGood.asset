@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba49040bb184a034f8e3b2f9b04cf5c1, type: 3}
+  m_Name: HealthPotionGood
+  m_EditorClassIdentifier: 
+  itemName: Health Potion (Good)
+  description: This potion will heal the player
+  icon: {fileID: 1963559674, guid: cd998c8a0f5ae2747a2f7c3b8fe0194d, type: 3}
+  maxStackSize: 1
+  isConsumable: 1
+  inventoryPosition: -1
+  healAmount: 50
