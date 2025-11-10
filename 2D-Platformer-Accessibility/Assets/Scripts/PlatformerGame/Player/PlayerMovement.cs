@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using PlatformerGame;
 
 namespace PlatformerGame.Player
 {
@@ -79,7 +78,7 @@ namespace PlatformerGame.Player
             }
             
         }
-
+/*
         public void OnInteract(InputAction.CallbackContext context)
         {
             if (context.performed)
@@ -88,7 +87,7 @@ namespace PlatformerGame.Player
                 Debug.Log("Interact action performed");
             }
         }
-
+*/
         public void OnAttack(InputAction.CallbackContext context)
         {
             if (context.performed)

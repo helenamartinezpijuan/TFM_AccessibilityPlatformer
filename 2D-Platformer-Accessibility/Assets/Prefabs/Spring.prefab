@@ -120,9 +120,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  playerInput: {fileID: 0}
-  playerTransform: {fileID: 0}
-  springAnimator: {fileID: 0}
+  springAnimator: {fileID: 5370747048091521896}
+  isActive: 1
 --- !u!212 &8545371597400336185
 SpriteRenderer:
   m_ObjectHideFlags: 0
