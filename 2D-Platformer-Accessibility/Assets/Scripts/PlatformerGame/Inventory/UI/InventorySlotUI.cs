@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using PlatformerGame.Inventory;
+using PlatformerGame.Inventory.UI;
 
-namespace PlatformerGame.Inventory
+namespace PlatformerGame.Inventory.UI
 {
     public class InventorySlotUI : MonoBehaviour
     {

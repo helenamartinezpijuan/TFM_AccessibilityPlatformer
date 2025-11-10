@@ -1,7 +1,7 @@
 using UnityEngine;
-using PlatformerGame.Inventory;
+using PlatformerGame.Inventory.Items;
 
-namespace PlatformerGame.Inventory
+namespace PlatformerGame.Inventory.Items
 {
     [CreateAssetMenu(fileName = "Flashlight", menuName = "PlatformerGame/Inventory/Flashlight")]
     public class Flashlight : Item

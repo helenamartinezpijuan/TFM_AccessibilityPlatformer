@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using PlatformerGame;
 
 namespace PlatformerGame.Player
 {
@@ -8,7 +9,6 @@ namespace PlatformerGame.Player
     {
         [Header("Movement Parameters")]
         [SerializeField] private float speed = 5f;
-        [SerializeField] private float jumpForce = 12f;
 
         [Header("Ground Check")]
         [SerializeField] private Transform groundCheck;
@@ -21,6 +21,7 @@ namespace PlatformerGame.Player
         private bool isFacingRight = true;
         private bool isGrounded;
         private bool canJump;
+        private bool controlsLocked = false;
 
         private void Awake()
         {
@@ -51,13 +52,6 @@ namespace PlatformerGame.Player
 
             // Wheel animation
             animator.SetFloat("Speed", Mathf.Abs(horizontalAxis));
-
-            // Apply jump if requested
-            /*if (canJump && isGrounded)
-            {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-                canJump = false;
-            }*/
         }
 
         private void Flip()
@@ -79,17 +73,12 @@ namespace PlatformerGame.Player
         #region Input System Callbacks
         public void OnMove(InputAction.CallbackContext context)
         {
-            horizontalAxis = context.ReadValue<Vector2>().x;
-            Debug.Log($"Move input received: {horizontalAxis}");
-        }
-
-        /*public void OnJump(InputAction.CallbackContext context)
-        {
-            if (context.performed && isGrounded)
+            if (!controlsLocked)
             {
-                canJump = true;
+                horizontalAxis = context.ReadValue<Vector2>().x;
             }
-        }*/
+            
+        }
 
         public void OnInteract(InputAction.CallbackContext context)
         {
@@ -108,6 +97,27 @@ namespace PlatformerGame.Player
                 Debug.Log("Attack action performed");
             }
         }
+        #endregion
+
+        #region Lock/Unlock Movement
+
+        public void LockControls()
+        {
+            controlsLocked = true;
+            // Disable input or movement here
+        }
+
+        public void UnlockControls()
+        {
+            controlsLocked = false;
+            // Enable input or movement here
+        }
+
+        public bool AreControlsLocked()
+        {
+            return controlsLocked;
+        }
+
         #endregion
     }
 }

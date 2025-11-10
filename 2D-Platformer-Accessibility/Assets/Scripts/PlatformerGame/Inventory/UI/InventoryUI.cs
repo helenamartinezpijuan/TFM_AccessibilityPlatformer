@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using PlatformerGame.Inventory;
+using PlatformerGame.Inventory.UI;
 
-namespace PlatformerGame.Inventory
+namespace PlatformerGame.Inventory.UI
 {
     public class InventoryUI : MonoBehaviour
     {

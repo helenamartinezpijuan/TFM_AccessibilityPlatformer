@@ -1,7 +1,7 @@
 using UnityEngine;
-using PlatformerGame.Inventory;
+using PlatformerGame.Inventory.Items;
 
-namespace PlatformerGame.Inventory
+namespace PlatformerGame.Inventory.Items
 {
     [CreateAssetMenu(fileName = "Key", menuName = "PlatformerGame/Inventory/Key")]
     public class Key : Item
