@@ -17,7 +17,7 @@ namespace PlatformerGame.Inventory
         private List<InventorySlotUI> slotUIs = new List<InventorySlotUI>();
         private int lastSelectedPosition = -1;
 
-        private void Start()
+        private void Awake()
         {
             // Find the player inventory in the main scene
             FindPlayerInventory();
@@ -34,6 +34,7 @@ namespace PlatformerGame.Inventory
                 if (playerInventory != null)
                 {
                     SubscribeToEvents();
+                    Debug.Log("Player inventory found");
                 }
             }
         }

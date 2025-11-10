@@ -10,7 +10,7 @@ namespace PlatformerGame.Inventory
     {
         [Header("Item Parameters")]
         [SerializeField] private string inventorySceneName = "InventoryUI";
-        [SerializeField] private int inventorySize = 10;
+        [SerializeField] private int inventorySize = 8;
 
         private int currentSelectedPosition = 0;
 
@@ -35,11 +35,7 @@ namespace PlatformerGame.Inventory
             {
                 items.Add(null);
             }
-        }
-
-        private void FixedUpdate()
-        {
-
+            Debug.Log($"Inventory initialized with {inventorySize} slots");
         }
 
         public Item GetItem(int position)
@@ -59,6 +55,8 @@ namespace PlatformerGame.Inventory
                 {
                     items[i] = newItem;
                     newItem.inventoryPosition = i;
+                    Debug.Log($"Added {newItem.itemName} to slot {i}");
+
                     OnItemAdded?.Invoke(newItem);
                     return true;
                 }

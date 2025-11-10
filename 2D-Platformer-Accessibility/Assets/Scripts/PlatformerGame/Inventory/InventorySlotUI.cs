@@ -43,6 +43,10 @@ namespace PlatformerGame.Inventory
                     itemIcon.sprite = null;
                     itemIcon.color = Color.clear;
                 }
+                else
+                {
+                    Debug.Log("Item icon reference missing");
+                }
                 
                 if (itemCountText != null)
                     itemCountText.text = "";
