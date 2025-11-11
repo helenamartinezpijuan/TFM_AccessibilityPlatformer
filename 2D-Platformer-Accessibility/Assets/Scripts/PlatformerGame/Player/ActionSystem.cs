@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using PlatformerGame.WorldMechanics;
@@ -11,28 +12,49 @@ namespace PlatformerGame.Player
         [SerializeField] private float interactionRange = 2f;
         [SerializeField] private LayerMask interactableLayerMask = ~0;
 
-        private PlayerInput playerInput;
-        private InputAction interactAction;
+        [Header("Events")]
+        public UnityEvent<IInteractable> OnInteractableFound;
+        public UnityEvent OnInteractableLost;
+
         private List<IInteractable> availableInteractables = new List<IInteractable>();
         private IInteractable currentClosestInteractable;
 
-        private void Awake()
+        /*public void OnInteract(InputAction.CallbackContext context)
         {
-            playerInput = GetComponent<PlayerInput>();
-            if (playerInput != null)
+            if (context.performed)
             {
-                interactAction = playerInput.actions["Interact"];
+                Debug.Log("Call TryInteract from OnInteract() method");
+                TryInteract();
+            }
+        }*/
+
+        private void Start()
+        {
+            Debug.Log("InteractionSystem Started - looking for Input System events");
+        }
+
+        public void OnInteract(InputAction.CallbackContext context)
+        {
+            Debug.Log($"OnInteract called with phase: {context.phase}");
+            
+            if (context.performed)
+            {
+                Debug.Log("Interact button PRESSED - calling TryInteract");
+                TryInteract();
+            }
+            else if (context.started)
+            {
+                Debug.Log("Interact button STARTED");
+            }
+            else if (context.canceled)
+            {
+                Debug.Log("Interact button RELEASED");
             }
         }
 
         private void Update()
         {
             FindNearbyInteractables();
-
-            if (interactAction != null && interactAction.triggered)
-            {
-                TryInteract();
-            }
         }
 
         private void FindNearbyInteractables()
@@ -53,7 +75,23 @@ namespace PlatformerGame.Player
             }
 
             // Find the closest interactable
-            currentClosestInteractable = GetClosestInteractable();
+            IInteractable newClosest = GetClosestInteractable();
+
+            // Handle interactable change events
+            if (newClosest != currentClosestInteractable)
+            {
+                if (currentClosestInteractable != null)
+                {
+                    OnInteractableLost?.Invoke();
+                }
+
+                currentClosestInteractable = newClosest;
+
+                if (currentClosestInteractable != null)
+                {
+                    OnInteractableFound?.Invoke(currentClosestInteractable);
+                }
+            }
 
             // You could add UI feedback here (show interaction prompt for currentClosestInteractable)
         }
@@ -78,9 +116,11 @@ namespace PlatformerGame.Player
 
         private void TryInteract()
         {
+            Debug.Log("Try Interact called");
             if (currentClosestInteractable != null && currentClosestInteractable.CanInteract())
             {
                 currentClosestInteractable.Interact(gameObject);
+                Debug.Log("Interaction called from ActionSystem.cs script");
             }
         }
 

@@ -78,16 +78,7 @@ namespace PlatformerGame.Player
             }
             
         }
-/*
-        public void OnInteract(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                // Add interaction logic here
-                Debug.Log("Interact action performed");
-            }
-        }
-*/
+
         public void OnAttack(InputAction.CallbackContext context)
         {
             if (context.performed)

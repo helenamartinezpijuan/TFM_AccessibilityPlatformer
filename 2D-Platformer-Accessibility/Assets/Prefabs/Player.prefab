@@ -302,8 +302,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2022724308815874709}
-        m_TargetAssemblyTypeName: PlatformerGame.PlayerMovement, Assembly-CSharp
+      - m_Target: {fileID: 918525457515328682}
+        m_TargetAssemblyTypeName: PlatformerGame.Player.ActionSystem, Assembly-CSharp
         m_MethodName: OnInteract
         m_Mode: 0
         m_Arguments:
@@ -460,3 +460,9 @@ MonoBehaviour:
   interactableLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  OnInteractableFound:
+    m_PersistentCalls:
+      m_Calls: []
+  OnInteractableLost:
+    m_PersistentCalls:
+      m_Calls: []

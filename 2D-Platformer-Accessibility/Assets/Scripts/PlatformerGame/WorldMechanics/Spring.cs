@@ -40,10 +40,13 @@ namespace PlatformerGame.WorldMechanics
 
         public void Interact(GameObject interactor)
         {
+            Debug.Log("Spring Interact called");
             if (!CanInteract()) return;
+            Debug.Log("Spring can interact");
 
             playerMovement = interactor.GetComponent<PlayerMovement>();
             if (playerMovement == null) return;
+            Debug.Log("PlayerMovement found on interactor");
 
             StartCoroutine(PerformSpringJump(interactor.transform));
         }
