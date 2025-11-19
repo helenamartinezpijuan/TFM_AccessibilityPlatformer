@@ -19,14 +19,6 @@ namespace PlatformerGame.Player
         private List<IInteractable> availableInteractables = new List<IInteractable>();
         private IInteractable currentClosestInteractable;
 
-        /*public void OnInteract(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-            {
-                Debug.Log("Call TryInteract from OnInteract() method");
-                TryInteract();
-            }
-        }*/
 
         private void Start()
         {
@@ -34,21 +26,10 @@ namespace PlatformerGame.Player
         }
 
         public void OnInteract(InputAction.CallbackContext context)
-        {
-            Debug.Log($"OnInteract called with phase: {context.phase}");
-            
+        {           
             if (context.performed)
             {
-                Debug.Log("Interact button PRESSED - calling TryInteract");
                 TryInteract();
-            }
-            else if (context.started)
-            {
-                Debug.Log("Interact button STARTED");
-            }
-            else if (context.canceled)
-            {
-                Debug.Log("Interact button RELEASED");
             }
         }
 

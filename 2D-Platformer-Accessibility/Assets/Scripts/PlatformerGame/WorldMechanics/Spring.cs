@@ -10,43 +10,39 @@ namespace PlatformerGame.WorldMechanics
     {
         [Header("Spring Configuration")]
         [SerializeField] private Vector2 destinationPosition;
-        [SerializeField] private float jumpDuration = 1f;
+        [SerializeField] private float jumpDuration = 0.5f;
         [SerializeField] private AnimationCurve jumpCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
+        [Header("Animation")]
         private Animator springAnimator;
-        [SerializeField] private bool isActive = true;
-
-        // Animation hashes
-        private static readonly int SpringTrigger = Animator.StringToHash("Spring");
 
         // Spring state
         private bool isSpringActive = false;
         private PlayerMovement playerMovement;
+        private Rigidbody2D playerRigidbody;
 
         // Events
         public Action OnSpringLaunch;
         public Action OnSpringLand;
 
-
-        public void Start()
+        public void Awake()
         {
             springAnimator = GetComponent<Animator>();
+            destinationPosition = GetComponentInChildren<ParticleSystem>().transform.position;
         }
 
         public bool CanInteract()
         {
-            return isActive && !isSpringActive;
+            return !isSpringActive;
         }
 
         public void Interact(GameObject interactor)
         {
-            Debug.Log("Spring Interact called");
             if (!CanInteract()) return;
-            Debug.Log("Spring can interact");
 
             playerMovement = interactor.GetComponent<PlayerMovement>();
-            if (playerMovement == null) return;
-            Debug.Log("PlayerMovement found on interactor");
+            playerRigidbody = interactor.GetComponent<Rigidbody2D>();
+            if (playerMovement == null || playerRigidbody == null) return;
 
             StartCoroutine(PerformSpringJump(interactor.transform));
         }
@@ -55,16 +51,20 @@ namespace PlatformerGame.WorldMechanics
         {
             // Lock player controls
             playerMovement.LockControls();
-            isSpringActive = true;
 
-            Vector2 jumpStartPosition = playerTransform.position;
+            // Disable physics and enable kinematic to prevent falling during jump
+            playerRigidbody.linearVelocity = Vector2.zero;
+            playerRigidbody.bodyType = RigidbodyType2D.Kinematic;
 
             // Trigger spring animation
+            isSpringActive = true;
+
             if (springAnimator != null)
             {
-                springAnimator.SetTrigger(SpringTrigger);
+                springAnimator.SetTrigger("Spring");
             }
 
+            Vector2 jumpStartPosition = playerTransform.position;
             OnSpringLaunch?.Invoke();
 
             float timer = 0f;
@@ -79,15 +79,21 @@ namespace PlatformerGame.WorldMechanics
 
                 // Add arc to the jump (parabolic motion)
                 float arcHeight = Mathf.Sin(progress * Mathf.PI) * 2f;
-                currentPosition.y += arcHeight;
+                currentPosition.y = arcHeight + Mathf.Lerp(jumpStartPosition.y, destinationPosition.y, progress);
 
                 playerTransform.position = currentPosition;
-
                 yield return null;
             }
 
             // Ensure player lands exactly at destination
             playerTransform.position = destinationPosition;
+
+            // Re-enable physics
+            playerRigidbody.bodyType = RigidbodyType2D.Dynamic;
+
+            // Small downward force to ensure collision with ground
+            playerRigidbody.linearVelocity = new Vector2(0f, -1f);
+
             CompleteSpringJump();
         }
 
@@ -107,36 +113,6 @@ namespace PlatformerGame.WorldMechanics
             yield return new WaitForSeconds(delay);
             playerMovement.UnlockControls();
             isSpringActive = false;
-        }
-
-        // Editor visualization
-        private void OnDrawGizmosSelected()
-        {
-            if (!isActive) return;
-
-            // Draw spring position
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(transform.position, Vector3.one * 0.5f);
-
-            // Draw destination position
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(destinationPosition, Vector3.one * 0.5f);
-
-            // Draw line from spring to destination
-            Gizmos.color = Color.white;
-            Gizmos.DrawLine(transform.position, destinationPosition);
-
-            // Draw horizontal variance range
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(
-                destinationPosition + Vector2.left,
-                destinationPosition + Vector2.right
-            );
-        }
-
-        public void SetActive(bool active)
-        {
-            isActive = active;
         }
     }
 }
