@@ -151,6 +151,8 @@ namespace PlatformerGame.Inventory
             if (selectedItem != null)
             {
                 selectedItem.Use(this);
+                // Close inventory after use/equip
+                CloseInventory();
 
                 // If item is consumable, remove it after use
                 if (selectedItem.isConsumable)
