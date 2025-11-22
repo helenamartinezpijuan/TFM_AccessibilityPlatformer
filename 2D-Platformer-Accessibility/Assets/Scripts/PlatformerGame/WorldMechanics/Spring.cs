@@ -9,12 +9,16 @@ namespace PlatformerGame.WorldMechanics
     public class Spring : MonoBehaviour, IInteractable
     {
         [Header("Spring Configuration")]
-        [SerializeField] private Vector2 destinationPosition;
+        [SerializeField] private Transform destination;
         [SerializeField] private float jumpDuration = 0.5f;
         [SerializeField] private AnimationCurve jumpCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+        private Vector2 destinationPosition;
 
         [Header("Animation")]
+        [SerializeField] private bool isOne;
         private Animator springAnimator;
+        private Animator landingAnimator;
+
 
         // Spring state
         private bool isSpringActive = false;
@@ -28,7 +32,9 @@ namespace PlatformerGame.WorldMechanics
         public void Awake()
         {
             springAnimator = GetComponent<Animator>();
-            destinationPosition = GetComponentInChildren<ParticleSystem>().transform.position;
+            springAnimator.SetBool("IsOne", isOne);
+            landingAnimator = GetComponentInChildren<Animator>();
+            destinationPosition = destination.position;
         }
 
         public bool CanInteract()
@@ -102,6 +108,7 @@ namespace PlatformerGame.WorldMechanics
             // Unlock player controls after a brief moment to ensure landing
             if (playerMovement != null)
             {
+                landingAnimator.SetTrigger("Land");
                 StartCoroutine(EnableControlsAfterDelay(0.1f));
             }
 

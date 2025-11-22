@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8545371597400336185}
   - component: {fileID: 5370747048091521896}
   m_Layer: 0
-  m_Name: Spring
+  m_Name: Spring_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  isOne: 0
 --- !u!212 &8545371597400336185
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1323994290, guid: cd998c8a0f5ae2747a2f7c3b8fe0194d, type: 3}
+  m_Sprite: {fileID: -606304516, guid: 573fc5991783256499df1d691b8d7c09, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
