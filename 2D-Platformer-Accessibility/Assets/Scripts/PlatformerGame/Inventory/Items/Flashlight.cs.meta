@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: e0204d92768868844a92ba05491c99a8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - icon: {fileID: 1801263428120863714, guid: 93eadc4dcb030f443b13385345c4420c, type: 3}
+  - flashlightPrefab: {fileID: 2094137301982799979, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
+  - defaultSprite: {instanceID: 0}
+  - revealedSprite: {instanceID: 0}
+  - revealParticleEffect: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
