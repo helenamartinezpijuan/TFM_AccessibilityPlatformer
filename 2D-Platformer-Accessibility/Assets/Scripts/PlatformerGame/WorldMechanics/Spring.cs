@@ -17,7 +17,7 @@ namespace PlatformerGame.WorldMechanics
         [Header("Animation")]
         [SerializeField] private bool isOne;
         private Animator springAnimator;
-        private Animator landingAnimator;
+        [SerializeField] private Animator landingAnimator;
 
 
         // Spring state
@@ -33,7 +33,7 @@ namespace PlatformerGame.WorldMechanics
         {
             springAnimator = GetComponent<Animator>();
             springAnimator.SetBool("IsOne", isOne);
-            landingAnimator = GetComponentInChildren<Animator>();
+            //landingAnimator = GetComponentInChildren<Animator>();
             destinationPosition = destination.position;
         }
 
