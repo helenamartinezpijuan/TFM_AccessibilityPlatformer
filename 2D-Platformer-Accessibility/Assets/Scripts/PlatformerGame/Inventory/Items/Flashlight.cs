@@ -51,10 +51,6 @@ namespace PlatformerGame.Inventory.Items
                     Debug.Log("Flashlight equipped");
                 }
             }
-            else
-            {
-                Debug.LogWarning("Flashlight prefab not assigned!");
-            }
         }
 
         private void UnequipFlashlight()

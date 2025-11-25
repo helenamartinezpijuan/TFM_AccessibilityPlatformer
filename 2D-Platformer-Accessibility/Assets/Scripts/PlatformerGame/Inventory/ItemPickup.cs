@@ -20,6 +20,7 @@ namespace PlatformerGame.Inventory
             if (player != null && Input.GetKeyDown(KeyCode.E))
             {
                 PickupItem(player.GetComponent<Inventory>());
+                // ADD INFORMATION FOR USER TO USE (E) FOR INTERACTION WITH ITEM
             }
         }
 
