@@ -5,38 +5,59 @@ using System.Collections;
 
 namespace PlatformerGame.WorldMechanics
 {
-    public class Lever : MonoBehaviour, IInteractable
+public class Lever : MonoBehaviour, IInteractable
+{
+    [Header("Lever One or Lever Two")]
+    [SerializeField] private bool isOne;
+
+    [Header("Activation Target")]
+    [SerializeField] private MovingPlatform platformToActivate;
+    
+    [Header("Visuals")]
+    [SerializeField] private GameObject accessibleVisuals;
+    [SerializeField] private Animator animator;
+    
+    private SpriteRenderer spriteRenderer;
+    private bool isActivated = false;
+    
+    
+    private void Awake()
     {
-        [Header("Lever Configuration")]
-        [SerializeField] private bool isOn = false;
-        [SerializeField] private Animator leverAnimator;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        animator.SetBool("IsOne", isOne);
+    }
 
-        // Animation hashes
-        private static readonly int LeverOn = Animator.StringToHash("On");
-        private static readonly int LeverOff = Animator.StringToHash("Off");
+    public bool CanInteract()
+    {
+        return !isActivated; // Can only interact once
 
-        public bool CanInteract()
+        // If this changes, add logic to trigger TURN OFF animation (ready in Unity Animator)
+    }
+
+    public void Interact(GameObject interactor)
+    {
+        if (!CanInteract()) return;
+        
+        ActivatePlatform();
+        TriggerAnimation();
+        isActivated = true;
+    }
+
+    private void ActivatePlatform()
+    {
+        if (platformToActivate != null)
         {
-            return true; // Lever can always be interacted with
+            platformToActivate.OnLeverActivated();
         }
+    }
 
-        public void Interact(GameObject interactor)
+    private void TriggerAnimation()
+    {        
+        if (animator != null)
         {
-            isOn = !isOn;
-
-            // Trigger appropriate animation
-            if (leverAnimator != null)
-            {
-                leverAnimator.SetTrigger(isOn ? LeverOn : LeverOff);
-            }
-
-            // Do lever functionality (open doors, activate platforms, etc.)
-            OnLeverToggle?.Invoke(isOn);
-
-            Debug.Log($"Lever turned {(isOn ? "ON" : "OFF")} by {interactor.name}");
+            animator.SetBool("IsOn");
         }
-
-        // Event for other objects to listen to
-        public System.Action<bool> OnLeverToggle;
+    }
     }
 }

@@ -108,6 +108,7 @@ namespace PlatformerGame.WorldMechanics
             // Unlock player controls after a brief moment to ensure landing
             if (playerMovement != null)
             {
+                landingAnimator.SetActive(true);
                 landingAnimator.SetTrigger("Land");
                 StartCoroutine(EnableControlsAfterDelay(0.1f));
             }
