@@ -18,6 +18,7 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private bool isOne;
         private Animator springAnimator;
         [SerializeField] private Animator landingAnimator;
+        private SpriteRenderer landingSpriteRenderer;
 
 
         // Spring state
@@ -31,9 +32,14 @@ namespace PlatformerGame.WorldMechanics
 
         public void Awake()
         {
+            // Set animator parameters
             springAnimator = GetComponent<Animator>();
             springAnimator.SetBool("IsOne", isOne);
-            destination.layer = 0;
+            // Hide animation until it is triggered
+            landingSpriteRenderer = destination.GetComponent<SpriteRenderer>();
+            landingSpriteRenderer.enabled = false;
+
+            // Set destination parameters
             destinationPosition = destination.transform.position;
         }
 
@@ -105,11 +111,12 @@ namespace PlatformerGame.WorldMechanics
 
         private void CompleteSpringJump()
         {
+            landingSpriteRenderer.enabled = true;
+            landingAnimator.SetTrigger("Land");
+
             // Unlock player controls after a brief moment to ensure landing
             if (playerMovement != null)
             {
-                destination.layer = 3;
-                landingAnimator.SetTrigger("Land");
                 StartCoroutine(EnableControlsAfterDelay(0.1f));
             }
 
@@ -121,7 +128,13 @@ namespace PlatformerGame.WorldMechanics
             yield return new WaitForSeconds(delay);
             playerMovement.UnlockControls();
             isSpringActive = false;
-            destination.layer = 0;
+
+            // Hide landing animation after it plays
+            yield return new WaitForSeconds(0.5f); // Wait for animation to complete
+            if (landingSpriteRenderer != null)
+            {
+                landingSpriteRenderer.enabled = false;
+            }
         }
     }
 }
