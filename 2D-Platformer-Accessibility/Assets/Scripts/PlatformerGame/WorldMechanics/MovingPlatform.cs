@@ -23,6 +23,11 @@ public class MovingPlatform : MonoBehaviour
     private Coroutine movementCoroutine;
 
     public Vector2 velocity;
+
+    // Player sticking to platform logic
+    private Transform playerTransform;
+    private Vector3 lastPlatformPosition;
+    private Transform stuckTransform;
     
 
     private void Awake()
@@ -30,6 +35,13 @@ public class MovingPlatform : MonoBehaviour
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         endPosition = endPositionTransform.position;
+        lastPlatformPosition = transform.position;
+    }
+
+    private void FixedUpdate()
+    {
+        // Handle player and other object sticking in FixedUpdate for physics consistency
+        MoveStuckObject();
     }
 
     private IEnumerator MovementRoutine()
@@ -63,6 +75,19 @@ public class MovingPlatform : MonoBehaviour
         }
         
         velocity = Vector2.zero;
+    }
+
+    private void MoveStuckObject()
+    {
+        Vector3 platformDelta = transform.position - lastPlatformPosition;
+        
+        // Move  stuck object by the same delta
+        if (stuckTransform != null)
+        {
+            stuckTransform.position += platformDelta;
+        }
+        
+        lastPlatformPosition = transform.position;
     }
 
     private float CalculateSpeed(float distanceToTarget)
@@ -137,6 +162,15 @@ public class MovingPlatform : MonoBehaviour
     public void OnLeverActivated()
     {
         TogglePlatform();
+    }
+
+    // Player sticking logic
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            stuckTransform = other.transform;
+        }
     }
 }
 }

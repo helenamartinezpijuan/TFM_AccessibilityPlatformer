@@ -30,7 +30,6 @@ public class Lever : MonoBehaviour, IInteractable
 
     public bool CanInteract()
     {
-        Debug.Log($"Can Interact? {!isActivated}");
         return !isActivated; // Can only interact once
 
         // If this changes, add logic to trigger TURN OFF animation (ready in Unity Animator)
@@ -39,8 +38,6 @@ public class Lever : MonoBehaviour, IInteractable
     public void Interact(GameObject interactor)
     {
         if (!CanInteract()) return;
-
-        Debug.Log("Can Interact.");
         
         ActivatePlatform();
         TriggerAnimation();
