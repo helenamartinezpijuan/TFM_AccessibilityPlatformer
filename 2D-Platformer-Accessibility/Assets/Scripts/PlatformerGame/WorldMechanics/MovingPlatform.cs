@@ -7,9 +7,10 @@ namespace PlatformerGame.WorldMechanics
 public class MovingPlatform : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private Vector2 endPosition;
+    [SerializeField] private Transform endPositionTransform;
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float accelerationDistance = 1f;
+    private Vector2 endPosition;
     
     [Header("Visuals")]
     [SerializeField] private Sprite baseSprite;
@@ -28,10 +29,12 @@ public class MovingPlatform : MonoBehaviour
     {
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        endPosition = endPositionTransform.position;
     }
 
     private IEnumerator MovementRoutine()
     {
+        Debug.Log("Movement Corouting started");
         while (isActive)
         {
             Vector2 targetPosition = movingToEnd ? endPosition : startPosition;
@@ -133,7 +136,7 @@ public class MovingPlatform : MonoBehaviour
     // Call this from your lever or other activation objects
     public void OnLeverActivated()
     {
-        ActivatePlatform();
+        TogglePlatform();
     }
 }
 }

@@ -15,7 +15,7 @@ public class Lever : MonoBehaviour, IInteractable
     
     [Header("Visuals")]
     [SerializeField] private GameObject accessibleVisuals;
-    [SerializeField] private Animator animator;
+    private Animator leverAnimator;
     
     private SpriteRenderer spriteRenderer;
     private bool isActivated = false;
@@ -24,12 +24,13 @@ public class Lever : MonoBehaviour, IInteractable
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
-        animator.SetBool("IsOne", isOne);
+        leverAnimator = GetComponent<Animator>();
+        leverAnimator.SetBool("IsOne", isOne);
     }
 
     public bool CanInteract()
     {
+        Debug.Log($"Can Interact? {!isActivated}");
         return !isActivated; // Can only interact once
 
         // If this changes, add logic to trigger TURN OFF animation (ready in Unity Animator)
@@ -38,6 +39,8 @@ public class Lever : MonoBehaviour, IInteractable
     public void Interact(GameObject interactor)
     {
         if (!CanInteract()) return;
+
+        Debug.Log("Can Interact.");
         
         ActivatePlatform();
         TriggerAnimation();
@@ -49,15 +52,21 @@ public class Lever : MonoBehaviour, IInteractable
         if (platformToActivate != null)
         {
             platformToActivate.OnLeverActivated();
+            Debug.Log("Platform activated");
         }
     }
 
     private void TriggerAnimation()
     {        
-        if (animator != null)
+        if (leverAnimator != null)
         {
-            animator.SetBool("IsOn");
+            leverAnimator.SetBool("IsOn", true);
         }
     }
+
+    public void InstantiateAccessibleVisuals()
+    {
+        GameObject.Instantiate(accessibleVisuals, transform.position, Quaternion.identity);
     }
+}
 }

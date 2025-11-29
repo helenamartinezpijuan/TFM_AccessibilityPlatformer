@@ -9,7 +9,7 @@ namespace PlatformerGame.WorldMechanics
     public class Spring : MonoBehaviour, IInteractable
     {
         [Header("Spring Configuration")]
-        [SerializeField] private Transform destination;
+        [SerializeField] private GameObject destination;
         [SerializeField] private float jumpDuration = 0.5f;
         [SerializeField] private AnimationCurve jumpCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
         private Vector2 destinationPosition;
@@ -33,8 +33,8 @@ namespace PlatformerGame.WorldMechanics
         {
             springAnimator = GetComponent<Animator>();
             springAnimator.SetBool("IsOne", isOne);
-            //landingAnimator = GetComponentInChildren<Animator>();
-            destinationPosition = destination.position;
+            destination.layer = 0;
+            destinationPosition = destination.transform.position;
         }
 
         public bool CanInteract()
@@ -108,7 +108,7 @@ namespace PlatformerGame.WorldMechanics
             // Unlock player controls after a brief moment to ensure landing
             if (playerMovement != null)
             {
-                landingAnimator.SetActive(true);
+                destination.layer = 3;
                 landingAnimator.SetTrigger("Land");
                 StartCoroutine(EnableControlsAfterDelay(0.1f));
             }
@@ -121,6 +121,7 @@ namespace PlatformerGame.WorldMechanics
             yield return new WaitForSeconds(delay);
             playerMovement.UnlockControls();
             isSpringActive = false;
+            destination.layer = 0;
         }
     }
 }
