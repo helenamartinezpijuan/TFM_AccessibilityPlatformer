@@ -537,9 +537,9 @@ TextureImporter:
       name: S_itens_blackBorder_14
       rect:
         serializedVersion: 2
-        x: 0
+        x: 36
         y: 90
-        width: 36
+        width: 18
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -556,10 +556,32 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: S_itens_blackBorder_15
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 90
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644de5a295576ef448ae54074c42aff1
+      internalID: -1555439001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: S_itens_blackBorder_16
       rect:
         serializedVersion: 2
-        x: 36
+        x: 72
         y: 90
         width: 18
         height: 18
@@ -581,7 +603,7 @@ TextureImporter:
       name: S_itens_blackBorder_17
       rect:
         serializedVersion: 2
-        x: 54
+        x: 90
         y: 90
         width: 18
         height: 18
@@ -603,7 +625,7 @@ TextureImporter:
       name: S_itens_blackBorder_18
       rect:
         serializedVersion: 2
-        x: 72
+        x: 108
         y: 90
         width: 18
         height: 18
@@ -625,7 +647,7 @@ TextureImporter:
       name: S_itens_blackBorder_19
       rect:
         serializedVersion: 2
-        x: 90
+        x: 126
         y: 90
         width: 18
         height: 18
@@ -647,7 +669,7 @@ TextureImporter:
       name: S_itens_blackBorder_20
       rect:
         serializedVersion: 2
-        x: 108
+        x: 144
         y: 90
         width: 18
         height: 18
@@ -669,7 +691,7 @@ TextureImporter:
       name: S_itens_blackBorder_21
       rect:
         serializedVersion: 2
-        x: 126
+        x: 162
         y: 90
         width: 18
         height: 18
@@ -691,7 +713,7 @@ TextureImporter:
       name: S_itens_blackBorder_22
       rect:
         serializedVersion: 2
-        x: 144
+        x: 180
         y: 90
         width: 18
         height: 18
@@ -713,7 +735,7 @@ TextureImporter:
       name: S_itens_blackBorder_23
       rect:
         serializedVersion: 2
-        x: 162
+        x: 198
         y: 90
         width: 18
         height: 18
@@ -735,7 +757,7 @@ TextureImporter:
       name: S_itens_blackBorder_24
       rect:
         serializedVersion: 2
-        x: 180
+        x: 216
         y: 90
         width: 18
         height: 18
@@ -757,7 +779,7 @@ TextureImporter:
       name: S_itens_blackBorder_25
       rect:
         serializedVersion: 2
-        x: 198
+        x: 234
         y: 90
         width: 18
         height: 18
@@ -779,8 +801,8 @@ TextureImporter:
       name: S_itens_blackBorder_26
       rect:
         serializedVersion: 2
-        x: 216
-        y: 90
+        x: 90
+        y: 72
         width: 18
         height: 18
       alignment: 0
@@ -801,8 +823,8 @@ TextureImporter:
       name: S_itens_blackBorder_27
       rect:
         serializedVersion: 2
-        x: 234
-        y: 90
+        x: 108
+        y: 72
         width: 18
         height: 18
       alignment: 0
@@ -823,9 +845,9 @@ TextureImporter:
       name: S_itens_blackBorder_28
       rect:
         serializedVersion: 2
-        x: 0
+        x: 126
         y: 72
-        width: 36
+        width: 18
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -842,10 +864,32 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: S_itens_blackBorder_29
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 72
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73456fedf76ca5d4f92838f27994beed
+      internalID: -1991589400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: S_itens_blackBorder_30
       rect:
         serializedVersion: 2
-        x: 90
+        x: 162
         y: 72
         width: 18
         height: 18
@@ -867,7 +911,7 @@ TextureImporter:
       name: S_itens_blackBorder_31
       rect:
         serializedVersion: 2
-        x: 108
+        x: 180
         y: 72
         width: 18
         height: 18
@@ -889,7 +933,7 @@ TextureImporter:
       name: S_itens_blackBorder_32
       rect:
         serializedVersion: 2
-        x: 126
+        x: 198
         y: 72
         width: 18
         height: 18
@@ -911,7 +955,7 @@ TextureImporter:
       name: S_itens_blackBorder_33
       rect:
         serializedVersion: 2
-        x: 144
+        x: 216
         y: 72
         width: 18
         height: 18
@@ -933,7 +977,7 @@ TextureImporter:
       name: S_itens_blackBorder_34
       rect:
         serializedVersion: 2
-        x: 162
+        x: 234
         y: 72
         width: 18
         height: 18
@@ -955,8 +999,8 @@ TextureImporter:
       name: S_itens_blackBorder_35
       rect:
         serializedVersion: 2
-        x: 180
-        y: 72
+        x: 0
+        y: 54
         width: 18
         height: 18
       alignment: 0
@@ -977,8 +1021,8 @@ TextureImporter:
       name: S_itens_blackBorder_36
       rect:
         serializedVersion: 2
-        x: 198
-        y: 72
+        x: 18
+        y: 54
         width: 18
         height: 18
       alignment: 0
@@ -999,8 +1043,8 @@ TextureImporter:
       name: S_itens_blackBorder_37
       rect:
         serializedVersion: 2
-        x: 216
-        y: 72
+        x: 36
+        y: 54
         width: 18
         height: 18
       alignment: 0
@@ -1021,8 +1065,8 @@ TextureImporter:
       name: S_itens_blackBorder_38
       rect:
         serializedVersion: 2
-        x: 234
-        y: 72
+        x: 54
+        y: 54
         width: 18
         height: 18
       alignment: 0
@@ -1043,7 +1087,7 @@ TextureImporter:
       name: S_itens_blackBorder_39
       rect:
         serializedVersion: 2
-        x: 0
+        x: 72
         y: 54
         width: 18
         height: 18
@@ -1065,7 +1109,7 @@ TextureImporter:
       name: S_itens_blackBorder_40
       rect:
         serializedVersion: 2
-        x: 18
+        x: 90
         y: 54
         width: 18
         height: 18
@@ -1087,7 +1131,7 @@ TextureImporter:
       name: S_itens_blackBorder_41
       rect:
         serializedVersion: 2
-        x: 36
+        x: 108
         y: 54
         width: 18
         height: 18
@@ -1109,7 +1153,7 @@ TextureImporter:
       name: S_itens_blackBorder_42
       rect:
         serializedVersion: 2
-        x: 54
+        x: 126
         y: 54
         width: 18
         height: 18
@@ -1131,7 +1175,7 @@ TextureImporter:
       name: S_itens_blackBorder_43
       rect:
         serializedVersion: 2
-        x: 72
+        x: 144
         y: 54
         width: 18
         height: 18
@@ -1153,7 +1197,7 @@ TextureImporter:
       name: S_itens_blackBorder_44
       rect:
         serializedVersion: 2
-        x: 90
+        x: 162
         y: 54
         width: 18
         height: 18
@@ -1175,7 +1219,7 @@ TextureImporter:
       name: S_itens_blackBorder_45
       rect:
         serializedVersion: 2
-        x: 108
+        x: 180
         y: 54
         width: 18
         height: 18
@@ -1197,7 +1241,7 @@ TextureImporter:
       name: S_itens_blackBorder_46
       rect:
         serializedVersion: 2
-        x: 126
+        x: 198
         y: 54
         width: 18
         height: 18
@@ -1219,7 +1263,7 @@ TextureImporter:
       name: S_itens_blackBorder_47
       rect:
         serializedVersion: 2
-        x: 144
+        x: 216
         y: 54
         width: 18
         height: 18
@@ -1241,7 +1285,7 @@ TextureImporter:
       name: S_itens_blackBorder_48
       rect:
         serializedVersion: 2
-        x: 162
+        x: 234
         y: 54
         width: 18
         height: 18
@@ -1263,8 +1307,8 @@ TextureImporter:
       name: S_itens_blackBorder_49
       rect:
         serializedVersion: 2
-        x: 180
-        y: 54
+        x: 0
+        y: 36
         width: 18
         height: 18
       alignment: 0
@@ -1285,8 +1329,8 @@ TextureImporter:
       name: S_itens_blackBorder_50
       rect:
         serializedVersion: 2
-        x: 198
-        y: 54
+        x: 18
+        y: 36
         width: 18
         height: 18
       alignment: 0
@@ -1307,8 +1351,8 @@ TextureImporter:
       name: S_itens_blackBorder_51
       rect:
         serializedVersion: 2
-        x: 216
-        y: 54
+        x: 36
+        y: 36
         width: 18
         height: 18
       alignment: 0
@@ -1329,8 +1373,8 @@ TextureImporter:
       name: S_itens_blackBorder_52
       rect:
         serializedVersion: 2
-        x: 234
-        y: 54
+        x: 54
+        y: 36
         width: 18
         height: 18
       alignment: 0
@@ -1351,7 +1395,7 @@ TextureImporter:
       name: S_itens_blackBorder_53
       rect:
         serializedVersion: 2
-        x: 0
+        x: 72
         y: 36
         width: 18
         height: 18
@@ -1373,7 +1417,7 @@ TextureImporter:
       name: S_itens_blackBorder_54
       rect:
         serializedVersion: 2
-        x: 18
+        x: 90
         y: 36
         width: 18
         height: 18
@@ -1395,7 +1439,7 @@ TextureImporter:
       name: S_itens_blackBorder_55
       rect:
         serializedVersion: 2
-        x: 36
+        x: 108
         y: 36
         width: 18
         height: 18
@@ -1417,7 +1461,7 @@ TextureImporter:
       name: S_itens_blackBorder_56
       rect:
         serializedVersion: 2
-        x: 54
+        x: 126
         y: 36
         width: 18
         height: 18
@@ -1439,7 +1483,7 @@ TextureImporter:
       name: S_itens_blackBorder_57
       rect:
         serializedVersion: 2
-        x: 72
+        x: 144
         y: 36
         width: 18
         height: 18
@@ -1461,7 +1505,7 @@ TextureImporter:
       name: S_itens_blackBorder_58
       rect:
         serializedVersion: 2
-        x: 90
+        x: 162
         y: 36
         width: 18
         height: 18
@@ -1483,7 +1527,7 @@ TextureImporter:
       name: S_itens_blackBorder_59
       rect:
         serializedVersion: 2
-        x: 108
+        x: 180
         y: 36
         width: 18
         height: 18
@@ -1505,7 +1549,7 @@ TextureImporter:
       name: S_itens_blackBorder_60
       rect:
         serializedVersion: 2
-        x: 126
+        x: 198
         y: 36
         width: 18
         height: 18
@@ -1527,7 +1571,7 @@ TextureImporter:
       name: S_itens_blackBorder_61
       rect:
         serializedVersion: 2
-        x: 144
+        x: 216
         y: 36
         width: 18
         height: 18
@@ -1549,7 +1593,7 @@ TextureImporter:
       name: S_itens_blackBorder_62
       rect:
         serializedVersion: 2
-        x: 162
+        x: 234
         y: 36
         width: 18
         height: 18
@@ -1571,8 +1615,8 @@ TextureImporter:
       name: S_itens_blackBorder_63
       rect:
         serializedVersion: 2
-        x: 180
-        y: 36
+        x: 0
+        y: 18
         width: 18
         height: 18
       alignment: 0
@@ -1593,8 +1637,8 @@ TextureImporter:
       name: S_itens_blackBorder_64
       rect:
         serializedVersion: 2
-        x: 198
-        y: 36
+        x: 18
+        y: 18
         width: 18
         height: 18
       alignment: 0
@@ -1615,8 +1659,8 @@ TextureImporter:
       name: S_itens_blackBorder_65
       rect:
         serializedVersion: 2
-        x: 216
-        y: 36
+        x: 36
+        y: 18
         width: 18
         height: 18
       alignment: 0
@@ -1637,8 +1681,8 @@ TextureImporter:
       name: S_itens_blackBorder_66
       rect:
         serializedVersion: 2
-        x: 234
-        y: 36
+        x: 54
+        y: 18
         width: 18
         height: 18
       alignment: 0
@@ -1659,7 +1703,7 @@ TextureImporter:
       name: S_itens_blackBorder_67
       rect:
         serializedVersion: 2
-        x: 0
+        x: 72
         y: 18
         width: 18
         height: 18
@@ -1681,7 +1725,7 @@ TextureImporter:
       name: S_itens_blackBorder_68
       rect:
         serializedVersion: 2
-        x: 18
+        x: 90
         y: 18
         width: 18
         height: 18
@@ -1703,7 +1747,7 @@ TextureImporter:
       name: S_itens_blackBorder_69
       rect:
         serializedVersion: 2
-        x: 36
+        x: 108
         y: 18
         width: 18
         height: 18
@@ -1725,7 +1769,7 @@ TextureImporter:
       name: S_itens_blackBorder_70
       rect:
         serializedVersion: 2
-        x: 54
+        x: 126
         y: 18
         width: 18
         height: 18
@@ -1747,7 +1791,7 @@ TextureImporter:
       name: S_itens_blackBorder_71
       rect:
         serializedVersion: 2
-        x: 72
+        x: 144
         y: 18
         width: 18
         height: 18
@@ -1769,7 +1813,7 @@ TextureImporter:
       name: S_itens_blackBorder_72
       rect:
         serializedVersion: 2
-        x: 90
+        x: 162
         y: 18
         width: 18
         height: 18
@@ -1791,7 +1835,7 @@ TextureImporter:
       name: S_itens_blackBorder_73
       rect:
         serializedVersion: 2
-        x: 108
+        x: 180
         y: 18
         width: 18
         height: 18
@@ -1813,7 +1857,7 @@ TextureImporter:
       name: S_itens_blackBorder_74
       rect:
         serializedVersion: 2
-        x: 126
+        x: 198
         y: 18
         width: 18
         height: 18
@@ -1835,7 +1879,7 @@ TextureImporter:
       name: S_itens_blackBorder_75
       rect:
         serializedVersion: 2
-        x: 144
+        x: 216
         y: 18
         width: 18
         height: 18
@@ -1857,7 +1901,7 @@ TextureImporter:
       name: S_itens_blackBorder_76
       rect:
         serializedVersion: 2
-        x: 162
+        x: 234
         y: 18
         width: 18
         height: 18
@@ -1879,8 +1923,8 @@ TextureImporter:
       name: S_itens_blackBorder_77
       rect:
         serializedVersion: 2
-        x: 180
-        y: 18
+        x: 0
+        y: 0
         width: 18
         height: 18
       alignment: 0
@@ -1901,8 +1945,8 @@ TextureImporter:
       name: S_itens_blackBorder_78
       rect:
         serializedVersion: 2
-        x: 198
-        y: 18
+        x: 18
+        y: 0
         width: 18
         height: 18
       alignment: 0
@@ -1923,8 +1967,8 @@ TextureImporter:
       name: S_itens_blackBorder_79
       rect:
         serializedVersion: 2
-        x: 216
-        y: 18
+        x: 36
+        y: 0
         width: 18
         height: 18
       alignment: 0
@@ -1945,8 +1989,8 @@ TextureImporter:
       name: S_itens_blackBorder_80
       rect:
         serializedVersion: 2
-        x: 234
-        y: 18
+        x: 54
+        y: 0
         width: 18
         height: 18
       alignment: 0
@@ -1967,7 +2011,7 @@ TextureImporter:
       name: S_itens_blackBorder_81
       rect:
         serializedVersion: 2
-        x: 0
+        x: 72
         y: 0
         width: 18
         height: 18
@@ -1989,7 +2033,7 @@ TextureImporter:
       name: S_itens_blackBorder_82
       rect:
         serializedVersion: 2
-        x: 18
+        x: 90
         y: 0
         width: 18
         height: 18
@@ -2011,7 +2055,7 @@ TextureImporter:
       name: S_itens_blackBorder_83
       rect:
         serializedVersion: 2
-        x: 36
+        x: 108
         y: 0
         width: 18
         height: 18
@@ -2033,7 +2077,7 @@ TextureImporter:
       name: S_itens_blackBorder_84
       rect:
         serializedVersion: 2
-        x: 54
+        x: 126
         y: 0
         width: 18
         height: 18
@@ -2055,7 +2099,7 @@ TextureImporter:
       name: S_itens_blackBorder_85
       rect:
         serializedVersion: 2
-        x: 72
+        x: 144
         y: 0
         width: 18
         height: 18
@@ -2077,7 +2121,7 @@ TextureImporter:
       name: S_itens_blackBorder_86
       rect:
         serializedVersion: 2
-        x: 90
+        x: 162
         y: 0
         width: 18
         height: 18
@@ -2099,7 +2143,7 @@ TextureImporter:
       name: S_itens_blackBorder_87
       rect:
         serializedVersion: 2
-        x: 108
+        x: 180
         y: 0
         width: 18
         height: 18
@@ -2121,7 +2165,7 @@ TextureImporter:
       name: S_itens_blackBorder_88
       rect:
         serializedVersion: 2
-        x: 126
+        x: 198
         y: 0
         width: 18
         height: 18
@@ -2143,7 +2187,7 @@ TextureImporter:
       name: S_itens_blackBorder_89
       rect:
         serializedVersion: 2
-        x: 144
+        x: 216
         y: 0
         width: 18
         height: 18
@@ -2165,7 +2209,7 @@ TextureImporter:
       name: S_itens_blackBorder_90
       rect:
         serializedVersion: 2
-        x: 162
+        x: 234
         y: 0
         width: 18
         height: 18
@@ -2179,94 +2223,6 @@ TextureImporter:
       bones: []
       spriteID: c4eca3a453f22b94aa9a2cf41ad22807
       internalID: 869253842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: S_itens_blackBorder_91
-      rect:
-        serializedVersion: 2
-        x: 180
-        y: 0
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92c53aaa0ab6c924fa8fe05625641642
-      internalID: 500322644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: S_itens_blackBorder_92
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 0
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd1422ed777941a43b1aee36ee71a359
-      internalID: -543913390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: S_itens_blackBorder_93
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 0
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c855238558af4404fa9ea4b78fed4e54
-      internalID: -471814118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: S_itens_blackBorder_94
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 0
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2df86b90a353ee4e843fae46f035399
-      internalID: 1663860236
       vertices: []
       indices: 
       edges: []
@@ -2376,10 +2332,6 @@ TextureImporter:
       S_itens_blackBorder_89: 1426060067
       S_itens_blackBorder_9: -1601265063
       S_itens_blackBorder_90: 869253842
-      S_itens_blackBorder_91: 500322644
-      S_itens_blackBorder_92: -543913390
-      S_itens_blackBorder_93: -471814118
-      S_itens_blackBorder_94: 1663860236
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
