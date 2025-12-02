@@ -30,7 +30,7 @@ namespace PlatformerGame.WorldMechanics
         public Action OnSpringLaunch;
         public Action OnSpringLand;
 
-        public void Awake()
+        void Awake()
         {
             // Set animator parameters
             springAnimator = GetComponent<Animator>();

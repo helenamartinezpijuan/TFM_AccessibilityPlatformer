@@ -105,7 +105,7 @@ public class MovingPlatform : MonoBehaviour
         return moveSpeed;
     }
 
-    public void ActivatePlatform()
+    void ActivatePlatform()
     {
         if (isActive) return;
         
@@ -127,7 +127,7 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
-    public void DeactivatePlatform()
+    void DeactivatePlatform()
     {
         if (!isActive) return;
         

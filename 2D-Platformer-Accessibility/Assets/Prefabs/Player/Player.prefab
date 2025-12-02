@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 1892636346546948337}
   - component: {fileID: 2620535277688717429}
   - component: {fileID: 918525457515328682}
+  - component: {fileID: 4216611291671849320}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -213,7 +214,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6666666, y: 2.1666667}
+    oldSize: {x: 1.5833334, y: 1.9583334}
     newSize: {x: 1.7222222, y: 2.3888888}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -234,11 +235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  groundCheck: {fileID: 3283104770862830741}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  groundCheckRadius: 0.2
 --- !u!114 &1892636346546948337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,3 +462,17 @@ MonoBehaviour:
   OnInteractableLost:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4216611291671849320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550353124218349470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4724f13dbc0856c47801a954610c51f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  checkpointSystem: {fileID: 0}
