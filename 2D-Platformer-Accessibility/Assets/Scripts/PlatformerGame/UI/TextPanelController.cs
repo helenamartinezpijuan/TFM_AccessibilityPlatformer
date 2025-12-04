@@ -1,0 +1,242 @@
+using UnityEngine;
+using TMPro;
+using System.Collections;
+using System.Collections.Generic;
+
+namespace PlatformerGame.UI
+{
+public class TextPanelController : MonoBehaviour
+{
+    [Header("UI References")]
+    [SerializeField] private TextMeshProUGUI panelTitleText;
+    [SerializeField] private TextMeshProUGUI coreText;
+    [SerializeField] private GameObject backgroundPanel;
+    
+    [Header("Text Settings")]
+    [SerializeField] private TextAsset textDataFile; // Optional: JSON text data
+    [SerializeField] private float charactersPerSecond = 20f; // Reading speed
+    [SerializeField] private float minDisplayTime = 2f; // Minimum seconds per message
+    [SerializeField] private float panelOffset = 100f; // Offset from player
+    
+    [Header("Animation")]
+    [SerializeField] private Animator panelAnimator;
+    [SerializeField] private string showTrigger = "Show";
+    [SerializeField] private string hideTrigger = "Hide";
+    
+    // Text data storage
+    private Dictionary<string, string[]> textDatabase = new Dictionary<string, string[]>();
+    private Queue<string> currentMessageQueue = new Queue<string>();
+    private Coroutine displayCoroutine;
+    
+    // State
+    private bool isShowing = false;
+    private bool isPaused = false;
+    private Transform playerTransform;
+    private Transform currentTextPoint;
+    
+    private void Awake()
+    {
+        // Hide panel initially
+        backgroundPanel.SetActive(false);
+        
+        // Load text data if provided
+        if (textDataFile != null)
+        {
+            LoadTextData();
+        }
+    }
+    
+    private void Start()
+    {
+        // Find player
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerTransform = player.transform;
+        }
+    }
+    
+    private void Update()
+    {
+        // Update panel position to follow player with offset
+        if (isShowing && playerTransform != null)
+        {
+            UpdatePanelPosition();
+        }
+    }
+    
+    private void UpdatePanelPosition()
+    {
+        if (playerTransform == null) return;
+        
+        // Calculate screen position with offset
+        Vector3 playerScreenPos = Camera.main.WorldToScreenPoint(playerTransform.position);
+        
+        // Position panel to avoid obstruction (right side of player)
+        Vector3 panelPosition = playerScreenPos;
+        panelPosition.x += panelOffset;
+        panelPosition.y += panelOffset;
+        
+        // Clamp to screen bounds
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        float halfWidth = rectTransform.rect.width / 2;
+        float halfHeight = rectTransform.rect.height / 2;
+        
+        panelPosition.x = Mathf.Clamp(panelPosition.x, halfWidth, Screen.width - halfWidth);
+        panelPosition.y = Mathf.Clamp(panelPosition.y, halfHeight, Screen.height - halfHeight);
+        
+        transform.position = panelPosition;
+    }
+    
+    private void LoadTextData()
+    {
+        // Parse JSON text data
+        // Format: {"messages": [{"category":"Tutorial","texts":["Line1","Line2"]}]}
+        try
+        {
+            TextDataWrapper data = JsonUtility.FromJson<TextDataWrapper>(textDataFile.text);
+            foreach (var message in data.messages)
+            {
+                textDatabase[message.category] = message.texts;
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Failed to load text data: {e.Message}");
+        }
+    }
+    
+    // Call this from your trigger zones
+    public void ShowText(string category, string[] messages)
+    {
+        if (isShowing) return;
+        
+        // Set title (category name)
+        panelTitleText.text = category;
+        
+        // Queue messages
+        currentMessageQueue.Clear();
+        foreach (string message in messages)
+        {
+            currentMessageQueue.Enqueue(message);
+        }
+        
+        // Start displaying
+        if (displayCoroutine != null)
+        {
+            StopCoroutine(displayCoroutine);
+        }
+        backgroundPanel.SetActive(true);
+        displayCoroutine = StartCoroutine(DisplayMessages());
+    }
+    
+    // Alternative: Show text from database
+    public void ShowTextFromDatabase(string category)
+    {
+        if (textDatabase.ContainsKey(category))
+        {
+            ShowText(category, textDatabase[category]);
+        }
+        else
+        {
+            Debug.LogWarning($"Text category not found: {category}");
+        }
+    }
+    
+    // Direct text input
+    public void ShowDirectText(string title, string message)
+    {
+        string[] messages = message.Split(new string[] { "\\n" }, System.StringSplitOptions.None);
+        ShowText(title, messages);
+    }
+    
+    private IEnumerator DisplayMessages()
+    {
+        isShowing = true;
+        
+        if (panelAnimator != null)
+        {
+            panelAnimator.SetTrigger(showTrigger);
+            yield return new WaitForSeconds(0.3f); // Animation time
+        }
+        
+        // Display each message
+        while (currentMessageQueue.Count > 0)
+        {
+            string message = currentMessageQueue.Dequeue();
+            
+            // Calculate display time based on text length
+            float displayTime = Mathf.Max(
+                message.Length / charactersPerSecond,
+                minDisplayTime
+            );
+            
+            // Set text
+            coreText.text = message;
+            
+            // Wait for reading time
+            yield return new WaitForSeconds(displayTime);
+            
+            // If there are more messages, wait a moment between them
+            if (currentMessageQueue.Count > 0)
+            {
+                coreText.text = "...";
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+        
+        // Hide panel after all messages
+        HidePanel();
+    }
+    
+    public void HidePanel()
+    {
+        if (!isShowing) return;
+        
+        if (displayCoroutine != null)
+        {
+            StopCoroutine(displayCoroutine);
+            displayCoroutine = null;
+        }
+        
+        if (panelAnimator != null)
+        {
+            panelAnimator.SetTrigger(hideTrigger);
+            StartCoroutine(DeactivateAfterAnimation(0.3f));
+        }
+        else
+        {
+            backgroundPanel.SetActive(false);
+        }
+        
+        isShowing = false;
+        currentMessageQueue.Clear();
+    }
+    
+    private IEnumerator DeactivateAfterAnimation(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        backgroundPanel.SetActive(false);
+    }
+    
+    // For manual text updates (in case you want to change text dynamically)
+    public void UpdateCurrentText(string newText)
+    {
+        coreText.text = newText;
+    }
+    
+    // Data classes for JSON parsing
+    [System.Serializable]
+    private class TextDataWrapper
+    {
+        public TextMessage[] messages;
+    }
+    
+    [System.Serializable]
+    private class TextMessage
+    {
+        public string category;
+        public string[] texts;
+    }
+}
+}

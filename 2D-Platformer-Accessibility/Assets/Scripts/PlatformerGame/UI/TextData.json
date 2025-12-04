@@ -1,0 +1,27 @@
+{
+    "messages": [
+        {
+            "category": "Tutorial",
+            "texts": [
+                "¡Bienvenido al juego! Usa las flechas ← y → para desplazarte.",
+                "Presiona E para interactuar con los objetos."
+            ]
+        },
+        {
+            "category": "Story",
+            "texts": [
+                "Parece que esta palanca es de color rojo.",
+                "You must find the four elemental crystals.",
+                "Beware of the temple guardians!"
+            ]
+        },
+        {
+            "category": "Hint",
+            "texts": [
+                "Try jumping on the moving platforms.",
+                "The red door requires a special key.",
+                "Listen for audio clues in dark areas."
+            ]
+        }
+    ]
+}
