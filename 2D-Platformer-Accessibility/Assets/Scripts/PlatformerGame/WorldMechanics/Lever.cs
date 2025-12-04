@@ -12,6 +12,7 @@ public class Lever : MonoBehaviour, IInteractable
 
     [Header("Activation Target")]
     [SerializeField] private MovingPlatform platformToActivate;
+    [SerializeField] private Gate gateToActivate;
     
     [Header("Visuals")]
     [SerializeField] private GameObject accessibleVisuals;
@@ -50,6 +51,11 @@ public class Lever : MonoBehaviour, IInteractable
         {
             platformToActivate.OnLeverActivated();
             Debug.Log("Platform activated");
+        }
+        else if (gateToActivate != null)
+        {
+            gateToActivate.OnLeverActivated();
+            Debug.Log("Gate activated");
         }
     }
 
