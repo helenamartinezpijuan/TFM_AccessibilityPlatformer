@@ -1,64 +1,23 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using System.Collections;
 
 namespace PlatformerGame.WorldMechanics
 {
-public class Interactor : MonoBehaviour, IInteractable
-{
-    [Header("Activation Object")]
-    [SerializeField] private Lever lever;
-    [SerializeField] private PlatformButton button;
-
-    [Header("Activation Target")]
-    [SerializeField] private MovingPlatform platformToActivate;
-    [SerializeField] private Gate gateToActivate;
-    
-    private bool isLeverActivated = false;
-    private bool isButtonActivated = false;
-
-    public bool CanInteract()
+    public class Interactor : MonoBehaviour, IInteractable
     {
-        return true; //!isActivated; // Can only interact once
-
-        // If this changes, add logic to trigger TURN OFF animation (ready in Unity Animator)
-    }
-
-    public void Interact(GameObject interactor)
-    {
-        if (!CanInteract()) return;
+        [Header("Target Lever")]
+        [SerializeField] private CombinationLever targetLever;
         
-        if(lever != null)
+        public bool CanInteract()
         {
-            ActivateGate();
-            lever.TriggerAnimation();
-        }
-        else if (button != null)
-        {
-            ActivatePlatform();
-            // button.TriggerAnimation();
+            return true; // Always interactable
         }
         
-        //isActivated = true;
-    }
-
-    private void ActivatePlatform()
-    {
-        if (platformToActivate != null)
+        public void Interact(GameObject interactor)
         {
-            platformToActivate.OnInteractorActivated();
-            Debug.Log("Platform activated");
+            if (targetLever != null)
+            {
+                targetLever.Interact(interactor);
+            }
         }
     }
-
-    private void ActivateGate()
-    {
-        if (gateToActivate != null)
-        {
-            gateToActivate.OnInteractorActivated();
-            Debug.Log("Gate activated");
-        }
-    }
-}
 }

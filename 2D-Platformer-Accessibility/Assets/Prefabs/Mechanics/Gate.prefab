@@ -167,6 +167,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4314084736604182606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9392f65049210dc4b881e0ab8ed12f29, type: 3}
+  m_Script: {fileID: 11500000, guid: 48e3394a7116f2341b73653db136f839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gateId: Gate1
+  requiredLeverTypes: 
+  requireExactMatch: 1
+  accessibleVisualsPrefab: {fileID: 254732318485287837, guid: c59b66c1b24c402488285affe19703b1, type: 3}
+  clueRadius: 5
