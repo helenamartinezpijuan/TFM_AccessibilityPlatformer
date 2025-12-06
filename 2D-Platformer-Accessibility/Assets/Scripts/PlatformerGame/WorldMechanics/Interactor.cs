@@ -1,22 +1,45 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 namespace PlatformerGame.WorldMechanics
 {
     public class Interactor : MonoBehaviour, IInteractable
     {
-        [Header("Target Lever")]
-        [SerializeField] private CombinationLever targetLever;
+        [Header("Activation Object")]
+        [SerializeField] private CombinationLever lever;
+        [SerializeField] private PlatformButton button;
+
+        [Header("Activation Target")]
+        [SerializeField] private MovingPlatform platformToActivate;
+        [SerializeField] private CombinationGate gateToActivate;
         
         public bool CanInteract()
         {
             return true; // Always interactable
         }
-        
+
         public void Interact(GameObject interactor)
         {
-            if (targetLever != null)
+            if (!CanInteract()) return;
+            
+            if(lever != null)
             {
-                targetLever.Interact(interactor);
+                lever.Interact(interactor);
+            }
+            else if (button != null)
+            {
+                button.Interact(interactor);
+            }
+            else if (platformToActivate != null)
+            {
+                platformToActivate.OnInteractorActivated();
+                Debug.Log("Platform activated directly from Interactor");
+            }
+            else if (gateToActivate != null)
+            {
+                Debug.Log("Note: Gates are controlled by lever combinations, not directly");
             }
         }
     }
