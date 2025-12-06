@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2601688462849841425}
   - component: {fileID: 3212882395703861633}
   - component: {fileID: 317263298408231198}
+  - component: {fileID: 3930794132937697888}
   - component: {fileID: 2872479682232873008}
   m_Layer: 11
   m_Name: Lever1
@@ -125,8 +126,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOne: 1
-  platformToActivate: {fileID: 0}
   accessibleVisuals: {fileID: 254732318485287837, guid: c59b66c1b24c402488285affe19703b1, type: 3}
+--- !u!114 &3930794132937697888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323068054412572387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089c3fa91f0cc154da1dcdfb371b7952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lever: {fileID: 317263298408231198}
+  button: {fileID: 0}
+  platformToActivate: {fileID: 0}
+  gateToActivate: {fileID: 0}
 --- !u!61 &2872479682232873008
 BoxCollider2D:
   m_ObjectHideFlags: 0

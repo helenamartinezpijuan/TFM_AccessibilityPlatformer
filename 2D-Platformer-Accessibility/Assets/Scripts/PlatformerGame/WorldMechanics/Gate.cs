@@ -17,7 +17,7 @@ public class Gate : MonoBehaviour
         gateCollider.enabled = true;
     }
 
-    public void OnLeverActivated()
+    public void OnInteractorActivated()
     {
         ToggleGate();
     }

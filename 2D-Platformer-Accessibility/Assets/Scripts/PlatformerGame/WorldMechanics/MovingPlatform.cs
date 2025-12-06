@@ -159,7 +159,7 @@ public class MovingPlatform : MonoBehaviour
     }
 
     // Call this from your lever or other activation objects
-    public void OnLeverActivated()
+    public void OnInteractorActivated()
     {
         TogglePlatform();
     }
