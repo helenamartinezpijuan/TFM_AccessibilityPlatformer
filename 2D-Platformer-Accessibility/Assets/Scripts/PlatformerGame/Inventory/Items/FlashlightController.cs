@@ -3,7 +3,7 @@ using UnityEngine;
 namespace PlatformerGame.Inventory.Items
 {
     public class FlashlightController : MonoBehaviour
-    {
+    {/*
         [Header("Components")]
         [SerializeField] private SpriteRenderer lightConeRenderer;
         [SerializeField] private Transform rayOrigin;
@@ -12,6 +12,8 @@ namespace PlatformerGame.Inventory.Items
         private bool isOn = false;
         private GameObject currentRevealedObject;
         private Vector2 lastDirection = Vector2.right;
+
+        public bool IsActive => isOn;
 
         public void Initialize(Flashlight data)
         {
@@ -159,6 +161,6 @@ namespace PlatformerGame.Inventory.Items
         private void OnDestroy()
         {
             ClearRevealedObject();
-        }
+        }*/
     }
 }

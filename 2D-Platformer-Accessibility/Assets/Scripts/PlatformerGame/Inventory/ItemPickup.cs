@@ -1,5 +1,5 @@
 using UnityEngine;
-using PlatformerGame.Inventory;
+using TMPro;
 
 namespace PlatformerGame.Inventory
 {
@@ -8,22 +8,48 @@ namespace PlatformerGame.Inventory
         public Item item;
         [SerializeField] private float pickupRadius = 1f;
         [SerializeField] private LayerMask playerLayer;
+        [SerializeField] private GameObject interactionPrompt;
+        [SerializeField] private TextMeshPro promptText;
+        
+        private bool playerInRange = false;
+        
+        private void Start()
+        {
+            if (interactionPrompt != null)
+            {
+                interactionPrompt.SetActive(false);
+            }
+            
+            if (promptText != null && item != null)
+            {
+                promptText.text = $"Press E to pick up\n{item.itemName}";
+            }
+        }
         
         private void Update()
         {
             CheckForPlayerPickup();
         }
-
+        
         private void CheckForPlayerPickup()
         {
             Collider2D player = Physics2D.OverlapCircle(transform.position, pickupRadius, playerLayer);
-            if (player != null && Input.GetKeyDown(KeyCode.E))
+            
+            bool wasInRange = playerInRange;
+            playerInRange = player != null;
+            
+            // Show/hide prompt
+            if (interactionPrompt != null)
+            {
+                interactionPrompt.SetActive(playerInRange);
+            }
+            
+            if (playerInRange && Input.GetKeyDown(KeyCode.E))
             {
                 PickupItem(player.GetComponent<Inventory>());
-                // ADD INFORMATION FOR USER TO USE (E) FOR INTERACTION WITH ITEM
             }
         }
-
+        
         private void PickupItem(Inventory inventory)
         {
             if (inventory != null && item != null)
