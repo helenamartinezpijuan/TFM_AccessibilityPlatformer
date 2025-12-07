@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using PlatformerGame.Inventory.Items.AccessibleItems;
 
 namespace PlatformerGame.WorldMechanics
 {
@@ -19,6 +20,9 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private GameObject accessibleVisualsPrefab;
         [SerializeField] private float clueRadius = 5f;
         
+        [Header("Gate Markers")]
+        [SerializeField] private List<GateMarker> gateMarkers = new List<GateMarker>();
+        
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D gateCollider;
         private bool isOpen = false;
@@ -31,6 +35,12 @@ namespace PlatformerGame.WorldMechanics
             
             // Register this gate with the combination system
             GateCombinationSystem.Instance.RegisterGate(this);
+
+            // Hide all markers at the beginning of the level
+            foreach (GateMarker marker in gateMarkers)
+            {
+                marker.HideMarker();
+            }
             
             UpdateGateState();
         }
@@ -55,6 +65,8 @@ namespace PlatformerGame.WorldMechanics
                 isOpen = shouldOpen;
                 UpdateGateState();
             }
+
+            UpdateGateMarkers(activeLeverTypes);
         }
         
         private void UpdateGateState()
@@ -66,6 +78,21 @@ namespace PlatformerGame.WorldMechanics
             }
             
             Debug.Log($"Gate {gateId} is now {(isOpen ? "OPEN" : "CLOSED")}");
+        }
+
+        public void UpdateGateMarkers(HashSet<LeverType> activeLevers)
+        {
+            foreach (GateMarker marker in gateMarkers)
+            {
+                if (activeLevers.Contains(marker.GetRequiredLever()))
+                {
+                    marker.ShowMarker();
+                }
+                else
+                {
+                    marker.HideMarker();
+                }
+            }
         }
         
         public void TryShowAccessibleVisuals()

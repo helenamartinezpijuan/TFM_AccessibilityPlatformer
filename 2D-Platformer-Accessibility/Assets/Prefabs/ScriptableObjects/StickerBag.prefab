@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2094137301982799979
+--- !u!1 &5957569072210890209
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6150813532939928446}
-  - component: {fileID: 5454888430892018719}
+  - component: {fileID: 961901635173074735}
+  - component: {fileID: -7127698022086851096}
   m_Layer: 0
-  m_Name: FlashLightItem
+  m_Name: StickerBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6150813532939928446
+--- !u!4 &961901635173074735
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094137301982799979}
+  m_GameObject: {fileID: 5957569072210890209}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -55.534523, y: 3.164894, z: 0.47192746}
+  m_LocalPosition: {x: -45.769047, y: 13.13121, z: 0.40230858}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8443576186308841238}
+  - {fileID: 5910689835577821660}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5454888430892018719
+--- !u!114 &-7127698022086851096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2094137301982799979}
+  m_GameObject: {fileID: 5957569072210890209}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 501f311635e463e418117df97563fb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 26c6e07ff670cfd40a18475a85db822d, type: 2}
+  item: {fileID: 11400000, guid: f5400d73246080345a534643ecbd3193, type: 2}
   pickupRadius: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
   interactionPrompt: {fileID: 0}
   promptText: {fileID: 0}
---- !u!1 &6927757367419286055
+--- !u!1 &6319883158502238523
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -60,8 +60,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8443576186308841238}
-  - component: {fileID: 2273137659926552730}
+  - component: {fileID: 5910689835577821660}
+  - component: {fileID: 5746607797599181719}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -69,28 +69,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8443576186308841238
+--- !u!4 &5910689835577821660
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6927757367419286055}
+  m_GameObject: {fileID: 6319883158502238523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6150813532939928446}
+  m_Father: {fileID: 961901635173074735}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2273137659926552730
+--- !u!212 &5746607797599181719
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6927757367419286055}
+  m_GameObject: {fileID: 6319883158502238523}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -128,12 +128,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 1801263428120863714, guid: 93eadc4dcb030f443b13385345c4420c, type: 3}
+  m_Sprite: {fileID: -7573354855677281409, guid: 93eadc4dcb030f443b13385345c4420c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.7777778, y: 1.0555556}
+  m_Size: {x: 0.7222222, y: 0.8333333}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

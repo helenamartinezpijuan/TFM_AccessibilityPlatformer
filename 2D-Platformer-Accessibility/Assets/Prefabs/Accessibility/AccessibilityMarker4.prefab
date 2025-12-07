@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6569063241269693546}
   - component: {fileID: 7986511548027835340}
-  - component: {fileID: 5404893388281081537}
-  - component: {fileID: -6963386236529043303}
-  - component: {fileID: -9136282591578092774}
+  - component: {fileID: 1780799851437219009}
+  - component: {fileID: 3457355797347329499}
+  - component: {fileID: 4113541588815480430}
   m_Layer: 0
-  m_Name: AccessibilityMarker1
+  m_Name: AccessibilityMarker4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 713975274, guid: 573fc5991783256499df1d691b8d7c09, type: 3}
+  m_Sprite: {fileID: 3431174407013104123, guid: e216caf38e8da1048a9e43f51c47d25f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5404893388281081537
+--- !u!95 &1780799851437219009
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-6963386236529043303
+--- !u!114 &3457355797347329499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418a206599257b84488ea4e990e759b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  markerID: 1
---- !u!114 &-9136282591578092774
+  markerID: 4
+--- !u!114 &4113541588815480430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,6 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLever: 0
+  requiredLever: 3
   markerPrefab: {fileID: 254732318485287837}
   markerOffset: {x: 0, y: 1.5}

@@ -5,7 +5,7 @@ using PlatformerGame.WorldMechanics;
 
 namespace PlatformerGame.Inventory.Items
 {
-    [CreateAssetMenu(fileName = "Flashlight", menuName = "PlatformerGame/Inventory/Flashlight")]
+    [CreateAssetMenu(fileName = "Flashlight", menuName = "PlatformerGame/Inventory/Items/Flashlight")]
     public class Flashlight : Item
     {
         [Header("Flashlight Settings")]

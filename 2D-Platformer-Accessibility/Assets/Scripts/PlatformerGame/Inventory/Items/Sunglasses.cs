@@ -4,7 +4,7 @@ using PlatformerGame.WorldMechanics;
 
 namespace PlatformerGame.Inventory.Items
 {
-    [CreateAssetMenu(fileName = "Sunglasses", menuName = "PlatformerGame/Inventory/Sunglasses")]
+    [CreateAssetMenu(fileName = "Sunglasses", menuName = "PlatformerGame/Inventory/Items/Sunglasses")]
     public class Sunglasses : Item
     {
         private bool isEquipped = false;

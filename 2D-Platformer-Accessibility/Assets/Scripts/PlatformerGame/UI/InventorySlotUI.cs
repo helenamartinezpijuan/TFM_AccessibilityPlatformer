@@ -1,63 +1,101 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using PlatformerGame.Inventory.UI;
+using PlatformerGame.Inventory;
 
-namespace PlatformerGame.Inventory.UI
+namespace PlatformerGame.Inventory
 {
     public class InventorySlotUI : MonoBehaviour
     {
-        [Header("UI Elements")]
+        [Header("UI References")]
+        [SerializeField] private Image backgroundImage;
         [SerializeField] private Image itemIcon;
         [SerializeField] private TextMeshProUGUI itemCountText;
-        [SerializeField] private Image backgroundImage;
-        [SerializeField] private Color normalColor = Color.white;
-        [SerializeField] private Color selectedColor = Color.yellow;
-
-        private int slotIndex;
+        [SerializeField] private TextMeshProUGUI slotNumberText;
+        
+        private int slotIndex = -1;
         private Item currentItem;
-
+        
         public void Initialize(int index, Item item)
         {
             slotIndex = index;
-            UpdateSlot(item);
-            SetSelected(false);
+            currentItem = item;
+            
+            // Update UI elements
+            UpdateVisuals();
+            
+            // Show slot number
+            if (slotNumberText != null)
+            {
+                slotNumberText.text = (index + 1).ToString();
+            }
         }
-
+        
         public void UpdateSlot(Item item)
         {
             currentItem = item;
-
-            if (item != null && itemIcon != null)
+            UpdateVisuals();
+        }
+        
+        private void UpdateVisuals()
+        {
+            // Update icon
+            if (itemIcon != null)
             {
-                itemIcon.sprite = item.icon;
-                itemIcon.color = Color.white;
-                
-                if (itemCountText != null)
-                    itemCountText.text = "1";          
-            }
-            else
-            {
-                if (itemIcon != null)
+                if (currentItem != null && currentItem.icon != null)
                 {
-                    itemIcon.sprite = null;
-                    itemIcon.color = Color.clear;
+                    itemIcon.sprite = currentItem.icon;
+                    itemIcon.color = Color.white;
+                    itemIcon.enabled = true;
                 }
                 else
                 {
-                    Debug.Log("Item icon reference missing");
+                    itemIcon.sprite = null;
+                    itemIcon.enabled = false;
                 }
-                
-                if (itemCountText != null)
-                    itemCountText.text = "";
+            }
+            
+            // Update count text
+            if (itemCountText != null)
+            {
+                itemCountText.text = currentItem != null ? "1" : "";
+            }
+            
+            // Update background
+            if (backgroundImage != null)
+            {
+                backgroundImage.color = currentItem != null ? 
+                    new Color(0.2f, 0.2f, 0.2f, 0.8f) : 
+                    new Color(0.1f, 0.1f, 0.1f, 0.5f);
             }
         }
-
-        public void SetSelected(bool selected)
+        
+        public void SetSelected(bool selected, Color selectedColor)
         {
             if (backgroundImage != null)
             {
-                backgroundImage.color = selected ? selectedColor : normalColor;
+                if (selected)
+                {
+                    backgroundImage.color = selectedColor;
+                }
+                else
+                {
+                    backgroundImage.color = currentItem != null ? 
+                        new Color(0.2f, 0.2f, 0.2f, 0.8f) : 
+                        new Color(0.1f, 0.1f, 0.1f, 0.5f);
+                }
+            }
+        }
+        
+        // Add click handler
+        public void OnSlotClicked()
+        {
+            Debug.Log($"Slot {slotIndex} clicked. Item: {(currentItem != null ? currentItem.itemName : "Empty")}");
+            
+            // You could add functionality to use/equip item when clicked
+            if (currentItem != null && Inventory.Instance != null)
+            {
+                Inventory.Instance.UseSelectedItem();
             }
         }
     }

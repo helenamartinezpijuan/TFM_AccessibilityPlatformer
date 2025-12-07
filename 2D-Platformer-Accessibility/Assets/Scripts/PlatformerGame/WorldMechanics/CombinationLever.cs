@@ -11,10 +11,19 @@ namespace PlatformerGame.WorldMechanics
         [Header("Accessibility Visuals")]
         [SerializeField] private GameObject accessibleVisualsPrefab;
         [SerializeField] private float clueRadius = 5f;
+
+        [Header("Enemy Check")]
+        [SerializeField] private GameObject linkedEnemy; // Enemy behind the gate
+        [SerializeField] private bool resetOnPlayerDeath = true;
+
+        private bool wasActivatedThisLife = false;
         
         private Animator leverAnimator;
         private bool isActive = false;
         private GameObject currentClueInstance;
+
+        public LeverType GetLeverType() => leverType;
+        public bool IsActive() => isActive;
         
         private void Awake()
         {
@@ -39,7 +48,17 @@ namespace PlatformerGame.WorldMechanics
         
         public void ToggleLever()
         {
+            // Check if enemy is alive
+            if (linkedEnemy != null && linkedEnemy.activeSelf)
+            {
+                // Player will die - don't activate lever
+                Debug.Log($"Enemy behind lever {leverType} is still alive!");
+                return;
+                // Add way to simplify this, skipping checkPlayerDeath methtod
+            }
+            
             isActive = !isActive;
+            wasActivatedThisLife = isActive;
             
             // Update animation only
             if (leverAnimator != null)
@@ -55,9 +74,39 @@ namespace PlatformerGame.WorldMechanics
             
             Debug.Log($"Lever {leverType} toggled to {(isActive ? "ACTIVE" : "INACTIVE")}");
         }
-        
-        public LeverType GetLeverType() => leverType;
-        public bool IsActive() => isActive;
+
+        public void CheckPlayerDeath(GameObject player)
+        {
+            if (!resetOnPlayerDeath || !wasActivatedThisLife) return;
+            
+            // If player died and lever was activated this life, reset it
+            if (player == null || !player.activeSelf)
+            {
+                ResetLever();
+            }
+        }
+
+        public void ResetLever()
+        {
+            if (isActive)
+            {
+                isActive = false;
+                wasActivatedThisLife = false;
+                
+                if (leverAnimator != null)
+                {
+                    leverAnimator.SetBool("IsOn", false);
+                }
+                
+                // Notify combination system
+                if (GateCombinationSystem.Instance != null)
+                {
+                    GateCombinationSystem.Instance.LeverStateChanged(leverType, false);
+                }
+                
+                Debug.Log($"Lever {leverType} reset due to player death");
+            }
+        }
         
         public void TryShowAccessibleVisuals()
         {

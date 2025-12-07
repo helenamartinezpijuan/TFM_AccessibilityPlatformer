@@ -1,96 +1,101 @@
 using UnityEngine;
 using System.Collections.Generic;
+using PlatformerGame.WorldMechanics;
 
 namespace PlatformerGame.Inventory.Items
 {
-    [CreateAssetMenu(fileName = "StickerBag", menuName = "PlatformerGame/Inventory/StickerBag")]
+    [CreateAssetMenu(fileName = "StickerBag", menuName = "PlatformerGame/Inventory/Items/StickerBag")]
     public class StickerBag : Item
     {
         [Header("Sticker Settings")]
-        public List<GameObject> stickerPrefabs;
-        public int maxStickers = 10;
+        public List<GameObject> stickerPrefabs; // Index 0 = Marker1, 1 = Marker2, etc.
+        public float placementRadius = 2f;
         
-        [Header("Usage Settings")]
-        public float placementRange = 3f;
-        public LayerMask placementLayers;
+        [Header("Visuals")]
+        public GameObject bagVisualPrefab;
         
-        private List<GameObject> placedStickers = new List<GameObject>();
-        private int currentStickerIndex = 0;
-        private bool isPlacingMode = false;
+        private GameObject currentBagVisual;
+        private bool isEquipped = false;
+        private Transform playerTransform;
+
+        public bool IsEquipped => isEquipped;
         
         public override void Use(Inventory inventory)
         {
-            if (stickerPrefabs.Count == 0)
+            if (!isEquipped)
             {
-                Debug.LogWarning("StickerBag has no sticker prefabs!");
-                return;
-            }
-            
-            if (!isPlacingMode)
-            {
-                StartPlacingMode(inventory.transform);
+                EquipStickerBag(inventory.transform);
             }
             else
             {
-                CancelPlacingMode();
+                UnequipStickerBag();
             }
         }
         
-        private void StartPlacingMode(Transform player)
+        private void EquipStickerBag(Transform player)
         {
-            isPlacingMode = true;
-            Debug.Log("Sticker placing mode activated. Click to place, ESC to cancel.");
+            playerTransform = player;
+            isEquipped = true;
             
-            // You might want to show a UI indicator here
-        }
-        
-        private void CancelPlacingMode()
-        {
-            isPlacingMode = false;
-            Debug.Log("Sticker placing mode cancelled");
-        }
-        
-        // This should be called from a separate input handler
-        public void TryPlaceSticker(Vector3 position, Inventory inventory)
-        {
-            if (!isPlacingMode || stickerPrefabs.Count == 0) return;
-            
-            if (placedStickers.Count >= maxStickers)
+            // Show bag on player
+            if (bagVisualPrefab != null)
             {
-                Debug.Log("Sticker bag is empty!");
-                return;
+                currentBagVisual = Instantiate(bagVisualPrefab, player.position, Quaternion.identity, player);
             }
             
-            // Place the sticker
-            GameObject stickerPrefab = stickerPrefabs[currentStickerIndex];
-            GameObject sticker = Instantiate(stickerPrefab, position, Quaternion.identity);
-            placedStickers.Add(sticker);
+            Debug.Log("Sticker Bag equipped - Press E near levers to mark them");
+        }
+        
+        private void UnequipStickerBag()
+        {
+            isEquipped = false;
             
-            // Cycle to next sticker
-            currentStickerIndex = (currentStickerIndex + 1) % stickerPrefabs.Count;
-            
-            // Consume if it's a consumable item
-            if (isConsumable)
+            if (currentBagVisual != null)
             {
-                inventory.RemoveItem(inventoryPosition);
+                Destroy(currentBagVisual);
+                currentBagVisual = null;
             }
             
-            Debug.Log($"Sticker placed! {placedStickers.Count}/{maxStickers} used");
+            playerTransform = null;
+            Debug.Log("Sticker Bag unequipped");
         }
         
-        public override bool CanUse(Inventory inventory)
+        // This should be called from player's interaction system
+        public bool TryPlaceStickerOnLever(CombinationLever lever)
         {
-            return true;
+            if (!isEquipped || stickerPrefabs.Count == 0) return false;
+            
+            // Get lever type index (A=0, B=1, C=2, etc.)
+            int leverIndex = (int)lever.GetLeverType();
+            
+            if (leverIndex < stickerPrefabs.Count && stickerPrefabs[leverIndex] != null)
+            {
+                // Place sticker above lever
+                Vector3 stickerPosition = lever.transform.position + new Vector3(0, 1f, 0);
+                GameObject sticker = Instantiate(stickerPrefabs[leverIndex], stickerPosition, Quaternion.identity);
+                sticker.transform.SetParent(lever.transform);
+                
+                Debug.Log($"Placed sticker on Lever {lever.GetLeverType()}");
+                return true;
+            }
+            
+            return false;
         }
         
-        public List<GameObject> GetPlacedStickers()
+        public bool IsInRange(Transform leverTransform)
         {
-            return placedStickers;
+            if (!isEquipped || playerTransform == null) return false;
+            
+            float distance = Vector2.Distance(playerTransform.position, leverTransform.position);
+            return distance <= placementRadius;
         }
         
-        public int GetRemainingStickers()
+        public override void OnRemoveFromInventory(Inventory inventory)
         {
-            return maxStickers - placedStickers.Count;
+            if (isEquipped)
+            {
+                UnequipStickerBag();
+            }
         }
     }
 }

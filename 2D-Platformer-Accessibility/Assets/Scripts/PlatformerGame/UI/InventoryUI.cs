@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 using System.Collections.Generic;
-using PlatformerGame.Inventory.UI;
+using TMPro;
+using UnityEngine.UI;
 
-namespace PlatformerGame.Inventory.UI
+namespace PlatformerGame.Inventory
 {
     public class InventoryUI : MonoBehaviour
     {
@@ -12,149 +11,270 @@ namespace PlatformerGame.Inventory.UI
         [SerializeField] private Transform inventorySlotsParent;
         [SerializeField] private GameObject inventorySlotPrefab;
         [SerializeField] private Image selectedSlotHighlight;
+        [SerializeField] private TextMeshProUGUI itemNameText;
+        [SerializeField] private TextMeshProUGUI itemDescriptionText;
+        
+        [Header("Settings")]
+        [SerializeField] private Color normalSlotColor = Color.white;
+        [SerializeField] private Color selectedSlotColor = Color.yellow;
+        [SerializeField] private Color emptySlotColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
         
         private Inventory playerInventory;
         private List<InventorySlotUI> slotUIs = new List<InventorySlotUI>();
-        private int lastSelectedPosition = -1;
-
+        private int currentSelectedIndex = -1;
+        
         private void Awake()
         {
-            // Find the player inventory in the main scene
-            FindPlayerInventory();
+            // Clear any existing slots
+            ClearAllSlots();
+            
+            // Try to find player inventory
+            FindAndConnectToInventory();
+        }
+        
+        private void Start()
+        {
+            // Initialize UI after everything is loaded
             InitializeUI();
         }
-
-        private void FindPlayerInventory()
+        
+        public void Initialize(Inventory inventory)
         {
-            // Look for inventory in the main scene
+            if (inventory == null)
+            {
+                Debug.LogError("InventoryUI: Received null inventory!");
+                return;
+            }
+            
+            playerInventory = inventory;
+            Debug.Log("InventoryUI: Connected to player inventory");
+            
+            // Subscribe to events
+            SubscribeToInventoryEvents();
+            
+            // Initialize UI
+            InitializeUI();
+        }
+        
+        private void FindAndConnectToInventory()
+        {
+            // Method 1: Use singleton instance
+            if (Inventory.Instance != null)
+            {
+                Initialize(Inventory.Instance);
+                return;
+            }
+            
+            // Method 2: Find in scene
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                playerInventory = player.GetComponent<Inventory>();
-                if (playerInventory != null)
+                Inventory inventory = player.GetComponent<Inventory>();
+                if (inventory != null)
                 {
-                    SubscribeToEvents();
-                    Debug.Log("Player inventory found");
+                    Initialize(inventory);
+                    return;
                 }
             }
+            
+            // Method 3: Find any inventory in scene
+            Inventory[] allInventories = FindObjectsOfType<Inventory>();
+            if (allInventories.Length > 0)
+            {
+                Initialize(allInventories[0]);
+                return;
+            }
+            
+            Debug.LogWarning("InventoryUI: No inventory found. Will try to connect later.");
+            
+            // Try again after a delay
+            Invoke(nameof(FindAndConnectToInventory), 0.5f);
         }
-
-        private void InitializeUI()
+        
+        private void SubscribeToInventoryEvents()
         {
             if (playerInventory == null) return;
-
-            // Clear existing slots
-            foreach (Transform child in inventorySlotsParent)
-            {
-                Destroy(child.gameObject);
-            }
-            slotUIs.Clear();
-
-            // Create slots based on inventory size
-            for (int i = 0; i < playerInventory.Items.Count; i++)
-            {
-                GameObject slotObject = Instantiate(inventorySlotPrefab, inventorySlotsParent);
-                InventorySlotUI slotUI = slotObject.GetComponent<InventorySlotUI>();
-                
-                if (slotUI != null)
-                {
-                    slotUIs.Add(slotUI);
-                    slotUI.Initialize(i, playerInventory.Items[i]);
-                }
-            }
-
-            // Update selection highlight
-            UpdateSelectionHighlight(playerInventory.CurrentSelectedPosition);
-        }
-
-        private void SubscribeToEvents()
-        {
+            
             playerInventory.OnItemAdded += OnItemAdded;
             playerInventory.OnItemRemoved += OnItemRemoved;
             playerInventory.OnSelectionChanged += OnSelectionChanged;
             playerInventory.OnInventoryToggle += OnInventoryToggle;
         }
-
-        private void UnsubscribeFromEvents()
+        
+        private void UnsubscribeFromInventoryEvents()
         {
-            if (playerInventory != null)
-            {
-                playerInventory.OnItemAdded -= OnItemAdded;
-                playerInventory.OnItemRemoved -= OnItemRemoved;
-                playerInventory.OnSelectionChanged -= OnSelectionChanged;
-                playerInventory.OnInventoryToggle -= OnInventoryToggle;
-            }
+            if (playerInventory == null) return;
+            
+            playerInventory.OnItemAdded -= OnItemAdded;
+            playerInventory.OnItemRemoved -= OnItemRemoved;
+            playerInventory.OnSelectionChanged -= OnSelectionChanged;
+            playerInventory.OnInventoryToggle -= OnInventoryToggle;
         }
-
+        
+        private void InitializeUI()
+        {
+            if (playerInventory == null)
+            {
+                Debug.LogError("InventoryUI: Cannot initialize without inventory reference");
+                return;
+            }
+            
+            // Clear existing slots
+            ClearAllSlots();
+            
+            // Create slots based on inventory size
+            for (int i = 0; i < playerInventory.InventorySize; i++)
+            {
+                CreateSlot(i);
+            }
+            
+            // Set initial selection
+            if (playerInventory.CurrentSelectedPosition >= 0 && 
+                playerInventory.CurrentSelectedPosition < slotUIs.Count)
+            {
+                UpdateSelection(playerInventory.CurrentSelectedPosition);
+            }
+            
+            Debug.Log($"InventoryUI: Initialized with {slotUIs.Count} slots");
+        }
+        
+        private void CreateSlot(int index)
+        {
+            if (inventorySlotPrefab == null || inventorySlotsParent == null)
+            {
+                Debug.LogError("InventoryUI: Missing slot prefab or parent!");
+                return;
+            }
+            
+            GameObject slotObject = Instantiate(inventorySlotPrefab, inventorySlotsParent);
+            slotObject.name = $"InventorySlot_{index}";
+            
+            // Get or add InventorySlotUI component
+            InventorySlotUI slotUI = slotObject.GetComponent<InventorySlotUI>();
+            if (slotUI == null)
+            {
+                slotUI = slotObject.AddComponent<InventorySlotUI>();
+            }
+            
+            // Initialize slot
+            Item item = playerInventory?.GetItem(index);
+            slotUI.Initialize(index, item);
+            
+            slotUIs.Add(slotUI);
+        }
+        
+        private void ClearAllSlots()
+        {
+            foreach (Transform child in inventorySlotsParent)
+            {
+                Destroy(child.gameObject);
+            }
+            slotUIs.Clear();
+        }
+        
+        // Event Handlers
         private void OnItemAdded(Item item)
         {
-            RefreshSlot(item.inventoryPosition);
+            if (item == null) return;
+            
+            int position = item.inventoryPosition;
+            if (position >= 0 && position < slotUIs.Count)
+            {
+                slotUIs[position].UpdateSlot(item);
+                Debug.Log($"InventoryUI: Updated slot {position} with {item.itemName}");
+            }
         }
-
+        
         private void OnItemRemoved(Item item)
         {
-            RefreshSlot(item.inventoryPosition);
+            if (item == null) return;
+            
+            int position = item.inventoryPosition;
+            if (position >= 0 && position < slotUIs.Count)
+            {
+                slotUIs[position].UpdateSlot(null);
+            }
         }
-
+        
         private void OnSelectionChanged(int newPosition)
         {
-            UpdateSelectionHighlight(newPosition);
+            UpdateSelection(newPosition);
         }
-
+        
         private void OnInventoryToggle(bool isOpen)
         {
+            gameObject.SetActive(isOpen);
+            
             if (isOpen)
             {
                 RefreshAllSlots();
-                UpdateSelectionHighlight(playerInventory.CurrentSelectedPosition);
+                if (playerInventory != null)
+                {
+                    UpdateSelection(playerInventory.CurrentSelectedPosition);
+                }
             }
         }
-
-        private void RefreshSlot(int position)
+        
+        // UI Update Methods
+        public void RefreshAllSlots()
         {
-            if (position >= 0 && position < slotUIs.Count && playerInventory != null)
-            {
-                slotUIs[position].UpdateSlot(playerInventory.GetItem(position));
-            }
-        }
-
-        private void RefreshAllSlots()
-        {
+            if (playerInventory == null) return;
+            
             for (int i = 0; i < slotUIs.Count; i++)
             {
-                RefreshSlot(i);
+                Item item = playerInventory.GetItem(i);
+                slotUIs[i].UpdateSlot(item);
             }
         }
-
-        private void UpdateSelectionHighlight(int newPosition)
+        
+        private void UpdateSelection(int newPosition)
         {
-            if (lastSelectedPosition >= 0 && lastSelectedPosition < slotUIs.Count)
+            // Deselect previous slot
+            if (currentSelectedIndex >= 0 && currentSelectedIndex < slotUIs.Count)
             {
-                slotUIs[lastSelectedPosition].SetSelected(false);
+                slotUIs[currentSelectedIndex].SetSelected(false, normalSlotColor);
             }
-
+            
+            // Select new slot
             if (newPosition >= 0 && newPosition < slotUIs.Count)
             {
-                slotUIs[newPosition].SetSelected(true);
-
-                // Move highlight image to the selected slot
+                slotUIs[newPosition].SetSelected(true, selectedSlotColor);
+                currentSelectedIndex = newPosition;
+                
+                // Update item info display
+                UpdateItemInfoDisplay(newPosition);
+                
+                // Update highlight position
                 if (selectedSlotHighlight != null)
                 {
                     selectedSlotHighlight.transform.SetParent(slotUIs[newPosition].transform);
-                    selectedSlotHighlight.transform.localPosition = Vector3.zero;
-                    selectedSlotHighlight.rectTransform.anchorMin = Vector2.zero;
-                    selectedSlotHighlight.rectTransform.anchorMax = Vector2.one;
-                    selectedSlotHighlight.rectTransform.offsetMin = Vector2.zero;
-                    selectedSlotHighlight.rectTransform.offsetMax = Vector2.zero;
+                    selectedSlotHighlight.rectTransform.anchoredPosition = Vector2.zero;
+                    selectedSlotHighlight.rectTransform.sizeDelta = Vector2.zero;
                 }
-
-                lastSelectedPosition = newPosition;
             }
         }
-
+        
+        private void UpdateItemInfoDisplay(int slotIndex)
+        {
+            if (playerInventory == null) return;
+            
+            Item item = playerInventory.GetItem(slotIndex);
+            
+            if (itemNameText != null)
+            {
+                itemNameText.text = item != null ? item.itemName : "";
+            }
+            
+            if (itemDescriptionText != null)
+            {
+                itemDescriptionText.text = item != null ? item.description : "";
+            }
+        }
+        
+        // Clean up
         private void OnDestroy()
         {
-            UnsubscribeFromEvents();
+            UnsubscribeFromInventoryEvents();
         }
     }
 }
