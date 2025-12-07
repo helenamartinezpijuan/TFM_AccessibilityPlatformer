@@ -8,23 +8,8 @@ namespace PlatformerGame.Inventory
         public Item item;
         [SerializeField] private float pickupRadius = 1f;
         [SerializeField] private LayerMask playerLayer;
-        [SerializeField] private GameObject interactionPrompt;
-        [SerializeField] private TextMeshPro promptText;
         
         private bool playerInRange = false;
-        
-        private void Start()
-        {
-            if (interactionPrompt != null)
-            {
-                interactionPrompt.SetActive(false);
-            }
-            
-            if (promptText != null && item != null)
-            {
-                promptText.text = $"Press E to pick up\n{item.itemName}";
-            }
-        }
         
         private void Update()
         {
@@ -37,12 +22,6 @@ namespace PlatformerGame.Inventory
             
             bool wasInRange = playerInRange;
             playerInRange = player != null;
-            
-            // Show/hide prompt
-            if (interactionPrompt != null)
-            {
-                interactionPrompt.SetActive(playerInRange);
-            }
             
             if (playerInRange && Input.GetKeyDown(KeyCode.E))
             {

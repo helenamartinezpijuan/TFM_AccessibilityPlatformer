@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501f311635e463e418117df97563fb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 26c6e07ff670cfd40a18475a85db822d, type: 2}
+  item: {fileID: 11400000, guid: d4b0464ce64def54dbb631db62f80e06, type: 2}
   pickupRadius: 1
   playerLayer:
     serializedVersion: 2
