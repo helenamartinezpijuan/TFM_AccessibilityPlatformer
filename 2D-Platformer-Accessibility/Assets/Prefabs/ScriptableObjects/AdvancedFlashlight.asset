@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33464f8dfb5280e49b617b99a1352686, type: 3}
   m_Name: AdvancedFlashlight
   m_EditorClassIdentifier: 
-  itemName: 
-  description: 
-  icon: {fileID: 0}
+  itemName: Advanced Flashlight
+  description: This flashlight lets you see the clues in the world
+  icon: {fileID: 1801263428120863714, guid: 93eadc4dcb030f443b13385345c4420c, type: 3}
   maxStackSize: 1
   isConsumable: 0
-  inventoryPosition: -1
+  inventoryPosition: 0
   revealRadius: 2
   newBulbPrefab: {fileID: 0}
   invisibleWallLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   invisibleWallTilemap: {fileID: 0}
   hiddenStickerPrefabs: []

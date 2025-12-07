@@ -14,12 +14,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InventoryUI.unity
     guid: 7e43c89a775b121489bf6d735f20224b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tutorial.unity
     guid: 22a2e1efae198aa4db25aa60e011d347
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: c2ed7c4738988c347845e77cec7e82f8
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: f1c305174af19b246bbc093123d744dd
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 685015340b8ed9847b236d52f93afac8, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

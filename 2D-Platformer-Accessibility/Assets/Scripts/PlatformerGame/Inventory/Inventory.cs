@@ -205,9 +205,7 @@ namespace PlatformerGame.Inventory
 
             Item selectedItem = GetItem(currentSelectedPosition);
             if (selectedItem != null)
-            {
-                if (debugMode) Debug.Log($"Using item: {selectedItem.itemName}");
-                
+            {                
                 if (selectedItem.CanUse(this))
                 {
                     selectedItem.Use(this);
