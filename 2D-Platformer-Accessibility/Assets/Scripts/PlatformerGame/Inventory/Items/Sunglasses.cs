@@ -39,7 +39,7 @@ namespace PlatformerGame.Inventory.Items
         private void RevealAllClues()
         {
             // Find all clue revealers in the scene
-            ClueRevealer[] allClueRevealers = FindObjectsOfType<ClueRevealer>();
+            ClueRevealer[] allClueRevealers = FindObjectsByType<ClueRevealer>(FindObjectsSortMode.None);
             
             foreach (ClueRevealer clueRevealer in allClueRevealers)
             {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using PlatformerGame.WorldMechanics;
 
@@ -9,11 +10,11 @@ namespace PlatformerGame.Inventory.Items
     {
         [Header("Flashlight Settings")]
         public float revealRadius = 2f;
-        public LayerMask clueLayers;
-        
+        public LayerMask clueLayers;       
         private bool isEquipped = false;
         private Transform playerTransform;
         private List<GameObject> revealedClues = new List<GameObject>();
+        public bool IsEquipped => isEquipped;
 
         public override void Use(Inventory inventory)
         {
@@ -33,19 +34,16 @@ namespace PlatformerGame.Inventory.Items
             isEquipped = true;
             Debug.Log("Flashlight equipped");
             
-            // Start checking for clues
-            if (Application.isPlaying)
+            // Start checking for clues periodically
+            // An object reference is required for the non-static property 'MonoBehaviour.StartCoroutine(IEnumerator)'
+            MonoBehaviour playerMonoBehaviour = player.GetComponent<MonoBehaviour>();
+            if (playerMonoBehaviour != null)
             {
-                // Use coroutine to check for clues periodically
-                MonoBehaviour playerMono = player.GetComponent<MonoBehaviour>();
-                if (playerMono != null)
-                {
-                    playerMono.StartCoroutine(CheckForCluesRoutine());
-                }
+                playerMonoBehaviour.StartCoroutine(CheckForCluesRoutine());
             }
         }
 
-        private System.Collections.IEnumerator CheckForCluesRoutine()
+        private IEnumerator CheckForCluesRoutine()
         {
             while (isEquipped)
             {
@@ -62,7 +60,7 @@ namespace PlatformerGame.Inventory.Items
             ClearDistantClues();
             
             // Find all clue revealers within radius
-            ClueRevealer[] allClueRevealers = FindObjectsOfType<ClueRevealer>();
+            ClueRevealer[] allClueRevealers = FindObjectsByType<ClueRevealer>(FindObjectsSortMode.None);
             
             foreach (ClueRevealer clueRevealer in allClueRevealers)
             {
@@ -145,7 +143,5 @@ namespace PlatformerGame.Inventory.Items
                 UnequipFlashlight();
             }
         }
-        
-        public bool IsEquipped => isEquipped;
     }
 }

@@ -40,14 +40,5 @@ namespace PlatformerGame.WorldMechanics
             HideClue();
         }
         
-        // Optional: Draw gizmo to show clue radius
-        private void OnDrawGizmosSelected()
-        {
-            if (cluePrefab != null)
-            {
-                Gizmos.color = Color.cyan;
-                Gizmos.DrawWireSphere(transform.position, 0.5f);
-            }
-        }
     }
 }
