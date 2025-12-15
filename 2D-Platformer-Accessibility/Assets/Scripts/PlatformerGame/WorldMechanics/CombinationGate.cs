@@ -38,8 +38,8 @@ namespace PlatformerGame.WorldMechanics
         
         private void Start()
         {
-            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-            gateCollider = GetComponentInChildren<BoxCollider2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            gateCollider = GetComponent<BoxCollider2D>();
             gateMarker = GetComponentInChildren<GateMarker>();
             
             // Register this gate with the combination system

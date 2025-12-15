@@ -9,7 +9,7 @@ namespace PlatformerGame.Inventory
     {
         [Header("Inventory Settings")]
         [SerializeField] private string inventorySceneName = "InventoryUI";
-        [SerializeField] private int inventorySize = 4;
+        [SerializeField] private int inventorySize = 8;
         [SerializeField] private bool debugMode = true;
 
         private int currentSelectedPosition = 0;
@@ -102,7 +102,7 @@ namespace PlatformerGame.Inventory
                 }
             }
             
-            Debug.Log("Inventory full, cannot add item.");
+            if (debugMode) Debug.Log("Inventory full, cannot add item.");
             return false;
         }
 
@@ -132,7 +132,7 @@ namespace PlatformerGame.Inventory
             if (isOpen) return;
             
             isOpen = true;
-            Debug.Log("Inventory opened");
+            if (debugMode) Debug.Log("Inventory opened");
 
             // Load additive scene for inventory UI
             if (!string.IsNullOrEmpty(inventorySceneName))
@@ -144,8 +144,8 @@ namespace PlatformerGame.Inventory
             OnInventoryToggle?.Invoke(true);
             Time.timeScale = 0f; // Pause game
             
-            // Wait for scene to load before refreshing
-            SceneManager.sceneLoaded += OnInventorySceneLoaded;
+            // Force refresh UI after a small delay to ensure scene is loaded
+            Invoke(nameof(RefreshInventoryUI), 0.1f);
         }
 
         // Public method to close inventory
@@ -241,16 +241,6 @@ namespace PlatformerGame.Inventory
                 {
                     ui.RefreshAllSlots();
                 }
-            }
-        }
-
-        private void OnInventorySceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            if (scene.name == inventorySceneName)
-            {
-                inventorySceneLoaded = true;
-                SceneManager.sceneLoaded -= OnInventorySceneLoaded;
-                RefreshInventoryUI();
             }
         }
 
