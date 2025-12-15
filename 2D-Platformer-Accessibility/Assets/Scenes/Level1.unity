@@ -848,22 +848,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3084762447987573647, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
-      propertyPath: m_Size.x
-      value: 1.6019299
-      objectReference: {fileID: 0}
-    - target: {fileID: 3084762447987573647, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
-      propertyPath: m_Size.y
-      value: 1.9695394
-      objectReference: {fileID: 0}
-    - target: {fileID: 3084762447987573647, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0015404224
-      objectReference: {fileID: 0}
-    - target: {fileID: 3084762447987573647, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.009168476
-      objectReference: {fileID: 0}
     - target: {fileID: 7619737063778404052, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
       propertyPath: debugMode
       value: 0
