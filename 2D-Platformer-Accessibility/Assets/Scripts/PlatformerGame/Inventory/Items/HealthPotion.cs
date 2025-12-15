@@ -8,13 +8,13 @@ namespace PlatformerGame.Inventory.Items
     {
         public int healAmount = 50;
 
-        public override void Use(Inventory inventory)
+        public override void Use(PlayerInventory inventory)
         {
             // Heal the player logic here
             Debug.Log($"Used {itemName} to heal {healAmount} HP");
         }
 
-        public override bool CanUse(Inventory inventory)
+        public override bool CanUse(PlayerInventory inventory)
         {
             // Check if player needs healing
             return true;

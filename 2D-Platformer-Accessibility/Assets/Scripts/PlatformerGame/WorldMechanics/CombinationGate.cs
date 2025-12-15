@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using System.Collections.Generic;
+using PlatformerGame.Inventory;
 using PlatformerGame.Inventory.Items.AccessibleItems;
 
 namespace PlatformerGame.WorldMechanics
@@ -16,35 +18,116 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private List<LeverType> requiredLeverTypes = new List<LeverType>();
         [SerializeField] private bool requireExactMatch = true;
         
-        [Header("Accessibility Visuals")]
-        [SerializeField] private GameObject accessibleVisualsPrefab;
-        [SerializeField] private float clueRadius = 5f;
-        
         [Header("Gate Markers")]
         [SerializeField] private List<GateMarker> gateMarkers = new List<GateMarker>();
+
+        [Header("Marker Settings")]
+        [SerializeField] private bool showMarkersWhenFlashlightNear = true;
+        [SerializeField] private float flashlightDetectionRadius = 2f;
         
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D gateCollider;
+        private GateMarker gateMarker;
+
         private bool isOpen = false;
+        private bool markersVisible = false;
         private GameObject currentClueInstance;
+
+        public string GetGateId() => gateId;
+        public List<LeverType> GetRequiredLeverTypes() => requiredLeverTypes;
         
         private void Start()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            gateCollider = GetComponent<BoxCollider2D>();
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+            gateCollider = GetComponentInChildren<BoxCollider2D>();
+            gateMarker = GetComponentInChildren<GateMarker>();
             
-            // Register this gate with the combination system
-            GateCombinationSystem.Instance.RegisterGate(this);
+            // Register this gate with the combination system. If there's no instance, try to find one
+            if (GateCombinationSystem.Instance != null)
+            {
+                GateCombinationSystem.Instance.RegisterGate(this);
+            }
+            else
+            {
+                GateCombinationSystem found = FindObjectOfType<GateCombinationSystem>();
+                if (found != null)
+                {
+                    // Awake should set Instance, but ensure registration
+                    found.RegisterGate(this);
+                    Debug.LogWarning($"CombinationGate '{gateId}': Found GateCombinationSystem in scene and registered.");
+                }
+                else
+                {
+                    // Create a new manager GameObject so system works at runtime
+                    GameObject sysGo = new GameObject("GateCombinationSystem");
+                    GateCombinationSystem newSys = sysGo.AddComponent<GateCombinationSystem>();
+                    newSys.RegisterGate(this);
+                    Debug.LogWarning($"CombinationGate '{gateId}': No GateCombinationSystem found. Created a new one at runtime.");
+                }
+            }
 
             // Hide all markers at the beginning of the level
             foreach (GateMarker marker in gateMarkers)
             {
-                marker.HideMarker();
+                marker.HideMarkers();
+            }
+        }
+
+        private void Update()
+        {
+            // Flashlight proximity detection
+            if (showMarkersWhenFlashlightNear && gateMarker != null)
+            {
+                CheckFlashlightProximity();
+            }
+        }
+
+        private void CheckFlashlightProximity()
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            float distance;
+            if (player != null) 
+            {
+                distance = Vector2.Distance(transform.position, player.transform.position);
+            }
+            else
+            {
+                distance = flashlightDetectionRadius + 1f;;
+            }
+
+            // Check if player has flashlight equipped
+            bool hasFlashlight = HasItemInInventory(player, "Advanced Flashlight");
+            bool hasSunglasses = HasItemInInventory(player, "Sunglasses");
+            
+            // Determine if markers should be visible
+            bool shouldShowMarkers = false;
+            
+            if (hasSunglasses)
+            {
+                // Sunglasses: Always show markers
+                shouldShowMarkers = true;
+            }
+            else if (hasFlashlight && distance <= flashlightDetectionRadius)
+            {
+                // Flashlight: Show only when within radius
+                shouldShowMarkers = true;
             }
             
-            UpdateGateState();
+            // Update marker visibility if changed
+            if (shouldShowMarkers != markersVisible)
+            {
+                markersVisible = shouldShowMarkers;
+                
+                if (markersVisible)
+                {
+                    gateMarker.ShowMarkers();
+                }
+                else
+                {
+                    gateMarker.HideMarkers();
+                }
+            }
         }
-        
         public void CheckCombination(HashSet<LeverType> activeLeverTypes)
         {
             bool shouldOpen;
@@ -63,101 +146,52 @@ namespace PlatformerGame.WorldMechanics
             if (shouldOpen != isOpen)
             {
                 isOpen = shouldOpen;
-                UpdateGateState();
+                ApplyGateState(isOpen);
+                Debug.Log($"CombinationGate '{gateId}' changed state to {(isOpen ? "OPEN" : "CLOSED")}");
             }
-
-            UpdateGateMarkers(activeLeverTypes);
         }
         
-        private void UpdateGateState()
+        private void ApplyGateState(bool open)
         {
+            // If we have a collider, disable it when open so the player can pass
             if (gateCollider != null)
             {
-                gateCollider.enabled = !isOpen;
-                spriteRenderer.enabled = !isOpen;
+                gateCollider.enabled = !open;
             }
-            
-            Debug.Log($"Gate {gateId} is now {(isOpen ? "OPEN" : "CLOSED")}");
-        }
 
-        public void UpdateGateMarkers(HashSet<LeverType> activeLevers)
-        {
-            foreach (GateMarker marker in gateMarkers)
+            // Hide or show the visible gate sprite
+            if (spriteRenderer != null)
             {
-                if (activeLevers.Contains(marker.GetRequiredLever()))
-                {
-                    marker.ShowMarker();
-                }
+                spriteRenderer.enabled = !open;
+            }
+
+            // Optionally hide markers when gate is open
+            if (gateMarker != null)
+            {
+                if (open)
+                    gateMarker.HideMarkers();
                 else
-                {
-                    marker.HideMarker();
-                }
+                    gateMarker.ShowMarkers();
             }
         }
-        
-        public void TryShowAccessibleVisuals()
-        {
-            // Check if player has flashlight or sunglasses
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            if (player == null) return;
-            
-            bool hasFlashlight = HasItemInInventory(player, "Flashlight");
-            bool hasSunglasses = HasItemInInventory(player, "Sunglasses");
-            
-            if (!hasFlashlight && !hasSunglasses) return;
-            
-            // Check distance if using flashlight
-            if (hasFlashlight)
-            {
-                float distance = Vector2.Distance(transform.position, player.transform.position);
-                if (distance > clueRadius)
-                {
-                    HideAccessibleVisuals();
-                    return;
-                }
-            }
-            
-            // Sunglasses shows clue regardless of distance, flashlight only within radius
-            ShowAccessibleVisuals();
-        }
-        
+         
         private bool HasItemInInventory(GameObject player, string itemTag)
         {
-            // Check if player has the item as a child or component
-            Transform item = player.transform.Find(itemTag);
-            if (item != null) return true;
+            // Check if player has the item in Inventory
+            PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+
+            if (inventory != null)
+            {
+                foreach (Item item in inventory.Items)
+                {
+                    if (item != null && item.itemName.Contains(itemTag))
+                    {
+                        return true;
+                    }
+                }
+            }
             
             return false;
         }
-        
-        private void ShowAccessibleVisuals()
-        {
-            if (accessibleVisualsPrefab != null && currentClueInstance == null)
-            {
-                currentClueInstance = Instantiate(accessibleVisualsPrefab, transform.position, Quaternion.identity);
-                currentClueInstance.transform.SetParent(transform); // Make it a child of the gate
-            }
-        }
-        
-        private void HideAccessibleVisuals()
-        {
-            if (currentClueInstance != null)
-            {
-                Destroy(currentClueInstance);
-                currentClueInstance = null;
-            }
-        }
-        
-        private void Update()
-        {
-            // Check every frame if we should show/hide accessible visuals
-            if (accessibleVisualsPrefab != null)
-            {
-                TryShowAccessibleVisuals();
-            }
-        }
-        
-        public string GetGateId() => gateId;
-        public List<LeverType> GetRequiredLeverTypes() => requiredLeverTypes;
     }
 }

@@ -16,7 +16,7 @@ namespace PlatformerGame.Inventory.Items
         private List<GameObject> revealedClues = new List<GameObject>();
         public bool IsEquipped => isEquipped;
 
-        public override void Use(Inventory inventory)
+        public override void Use(PlayerInventory inventory)
         {
             if (!isEquipped)
             {
@@ -131,12 +131,12 @@ namespace PlatformerGame.Inventory.Items
             Debug.Log("Flashlight unequipped");
         }
 
-        public override bool CanUse(Inventory inventory)
+        public override bool CanUse(PlayerInventory inventory)
         {
             return true;
         }
 
-        public override void OnRemoveFromInventory(Inventory inventory)
+        public override void OnRemoveFromInventory(PlayerInventory inventory)
         {
             if (isEquipped)
             {
