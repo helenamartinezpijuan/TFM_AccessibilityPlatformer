@@ -1,0 +1,640 @@
+fileFormatVersion: 2
+guid: c68ff853a9a52904796eecd8e9a4fa25
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4461560091565394916
+    second: SPRITE-fx_0
+  - first:
+      213: -5944960252244034506
+    second: SPRITE-fx_1
+  - first:
+      213: 840552385170829711
+    second: SPRITE-fx_2
+  - first:
+      213: 3721857278292748274
+    second: SPRITE-fx_3
+  - first:
+      213: -5581203337625659626
+    second: SPRITE-fx_4
+  - first:
+      213: -569844145988921331
+    second: SPRITE-fx_5
+  - first:
+      213: -2327754963358847497
+    second: SPRITE-fx_6
+  - first:
+      213: -8204967381228621464
+    second: SPRITE-fx_7
+  - first:
+      213: -3550032430326500996
+    second: SPRITE-fx_8
+  - first:
+      213: 4536712423381405908
+    second: SPRITE-fx_9
+  - first:
+      213: -1406262507344692016
+    second: SPRITE-fx_10
+  - first:
+      213: 6172873051774631872
+    second: SPRITE-fx_11
+  - first:
+      213: -9069415904850975703
+    second: SPRITE-fx_12
+  - first:
+      213: -3920566332597609120
+    second: SPRITE-fx_13
+  - first:
+      213: 8376607233392639034
+    second: SPRITE-fx_14
+  - first:
+      213: -8394474068768015137
+    second: SPRITE-fx_15
+  - first:
+      213: 6830141672709291184
+    second: SPRITE-fx_16
+  - first:
+      213: 4333323007192608012
+    second: SPRITE-fx_17
+  - first:
+      213: -1358400248376069971
+    second: SPRITE-fx_18
+  - first:
+      213: -7357569712884397157
+    second: SPRITE-fx_19
+  - first:
+      213: 3903254285670982578
+    second: SPRITE-fx_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 18
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPRITE-fx_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 531
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb80d1d345aaed30800000000000000
+      internalID: 4461560091565394916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 531
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63c7d29f5224f7da0800000000000000
+      internalID: -5944960252244034506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 531
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f81f63dd0fd3aab00800000000000000
+      internalID: 840552385170829711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_3
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 531
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f76751b971b6a330800000000000000
+      internalID: 3721857278292748274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_4
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 531
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 617199982259b82b0800000000000000
+      internalID: -5581203337625659626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 531
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d089ef4b4c18718f0800000000000000
+      internalID: -569844145988921331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_6
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 531
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fde7dc913722bfd0800000000000000
+      internalID: -2327754963358847497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 513
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861733873a9122e80800000000000000
+      internalID: -8204967381228621464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 513
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c71b5414050cbbec0800000000000000
+      internalID: -3550032430326500996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_9
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 513
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d010cb99e3a5fe30800000000000000
+      internalID: 4536712423381405908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_10
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 513
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dcf4c443b3fb7ce0800000000000000
+      internalID: -1406262507344692016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_11
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 513
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cfbb96d5537aa550800000000000000
+      internalID: 6172873051774631872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_12
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 513
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 924641f4946f22280800000000000000
+      internalID: -9069415904850975703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_13
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 513
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06dd92b41b95799c0800000000000000
+      internalID: -3920566332597609120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3cf559c5efaf3470800000000000000
+      internalID: 8376607233392639034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_15
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdcbade6f46d08b80800000000000000
+      internalID: -8394474068768015137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_16
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bcfd67e9a989ce50800000000000000
+      internalID: 6830141672709291184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_17
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0d2ebce05e032c30800000000000000
+      internalID: 4333323007192608012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_18
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da0fdb4db2ef52de0800000000000000
+      internalID: -1358400248376069971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-fx_19
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 495
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9b4a550459a4e990800000000000000
+      internalID: -7357569712884397157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f366040a68991584988f15659112aa03
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPRITE-fx_0: 4461560091565394916
+      SPRITE-fx_1: -5944960252244034506
+      SPRITE-fx_10: -1406262507344692016
+      SPRITE-fx_11: 6172873051774631872
+      SPRITE-fx_12: -9069415904850975703
+      SPRITE-fx_13: -3920566332597609120
+      SPRITE-fx_14: 8376607233392639034
+      SPRITE-fx_15: -8394474068768015137
+      SPRITE-fx_16: 6830141672709291184
+      SPRITE-fx_17: 4333323007192608012
+      SPRITE-fx_18: -1358400248376069971
+      SPRITE-fx_19: -7357569712884397157
+      SPRITE-fx_2: 840552385170829711
+      SPRITE-fx_3: 3721857278292748274
+      SPRITE-fx_4: -5581203337625659626
+      SPRITE-fx_5: -569844145988921331
+      SPRITE-fx_6: -2327754963358847497
+      SPRITE-fx_7: -8204967381228621464
+      SPRITE-fx_8: -3550032430326500996
+      SPRITE-fx_9: 4536712423381405908
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
