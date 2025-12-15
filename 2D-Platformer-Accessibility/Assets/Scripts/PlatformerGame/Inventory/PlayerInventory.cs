@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +10,10 @@ namespace PlatformerGame.Inventory
         [Header("Inventory Settings")]
         [SerializeField] private string inventorySceneName = "InventoryUI";
         [SerializeField] private int inventorySize = 4;
+        [SerializeField] private bool debugMode = true;
 
         private int currentSelectedPosition = 0;
-        public List<Item> items = new List<Item>();
+        private List<Item> items = new List<Item>();
         private bool isOpen = false;
         private bool inventorySceneLoaded = false;
         
@@ -53,7 +53,7 @@ namespace PlatformerGame.Inventory
                 items.Add(null);
             }
             
-            Debug.Log($"Inventory initialized with {inventorySize} slots");
+            if (debugMode) Debug.Log($"Inventory initialized with {inventorySize} slots");
         }
 
         private void Start()
@@ -90,7 +90,7 @@ namespace PlatformerGame.Inventory
                     // Notify item was added
                     newItem.OnAddToInventory(this);
                     
-                    Debug.Log($"Added {newItem.itemName} to slot {i}");
+                    if (debugMode) Debug.Log($"Added {newItem.itemName} to slot {i}");
                     
                     // Trigger event
                     OnItemAdded?.Invoke(newItem);
@@ -126,72 +126,26 @@ namespace PlatformerGame.Inventory
             return false;
         }
 
+        // Public method to open inventory
         public void OpenInventory()
         {
-            Debug.Log($"=== OPEN INVENTORY CALLED ===");
-            Debug.Log($"Current isOpen: {isOpen}");
-            Debug.Log($"Scene to load: {inventorySceneName}");
-
             if (isOpen) return;
             
             isOpen = true;
-            Debug.Log($"Opening inventory, loading scene: {inventorySceneName}");
+            Debug.Log("Inventory opened");
 
-            SceneManager.sceneLoaded += OnInventorySceneLoaded;
-            StartCoroutine(LoadInventoryScene());
-            
-            //OnInventoryToggle?.Invoke(true);
-            Time.timeScale = 0f;
-        }
-
-        private IEnumerator LoadInventoryScene()
-        {
-            AsyncOperation asyncLoad = null;
-            try
+            // Load additive scene for inventory UI
+            if (!string.IsNullOrEmpty(inventorySceneName))
             {
-                asyncLoad = SceneManager.LoadSceneAsync(inventorySceneName, LoadSceneMode.Additive);
+                SceneManager.LoadScene(inventorySceneName, LoadSceneMode.Additive);
+                inventorySceneLoaded = true;
             }
-            catch (System.Exception ex)
-            {
-                Debug.LogError($"Failed to start loading inventory scene '{inventorySceneName}': {ex.Message}");
-            }
-
-            if (asyncLoad == null)
-            {
-                // Restore state and bail out
-                Debug.LogError($"LoadInventoryScene: Async operation is null for scene '{inventorySceneName}'");
-                SceneManager.sceneLoaded -= OnInventorySceneLoaded;
-                isOpen = false;
-                Time.timeScale = 1f;
-                yield break;
-            }
-
-            float elapsed = 0f;
-            float timeout = 5f; // seconds
-
-            while (!asyncLoad.isDone && elapsed < timeout)
-            {
-                elapsed += Time.unscaledDeltaTime;
-                yield return null;
-            }
-
-            if (!asyncLoad.isDone)
-            {
-                Debug.LogError($"Timed out loading inventory scene '{inventorySceneName}' after {timeout} seconds.");
-                SceneManager.sceneLoaded -= OnInventorySceneLoaded;
-                isOpen = false;
-                Time.timeScale = 1f;
-                yield break;
-            }
-
-            inventorySceneLoaded = true;
-            Debug.Log("Inventory scene fully loaded");
-
-            yield return new WaitForEndOfFrame(); // Wait for UI to initialize
 
             OnInventoryToggle?.Invoke(true);
-
-            RefreshInventoryUI();
+            Time.timeScale = 0f; // Pause game
+            
+            // Wait for scene to load before refreshing
+            SceneManager.sceneLoaded += OnInventorySceneLoaded;
         }
 
         // Public method to close inventory
@@ -200,7 +154,7 @@ namespace PlatformerGame.Inventory
             if (!isOpen) return;
             
             isOpen = false;
-            Debug.Log("Inventory closed");
+            if (debugMode) Debug.Log("Inventory closed");
 
             // Unload inventory scene
             if (inventorySceneLoaded && !string.IsNullOrEmpty(inventorySceneName))
@@ -241,7 +195,7 @@ namespace PlatformerGame.Inventory
             {
                 currentSelectedPosition = newPosition;
                 OnSelectionChanged?.Invoke(currentSelectedPosition);
-                Debug.Log($"Selected slot: {currentSelectedPosition}");
+                if (debugMode) Debug.Log($"Selected slot: {currentSelectedPosition}");
             }
         }
 
@@ -296,6 +250,7 @@ namespace PlatformerGame.Inventory
             {
                 inventorySceneLoaded = true;
                 SceneManager.sceneLoaded -= OnInventorySceneLoaded;
+                RefreshInventoryUI();
             }
         }
 
@@ -320,7 +275,7 @@ namespace PlatformerGame.Inventory
                 else
                 {
                     // Regular game interaction
-                    Debug.Log("Interact action performed");
+                    if (debugMode) Debug.Log("Interact action performed");
                 }
             }
         }

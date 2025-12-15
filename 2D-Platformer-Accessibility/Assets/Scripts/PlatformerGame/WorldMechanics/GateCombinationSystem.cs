@@ -20,9 +20,7 @@ namespace PlatformerGame.WorldMechanics
                 return;
             }
             
-                Instance = this;
-                // Keep the combination system alive across additive scene loads
-                DontDestroyOnLoad(gameObject);
+            Instance = this;
         }
         
         public void RegisterGate(CombinationGate gate)

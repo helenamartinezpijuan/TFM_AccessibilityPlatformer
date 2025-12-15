@@ -65,7 +65,7 @@ namespace PlatformerGame.Inventory
                 return;
             }
             
-            Debug.Log("InventoryUI: No inventory found. Will try to connect later.");
+            Debug.LogWarning("InventoryUI: No inventory found. Will try to connect later.");
             
             // Try again after a delay
             Invoke(nameof(FindAndConnectToInventory), 0.5f);

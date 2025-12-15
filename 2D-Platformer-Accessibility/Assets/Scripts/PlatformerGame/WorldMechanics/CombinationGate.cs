@@ -42,29 +42,8 @@ namespace PlatformerGame.WorldMechanics
             gateCollider = GetComponentInChildren<BoxCollider2D>();
             gateMarker = GetComponentInChildren<GateMarker>();
             
-            // Register this gate with the combination system. If there's no instance, try to find one
-            if (GateCombinationSystem.Instance != null)
-            {
-                GateCombinationSystem.Instance.RegisterGate(this);
-            }
-            else
-            {
-                GateCombinationSystem found = FindObjectOfType<GateCombinationSystem>();
-                if (found != null)
-                {
-                    // Awake should set Instance, but ensure registration
-                    found.RegisterGate(this);
-                    Debug.LogWarning($"CombinationGate '{gateId}': Found GateCombinationSystem in scene and registered.");
-                }
-                else
-                {
-                    // Create a new manager GameObject so system works at runtime
-                    GameObject sysGo = new GameObject("GateCombinationSystem");
-                    GateCombinationSystem newSys = sysGo.AddComponent<GateCombinationSystem>();
-                    newSys.RegisterGate(this);
-                    Debug.LogWarning($"CombinationGate '{gateId}': No GateCombinationSystem found. Created a new one at runtime.");
-                }
-            }
+            // Register this gate with the combination system
+            GateCombinationSystem.Instance.RegisterGate(this);
 
             // Hide all markers at the beginning of the level
             foreach (GateMarker marker in gateMarkers)
@@ -146,32 +125,6 @@ namespace PlatformerGame.WorldMechanics
             if (shouldOpen != isOpen)
             {
                 isOpen = shouldOpen;
-                ApplyGateState(isOpen);
-                Debug.Log($"CombinationGate '{gateId}' changed state to {(isOpen ? "OPEN" : "CLOSED")}");
-            }
-        }
-        
-        private void ApplyGateState(bool open)
-        {
-            // If we have a collider, disable it when open so the player can pass
-            if (gateCollider != null)
-            {
-                gateCollider.enabled = !open;
-            }
-
-            // Hide or show the visible gate sprite
-            if (spriteRenderer != null)
-            {
-                spriteRenderer.enabled = !open;
-            }
-
-            // Optionally hide markers when gate is open
-            if (gateMarker != null)
-            {
-                if (open)
-                    gateMarker.HideMarkers();
-                else
-                    gateMarker.ShowMarkers();
             }
         }
          
