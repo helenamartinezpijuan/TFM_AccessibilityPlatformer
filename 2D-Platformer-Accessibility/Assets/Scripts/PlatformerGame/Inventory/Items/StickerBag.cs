@@ -20,7 +20,7 @@ namespace PlatformerGame.Inventory.Items
 
         public bool IsEquipped => isEquipped;
         
-        public override void Use(PlayerInventory inventory)
+        public override void Use(Inventory inventory)
         {
             if (!isEquipped)
             {
@@ -90,7 +90,7 @@ namespace PlatformerGame.Inventory.Items
             return distance <= placementRadius;
         }
         
-        public override void OnRemoveFromInventory(PlayerInventory inventory)
+        public override void OnRemoveFromInventory(Inventory inventory)
         {
             if (isEquipped)
             {

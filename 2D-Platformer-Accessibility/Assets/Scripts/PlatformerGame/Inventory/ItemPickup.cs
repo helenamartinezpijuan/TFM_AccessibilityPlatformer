@@ -25,11 +25,11 @@ namespace PlatformerGame.Inventory
             
             if (playerInRange && Input.GetKeyDown(KeyCode.E))
             {
-                PickupItem(player.GetComponent<PlayerInventory>());
+                PickupItem(player.GetComponent<Inventory>());
             }
         }
         
-        private void PickupItem(PlayerInventory inventory)
+        private void PickupItem(Inventory inventory)
         {
             if (inventory != null && item != null)
             {

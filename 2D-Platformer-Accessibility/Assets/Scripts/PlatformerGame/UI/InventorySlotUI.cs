@@ -93,9 +93,9 @@ namespace PlatformerGame.Inventory
             Debug.Log($"Slot {slotIndex} clicked. Item: {(currentItem != null ? currentItem.itemName : "Empty")}");
             
             // You could add functionality to use/equip item when clicked
-            if (currentItem != null && PlayerInventory.Instance != null)
+            if (currentItem != null && Inventory.Instance != null)
             {
-                PlayerInventory.Instance.UseSelectedItem();
+                Inventory.Instance.UseSelectedItem();
             }
         }
     }

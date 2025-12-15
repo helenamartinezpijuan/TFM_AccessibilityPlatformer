@@ -10,7 +10,7 @@ namespace PlatformerGame.Inventory.Items
         private bool isEquipped = false;
         private List<GameObject> revealedClues = new List<GameObject>();
         
-        public override void Use(PlayerInventory inventory)
+        public override void Use(Inventory inventory)
         {
             if (!isEquipped)
             {
@@ -67,7 +67,7 @@ namespace PlatformerGame.Inventory.Items
             revealedClues.Clear();
         }
         
-        public override void OnRemoveFromInventory(PlayerInventory inventory)
+        public override void OnRemoveFromInventory(Inventory inventory)
         {
             if (isEquipped)
             {

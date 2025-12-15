@@ -8,13 +8,13 @@ namespace PlatformerGame.Inventory.Items
     {
         public string doorId;
 
-        public override void Use(PlayerInventory inventory)
+        public override void Use(Inventory inventory)
         {
             Debug.Log($"Used {itemName} to unlock door with ID: {doorId}");
             // Implement door unlocking logic here
         }
 
-        public override bool CanUse(PlayerInventory inventory)
+        public override bool CanUse(Inventory inventory)
         {
             // Implement logic to check if the key can be used (e.g., if the player is near a door with matching ID)
             return true; // Placeholder
