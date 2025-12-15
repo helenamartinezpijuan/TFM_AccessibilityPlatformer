@@ -105,10 +105,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 648
-        width: 54
+        width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -127,10 +127,10 @@ TextureImporter:
         serializedVersion: 2
         x: 54
         y: 648
-        width: 54
+        width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,10 +149,10 @@ TextureImporter:
         serializedVersion: 2
         x: 108
         y: 648
-        width: 54
+        width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,10 +171,10 @@ TextureImporter:
         serializedVersion: 2
         x: 162
         y: 648
-        width: 54
+        width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: SPRITE-world-items_12
       rect:
         serializedVersion: 2
-        x: 216
-        y: 648
+        x: 0
+        y: 630
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: SPRITE-world-items_13
       rect:
         serializedVersion: 2
-        x: 234
-        y: 648
+        x: 18
+        y: 630
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -235,12 +235,12 @@ TextureImporter:
       name: SPRITE-world-items_14
       rect:
         serializedVersion: 2
-        x: 252
-        y: 648
+        x: 36
+        y: 630
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -257,12 +257,12 @@ TextureImporter:
       name: SPRITE-world-items_15
       rect:
         serializedVersion: 2
-        x: 270
-        y: 648
+        x: 54
+        y: 630
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -279,12 +279,12 @@ TextureImporter:
       name: SPRITE-world-items_16
       rect:
         serializedVersion: 2
-        x: 0
+        x: 72
         y: 630
-        width: 54
+        width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -301,12 +301,12 @@ TextureImporter:
       name: SPRITE-world-items_19
       rect:
         serializedVersion: 2
-        x: 54
+        x: 126
         y: 630
-        width: 54
+        width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -323,12 +323,12 @@ TextureImporter:
       name: SPRITE-world-items_22
       rect:
         serializedVersion: 2
-        x: 108
+        x: 180
         y: 630
-        width: 54
+        width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -345,12 +345,12 @@ TextureImporter:
       name: SPRITE-world-items_25
       rect:
         serializedVersion: 2
-        x: 162
-        y: 630
-        width: 54
+        x: 18
+        y: 612
+        width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -367,12 +367,12 @@ TextureImporter:
       name: SPRITE-world-items_28
       rect:
         serializedVersion: 2
-        x: 216
-        y: 630
+        x: 72
+        y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -389,12 +389,12 @@ TextureImporter:
       name: SPRITE-world-items_29
       rect:
         serializedVersion: 2
-        x: 234
-        y: 630
+        x: 90
+        y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -411,12 +411,12 @@ TextureImporter:
       name: SPRITE-world-items_30
       rect:
         serializedVersion: 2
-        x: 252
-        y: 630
+        x: 108
+        y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -433,12 +433,12 @@ TextureImporter:
       name: SPRITE-world-items_31
       rect:
         serializedVersion: 2
-        x: 270
-        y: 630
+        x: 126
+        y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -455,12 +455,12 @@ TextureImporter:
       name: SPRITE-world-items_32
       rect:
         serializedVersion: 2
-        x: 0
-        y: 558
+        x: 144
+        y: 612
         width: 18
-        height: 72
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: SPRITE-world-items_33
       rect:
         serializedVersion: 2
-        x: 18
-        y: 576
+        x: 162
+        y: 612
         width: 18
-        height: 54
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -499,12 +499,12 @@ TextureImporter:
       name: SPRITE-world-items_34
       rect:
         serializedVersion: 2
-        x: 36
-        y: 594
+        x: 180
+        y: 612
         width: 18
-        height: 36
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -521,12 +521,12 @@ TextureImporter:
       name: SPRITE-world-items_35
       rect:
         serializedVersion: 2
-        x: 54
+        x: 198
         y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -543,12 +543,12 @@ TextureImporter:
       name: SPRITE-world-items_36
       rect:
         serializedVersion: 2
-        x: 72
-        y: 558
+        x: 216
+        y: 612
         width: 18
-        height: 72
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -565,12 +565,12 @@ TextureImporter:
       name: SPRITE-world-items_37
       rect:
         serializedVersion: 2
-        x: 90
-        y: 576
+        x: 234
+        y: 612
         width: 18
-        height: 54
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -587,12 +587,12 @@ TextureImporter:
       name: SPRITE-world-items_38
       rect:
         serializedVersion: 2
-        x: 108
-        y: 594
+        x: 252
+        y: 612
         width: 18
-        height: 36
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -609,12 +609,12 @@ TextureImporter:
       name: SPRITE-world-items_39
       rect:
         serializedVersion: 2
-        x: 126
+        x: 270
         y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -631,12 +631,12 @@ TextureImporter:
       name: SPRITE-world-items_40
       rect:
         serializedVersion: 2
-        x: 144
-        y: 558
+        x: 288
+        y: 612
         width: 18
-        height: 72
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -653,12 +653,12 @@ TextureImporter:
       name: SPRITE-world-items_41
       rect:
         serializedVersion: 2
-        x: 162
-        y: 576
+        x: 306
+        y: 612
         width: 18
-        height: 54
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -675,12 +675,12 @@ TextureImporter:
       name: SPRITE-world-items_42
       rect:
         serializedVersion: 2
-        x: 180
-        y: 594
+        x: 324
+        y: 612
         width: 18
-        height: 36
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -697,12 +697,12 @@ TextureImporter:
       name: SPRITE-world-items_43
       rect:
         serializedVersion: 2
-        x: 198
+        x: 342
         y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -719,12 +719,12 @@ TextureImporter:
       name: SPRITE-world-items_44
       rect:
         serializedVersion: 2
-        x: 216
+        x: 360
         y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -741,12 +741,12 @@ TextureImporter:
       name: SPRITE-world-items_45
       rect:
         serializedVersion: 2
-        x: 234
+        x: 378
         y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -763,12 +763,12 @@ TextureImporter:
       name: SPRITE-world-items_46
       rect:
         serializedVersion: 2
-        x: 252
+        x: 396
         y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -785,12 +785,12 @@ TextureImporter:
       name: SPRITE-world-items_47
       rect:
         serializedVersion: 2
-        x: 270
+        x: 414
         y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -807,12 +807,12 @@ TextureImporter:
       name: SPRITE-world-items_57
       rect:
         serializedVersion: 2
-        x: 216
-        y: 594
+        x: 594
+        y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -829,12 +829,12 @@ TextureImporter:
       name: SPRITE-world-items_58
       rect:
         serializedVersion: 2
-        x: 234
-        y: 594
+        x: 612
+        y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -851,12 +851,12 @@ TextureImporter:
       name: SPRITE-world-items_59
       rect:
         serializedVersion: 2
-        x: 252
-        y: 594
+        x: 630
+        y: 612
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -873,12 +873,12 @@ TextureImporter:
       name: SPRITE-world-items_60
       rect:
         serializedVersion: 2
-        x: 270
+        x: 0
         y: 594
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -895,12 +895,12 @@ TextureImporter:
       name: SPRITE-world-items_67
       rect:
         serializedVersion: 2
-        x: 216
-        y: 576
+        x: 162
+        y: 594
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -917,12 +917,12 @@ TextureImporter:
       name: SPRITE-world-items_68
       rect:
         serializedVersion: 2
-        x: 234
-        y: 576
+        x: 180
+        y: 594
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -939,12 +939,12 @@ TextureImporter:
       name: SPRITE-world-items_69
       rect:
         serializedVersion: 2
-        x: 252
-        y: 576
+        x: 216
+        y: 594
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -961,12 +961,12 @@ TextureImporter:
       name: SPRITE-world-items_70
       rect:
         serializedVersion: 2
-        x: 270
-        y: 576
+        x: 234
+        y: 594
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -975,6 +975,2074 @@ TextureImporter:
       bones: []
       spriteID: 50854323848d2d447958e25463346d90
       internalID: -1529257140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 648
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: badaf1ac2dd3cd948bf5bc521c4f4ede
+      internalID: 633470541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 648
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc645d06106b08f40ae440c540d8ffd8
+      internalID: 1731494841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_4
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 648
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090c09d5b40cfca4ebf8eb4edbb021cf
+      internalID: -11795708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_5
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 648
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e259877e001f25147973fc19686b6830
+      internalID: -593585996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_7
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 648
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445baa318f9e4c94a8eea2cbb2d8e55e
+      internalID: 728576985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_8
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 648
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 477341d22cffcac468270549d806c85b
+      internalID: -1188155734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_10
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 648
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d155d0c67b7f29409d8beb91a0304fe
+      internalID: 1504059636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_11
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 648
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9846323b75ef2418bfe244f389c305
+      internalID: -1557035996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_17
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 630
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d102aaab5e1faba419be762e88e02fa7
+      internalID: -496231854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_18
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 630
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f5bb2818a70a7841973fbf5fa4379ed
+      internalID: 149330054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_20
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 630
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f70de42c7a2d54c961b0cad127b57f
+      internalID: -1636436534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_21
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 630
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c023e5063e251548b23d6e08e6acce7
+      internalID: -1134207593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_23
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 630
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9cd23d0938df5e4285b6f16632b74d5
+      internalID: -241314678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38889808617a2e142963c1f1c2d77f8b
+      internalID: -1599180880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_26
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 242f41bd06679c94092e7273e157ce23
+      internalID: 709535805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_27
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac20aee1dd8030847b1da935c71edef1
+      internalID: -266544131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_48
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911bc3d698ddb934986d4c00ef968c39
+      internalID: 1005281072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_49
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d286055b3429a45aad9ca5a6740aa5
+      internalID: 484345992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_50
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ce3b07a369c31c48985586fac6ae25f
+      internalID: 2059004930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_51
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10e5a63ee58a1c040a478d29ab8326f8
+      internalID: -600858083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_52
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 716f7f767d2ec224fa55c6c91c4ec5dc
+      internalID: -392754465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_53
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 547aa67b5fabb584ca11ce81b7232f83
+      internalID: -1925647471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_54
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: debffafb2924a954899e41ec3a11f789
+      internalID: 552324835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_55
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0337b8332eb6204ab6085388acf8d5b
+      internalID: -1707089128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_56
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 612
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 264919123dcbf4b4cb5fb1c7f9d31714
+      internalID: 1410823231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_61
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31192ec720ee7094fb4d5d6ab9c7636c
+      internalID: 1320850956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_62
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 235b398096d055d49baeae5bde12b9d6
+      internalID: -1230072320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_63
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09c6b71d708a624fa428d27bf39b558
+      internalID: 1056608654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_64
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b738b37d6cc4c45aa1446f8bdaebe9
+      internalID: 1307017947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_65
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51efc79dc3b973d4098ea0bc97dac24c
+      internalID: -651245239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_66
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2655da59802984140bb4cb5eb524ebbf
+      internalID: 1795930634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_71
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 659637d3728354748a2c7f60650217cf
+      internalID: 1944253508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_72
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024748a525f4493438c6a31bced72ac6
+      internalID: -496841153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_73
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efa82e1c8b96bfc4884aef1817df3c14
+      internalID: 326253257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_74
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63778fc697bcf5e45a3a86ffa928d858
+      internalID: 901188796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_75
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06108042728a0174082287b9a0d3eda5
+      internalID: 622101973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_76
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a7a0a87f4366e4e9c819329e185bc1
+      internalID: 512820169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_77
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cdb6226f5704c64d846f6da59324e8d
+      internalID: -449974738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_78
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1cceeb5edd322e438e5a02e31ef3e53
+      internalID: -1908011355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_79
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03aa2a0fcdb49a4ba737839ed605af7
+      internalID: -1027473387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_80
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086d171aed146924389ba0782f693e1a
+      internalID: -2034307853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_81
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c7d419dade2a0459a2ff54055995fc
+      internalID: 948783593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_82
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4785a42591afc4c8a0eb4b59d17e4d
+      internalID: -1079024328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_83
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02703e0eec0a4d4ba722a80e2b6e1d5
+      internalID: -580568509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_84
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20d2c8345dbffce4f86353152c93ccb8
+      internalID: 858419934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_85
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a78c0dc9adfcda949a58651bf9d9dfb0
+      internalID: 1261678578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_86
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 594
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8cd7f85fc230a41a3829f5441ad593
+      internalID: 1070570637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_87
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff6ce7cb94b23e4696a2a5913cedddf
+      internalID: -898388788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_88
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80488a64299f06441ada78abf0d8694d
+      internalID: -1643408520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_89
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da54fef6482e3343a9643c0a6bd1da6
+      internalID: 1648546617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_90
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea2d84249be0de748ba23a2957a28909
+      internalID: 962315562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_91
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a7d3a7fbf538943a5a064dddb4d71e
+      internalID: 1798274465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_92
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8f3997cd196c3409cd98e8984cea3b
+      internalID: 1325767346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_93
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae1be9fea07e39541a2da179f3aa2fb2
+      internalID: 321714666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_94
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 347f712e1369bd04f85a34d177bc1d23
+      internalID: 1220044010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_95
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ee3780c171a5f4980fdb8e8af28112
+      internalID: -1774761929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_96
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b71497150317542479f7253bb4405e7a
+      internalID: -358566385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_97
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a412cf9afcd6aa041a446e0426c56e34
+      internalID: 1645836426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_98
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75cee7f937a7b0540971b7a8edaf7dd9
+      internalID: -786482986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_99
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6aa95d4a09f0eb4ab2bb8efe279bc25
+      internalID: 243937239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_100
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 071d6f37af27ad0419cbdca11bd2e320
+      internalID: -1219407098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_101
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76f6bcc21cd0f143b2484eeba1782b3
+      internalID: 1793104858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_102
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c415c7f2ea91244989c0a39c13ade8
+      internalID: 126820209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_103
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19663b68efdd1ca44975fb0902242d93
+      internalID: 1144421143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_104
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 576
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b11bca75d6e003449f32f7c9f9a84e2
+      internalID: -1655995283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3ddea8bfe437e408188723b2acf812
+      internalID: -1189867933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_106
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2af55b8f80ef334d86a52b08f7a6879
+      internalID: -1223097200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_107
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5920ad438aa8988438497fd5552e2f83
+      internalID: -1967660677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_108
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5747cad8ce4ca54aa7c29c404560f4e
+      internalID: -613105768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_109
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29405d9f7cb4dab40a525d97ed6e158a
+      internalID: -1261391989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_110
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0c4a5060cc7cf641b7091d78c6c8c83
+      internalID: -1533883225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_111
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b358dd89af2a271498d07861267984ba
+      internalID: -903230390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_112
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 040a26235dca68f49bd34a394a5c94b8
+      internalID: -1598240212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_113
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 558
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb21461461b1ef4cbb0a30dbdaa6fdd
+      internalID: 1582534566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_114
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181e95e6523bc4148b7edd95f918f77a
+      internalID: -1757446545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_115
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 540
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6d68a5c7ab76d94495119e76d0481bb
+      internalID: -1621692710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_116
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 540
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 973e435ce84f81647b52608f6fe66508
+      internalID: -1491998514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_117
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 540
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e117c216b082bc149997baa53efc7797
+      internalID: -1399624301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_118
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 540
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c200842b7f8df6e498332dfbb3c32ed5
+      internalID: 472826293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_119
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 540
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2c4f76986f0fde4d8c291eea2a68854
+      internalID: -923971276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_120
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 540
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ddd202ec568234a9b88a69cede9bd2
+      internalID: 1918183908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_121
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 540
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e978f485e0026d469c83f7f262e0531
+      internalID: -51428087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_122
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 522
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36626e74873666b4cb1e36e942facad6
+      internalID: 136349735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_123
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 522
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd79aabda84256745986feeb3e7590cd
+      internalID: -530495012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_124
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 522
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 197a294f6cb10534faa30a86764b61ff
+      internalID: 660033751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_125
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 522
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 256f2776164ec984d8e0ab24305a965d
+      internalID: -338963751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_126
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 522
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b6842499b7298d43b752ab20a58f58c
+      internalID: 740439987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_127
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 522
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa32f3a3fb7994418b5042986321788
+      internalID: 985843939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_128
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 522
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d407ea8a508f7c43b99ee9edbe64113
+      internalID: 485766095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_129
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 522
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76f5e60a45aceb499d6f38301b2bae8
+      internalID: -1493872804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 504
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098b062ba8668f742a448f53ffd95790
+      internalID: -52714993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_131
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 504
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288a03e31d1843d42b1e29f4456203b0
+      internalID: 1758367501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_132
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 504
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40ad3e0ce22e864ea4eaa7e8e242323
+      internalID: 545937326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPRITE-world-items_133
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 504
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a1ff46177444e34fb3c7d51f543360f
+      internalID: -1514526500
       vertices: []
       indices: 
       edges: []
@@ -996,9 +3064,43 @@ TextureImporter:
       SPRITE-world-items_0: -8615142098011573632
       SPRITE-world-items_1: 633470541
       SPRITE-world-items_10: 1504059636
+      SPRITE-world-items_100: -1219407098
+      SPRITE-world-items_101: 1793104858
+      SPRITE-world-items_102: 126820209
+      SPRITE-world-items_103: 1144421143
+      SPRITE-world-items_104: -1655995283
+      SPRITE-world-items_105: -1189867933
+      SPRITE-world-items_106: -1223097200
+      SPRITE-world-items_107: -1967660677
+      SPRITE-world-items_108: -613105768
+      SPRITE-world-items_109: -1261391989
       SPRITE-world-items_11: -1557035996
+      SPRITE-world-items_110: -1533883225
+      SPRITE-world-items_111: -903230390
+      SPRITE-world-items_112: -1598240212
+      SPRITE-world-items_113: 1582534566
+      SPRITE-world-items_114: -1757446545
+      SPRITE-world-items_115: -1621692710
+      SPRITE-world-items_116: -1491998514
+      SPRITE-world-items_117: -1399624301
+      SPRITE-world-items_118: 472826293
+      SPRITE-world-items_119: -923971276
       SPRITE-world-items_12: 2016474797
+      SPRITE-world-items_120: 1918183908
+      SPRITE-world-items_121: -51428087
+      SPRITE-world-items_122: 136349735
+      SPRITE-world-items_123: -530495012
+      SPRITE-world-items_124: 660033751
+      SPRITE-world-items_125: -338963751
+      SPRITE-world-items_126: 740439987
+      SPRITE-world-items_127: 985843939
+      SPRITE-world-items_128: 485766095
+      SPRITE-world-items_129: -1493872804
       SPRITE-world-items_13: 1939613636
+      SPRITE-world-items_130: -52714993
+      SPRITE-world-items_131: 1758367501
+      SPRITE-world-items_132: 545937326
+      SPRITE-world-items_133: -1514526500
       SPRITE-world-items_14: -1372170605
       SPRITE-world-items_15: 1942678977
       SPRITE-world-items_16: -1385087863
@@ -1065,8 +3167,34 @@ TextureImporter:
       SPRITE-world-items_71: 1944253508
       SPRITE-world-items_72: -496841153
       SPRITE-world-items_73: 326253257
+      SPRITE-world-items_74: 901188796
+      SPRITE-world-items_75: 622101973
+      SPRITE-world-items_76: 512820169
+      SPRITE-world-items_77: -449974738
+      SPRITE-world-items_78: -1908011355
+      SPRITE-world-items_79: -1027473387
       SPRITE-world-items_8: -1188155734
+      SPRITE-world-items_80: -2034307853
+      SPRITE-world-items_81: 948783593
+      SPRITE-world-items_82: -1079024328
+      SPRITE-world-items_83: -580568509
+      SPRITE-world-items_84: 858419934
+      SPRITE-world-items_85: 1261678578
+      SPRITE-world-items_86: 1070570637
+      SPRITE-world-items_87: -898388788
+      SPRITE-world-items_88: -1643408520
+      SPRITE-world-items_89: 1648546617
       SPRITE-world-items_9: 103303993
+      SPRITE-world-items_90: 962315562
+      SPRITE-world-items_91: 1798274465
+      SPRITE-world-items_92: 1325767346
+      SPRITE-world-items_93: 321714666
+      SPRITE-world-items_94: 1220044010
+      SPRITE-world-items_95: -1774761929
+      SPRITE-world-items_96: -358566385
+      SPRITE-world-items_97: 1645836426
+      SPRITE-world-items_98: -786482986
+      SPRITE-world-items_99: 243937239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
