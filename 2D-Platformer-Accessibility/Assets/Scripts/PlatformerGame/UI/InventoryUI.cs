@@ -19,7 +19,7 @@ namespace PlatformerGame.Inventory
         [SerializeField] private Color selectedSlotColor = Color.yellow;
         [SerializeField] private Color emptySlotColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
         
-        private PlayerInventory playerInventory;
+        private Inventory playerInventory;
         private List<InventorySlotUI> slotUIs = new List<InventorySlotUI>();
         private int currentSelectedIndex = -1;
         
@@ -38,7 +38,7 @@ namespace PlatformerGame.Inventory
             InitializeUI();
         }
         
-        public void Initialize(PlayerInventory inventory)
+        public void Initialize(Inventory inventory)
         {
             if (inventory == null)
             {
@@ -59,9 +59,29 @@ namespace PlatformerGame.Inventory
         private void FindAndConnectToInventory()
         {
             // Method 1: Use singleton instance
-            if (PlayerInventory.Instance != null)
+            if (Inventory.Instance != null)
             {
-                Initialize(PlayerInventory.Instance);
+                Initialize(Inventory.Instance);
+                return;
+            }
+            
+            // Method 2: Find in scene
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                Inventory inventory = player.GetComponent<Inventory>();
+                if (inventory != null)
+                {
+                    Initialize(inventory);
+                    return;
+                }
+            }
+            
+            // Method 3: Find any inventory in scene
+            Inventory[] allInventories = FindObjectsOfType<Inventory>();
+            if (allInventories.Length > 0)
+            {
+                Initialize(allInventories[0]);
                 return;
             }
             

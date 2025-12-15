@@ -1,36 +1,39 @@
-using System;
 using UnityEngine;
 using System.Collections.Generic;
+using PlatformerGame.WorldMechanics;
 
 namespace PlatformerGame.Inventory.Items.AccessibleItems
 {
     public class GateMarker : MonoBehaviour
-    {        
+    {
         [Header("Marker Settings")]
-        [SerializeField] private List<GameObject> leverMarkers = new List<GameObject>();
-                
-        private void Awake()
-        {
-            // Hide all markers initially
-            HideMarkers();
-        }
+        [SerializeField] private LeverType requiredLever;
+        [SerializeField] private GameObject markerPrefab;
+        [SerializeField] private Vector2 markerOffset = new Vector2(0, 1f);
         
-        public void ShowMarkers()
+        private GameObject currentMarker;
+        private bool isVisible = false;
+        public LeverType GetRequiredLever() => requiredLever;
+        
+        public void ShowMarker()
         {
-            foreach (var marker in leverMarkers)
+            if (markerPrefab != null && !isVisible)
             {
-                marker.SetActive(true);
-                Debug.Log($"Showing markers for: {this.name}");
+                Vector3 spawnPosition = transform.position + (Vector3)markerOffset;
+                currentMarker = Instantiate(markerPrefab, spawnPosition, Quaternion.identity);
+                currentMarker.transform.SetParent(transform);
+                isVisible = true;
             }
         }
         
-        public void HideMarkers()
+        public void HideMarker()
         {
-            foreach (var marker in leverMarkers)
+            if (currentMarker != null)
             {
-                marker.SetActive(false);
-                Debug.Log($"Hiding markers for: {this.name}");
+                Destroy(currentMarker);
+                currentMarker = null;
             }
+            isVisible = false;
         }
     }
 }

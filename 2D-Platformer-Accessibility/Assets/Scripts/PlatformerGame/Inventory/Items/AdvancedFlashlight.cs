@@ -28,7 +28,7 @@ namespace PlatformerGame.Inventory.Items
         private List<GameObject> revealedWalls = new List<GameObject>();
         public bool IsEquipped => isEquipped;
         
-        public override void Use(PlayerInventory inventory)
+        public override void Use(Inventory inventory)
         {
             if (!isEquipped)
             {
@@ -72,7 +72,7 @@ namespace PlatformerGame.Inventory.Items
         
         private bool CheckForSunglasses(Transform player)
         {
-            PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+            Inventory inventory = player.GetComponent<Inventory>();
             if (inventory != null)
             {
                 foreach (Item item in inventory.Items)
@@ -196,7 +196,7 @@ namespace PlatformerGame.Inventory.Items
         {
             if (playerTransform == null) return;
             
-            PlayerInventory inventory = playerTransform.GetComponent<PlayerInventory>();
+            Inventory inventory = playerTransform.GetComponent<Inventory>();
             if (inventory != null)
             {
                 foreach (Item item in inventory.Items)
@@ -253,7 +253,7 @@ namespace PlatformerGame.Inventory.Items
             Debug.Log("Flashlight unequipped");
         }
         
-        public override void OnRemoveFromInventory(PlayerInventory inventory)
+        public override void OnRemoveFromInventory(Inventory inventory)
         {
             if (isEquipped)
             {

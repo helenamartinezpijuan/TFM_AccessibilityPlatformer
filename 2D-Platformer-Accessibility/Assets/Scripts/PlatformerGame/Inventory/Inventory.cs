@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace PlatformerGame.Inventory
 {
-    public class PlayerInventory : MonoBehaviour
+    public class Inventory : MonoBehaviour
     {
         [Header("Inventory Settings")]
         [SerializeField] private string inventorySceneName = "InventoryUI";
@@ -18,7 +18,7 @@ namespace PlatformerGame.Inventory
         private bool inventorySceneLoaded = false;
         
         // Static reference for easy access
-        public static PlayerInventory Instance { get; private set; }
+        public static Inventory Instance { get; private set; }
 
         // Events
         public System.Action<Item> OnItemAdded;
