@@ -7,95 +7,50 @@ namespace PlatformerGame.Inventory.Items
     [CreateAssetMenu(fileName = "StickerBag", menuName = "PlatformerGame/Inventory/Items/StickerBag")]
     public class StickerBag : Item
     {
-        [Header("Sticker Settings")]
-        public List<GameObject> stickerPrefabs; // Index 0 = Marker1, 1 = Marker2, etc.
-        public float placementRadius = 2f;
+        [Header("Sticker Management")]
+        [SerializeField] private List<Sticker> collectedStickers = new List<Sticker>();
+        [SerializeField] private int maxStickers = 8;
         
-        [Header("Visuals")]
-        public GameObject bagVisualPrefab;
+        [Header("Visual Feedback")]
+        [SerializeField] private GameObject collectionEffectPrefab;
         
-        private GameObject currentBagVisual;
-        private bool isEquipped = false;
-        private Transform playerTransform;
-
-        public bool IsEquipped => isEquipped;
-        
-        public override void Use(Inventory inventory)
+        public override void Use(PlayerInventory inventory)
         {
-            if (!isEquipped)
-            {
-                EquipStickerBag(inventory.transform);
-            }
-            else
-            {
-                UnequipStickerBag();
-            }
+            // Sticker bag doesn't need to be equipped/unequipped
+            Debug.Log($"Sticker Bag: {collectedStickers.Count}/{maxStickers} stickers collected");
         }
         
-        private void EquipStickerBag(Transform player)
+        public void AddSticker(Sticker sticker)
         {
-            playerTransform = player;
-            isEquipped = true;
-            
-            // Show bag on player
-            if (bagVisualPrefab != null)
+            if (collectedStickers.Count >= maxStickers)
             {
-                currentBagVisual = Instantiate(bagVisualPrefab, player.position, Quaternion.identity, player);
+                Debug.LogWarning("Sticker bag is full!");
+                return;
             }
             
-            Debug.Log("Sticker Bag equipped - Press E near levers to mark them");
+            collectedStickers.Add(sticker);
+            
+            // Show collection effect
+            if (collectionEffectPrefab != null)
+            {
+                Instantiate(collectionEffectPrefab, sticker.transform.position, Quaternion.identity);
+            }
+            
+            Debug.Log($"Added sticker {sticker.GetLeverType()} to bag. Total: {collectedStickers.Count}/{maxStickers}");
         }
         
-        private void UnequipStickerBag()
+        public bool HasSticker(LeverType leverType)
         {
-            isEquipped = false;
-            
-            if (currentBagVisual != null)
+            foreach (Sticker sticker in collectedStickers)
             {
-                Destroy(currentBagVisual);
-                currentBagVisual = null;
+                if (sticker.GetLeverType() == leverType)
+                    return true;
             }
-            
-            playerTransform = null;
-            Debug.Log("Sticker Bag unequipped");
-        }
-        
-        // This should be called from player's interaction system
-        public bool TryPlaceStickerOnLever(CombinationLever lever)
-        {
-            if (!isEquipped || stickerPrefabs.Count == 0) return false;
-            
-            // Get lever type index (A=0, B=1, C=2, etc.)
-            int leverIndex = (int)lever.GetLeverType();
-            
-            if (leverIndex < stickerPrefabs.Count && stickerPrefabs[leverIndex] != null)
-            {
-                // Place sticker above lever
-                Vector3 stickerPosition = lever.transform.position + new Vector3(0, 1f, 0);
-                GameObject sticker = Instantiate(stickerPrefabs[leverIndex], stickerPosition, Quaternion.identity);
-                sticker.transform.SetParent(lever.transform);
-                
-                Debug.Log($"Placed sticker on Lever {lever.GetLeverType()}");
-                return true;
-            }
-            
             return false;
         }
         
-        public bool IsInRange(Transform leverTransform)
-        {
-            if (!isEquipped || playerTransform == null) return false;
-            
-            float distance = Vector2.Distance(playerTransform.position, leverTransform.position);
-            return distance <= placementRadius;
-        }
-        
-        public override void OnRemoveFromInventory(Inventory inventory)
-        {
-            if (isEquipped)
-            {
-                UnequipStickerBag();
-            }
-        }
+        public List<Sticker> GetStickers() => new List<Sticker>(collectedStickers);
+        public int GetStickerCount() => collectedStickers.Count;
+        public int GetMaxStickers() => maxStickers;
     }
 }

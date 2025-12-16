@@ -1,147 +1,162 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.Tilemaps;
 using System.Collections.Generic;
-using PlatformerGame.WorldMechanics;
+using PlatformerGame.Inventory.Items.AccessibleItems;
 
 namespace PlatformerGame.Inventory.Items
 {
     [CreateAssetMenu(fileName = "Flashlight", menuName = "PlatformerGame/Inventory/Items/Flashlight")]
     public class Flashlight : Item
     {
-        [Header("Flashlight Settings")]
-        public float revealRadius = 2f;
-        public LayerMask clueLayers;       
+        [Header("Phase 1: Marker Reveal")]
+        [SerializeField] private float revealRadius = 5f;
+        
+        [Header("Phase 2: Wall Reveal (After Sunglasses)")]
+        [SerializeField] private Tilemap hiddenWallTilemap;
+        [SerializeField] private Tile replacementTile;
+        [SerializeField] private int wallRevealRadius = 2; // 2 tiles radius
+        
         private bool isEquipped = false;
+        private bool hasSunglasses = false;
         private Transform playerTransform;
-        private List<GameObject> revealedClues = new List<GameObject>();
-        public bool IsEquipped => isEquipped;
-
-        public override void Use(Inventory inventory)
+        private HashSet<Vector3Int> revealedTiles = new HashSet<Vector3Int>();
+        
+        public override void Use(PlayerInventory inventory)
         {
-            if (!isEquipped)
-            {
-                EquipFlashlight(inventory.transform);
-            }
-            else
-            {
-                UnequipFlashlight();
-            }
+            // Flashlight auto-equips on pickup, this is just for compatibility
         }
-
-        private void EquipFlashlight(Transform player)
+        
+        public void OnObtained(Transform player)
         {
             playerTransform = player;
             isEquipped = true;
-            Debug.Log("Flashlight equipped");
             
-            // Start checking for clues periodically
-            // An object reference is required for the non-static property 'MonoBehaviour.StartCoroutine(IEnumerator)'
-            MonoBehaviour playerMonoBehaviour = player.GetComponent<MonoBehaviour>();
-            if (playerMonoBehaviour != null)
-            {
-                playerMonoBehaviour.StartCoroutine(CheckForCluesRoutine());
-            }
+            // Check if sunglasses are already in inventory
+            CheckForSunglasses();
+            
+            Debug.Log("Flashlight obtained - auto-equipped");
         }
-
-        private IEnumerator CheckForCluesRoutine()
-        {
-            while (isEquipped)
-            {
-                CheckForNearbyClues();
-                yield return new WaitForSeconds(0.1f); // Check 10 times per second
-            }
-        }
-
-        private void CheckForNearbyClues()
+        
+        private void CheckForSunglasses()
         {
             if (playerTransform == null) return;
             
-            // Clear old clues outside radius
-            ClearDistantClues();
-            
-            // Find all clue revealers within radius
-            ClueRevealer[] allClueRevealers = FindObjectsByType<ClueRevealer>(FindObjectsSortMode.None);
-            
-            foreach (ClueRevealer clueRevealer in allClueRevealers)
+            PlayerInventory inventory = playerTransform.GetComponent<PlayerInventory>();
+            if (inventory != null)
             {
-                if (clueRevealer == null) continue;
+                foreach (Item item in inventory.Items)
+                {
+                    if (item is Sunglasses)
+                    {
+                        hasSunglasses = true;
+                        Debug.Log("Flashlight upgraded: Player has sunglasses");
+                        return;
+                    }
+                }
+            }
+            hasSunglasses = false;
+        }
+        
+        public void OnSunglassesObtained()
+        {
+            hasSunglasses = true;
+            Debug.Log("Flashlight upgraded by sunglasses");
+        }
+        
+        // Called from player's Update loop
+        public void UpdateFlashlight()
+        {
+            if (!isEquipped || playerTransform == null) return;
+            
+            if (hasSunglasses)
+            {
+                // Phase 2: Reveal hidden walls and all markers
+                RevealAllMarkers();
+                RevealHiddenWalls();
+            }
+            else
+            {
+                // Phase 1: Reveal markers within radius
+                RevealMarkersInRadius();
+            }
+        }
+        
+        private void RevealMarkersInRadius()
+        {
+            // Find all gate markers
+            GateMarker[] allMarkers = FindObjectsByType<GateMarker>(FindObjectsSortMode.None);
+            
+            foreach (GateMarker marker in allMarkers)
+            {
+                if (marker == null) continue;
                 
-                float distance = Vector2.Distance(playerTransform.position, clueRevealer.transform.position);
-                
+                float distance = Vector2.Distance(playerTransform.position, marker.transform.position);
                 if (distance <= revealRadius)
                 {
-                    // Check if this clue is already revealed
-                    if (!clueRevealer.IsRevealed)
-                    {
-                        clueRevealer.RevealClue();
-                        revealedClues.Add(clueRevealer.gameObject);
-                    }
+                    marker.ShowMarker();
                 }
-                else if (distance > revealRadius && !clueRevealer.revealOnlyWithSunglasses)
+                else
                 {
-                    // Hide clues that are outside radius (unless they require sunglasses)
-                    clueRevealer.HideClue();
-                    revealedClues.Remove(clueRevealer.gameObject);
+                    marker.HideMarker();
                 }
             }
         }
-
-        private void ClearDistantClues()
+        
+        private void RevealAllMarkers()
         {
-            for (int i = revealedClues.Count - 1; i >= 0; i--)
+            // Show all markers in the scene
+            GateMarker[] allMarkers = FindObjectsByType<GateMarker>(FindObjectsSortMode.None);
+            foreach (GateMarker marker in allMarkers)
             {
-                if (revealedClues[i] == null)
-                {
-                    revealedClues.RemoveAt(i);
-                    continue;
-                }
-                
-                ClueRevealer clue = revealedClues[i].GetComponent<ClueRevealer>();
-                if (clue == null || !clue.revealOnlyWithSunglasses)
-                {
-                    float distance = Vector2.Distance(playerTransform.position, revealedClues[i].transform.position);
-                    if (distance > revealRadius)
-                    {
-                        clue.HideClue();
-                        revealedClues.RemoveAt(i);
-                    }
-                }
+                if (marker != null) marker.ShowMarker();
             }
         }
-
-        private void UnequipFlashlight()
+        
+        private void RevealHiddenWalls()
         {
-            isEquipped = false;
-            playerTransform = null;
+            if (hiddenWallTilemap == null) return;
             
-            // Hide all revealed clues
-            foreach (GameObject clueObject in revealedClues)
+            // Get player's tile position
+            Vector3Int playerTilePos = hiddenWallTilemap.WorldToCell(playerTransform.position);
+            
+            // Check tiles around player
+            for (int x = -wallRevealRadius; x <= wallRevealRadius; x++)
             {
-                if (clueObject != null)
+                for (int y = -wallRevealRadius; y <= wallRevealRadius; y++)
                 {
-                    ClueRevealer clue = clueObject.GetComponent<ClueRevealer>();
-                    if (clue != null && !clue.revealOnlyWithSunglasses)
+                    Vector3Int tilePos = new Vector3Int(playerTilePos.x + x, playerTilePos.y + y, 0);
+                    
+                    // Skip if already revealed
+                    if (revealedTiles.Contains(tilePos)) continue;
+                    
+                    // Check if tile exists and has "reveal" tag
+                    TileBase tile = hiddenWallTilemap.GetTile(tilePos);
+                    if (tile != null)
                     {
-                        clue.HideClue();
+                        // Check tile name or use a custom tile with tag property
+                        if (tile.name.Contains("reveal"))
+                        {
+                            RevealTile(tilePos);
+                        }
                     }
                 }
             }
+        }
+        private void RevealTile(Vector3Int tilePos)
+        {
+            if (hiddenWallTilemap == null || replacementTile == null) return;
             
-            revealedClues.Clear();
-            Debug.Log("Flashlight unequipped");
+            // Replace the hidden tile with the revealed tile
+            hiddenWallTilemap.SetTile(tilePos, replacementTile);
+            revealedTiles.Add(tilePos);
+            
+            Debug.Log($"Revealed hidden wall at {tilePos}");
         }
-
-        public override bool CanUse(Inventory inventory)
+        
+        public override void OnAddToInventory(PlayerInventory inventory)
         {
-            return true;
-        }
-
-        public override void OnRemoveFromInventory(Inventory inventory)
-        {
-            if (isEquipped)
-            {
-                UnequipFlashlight();
-            }
+            // Auto-equip when added to inventory
+            OnObtained(inventory.transform);
         }
     }
 }

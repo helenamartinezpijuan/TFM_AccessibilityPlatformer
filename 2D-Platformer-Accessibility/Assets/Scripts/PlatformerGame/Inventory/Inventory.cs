@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 namespace PlatformerGame.Inventory
 {
-    public class Inventory : MonoBehaviour
+    public class PlayerInventory : MonoBehaviour
     {
         [Header("Inventory Settings")]
         [SerializeField] private string inventorySceneName = "InventoryUI";
         [SerializeField] private int inventorySize = 8;
-        [SerializeField] private bool debugMode = true;
+        [SerializeField] private bool debugMode = false;
 
         private int currentSelectedPosition = 0;
         private List<Item> items = new List<Item>();
@@ -19,7 +19,7 @@ namespace PlatformerGame.Inventory
         private bool inventorySceneLoaded = false;
         
         // Static reference for easy access
-        public static Inventory Instance { get; private set; }
+        public static PlayerInventory Instance { get; private set; }
 
         // Events
         public Action<Item> OnItemAdded;

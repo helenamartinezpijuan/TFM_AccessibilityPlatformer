@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 using PlatformerGame.WorldMechanics;
 
 namespace PlatformerGame.Inventory.Items.AccessibleItems
@@ -9,12 +8,36 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
         [SerializeField] private SpriteRenderer markerSprite;
+        [SerializeField] private string flashlightTag = "FlashlightBeam";
         
         public LeverType GetRequiredLever() => requiredLever;
         
+        private void Start()
+        {
+            // Start hidden
+            if (markerSprite != null)
+                markerSprite.enabled = false;
+        }
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag(flashlightTag))
+            {
+                ShowMarker();
+            }
+        }
+        
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag(flashlightTag))
+            {
+                HideMarker();
+            }
+        }
+        
         public void ShowMarker()
         {
-            if (markerSprite != null)
+            if (markerSprite != null && !markerSprite.enabled)
             {
                 markerSprite.enabled = true;
             }
@@ -22,21 +45,9 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         
         public void HideMarker()
         {
-            if (markerSprite != null)
+            if (markerSprite != null && markerSprite.enabled)
             {
                 markerSprite.enabled = false;
-            }
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Flashlight"))
-            {
-                Flashlight flashlight = other.GetComponent<Flashlight>();
-                if (flashlight != null)
-                {
-                    ShowMarker();
-                }
             }
         }
     }

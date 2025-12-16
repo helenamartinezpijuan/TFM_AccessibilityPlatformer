@@ -19,7 +19,7 @@ namespace PlatformerGame.Inventory
         [SerializeField] private Color selectedSlotColor = Color.yellow;
         [SerializeField] private Color emptySlotColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
         
-        private Inventory playerInventory;
+        private PlayerInventory playerInventory;
         private List<InventorySlotUI> slotUIs = new List<InventorySlotUI>();
         private int currentSelectedIndex = -1;
         
@@ -38,7 +38,7 @@ namespace PlatformerGame.Inventory
             InitializeUI();
         }
         
-        public void Initialize(Inventory inventory)
+        public void Initialize(PlayerInventory inventory)
         {
             if (inventory == null)
             {
@@ -59,9 +59,9 @@ namespace PlatformerGame.Inventory
         private void FindAndConnectToInventory()
         {
             // Method 1: Use singleton instance
-            if (Inventory.Instance != null)
+            if (PlayerInventory.Instance != null)
             {
-                Initialize(Inventory.Instance);
+                Initialize(PlayerInventory.Instance);
                 return;
             }
             
@@ -69,7 +69,7 @@ namespace PlatformerGame.Inventory
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                Inventory inventory = player.GetComponent<Inventory>();
+                PlayerInventory inventory = player.GetComponent<PlayerInventory>();
                 if (inventory != null)
                 {
                     Initialize(inventory);
@@ -78,7 +78,7 @@ namespace PlatformerGame.Inventory
             }
             
             // Method 3: Find any inventory in scene
-            Inventory[] allInventories = FindObjectsByType<Inventory>(FindObjectsSortMode.None);
+            PlayerInventory[] allInventories = FindObjectsByType<PlayerInventory>(FindObjectsSortMode.None);
             if (allInventories.Length > 0)
             {
                 Initialize(allInventories[0]);

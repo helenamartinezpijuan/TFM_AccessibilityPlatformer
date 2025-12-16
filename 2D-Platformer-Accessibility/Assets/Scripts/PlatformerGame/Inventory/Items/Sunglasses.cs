@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
-using PlatformerGame.WorldMechanics;
 
 namespace PlatformerGame.Inventory.Items
 {
@@ -8,71 +6,46 @@ namespace PlatformerGame.Inventory.Items
     public class Sunglasses : Item
     {
         private bool isEquipped = false;
-        private List<GameObject> revealedClues = new List<GameObject>();
         
-        public override void Use(Inventory inventory)
+        public override void Use(PlayerInventory inventory)
         {
-            if (!isEquipped)
-            {
-                EquipSunglasses();
-            }
-            else
-            {
-                UnequipSunglasses();
-            }
+            // Sunglasses auto-equip on pickup
         }
         
-        private void EquipSunglasses()
+        public void OnObtained()
         {
             isEquipped = true;
-            RevealAllClues();
-            Debug.Log("Sunglasses equipped - revealing all clues");
-        }
-        
-        private void UnequipSunglasses()
-        {
-            isEquipped = false;
-            HideAllClues();
-            Debug.Log("Sunglasses unequipped");
-        }
-        
-        private void RevealAllClues()
-        {
-            // Find all clue revealers in the scene
-            ClueRevealer[] allClueRevealers = FindObjectsByType<ClueRevealer>(FindObjectsSortMode.None);
             
-            foreach (ClueRevealer clueRevealer in allClueRevealers)
+            // Find flashlight and upgrade it
+            Flashlight flashlight = FindFlashlightInInventory();
+            if (flashlight != null)
             {
-                if (clueRevealer != null)
-                {
-                    clueRevealer.RevealClue();
-                    revealedClues.Add(clueRevealer.gameObject);
-                }
+                flashlight.OnSunglassesObtained();
             }
+            
+            Debug.Log("Sunglasses obtained - auto-equipped");
         }
         
-        private void HideAllClues()
+        private Flashlight FindFlashlightInInventory()
         {
-            foreach (GameObject clueObject in revealedClues)
+            PlayerInventory inventory = FindObjectOfType<PlayerInventory>();
+            if (inventory != null)
             {
-                if (clueObject != null)
+                foreach (Item item in inventory.Items)
                 {
-                    ClueRevealer clue = clueObject.GetComponent<ClueRevealer>();
-                    if (clue != null && clue.revealOnlyWithSunglasses)
+                    if (item is Flashlight flashlight)
                     {
-                        clue.HideClue();
+                        return flashlight;
                     }
                 }
             }
-            revealedClues.Clear();
+            return null;
         }
         
-        public override void OnRemoveFromInventory(Inventory inventory)
+        public override void OnAddToInventory(PlayerInventory inventory)
         {
-            if (isEquipped)
-            {
-                UnequipSunglasses();
-            }
+            // Auto-equip when added to inventory
+            OnObtained();
         }
         
         public bool IsEquipped => isEquipped;
