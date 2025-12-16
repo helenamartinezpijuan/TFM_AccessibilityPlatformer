@@ -14,6 +14,7 @@ public class Spikes : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(1);
+                Debug.Log("Spikes damaged player.");
             }
         }
     }
