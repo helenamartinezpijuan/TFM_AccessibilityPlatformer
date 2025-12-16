@@ -13,7 +13,7 @@ public class Spikes : MonoBehaviour
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(30);
+                playerHealth.TakeDamage(1);
             }
         }
     }
