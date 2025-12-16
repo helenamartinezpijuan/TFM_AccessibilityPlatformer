@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5454888430892018719}
   m_Layer: 0
   m_Name: FlashLightItem
-  m_TagString: Untagged
+  m_TagString: Flashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,13 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 501f311635e463e418117df97563fb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: d4b0464ce64def54dbb631db62f80e06, type: 2}
+  item: {fileID: 11400000, guid: 26c6e07ff670cfd40a18475a85db822d, type: 2}
   pickupRadius: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
-  interactionPrompt: {fileID: 0}
-  promptText: {fileID: 0}
 --- !u!1 &6927757367419286055
 GameObject:
   m_ObjectHideFlags: 0

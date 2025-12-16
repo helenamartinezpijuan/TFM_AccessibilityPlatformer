@@ -13,16 +13,12 @@ MonoBehaviour:
   m_Name: Flashlight
   m_EditorClassIdentifier: 
   itemName: Flashlight
-  description: This flashlight will let you see sound
+  description: This flashlight will let you "see" colors
   icon: {fileID: 1801263428120863714, guid: 93eadc4dcb030f443b13385345c4420c, type: 3}
   maxStackSize: 1
   isConsumable: 0
   inventoryPosition: 0
-  flashlightPrefab: {fileID: 2094137301982799979, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
-  interactableLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  rayDistance: 3
-  defaultSprite: {fileID: 0}
-  revealedSprite: {fileID: 0}
-  revealParticleEffect: {fileID: 0}
+  revealRadius: 5
+  hiddenWallTilemap: {fileID: 0}
+  replacementTile: {fileID: 0}
+  wallRevealRadius: 2

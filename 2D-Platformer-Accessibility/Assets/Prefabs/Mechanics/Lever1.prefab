@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leverType: 0
   isOne: 0
-  accessibleVisualsPrefab: {fileID: 254732318485287837, guid: c59b66c1b24c402488285affe19703b1, type: 3}
+  accessibleVisualsPrefab: {fileID: 1831070307611666563}
   clueRadius: 2
   linkedEnemy: {fileID: 0}
   resetOnPlayerDeath: 1
