@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
@@ -21,10 +22,10 @@ namespace PlatformerGame.Inventory
         public static Inventory Instance { get; private set; }
 
         // Events
-        public System.Action<Item> OnItemAdded;
-        public System.Action<Item> OnItemRemoved;
-        public System.Action<bool> OnInventoryToggle;
-        public System.Action<int> OnSelectionChanged;
+        public Action<Item> OnItemAdded;
+        public Action<Item> OnItemRemoved;
+        public Action<bool> OnInventoryToggle;
+        public Action<int> OnSelectionChanged;
 
         // Properties
         public bool IsOpen => isOpen;

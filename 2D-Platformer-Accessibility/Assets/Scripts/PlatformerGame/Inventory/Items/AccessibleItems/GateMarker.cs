@@ -10,15 +10,13 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         [SerializeField] private LeverType requiredLever;
         [SerializeField] private SpriteRenderer markerSprite;
         
-        private bool isVisible = false;
         public LeverType GetRequiredLever() => requiredLever;
         
         public void ShowMarker()
         {
-            if (markerSprite != null && !isVisible)
+            if (markerSprite != null)
             {
                 markerSprite.enabled = true;
-                isVisible = true;
             }
         }
         
@@ -28,7 +26,18 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             {
                 markerSprite.enabled = false;
             }
-            isVisible = false;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.CompareTag("Flashlight"))
+            {
+                Flashlight flashlight = other.GetComponent<Flashlight>();
+                if (flashlight != null)
+                {
+                    ShowMarker();
+                }
+            }
         }
     }
 }

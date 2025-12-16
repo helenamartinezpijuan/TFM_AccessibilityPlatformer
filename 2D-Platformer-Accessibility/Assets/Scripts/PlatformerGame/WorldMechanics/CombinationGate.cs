@@ -66,8 +66,6 @@ namespace PlatformerGame.WorldMechanics
                 isOpen = shouldOpen;
                 UpdateGateState();
             }
-
-            UpdateGateMarkers(activeLeverTypes);
         }
         
         private void UpdateGateState()
@@ -81,22 +79,6 @@ namespace PlatformerGame.WorldMechanics
             
             Debug.Log($"Gate {gateId} is now {(isOpen ? "OPEN" : "CLOSED")}");
         }
-
-        public void UpdateGateMarkers(HashSet<LeverType> activeLevers)
-        {
-            foreach (GateMarker marker in gateMarkers)
-            {
-                if (activeLevers.Contains(marker.GetRequiredLever()))
-                {
-                    marker.ShowMarker();
-                    Debug.Log("Showing marker");
-                }
-                else
-                {
-                    marker.HideMarker();
-                }
-            }
-        }
         
         public void TryShowAccessibleVisuals()
         {
@@ -106,6 +88,8 @@ namespace PlatformerGame.WorldMechanics
             
             bool hasFlashlight = HasItemInInventory(player, "Flashlight");
             bool hasSunglasses = HasItemInInventory(player, "Sunglasses");
+
+            Debug.Log("Player has flashlight: " + hasFlashlight + ", has sunglasses: " + hasSunglasses);
             
             if (!hasFlashlight && !hasSunglasses) return;
             
@@ -113,15 +97,28 @@ namespace PlatformerGame.WorldMechanics
             if (hasFlashlight)
             {
                 float distance = Vector2.Distance(transform.position, player.transform.position);
-                if (distance > clueRadius)
+                if (distance <= clueRadius)
                 {
-                    // Hide visuals
+                    foreach (GateMarker gateMarker in gateMarkers)
+                    {
+                        gateMarker.ShowMarker();
+                    }
+                }
+                else
+                {
+                    foreach (GateMarker gateMarker in gateMarkers)
+                    {
+                        gateMarker.HideMarker();
+                    }
                     return;
                 }
             }
             
             // Sunglasses shows clue regardless of distance, flashlight only within radius
-            //Show visuals always
+            foreach (GateMarker gateMarker in gateMarkers)
+            {
+                gateMarker.ShowMarker();
+            }
         }
         
         private bool HasItemInInventory(GameObject player, string itemTag)
