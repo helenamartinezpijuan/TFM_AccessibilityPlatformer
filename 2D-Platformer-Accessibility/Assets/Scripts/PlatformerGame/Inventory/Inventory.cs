@@ -222,7 +222,7 @@ namespace PlatformerGame.Inventory
         // Connect to existing InventoryUI in scene
         private void ConnectToInventoryUI()
         {
-            InventoryUI[] allUI = FindObjectsOfType<InventoryUI>(true);
+            InventoryUI[] allUI = FindObjectsByType<InventoryUI>(FindObjectsSortMode.None);
             foreach (InventoryUI ui in allUI)
             {
                 ui.Initialize(this);
@@ -234,7 +234,7 @@ namespace PlatformerGame.Inventory
         {
             if (!isOpen) return;
             
-            InventoryUI[] allUI = FindObjectsOfType<InventoryUI>();
+            InventoryUI[] allUI = FindObjectsByType<InventoryUI>(FindObjectsSortMode.None);
             foreach (InventoryUI ui in allUI)
             {
                 if (ui != null)

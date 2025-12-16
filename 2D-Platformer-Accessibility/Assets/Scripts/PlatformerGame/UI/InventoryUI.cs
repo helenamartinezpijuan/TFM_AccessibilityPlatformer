@@ -78,7 +78,7 @@ namespace PlatformerGame.Inventory
             }
             
             // Method 3: Find any inventory in scene
-            Inventory[] allInventories = FindObjectsOfType<Inventory>();
+            Inventory[] allInventories = FindObjectsByType<Inventory>(FindObjectsSortMode.None);
             if (allInventories.Length > 0)
             {
                 Initialize(allInventories[0]);

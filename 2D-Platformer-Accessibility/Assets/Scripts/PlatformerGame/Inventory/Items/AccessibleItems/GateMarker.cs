@@ -8,30 +8,25 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
     {
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
-        [SerializeField] private GameObject markerPrefab;
-        [SerializeField] private Vector2 markerOffset = new Vector2(0, 1f);
+        [SerializeField] private SpriteRenderer markerSprite;
         
-        private GameObject currentMarker;
         private bool isVisible = false;
         public LeverType GetRequiredLever() => requiredLever;
         
         public void ShowMarker()
         {
-            if (markerPrefab != null && !isVisible)
+            if (markerSprite != null && !isVisible)
             {
-                Vector3 spawnPosition = transform.position + (Vector3)markerOffset;
-                currentMarker = Instantiate(markerPrefab, spawnPosition, Quaternion.identity);
-                currentMarker.transform.SetParent(transform);
+                markerSprite.enabled = true;
                 isVisible = true;
             }
         }
         
         public void HideMarker()
         {
-            if (currentMarker != null)
+            if (markerSprite != null)
             {
-                Destroy(currentMarker);
-                currentMarker = null;
+                markerSprite.enabled = false;
             }
             isVisible = false;
         }

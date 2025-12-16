@@ -17,12 +17,12 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private bool requireExactMatch = true;
         
         [Header("Accessibility Visuals")]
-        [SerializeField] private GameObject accessibleVisualsPrefab;
         [SerializeField] private float clueRadius = 5f;
         
         [Header("Gate Markers")]
         [SerializeField] private List<GateMarker> gateMarkers = new List<GateMarker>();
         
+        private Animator animator;
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D gateCollider;
         private bool isOpen = false;
@@ -32,6 +32,7 @@ namespace PlatformerGame.WorldMechanics
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
             gateCollider = GetComponent<BoxCollider2D>();
+            animator = GetComponent<Animator>();
             
             // Register this gate with the combination system
             GateCombinationSystem.Instance.RegisterGate(this);
@@ -74,7 +75,8 @@ namespace PlatformerGame.WorldMechanics
             if (gateCollider != null)
             {
                 gateCollider.enabled = !isOpen;
-                spriteRenderer.enabled = !isOpen;
+                animator.SetBool("isOpen", !isOpen);
+                //spriteRenderer.enabled = !isOpen;
             }
             
             Debug.Log($"Gate {gateId} is now {(isOpen ? "OPEN" : "CLOSED")}");
@@ -87,6 +89,7 @@ namespace PlatformerGame.WorldMechanics
                 if (activeLevers.Contains(marker.GetRequiredLever()))
                 {
                     marker.ShowMarker();
+                    Debug.Log("Showing marker");
                 }
                 else
                 {
@@ -112,13 +115,13 @@ namespace PlatformerGame.WorldMechanics
                 float distance = Vector2.Distance(transform.position, player.transform.position);
                 if (distance > clueRadius)
                 {
-                    HideAccessibleVisuals();
+                    // Hide visuals
                     return;
                 }
             }
             
             // Sunglasses shows clue regardless of distance, flashlight only within radius
-            ShowAccessibleVisuals();
+            //Show visuals always
         }
         
         private bool HasItemInInventory(GameObject player, string itemTag)
@@ -129,34 +132,7 @@ namespace PlatformerGame.WorldMechanics
             
             return false;
         }
-        
-        private void ShowAccessibleVisuals()
-        {
-            if (accessibleVisualsPrefab != null && currentClueInstance == null)
-            {
-                currentClueInstance = Instantiate(accessibleVisualsPrefab, transform.position, Quaternion.identity);
-                currentClueInstance.transform.SetParent(transform); // Make it a child of the gate
-            }
-        }
-        
-        private void HideAccessibleVisuals()
-        {
-            if (currentClueInstance != null)
-            {
-                Destroy(currentClueInstance);
-                currentClueInstance = null;
-            }
-        }
-        
-        private void Update()
-        {
-            // Check every frame if we should show/hide accessible visuals
-            if (accessibleVisualsPrefab != null)
-            {
-                TryShowAccessibleVisuals();
-            }
-        }
-        
+
         public string GetGateId() => gateId;
         public List<LeverType> GetRequiredLeverTypes() => requiredLeverTypes;
     }

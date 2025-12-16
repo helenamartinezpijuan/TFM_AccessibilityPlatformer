@@ -72,8 +72,6 @@ namespace PlatformerGame.Player
             // Check if player is already dead
             if (currentHealth <= 0) return;
 
-            Debug.Log("Player felt the damage.");
-
             // Apply damage
             int previousHealth = currentHealth;
             currentHealth -= damage;
