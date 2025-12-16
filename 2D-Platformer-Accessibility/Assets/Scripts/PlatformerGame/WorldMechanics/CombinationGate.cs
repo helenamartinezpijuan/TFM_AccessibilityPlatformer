@@ -15,6 +15,7 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private string gateId = "Gate1";
         [SerializeField] private List<LeverType> requiredLeverTypes = new List<LeverType>();
         [SerializeField] private bool requireExactMatch = true;
+        [SerializeField] private bool isOpen;
         
         [Header("Accessibility Visuals")]
         [SerializeField] private float clueRadius = 5f;
@@ -25,7 +26,6 @@ namespace PlatformerGame.WorldMechanics
         private Animator animator;
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D gateCollider;
-        private bool isOpen = false;
         private GameObject currentClueInstance;
         
         private void Start()

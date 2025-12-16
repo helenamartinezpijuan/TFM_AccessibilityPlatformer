@@ -8,6 +8,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
         [SerializeField] private SpriteRenderer markerSprite;
+        [SerializeField] private Light ligth;
         [SerializeField] private string flashlightTag = "FlashlightBeam";
         
         public LeverType GetRequiredLever() => requiredLever;
@@ -17,6 +18,9 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             // Start hidden
             if (markerSprite != null)
                 markerSprite.enabled = false;
+            
+            if (ligth != null)
+                ligth.enabled = false;
         }
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -40,6 +44,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerSprite != null && !markerSprite.enabled)
             {
                 markerSprite.enabled = true;
+                ligth.enabled = true;
             }
         }
         
@@ -48,6 +53,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerSprite != null && markerSprite.enabled)
             {
                 markerSprite.enabled = false;
+                ligth.enabled = false;
             }
         }
     }

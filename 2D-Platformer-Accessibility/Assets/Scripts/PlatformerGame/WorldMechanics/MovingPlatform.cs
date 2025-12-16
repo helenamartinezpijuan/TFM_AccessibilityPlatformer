@@ -12,9 +12,6 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float accelerationDistance = 1f;
     private Vector2 endPosition;
     
-    [Header("Visuals")]
-    [SerializeField] private Sprite baseSprite;
-    [SerializeField] private Sprite accessibleSprite;
     
     private Vector2 startPosition;
     private bool isActive = false;
@@ -139,22 +136,6 @@ public class MovingPlatform : MonoBehaviour
         {
             StopCoroutine(movementCoroutine);
             movementCoroutine = null;
-        }
-    }
-
-    public void SetBaseVisuals()
-    {
-        if (spriteRenderer != null && baseSprite != null)
-        {
-            spriteRenderer.sprite = baseSprite;
-        }
-    }
-
-    public void SetAccessibleVisuals()
-    {
-        if (spriteRenderer != null && accessibleSprite != null)
-        {
-            spriteRenderer.sprite = accessibleSprite;
         }
     }
 
