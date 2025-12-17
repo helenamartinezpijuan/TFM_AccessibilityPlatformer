@@ -128,6 +128,7 @@ MonoBehaviour:
   gateId: Gate1
   requiredLeverTypes: 
   requireExactMatch: 1
+  isOpen: 0
   clueRadius: 5
   gateMarkers:
   - {fileID: 6725967784156432049}
@@ -281,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredLever: 0
   markerSprite: {fileID: 8905520252351404797}
+  ligth: {fileID: 0}
   flashlightTag: FlashlightBeam
 --- !u!108 &2548964331015349027
 Light:

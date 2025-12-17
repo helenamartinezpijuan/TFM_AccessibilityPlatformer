@@ -15,7 +15,7 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private string gateId = "Gate1";
         [SerializeField] private List<LeverType> requiredLeverTypes = new List<LeverType>();
         [SerializeField] private bool requireExactMatch = true;
-        [SerializeField] private bool isOpen;
+        [SerializeField] private bool isReverse;
         
         [Header("Accessibility Visuals")]
         [SerializeField] private float clueRadius = 5f;
@@ -27,6 +27,7 @@ namespace PlatformerGame.WorldMechanics
         private SpriteRenderer spriteRenderer;
         private BoxCollider2D gateCollider;
         private GameObject currentClueInstance;
+        private bool isOpen = false;
         
         private void Start()
         {
@@ -42,29 +43,55 @@ namespace PlatformerGame.WorldMechanics
             {
                 marker.HideMarker();
             }
+
+            if (isReverse)
+            {
+                isOpen = true;
+                animator.SetBool("isReverse", true);
+            }
+            else
+            {
+                isOpen = false;
+                animator.SetBool("isReverse", false);
+            }
             
             UpdateGateState();
         }
         
         public void CheckCombination(HashSet<LeverType> activeLeverTypes)
         {
-            bool shouldOpen;
+            bool leverConditionMet;
             
             if (requireExactMatch)
             {
                 // Exact match: Only the required lever types can be active, no others
-                shouldOpen = activeLeverTypes.SetEquals(new HashSet<LeverType>(requiredLeverTypes));
+                leverConditionMet = activeLeverTypes.SetEquals(new HashSet<LeverType>(requiredLeverTypes));
             }
             else
             {
                 // Contains all required lever types, but others can also be active
-                shouldOpen = requiredLeverTypes.TrueForAll(leverType => activeLeverTypes.Contains(leverType));
+                leverConditionMet = requiredLeverTypes.TrueForAll(leverType => activeLeverTypes.Contains(leverType));
             }
+
+            bool shouldOpen = DetermineGateState(leverConditionMet);
             
             if (shouldOpen != isOpen)
             {
                 isOpen = shouldOpen;
+                Debug.Log($"[{gateId} DEBUG] Is open: {isOpen}. Should open: {shouldOpen}");
                 UpdateGateState();
+            }
+        }
+
+        private bool DetermineGateState(bool leverIsActive)
+        {            
+            if (gameObject.tag != "Reverse")
+            {
+                return leverIsActive;
+            }
+            else
+            {
+                return !leverIsActive;
             }
         }
         

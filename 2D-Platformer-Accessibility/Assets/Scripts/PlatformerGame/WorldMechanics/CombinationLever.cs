@@ -6,7 +6,7 @@ namespace PlatformerGame.WorldMechanics
     {
         [Header("Lever Type")]
         [SerializeField] private LeverType leverType = LeverType.A;
-        [SerializeField] private bool isOne; // For animation only
+        [SerializeField] private bool isOne = true; // For animation only
         
         [Header("Accessibility Visuals")]
         [SerializeField] private GameObject accessibleVisualsPrefab;

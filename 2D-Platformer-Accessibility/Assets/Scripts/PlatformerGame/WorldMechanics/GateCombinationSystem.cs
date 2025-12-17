@@ -9,8 +9,9 @@ namespace PlatformerGame.WorldMechanics
         
         private List<CombinationGate> gates = new List<CombinationGate>();
         
-        // Current state of all levers (using enum values)
+        // Current state of all levers
         private HashSet<LeverType> activeLeverTypes = new HashSet<LeverType>();
+        public HashSet<LeverType> GetActiveLeverTypes() => new HashSet<LeverType>(activeLeverTypes);
         
         private void Awake()
         {
@@ -47,15 +48,11 @@ namespace PlatformerGame.WorldMechanics
                 activeLeverTypes.Remove(leverType);
             }
             
-            Debug.Log($"Lever state changed. Active lever types: {string.Join(", ", activeLeverTypes)}");
-            
             // Notify all gates to check their combinations
             foreach (var gate in gates)
             {
                 gate.CheckCombination(activeLeverTypes);
             }
         }
-        
-        public HashSet<LeverType> GetActiveLeverTypes() => new HashSet<LeverType>(activeLeverTypes);
     }
 }

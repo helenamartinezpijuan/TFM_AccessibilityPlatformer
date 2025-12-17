@@ -43393,7 +43393,11 @@ PrefabInstance:
     - target: {fileID: 317263298408231198, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: linkedEnemy
       value: 
-      objectReference: {fileID: 33546365}
+      objectReference: {fileID: 0}
+    - target: {fileID: 317263298408231198, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: resetOnPlayerDeath
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 323068054412572387, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: m_Name
       value: LeverA
