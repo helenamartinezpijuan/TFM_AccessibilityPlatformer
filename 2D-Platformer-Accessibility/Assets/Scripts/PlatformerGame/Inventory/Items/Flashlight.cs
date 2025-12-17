@@ -77,10 +77,10 @@ namespace PlatformerGame.Inventory.Items
             else
             {
                 // Phase 1: Reveal markers within radius
-                RevealMarkersInRadius();
+                //RevealMarkersInRadius();
             }
         }
-        
+        /*
         private void RevealMarkersInRadius()
         {
             // Find all gate markers
@@ -101,7 +101,7 @@ namespace PlatformerGame.Inventory.Items
                 }
             }
         }
-        
+        */
         private void RevealAllMarkers()
         {
             // Show all markers in the scene

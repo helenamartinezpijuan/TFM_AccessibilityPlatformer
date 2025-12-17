@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using PlatformerGame.UI;
+using PlatformerGame.Inventory.Items;
 
 namespace PlatformerGame.Inventory
 {
@@ -10,11 +12,11 @@ namespace PlatformerGame.Inventory
     {
         [Header("Inventory Settings")]
         [SerializeField] private string inventorySceneName = "InventoryUI";
-        [SerializeField] private int inventorySize = 8;
+        [SerializeField] private int inventorySize = 4;
         [SerializeField] private bool debugMode = false;
 
         private int currentSelectedPosition = 0;
-        private List<Item> items = new List<Item>();
+        [SerializeField] private List<Item> items = new List<Item>();
         private bool isOpen = false;
         private bool inventorySceneLoaded = false;
         
@@ -243,6 +245,30 @@ namespace PlatformerGame.Inventory
                     ui.RefreshAllSlots();
                 }
             }
+        }
+        
+        public bool HasFlashlight()
+        {
+            foreach (var item in items)
+            {
+                if (item is Flashlight flashlight)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        public bool HasSunglasses()
+        {
+            foreach (var item in items)
+            {
+                if (item is Sunglasses sunglasses)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         // Input System Callbacks

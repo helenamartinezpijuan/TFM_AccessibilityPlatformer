@@ -8,8 +8,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
         [SerializeField] private SpriteRenderer markerSprite;
-        [SerializeField] private Light ligth;
-        [SerializeField] private string flashlightTag = "FlashlightBeam";
+        [SerializeField] private Light markerLight;
         
         public LeverType GetRequiredLever() => requiredLever;
         
@@ -19,23 +18,34 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerSprite != null)
                 markerSprite.enabled = false;
             
-            if (ligth != null)
-                ligth.enabled = false;
+            if (markerLight != null)
+                markerLight.enabled = false;
         }
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag(flashlightTag))
+            bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
+            bool hasSunglasses = other.GetComponent<PlayerInventory>().HasSunglasses();
+
+            if (other.CompareTag("Player"))
             {
-                ShowMarker();
+                if (hasFlahslight && !hasSunglasses)
+                {
+                    ShowMarker();
+                }
             }
         }
         
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.CompareTag(flashlightTag))
+            bool hasSunglasses = other.GetComponent<PlayerInventory>().HasSunglasses();
+
+            if (other.CompareTag("Player"))
             {
-                HideMarker();
+                if (!hasSunglasses)
+                {
+                    HideMarker();
+                }
             }
         }
         
@@ -44,7 +54,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerSprite != null && !markerSprite.enabled)
             {
                 markerSprite.enabled = true;
-                ligth.enabled = true;
+                markerLight.enabled = true;
             }
         }
         
@@ -53,7 +63,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerSprite != null && markerSprite.enabled)
             {
                 markerSprite.enabled = false;
-                ligth.enabled = false;
+                markerLight.enabled = false;
             }
         }
     }

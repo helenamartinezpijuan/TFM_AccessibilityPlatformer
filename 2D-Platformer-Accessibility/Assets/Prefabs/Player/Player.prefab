@@ -436,12 +436,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2550353124218349470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bff68cca2d056a479e346dda8b6b7d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 270295bf8415bda4eb74264f72798857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inventorySceneName: InventoryUI
-  inventorySize: 8
-  debugMode: 1
+  inventorySize: 4
+  debugMode: 0
 --- !u!114 &918525457515328682
 MonoBehaviour:
   m_ObjectHideFlags: 0
