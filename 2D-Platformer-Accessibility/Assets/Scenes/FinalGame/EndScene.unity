@@ -336,7 +336,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 4271576514838806035, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -506,6 +506,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.09
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -651,6 +655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeverD
       objectReference: {fileID: 0}
+    - target: {fileID: 6341267601419759546, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 787218588, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20
@@ -2030,7 +2038,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 4271576514838806035, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2057,6 +2065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeverB
       objectReference: {fileID: 0}
+    - target: {fileID: 6341267601419759546, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 431939311, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14
@@ -2334,6 +2346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AccessibleMarkerB
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 431939311, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2419,6 +2435,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.92
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2587,6 +2607,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2767,6 +2791,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2860,6 +2888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AccessibleMarkerB
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 431939311, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -44265,6 +44297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1890652986}
     m_Modifications:
+    - target: {fileID: 965193402641373380, guid: 7e1f5fd2ba3224e42882d53252cab952, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 165024899, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 1756231364274138054, guid: 7e1f5fd2ba3224e42882d53252cab952, type: 3}
       propertyPath: m_Name
       value: Door3
@@ -44624,7 +44660,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 4271576514838806035, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -44727,6 +44763,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AccessibleMarkerB
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 431939311, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -44777,6 +44817,10 @@ PrefabInstance:
       propertyPath: markerAnimator
       value: 
       objectReference: {fileID: 602658373}
+    - target: {fileID: 6341267601419759546, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30
@@ -51208,6 +51252,80 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 954e5f07678195c4890ac1058fcc528c, type: 3}
+--- !u!1001 &1425553155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1597332218}
+    m_Modifications:
+    - target: {fileID: 317263298408231198, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: leverType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 323068054412572387, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Name
+      value: LeverC
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341267601419759546, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.312151
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135958640656862256, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.09
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+--- !u!4 &1425553156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7482165376317382671, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+  m_PrefabInstance: {fileID: 1425553155}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1442310578
 GameObject:
   m_ObjectHideFlags: 0
@@ -51425,7 +51543,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 4271576514838806035, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -51505,6 +51623,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1890652986}
     m_Modifications:
+    - target: {fileID: 965193402641373380, guid: 7e1f5fd2ba3224e42882d53252cab952, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -453587376, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 1756231364274138054, guid: 7e1f5fd2ba3224e42882d53252cab952, type: 3}
       propertyPath: m_Name
       value: Door2
@@ -51695,6 +51817,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.09
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51793,6 +51919,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -51828,8 +51958,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1922515865}
-  - {fileID: 1988107332}
   - {fileID: 399351964}
+  - {fileID: 1425553156}
+  - {fileID: 1988107332}
   m_Father: {fileID: 1871062944}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628568946
@@ -52306,6 +52437,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1890652986}
     m_Modifications:
+    - target: {fileID: 965193402641373380, guid: 7e1f5fd2ba3224e42882d53252cab952, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -453587376, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 1756231364274138054, guid: 7e1f5fd2ba3224e42882d53252cab952, type: 3}
       propertyPath: m_Name
       value: Door2
@@ -52813,6 +52948,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AccessibleMarkerB
       objectReference: {fileID: 0}
+    - target: {fileID: 8905520252351404797, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 431939311, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
