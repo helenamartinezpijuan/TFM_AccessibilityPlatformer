@@ -8,6 +8,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
         [SerializeField] private SpriteRenderer markerSprite;
+        [SerializeField] private Animator markerAnimator;
         [SerializeField] private Light markerLight;
         
         public LeverType GetRequiredLever() => requiredLever;
@@ -17,6 +18,9 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             // Start hidden
             if (markerSprite != null)
                 markerSprite.enabled = false;
+
+            if (markerAnimator != null)
+                markerAnimator.enabled = false;
             
             if (markerLight != null)
                 markerLight.enabled = false;
@@ -54,6 +58,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerSprite != null && !markerSprite.enabled)
             {
                 markerSprite.enabled = true;
+                markerAnimator.enabled = true;
                 markerLight.enabled = true;
             }
         }
@@ -63,6 +68,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerSprite != null && markerSprite.enabled)
             {
                 markerSprite.enabled = false;
+                markerAnimator.enabled = false;
                 markerLight.enabled = false;
             }
         }
