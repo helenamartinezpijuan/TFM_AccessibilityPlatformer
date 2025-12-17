@@ -10,9 +10,14 @@ namespace PlatformerGame.Inventory.Items
         [Header("Sticker Management")]
         [SerializeField] private List<Sticker> collectedStickers = new List<Sticker>();
         [SerializeField] private int maxStickers = 8;
+        //[SerializeField] private GameObject numberSticker;
         
         [Header("Visual Feedback")]
         [SerializeField] private GameObject collectionEffectPrefab;
+
+        public List<Sticker> GetStickers() => new List<Sticker>(collectedStickers);
+        public int GetStickerCount() => collectedStickers.Count;
+        public int GetMaxStickers() => maxStickers;
         
         public override void Use(PlayerInventory inventory)
         {
@@ -48,9 +53,5 @@ namespace PlatformerGame.Inventory.Items
             }
             return false;
         }
-        
-        public List<Sticker> GetStickers() => new List<Sticker>(collectedStickers);
-        public int GetStickerCount() => collectedStickers.Count;
-        public int GetMaxStickers() => maxStickers;
     }
 }

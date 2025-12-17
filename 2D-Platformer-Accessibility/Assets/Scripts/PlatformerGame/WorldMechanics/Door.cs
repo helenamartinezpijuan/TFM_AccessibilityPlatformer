@@ -7,12 +7,16 @@ namespace PlatformerGame.WorldMechanics
         [Header("Door Settings")]
         [SerializeField] private bool isOpen = true;
         [SerializeField] private Transform destination;
-           
+        
+        private SpriteRenderer numberSprite;
         private AudioSource audio;
         
         private void Awake()
         {
+            numberSprite = GetComponentInChildren<SpriteRenderer>();
             audio = GetComponent<AudioSource>();
+
+            numberSprite.enabled = false;
         }
         
         public bool CanInteract()
@@ -33,6 +37,14 @@ namespace PlatformerGame.WorldMechanics
             }
             
             Debug.Log("Player teleported through door");
+        }
+
+        public void EnableNumberSprite()
+        {
+            if (numberSprite != null)
+            {
+                numberSprite.enabled = true;
+            }
         }
     }
 }

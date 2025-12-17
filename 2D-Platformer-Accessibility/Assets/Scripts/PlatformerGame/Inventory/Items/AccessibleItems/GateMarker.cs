@@ -7,14 +7,18 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
     {
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
-        [SerializeField] private SpriteRenderer markerSprite;
-        [SerializeField] private Animator markerAnimator;
-        [SerializeField] private Light markerLight;
+        private SpriteRenderer markerSprite;
+        private Animator markerAnimator;
+        private Light markerLight;
         
         public LeverType GetRequiredLever() => requiredLever;
         
         private void Start()
         {
+            markerSprite = GetComponent<SpriteRenderer>();
+            markerAnimator = GetComponent<Animator>();
+            markerLight = GetComponent<Light>();
+
             // Start hidden
             if (markerSprite != null)
                 markerSprite.enabled = false;

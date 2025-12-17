@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 2548964331015349027}
   - component: {fileID: 2585549314078505920}
   - component: {fileID: 8902722876614679808}
+  - component: {fileID: 2154530958497775834}
   m_Layer: 0
   m_Name: AccessibleMarker
   m_TagString: Untagged
@@ -282,8 +283,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredLever: 0
-  markerSprite: {fileID: 8905520252351404797}
-  markerLight: {fileID: 2548964331015349027}
 --- !u!108 &2548964331015349027
 Light:
   m_ObjectHideFlags: 0
@@ -408,3 +407,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 5
+--- !u!95 &2154530958497775834
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7956102285006477949}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 636e2b98a90ea8047be06268e5b87221, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
