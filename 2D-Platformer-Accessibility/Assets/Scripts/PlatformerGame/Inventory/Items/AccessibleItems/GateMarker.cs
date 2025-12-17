@@ -1,5 +1,6 @@
 using UnityEngine;
 using PlatformerGame.WorldMechanics;
+using UnityEngine.Rendering.Universal;
 
 namespace PlatformerGame.Inventory.Items.AccessibleItems
 {
@@ -9,7 +10,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         [SerializeField] private LeverType requiredLever;
         private SpriteRenderer markerSprite;
         private Animator markerAnimator;
-        private Light markerLight;
+        //private Light2D markerLight;
         
         public LeverType GetRequiredLever() => requiredLever;
         
@@ -17,7 +18,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         {
             markerSprite = GetComponent<SpriteRenderer>();
             markerAnimator = GetComponent<Animator>();
-            markerLight = GetComponent<Light>();
+            //markerLight = GetComponent<Light2D>();
 
             // Start hidden
             if (markerSprite != null)
@@ -26,8 +27,8 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerAnimator != null)
                 markerAnimator.enabled = false;
             
-            if (markerLight != null)
-                markerLight.enabled = false;
+            //if (markerLight != null)
+                //markerLight.enabled = false;
         }
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -63,7 +64,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             {
                 markerSprite.enabled = true;
                 markerAnimator.enabled = true;
-                markerLight.enabled = true;
+                //markerLight.enabled = true;
             }
         }
         
@@ -73,7 +74,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             {
                 markerSprite.enabled = false;
                 markerAnimator.enabled = false;
-                markerLight.enabled = false;
+                //markerLight.enabled = false;
             }
         }
     }
