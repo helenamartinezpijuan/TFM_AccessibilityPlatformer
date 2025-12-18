@@ -11,10 +11,12 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float accelerationDistance = 1f;
     private Vector2 endPosition;
+
+    [Header("Platform State")]
+    [SerializeField] private bool isActive = false;
     
     
     private Vector2 startPosition;
-    private bool isActive = false;
     private bool movingToEnd = true;
     private SpriteRenderer spriteRenderer;
     private Coroutine movementCoroutine;
@@ -137,6 +139,8 @@ public class MovingPlatform : MonoBehaviour
             StopCoroutine(movementCoroutine);
             movementCoroutine = null;
         }
+
+        this.transform.position = startPosition - 0.5f * Vector2.up;
     }
 
     // Call this from your lever or other activation objects

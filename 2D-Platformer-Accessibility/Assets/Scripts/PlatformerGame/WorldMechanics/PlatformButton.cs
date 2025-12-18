@@ -9,6 +9,7 @@ namespace PlatformerGame.WorldMechanics
         
         [Header("Activation Target")]
         [SerializeField] private MovingPlatform platformToActivate;
+        [SerializeField] private MovingPlatform platformToDeactivate;
         
         private Animator buttonAnimator;
         private bool isPressed = false;
@@ -45,14 +46,10 @@ namespace PlatformerGame.WorldMechanics
             }
             
             // Activate/deactivate platform
-            if (platformToActivate != null)
+            if (platformToActivate != null && platformToDeactivate != null)
             {
                 platformToActivate.OnInteractorActivated();
-                Debug.Log($"Button pressed. Platform state toggled.");
-            }
-            else
-            {
-                Debug.LogWarning("Button has no platform assigned!");
+                platformToDeactivate.OnInteractorActivated();
             }
         }
         
