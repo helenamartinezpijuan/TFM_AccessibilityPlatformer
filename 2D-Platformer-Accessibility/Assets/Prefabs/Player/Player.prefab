@@ -422,6 +422,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4edc9017-9a18-40b8-89a2-acb7cae1d679
+    m_ActionName: 'Player/PauseGame[/Keyboard/escape,/Keyboard/p]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -442,6 +458,7 @@ MonoBehaviour:
   inventorySceneName: InventoryUI
   inventorySize: 4
   debugMode: 0
+  items: []
 --- !u!114 &918525457515328682
 MonoBehaviour:
   m_ObjectHideFlags: 0

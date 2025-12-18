@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
@@ -43,6 +44,20 @@ namespace PlatformerGame.Managers
         private void Start()
         {
             // Initialize UI buttons
+            InitializeUI();
+            
+            // Load saved settings
+            LoadSettings();
+            
+            // Set cursor visible
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        #region UI Initialization and Settings
+
+        private void InitializeUI()
+        {
             if (startPanelButton != null)
                 startPanelButton.onClick.AddListener(OnStartPanel);
 
@@ -65,29 +80,20 @@ namespace PlatformerGame.Managers
                 
             if (quitButton != null)
                 quitButton.onClick.AddListener(OnQuitGame);
-            
+
+            // Initialize start panel
+            if (startPanel != null)
+                startPanel.SetActive(false);
+
+            // Initialize continue panel
+            if (continuePanel != null)
+                continuePanel.SetActive(false);
+
             // Initialize options panel
             if (optionsPanel != null)
                 optionsPanel.SetActive(false);
-            
-            // Load saved settings
-            LoadSettings();
-            
-            // Set cursor visible
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            
-            Debug.Log("Main Menu initialized");
         }
 
-        private bool CheckForSaveData()
-        {
-            // Check for player prefs or save file
-            return PlayerPrefs.HasKey("LastScene") || 
-                   PlayerPrefs.HasKey("PlayerPositionX") ||
-                   PlayerPrefs.GetInt("HasSaveData", 0) == 1;
-        }
-        
         private void LoadSettings()
         {
             // Load volume
@@ -105,6 +111,17 @@ namespace PlatformerGame.Managers
             }
         }
 
+        private void PlayButtonSound(AudioClip clip)
+        {
+            if (menuAudioSource != null && clip != null)
+            {
+                menuAudioSource.PlayOneShot(clip);
+            }
+        }
+
+        #endregion
+
+        #region UI Button Handlers
         public void OnStartPanel()
         {
             PlayButtonSound(buttonClickSound);
@@ -117,9 +134,9 @@ namespace PlatformerGame.Managers
                 // Toggle other buttons
                 //if (startButton != null) startButton.interactable = isActive;
                 //if (continueButton != null) continueButton.interactable = isActive && hasSaveData;
-                if (continuePanelButton != null) continuePanelButton.interactable = isActive;
-                if (optionsButton != null) optionsButton.interactable = isActive;
-                if (quitButton != null) quitButton.interactable = isActive;
+                //if (continuePanelButton != null) continuePanelButton.interactable = isActive;
+                //if (optionsButton != null) optionsButton.interactable = isActive;
+                //if (quitButton != null) quitButton.interactable = isActive;
             }
         }
         
@@ -132,30 +149,6 @@ namespace PlatformerGame.Managers
             
             // Start transition
             StartCoroutine(StartGameRoutine());
-        }
-        
-        private IEnumerator StartGameRoutine()
-        {
-            // Wait for transition
-            yield return new WaitForSeconds(transitionTime);
-            
-            // Load the first level
-            //SceneManager.LoadScene(firstLevelScene);
-            sceneTransitioner.LoadScene(firstLevelScene, transitionEffect);
-            
-            // Initialize new game state
-            InitializeNewGame();
-        }
-        
-        private void InitializeNewGame()
-        {
-            // Reset player prefs for new game
-            PlayerPrefs.SetInt("IsNewGame", 1);
-            PlayerPrefs.SetString("LastScene", firstLevelScene);
-            PlayerPrefs.Save();
-            
-            // Initialize inventory manager for new game
-            InventoryManager.Instance?.InitializeNewGame();
         }
 
         public void OnContinuePanel()
@@ -170,9 +163,9 @@ namespace PlatformerGame.Managers
                 // Toggle other buttons
                 //if (startButton != null) startButton.interactable = isActive;
                 //if (continueButton != null) continueButton.interactable = isActive && hasSaveData;
-                if (startPanelButton != null) startPanelButton.interactable = isActive;
-                if (optionsButton != null) optionsButton.interactable = isActive;
-                if (quitButton != null) quitButton.interactable = isActive;
+                //if (startPanelButton != null) startPanelButton.interactable = isActive;
+                //if (optionsButton != null) optionsButton.interactable = isActive;
+                //if (quitButton != null) quitButton.interactable = isActive;
             }
         }
         
@@ -184,23 +177,7 @@ namespace PlatformerGame.Managers
             
             StartCoroutine(ContinueGameRoutine());
         }
-        
-        private IEnumerator ContinueGameRoutine()
-        {           
-            yield return new WaitForSeconds(transitionTime);
-            
-            // Load the saved scene
-            string savedScene = PlayerPrefs.GetString("LastScene", firstLevelScene);
-            //SceneManager.LoadScene(savedScene);
-            sceneTransitioner.LoadScene(savedScene, transitionEffect);
-            
-            // Mark as continuing, not new game
-            PlayerPrefs.SetInt("IsNewGame", 0);
-            PlayerPrefs.Save();
-        }
 
-        
-        
         public void OnOptions()
         {
             PlayButtonSound(buttonClickSound);
@@ -213,9 +190,9 @@ namespace PlatformerGame.Managers
                 // Toggle other buttons
                 //if (startButton != null) startButton.interactable = isActive;
                 //if (continueButton != null) continueButton.interactable = isActive && hasSaveData;
-                if (startPanelButton != null) startPanelButton.interactable = isActive;
-                if (continuePanelButton != null) continuePanelButton.interactable = isActive;
-                if (quitButton != null) quitButton.interactable = isActive;
+                //if (startPanelButton != null) startPanelButton.interactable = isActive;
+                //if (continuePanelButton != null) continuePanelButton.interactable = isActive;
+                //if (quitButton != null) quitButton.interactable = isActive;
             }
         }
         
@@ -230,7 +207,11 @@ namespace PlatformerGame.Managers
             Application.Quit();
             #endif
         }
-        
+
+        #endregion
+
+        #region Options Menu Handlers
+
         private void OnVolumeChanged(float value)
         {
             AudioListener.volume = value;
@@ -244,28 +225,49 @@ namespace PlatformerGame.Managers
             PlayerPrefs.SetInt("Fullscreen", isFullscreen ? 1 : 0);
             PlayerPrefs.Save();
         }
+
+        #endregion
         
-        private void PlayButtonSound(AudioClip clip)
+        #region Game loop
+        private IEnumerator StartGameRoutine()
         {
-            if (menuAudioSource != null && clip != null)
-            {
-                menuAudioSource.PlayOneShot(clip);
-            }
+            // Wait for transition
+            yield return new WaitForSeconds(transitionTime);
+
+            // Initialize new game state
+            InitializeNewGame();
+            
+            // Load the first level
+            //SceneManager.LoadScene(firstLevelScene);
+            sceneTransitioner.LoadScene(firstLevelScene, transitionEffect);
         }
         
-        private void ClearSaveData()
+        private void InitializeNewGame()
         {
-            PlayerPrefs.DeleteKey("PlayerPositionX");
-            PlayerPrefs.DeleteKey("PlayerPositionY");
-            PlayerPrefs.DeleteKey("PlayerHealth");
-            PlayerPrefs.DeleteKey("LastScene");
-            PlayerPrefs.SetInt("HasSaveData", 0);
+            // Reset player prefs for new game
+            PlayerPrefs.SetInt("IsNewGame", 1);
+            PlayerPrefs.SetString("LastScene", firstLevelScene);
             PlayerPrefs.Save();
             
-            // Clear inventory save
-            InventoryManager.Instance?.ClearSavedInventory();
+            // Initialize inventory manager for new game
+            InventoryManager.Instance?.InitializeNewGame();
         }
         
+        private IEnumerator ContinueGameRoutine()
+        {           
+            yield return new WaitForSeconds(transitionTime);
+            
+            // Load the saved scene
+            string savedScene = PlayerPrefs.GetString("LastScene", firstLevelScene);
+
+            // Mark as continuing, not new game
+            PlayerPrefs.SetInt("IsNewGame", 0);
+            PlayerPrefs.Save();
+
+            //SceneManager.LoadScene(savedScene);
+            sceneTransitioner.LoadScene(savedScene, transitionEffect);
+        }
+
         // For pause menu access
         public void ReturnToMainMenu()
         {
@@ -283,6 +285,28 @@ namespace PlatformerGame.Managers
             //SceneManager.LoadScene("MainMenu");
             sceneTransitioner.LoadScene("MainMenu", transitionEffect);
         }
+
+        #endregion
+        
+        #region Player Prefs Configuration
+
+        private bool CheckForSaveData()
+        {
+            // Check for player prefs or save file
+            return PlayerPrefs.HasKey("LastScene") || PlayerPrefs.GetInt("HasSaveData", 0) == 1;
+        }
+        private void ClearSaveData()
+        {
+            PlayerPrefs.DeleteKey("PlayerPositionX");
+            PlayerPrefs.DeleteKey("PlayerPositionY");
+            PlayerPrefs.DeleteKey("PlayerHealth");
+            PlayerPrefs.DeleteKey("LastScene");
+            PlayerPrefs.SetInt("HasSaveData", 0);
+            PlayerPrefs.Save();
+            
+            // Clear inventory save
+            InventoryManager.Instance?.ClearSavedInventory();
+        }
         
         private void SaveGameState()
         {
@@ -295,7 +319,47 @@ namespace PlatformerGame.Managers
             
             PlayerPrefs.Save();
         }
+
+        #endregion
         
+        #region Input System Callbacks
+        
+        public void OnNavigate(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+                // Handled by Unity's UI Navigation
+        }
+        
+        public void OnSubmit(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+                // Handled by Unity's UI Navigation
+        }
+        
+        public void OnCancel(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            
+            // Handle cancel based on current panel
+            if (optionsPanel != null && optionsPanel.activeSelf)
+            {
+                // Close options panel
+                OnOptions();
+            }
+            else if (startPanel != null && startPanel.activeSelf)
+            {
+                // Close start panel
+                OnStartPanel();
+            }
+            else if (continuePanel != null && continuePanel.activeSelf)
+            {
+                // Close continue panel
+                OnContinuePanel();
+            }
+        }
+        
+        #endregion
+
         private void OnDestroy()
         {
             // Clean up event listeners

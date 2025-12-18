@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 namespace PlatformerGame.Managers
 {
@@ -14,12 +15,21 @@ namespace PlatformerGame.Managers
         
         [Header("Options")]
         [SerializeField] private GameObject optionsPanel;
+
+        private PauseMenuManager pauseMenuManager;
         
         private bool isPaused = false;
         
         private void Start()
         {
+            pauseMenuManager = FindObjectOfType<PauseMenuManager>();
+
             // Initialize buttons
+            //InitializeUI();
+        }
+
+        private void InitializeUI()
+        {
             if (resumeButton != null)
                 resumeButton.onClick.AddListener(ResumeGame);
                 
@@ -32,23 +42,16 @@ namespace PlatformerGame.Managers
             if (quitButton != null)
                 quitButton.onClick.AddListener(QuitGame);
             
-            // Hide menus initially
+            // Always show pause menu panel initially
             if (pauseMenuPanel != null)
-                pauseMenuPanel.SetActive(false);
-                
+                pauseMenuPanel.SetActive(true);
+            
+            // Hide options initially
             if (optionsPanel != null)
                 optionsPanel.SetActive(false);
         }
         
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
-            {
-                TogglePause();
-            }
-        }
-        
-        public void TogglePause()
+        /*public void TogglePause()
         {
             isPaused = !isPaused;
             
@@ -62,11 +65,14 @@ namespace PlatformerGame.Managers
             Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
             
             Debug.Log($"Game {(isPaused ? "Paused" : "Resumed")}");
-        }
+        }*/
+
+        #region UI Button Handlers
         
         public void ResumeGame()
         {
-            isPaused = false;
+            pauseMenuManager.ResumeGame();
+            /*isPaused = false;
             
             if (pauseMenuPanel != null)
                 pauseMenuPanel.SetActive(false);
@@ -76,7 +82,7 @@ namespace PlatformerGame.Managers
             
             Time.timeScale = 1f;
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;*/
         }
         
         public void ShowOptions()
@@ -89,7 +95,8 @@ namespace PlatformerGame.Managers
         
         public void ReturnToMainMenu()
         {
-            Time.timeScale = 1f; // Ensure time is running
+            pauseMenuManager.ReturnToMainMenu();
+            /*Time.timeScale = 1f; // Ensure time is running
             
             // Use the main menu manager if it exists
             MainMenuManager menuManager = FindObjectOfType<MainMenuManager>();
@@ -101,17 +108,46 @@ namespace PlatformerGame.Managers
             {
                 // Fallback
                 SceneTransitionManager.Instance?.LoadScene("MainMenu");
-            }
+            }*/
         }
         
         public void QuitGame()
         {
-            #if UNITY_EDITOR
+            pauseMenuManager.QuitGame();
+            /*#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
             #else
             Application.Quit();
-            #endif
+            #endif*/
         }
+
+        #endregion
+
+        #region Input System Callbacks
+        
+        // Called by PlayerInput component
+        /*public void OnPause(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            
+            TogglePause();
+        }
+        
+        public void OnUICancel(InputAction.CallbackContext context)
+        {
+            if (!context.performed || !isPaused) return;
+            
+            if (optionsPanel != null && optionsPanel.activeSelf)
+            {
+                ShowOptions(); // Toggle options off
+            }
+            else
+            {
+                ResumeGame(); // Resume if on main pause menu
+            }
+        }*/
+        
+        #endregion
         
         private void OnDestroy()
         {
