@@ -14,14 +14,13 @@ namespace PlatformerGame.Managers
         
         [Header("Transition Settings")]
         [SerializeField] private Animator transitionAnimator;
+        [SerializeField] private SceneTransitioner sceneTransitioner;
+        [SerializeField] private TransitionEffect transitionEffect;
         [SerializeField] private float transitionTime = 1f;
         
         [Header("Loading Screen")]
         [SerializeField] private GameObject loadingScreen;
         [SerializeField] private Slider loadingSlider;
-
-        [Header("Transition Settings")]
-        [SerializeField] private TransitionEffect transitionEffect;
         
         private static int currentSceneIndex = 1;
         private AsyncOperation loadingOperation;

@@ -3,16 +3,21 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using PixeLadder.EasyTransition;
+using PixeLadder.EasyTransition.Effects;
 
 namespace PlatformerGame.Managers
 {
     public class MainMenuManager : MonoBehaviour
     {
         [Header("UI Elements")]
+        [SerializeField] private Button startPanelButton;
         [SerializeField] private Button startButton;
+        [SerializeField] private Button continuePanelButton;
         [SerializeField] private Button continueButton;
         [SerializeField] private Button optionsButton;
         [SerializeField] private Button quitButton;
+        [SerializeField] private GameObject startPanel;
+        [SerializeField] private GameObject continuePanel;
         [SerializeField] private GameObject optionsPanel;
         [SerializeField] private Slider volumeSlider;
         [SerializeField] private Toggle fullscreenToggle;
@@ -22,6 +27,7 @@ namespace PlatformerGame.Managers
         [SerializeField] private string saveSceneName = "SavedScene";
         
         [Header("Transition Settings")]
+        [SerializeField] private SceneTransitioner sceneTransitioner;
         [SerializeField] private TransitionEffect transitionEffect;
         [SerializeField] private float transitionTime = 1f;
         
@@ -32,12 +38,19 @@ namespace PlatformerGame.Managers
         
         private bool hasSaveData = false;
         private static int currentSceneIndex = 1;
-        
+    
+
         private void Start()
         {
             // Initialize UI buttons
+            if (startPanelButton != null)
+                startPanelButton.onClick.AddListener(OnStartPanel);
+
             if (startButton != null)
                 startButton.onClick.AddListener(OnStartGame);
+
+            if (continuePanelButton != null)
+                continuePanelButton.onClick.AddListener(OnContinuePanel);
                 
             if (continueButton != null)
             {
@@ -67,16 +80,6 @@ namespace PlatformerGame.Managers
             Debug.Log("Main Menu initialized");
         }
 
-        private void ShowTransitionEffect()
-        {
-            // The "next scene" is just this same scene, which we will reload.
-            string sceneToLoad = SceneManager.GetActiveScene().name;
-            TransitionEffect effectToUse = transitionEffect;
-
-            // Call the SceneTransitioner to start the transition.
-            SceneTransitioner.Instance.LoadScene(sceneToLoad, effectToUse);
-        }
-
         private bool CheckForSaveData()
         {
             // Check for player prefs or save file
@@ -101,6 +104,24 @@ namespace PlatformerGame.Managers
                 fullscreenToggle.onValueChanged.AddListener(OnFullscreenChanged);
             }
         }
+
+        public void OnStartPanel()
+        {
+            PlayButtonSound(buttonClickSound);
+            
+            if (startPanel != null)
+            {
+                bool isActive = startPanel.activeSelf;
+                startPanel.SetActive(!isActive);
+                
+                // Toggle other buttons
+                //if (startButton != null) startButton.interactable = isActive;
+                //if (continueButton != null) continueButton.interactable = isActive && hasSaveData;
+                if (continuePanelButton != null) continuePanelButton.interactable = isActive;
+                if (optionsButton != null) optionsButton.interactable = isActive;
+                if (quitButton != null) quitButton.interactable = isActive;
+            }
+        }
         
         public void OnStartGame()
         {
@@ -115,14 +136,12 @@ namespace PlatformerGame.Managers
         
         private IEnumerator StartGameRoutine()
         {
-            // Play transition
-            ShowTransitionEffect();
-            
             // Wait for transition
             yield return new WaitForSeconds(transitionTime);
             
             // Load the first level
-            SceneManager.LoadScene(firstLevelScene);
+            //SceneManager.LoadScene(firstLevelScene);
+            sceneTransitioner.LoadScene(firstLevelScene, transitionEffect);
             
             // Initialize new game state
             InitializeNewGame();
@@ -138,6 +157,24 @@ namespace PlatformerGame.Managers
             // Initialize inventory manager for new game
             InventoryManager.Instance?.InitializeNewGame();
         }
+
+        public void OnContinuePanel()
+        {
+            PlayButtonSound(buttonClickSound);
+            
+            if (continuePanel != null)
+            {
+                bool isActive = continuePanel.activeSelf;
+                continuePanel.SetActive(!isActive);
+                
+                // Toggle other buttons
+                //if (startButton != null) startButton.interactable = isActive;
+                //if (continueButton != null) continueButton.interactable = isActive && hasSaveData;
+                if (startPanelButton != null) startPanelButton.interactable = isActive;
+                if (optionsButton != null) optionsButton.interactable = isActive;
+                if (quitButton != null) quitButton.interactable = isActive;
+            }
+        }
         
         public void OnContinueGame()
         {
@@ -149,15 +186,13 @@ namespace PlatformerGame.Managers
         }
         
         private IEnumerator ContinueGameRoutine()
-        {
-            // Play transition
-            ShowTransitionEffect();
-            
+        {           
             yield return new WaitForSeconds(transitionTime);
             
             // Load the saved scene
             string savedScene = PlayerPrefs.GetString("LastScene", firstLevelScene);
-            SceneManager.LoadScene(savedScene);
+            //SceneManager.LoadScene(savedScene);
+            sceneTransitioner.LoadScene(savedScene, transitionEffect);
             
             // Mark as continuing, not new game
             PlayerPrefs.SetInt("IsNewGame", 0);
@@ -176,8 +211,10 @@ namespace PlatformerGame.Managers
                 optionsPanel.SetActive(!isActive);
                 
                 // Toggle other buttons
-                if (startButton != null) startButton.interactable = isActive;
-                if (continueButton != null) continueButton.interactable = isActive && hasSaveData;
+                //if (startButton != null) startButton.interactable = isActive;
+                //if (continueButton != null) continueButton.interactable = isActive && hasSaveData;
+                if (startPanelButton != null) startPanelButton.interactable = isActive;
+                if (continuePanelButton != null) continuePanelButton.interactable = isActive;
                 if (quitButton != null) quitButton.interactable = isActive;
             }
         }
@@ -240,13 +277,11 @@ namespace PlatformerGame.Managers
             // Save game before returning
             SaveGameState();
             
-            // Play transition
-            ShowTransitionEffect();
-            
             yield return new WaitForSeconds(transitionTime);
             
             // Load main menu scene
-            SceneManager.LoadScene("MainMenu");
+            //SceneManager.LoadScene("MainMenu");
+            sceneTransitioner.LoadScene("MainMenu", transitionEffect);
         }
         
         private void SaveGameState()
