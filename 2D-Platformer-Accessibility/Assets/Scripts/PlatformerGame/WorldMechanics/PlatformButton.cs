@@ -8,6 +8,7 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private bool isOne; // For animation
         
         [Header("Activation Target")]
+        [SerializeField] private bool isExclusive = false;
         [SerializeField] private MovingPlatform platformToActivate;
         [SerializeField] private MovingPlatform platformToDeactivate;
         
@@ -46,11 +47,15 @@ namespace PlatformerGame.WorldMechanics
             }
             
             // Activate/deactivate platform
-            if (platformToActivate != null && platformToDeactivate != null)
+            if (platformToActivate != null)
             {
                 platformToActivate.OnInteractorActivated();
-                platformToDeactivate.OnInteractorActivated();
+
+                if (isExclusive && platformToDeactivate != null)
+                    platformToDeactivate.OnInteractorActivated();
             }
+
+            
         }
         
         public void TriggerAnimation()

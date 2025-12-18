@@ -14,6 +14,7 @@ public class MovingPlatform : MonoBehaviour
 
     [Header("Platform State")]
     [SerializeField] private bool isActive = false;
+    [SerializeField] private bool isVertical = false;
     
     
     private Vector2 startPosition;
@@ -139,8 +140,9 @@ public class MovingPlatform : MonoBehaviour
             StopCoroutine(movementCoroutine);
             movementCoroutine = null;
         }
-
-        this.transform.position = startPosition - 0.5f * Vector2.up;
+        
+        if (isVertical)
+            transform.position = startPosition + Vector2.down * 0.5f;
     }
 
     // Call this from your lever or other activation objects
