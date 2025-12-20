@@ -105,6 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOpen: 1
   destination: {fileID: 0}
+  numberSprite: {fileID: 965193402641373380}
 --- !u!61 &232535802821367601
 BoxCollider2D:
   m_ObjectHideFlags: 0

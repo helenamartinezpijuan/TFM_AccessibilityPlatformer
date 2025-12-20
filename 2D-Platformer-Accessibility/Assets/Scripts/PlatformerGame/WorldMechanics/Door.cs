@@ -8,14 +8,13 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private bool isOpen = true;
         [SerializeField] private Transform destination;
         
-        private SpriteRenderer numberSprite;
+        [Header("Accessibility Settings")]
+       [SerializeField] private SpriteRenderer numberSprite;
         private AudioSource audio;
         
         private void Awake()
         {
-            numberSprite = GetComponentInChildren<SpriteRenderer>();
             audio = GetComponent<AudioSource>();
-
             numberSprite.enabled = false;
         }
         

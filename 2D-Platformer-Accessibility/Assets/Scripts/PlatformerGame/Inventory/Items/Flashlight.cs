@@ -12,9 +12,9 @@ namespace PlatformerGame.Inventory.Items
         [SerializeField] private float revealRadius = 5f;
         
         [Header("Phase 2: Wall Reveal (After Sunglasses)")]
-        [SerializeField] private Tilemap hiddenWallTilemap;
-        [SerializeField] private Tile replacementTile;
-        [SerializeField] private int wallRevealRadius = 2; // 2 tiles radius
+        private GameObject hiddenTilemap;//Tilemap hiddenWallTilemap;
+        //[SerializeField] private Tile replacementTile;
+        [SerializeField] private int wallRevealRadius = 3; // 3 tiles radius
         
         private bool isEquipped = false;
         private bool hasSunglasses = false;
@@ -30,7 +30,11 @@ namespace PlatformerGame.Inventory.Items
         {
             playerTransform = player;
             isEquipped = true;
-            
+
+            // Find reference to hidden tilemap
+            hiddenTilemap = GameObject.FindGameObjectWithTag("reveal");//.GetComponent<Tilemap>();
+            Debug.Log($"hiddenWallTilemap reference found: {hiddenTilemap.name}");
+
             // Check if sunglasses are already in inventory
             CheckForSunglasses();
             
@@ -72,7 +76,8 @@ namespace PlatformerGame.Inventory.Items
             {
                 // Phase 2: Reveal hidden walls and all markers
                 RevealAllMarkers();
-                RevealHiddenWalls();
+                //RevealHiddenWalls();
+                DestroyHiddenWall(hiddenTilemap);
             }
             else
             {
@@ -112,7 +117,7 @@ namespace PlatformerGame.Inventory.Items
             }
         }
         
-        private void RevealHiddenWalls()
+        /*private void RevealHiddenWalls()
         {
             if (hiddenWallTilemap == null) return;
             
@@ -133,7 +138,7 @@ namespace PlatformerGame.Inventory.Items
                     TileBase tile = hiddenWallTilemap.GetTile(tilePos);
                     if (tile != null)
                     {
-                        // Check tile name or use a custom tile with tag property
+                        // Check tile name
                         if (tile.name.Contains("reveal"))
                         {
                             RevealTile(tilePos);
@@ -141,17 +146,22 @@ namespace PlatformerGame.Inventory.Items
                     }
                 }
             }
-        }
-        private void RevealTile(Vector3Int tilePos)
+        }*/
+
+        private void DestroyHiddenWall(GameObject hiddenTilemap)
         {
-            if (hiddenWallTilemap == null || replacementTile == null) return;
+            Destroy(hiddenTilemap);
+        }
+        /*private void RevealTile(Vector3Int tilePos)
+        {
+            if (hiddenWallTilemap == null) return; //|| replacementTile == null) return;
             
             // Replace the hidden tile with the revealed tile
-            hiddenWallTilemap.SetTile(tilePos, replacementTile);
+            hiddenWallTilemap.SetTile(tilePos, null);//replacementTile);
             revealedTiles.Add(tilePos);
             
             Debug.Log($"Revealed hidden wall at {tilePos}");
-        }
+        }*/
         
         public override void OnAddToInventory(PlayerInventory inventory)
         {
