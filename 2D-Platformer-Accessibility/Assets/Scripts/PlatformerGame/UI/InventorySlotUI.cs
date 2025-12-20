@@ -8,10 +8,10 @@ namespace PlatformerGame.Inventory
     public class InventorySlotUI : MonoBehaviour
     {
         [Header("UI References")]
-        [SerializeField] private Image backgroundImage;
-        [SerializeField] private Image itemIcon;
-        [SerializeField] private TextMeshProUGUI itemCountText;
-        [SerializeField] private TextMeshProUGUI slotNumberText;
+        //private Image backgroundImage;
+        [SerializeField] public Image itemIcon;
+        //[SerializeField] private TextMeshProUGUI itemCountText;
+        //[SerializeField] private TextMeshProUGUI slotNumberText;
         
         private int slotIndex = -1;
         private Item currentItem;
@@ -25,10 +25,10 @@ namespace PlatformerGame.Inventory
             UpdateVisuals();
             
             // Show slot number
-            if (slotNumberText != null)
+            /*if (slotNumberText != null)
             {
                 slotNumberText.text = (index + 1).ToString();
-            }
+            }*/
         }
         
         public void UpdateSlot(Item item)
@@ -56,23 +56,23 @@ namespace PlatformerGame.Inventory
             }
             
             // Update count text
-            if (itemCountText != null)
+            /*if (itemCountText != null)
             {
                 itemCountText.text = currentItem != null ? "1" : "";
-            }
+            }*/
             
             // Update background
-            if (backgroundImage != null)
+            /*if (backgroundImage != null)
             {
                 backgroundImage.color = currentItem != null ? 
                     new Color(0.2f, 0.2f, 0.2f, 0.8f) : 
                     new Color(0.1f, 0.1f, 0.1f, 0.5f);
-            }
+            }*/
         }
         
         public void SetSelected(bool selected, Color selectedColor)
         {
-            if (backgroundImage != null)
+            /*if (backgroundImage != null)
             {
                 if (selected)
                 {
@@ -84,7 +84,7 @@ namespace PlatformerGame.Inventory
                         new Color(0.2f, 0.2f, 0.2f, 0.8f) : 
                         new Color(0.1f, 0.1f, 0.1f, 0.5f);
                 }
-            }
+            }*/
         }
         
         // Add click handler

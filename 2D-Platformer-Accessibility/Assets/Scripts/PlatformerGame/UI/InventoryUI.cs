@@ -9,24 +9,25 @@ namespace PlatformerGame.Inventory
     {
         [Header("UI References")]
         [SerializeField] private Transform inventorySlotsParent;
-        [SerializeField] private GameObject inventorySlotPrefab;
-        [SerializeField] private Image selectedSlotHighlight;
+        //[SerializeField] private GameObject inventorySlotPrefab;
+        //[SerializeField] private Image selectedSlotHighlight;
         [SerializeField] private TextMeshProUGUI itemNameText;
         [SerializeField] private TextMeshProUGUI itemDescriptionText;
         
         [Header("Settings")]
-        [SerializeField] private Color normalSlotColor = Color.white;
-        [SerializeField] private Color selectedSlotColor = Color.yellow;
-        [SerializeField] private Color emptySlotColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
+        //[SerializeField] private Color normalSlotColor = Color.white;
+        //[SerializeField] private Color selectedSlotColor = Color.yellow;
+        //[SerializeField] private Color emptySlotColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
         
         private PlayerInventory playerInventory;
         private List<InventorySlotUI> slotUIs = new List<InventorySlotUI>();
+        private List<GameObject> existingSlotObjects = new List<GameObject>();
         private int currentSelectedIndex = -1;
         
         private void Awake()
         {
             // Clear any existing slots
-            ClearAllSlots();
+            //ClearAllSlots();
             
             // Try to find player inventory
             FindAndConnectToInventory();
@@ -38,6 +39,7 @@ namespace PlatformerGame.Inventory
             InitializeUI();
         }
         
+        #region Initialization
         public void Initialize(PlayerInventory inventory)
         {
             if (inventory == null)
@@ -88,28 +90,11 @@ namespace PlatformerGame.Inventory
             Debug.LogWarning("InventoryUI: No inventory found. Will try to connect later.");
             
             // Try again after a delay
-            Invoke(nameof(FindAndConnectToInventory), 0.5f);
+            Invoke(nameof(FindAndConnectToInventory), 1f);
         }
-        
-        private void SubscribeToInventoryEvents()
-        {
-            if (playerInventory == null) return;
-            
-            playerInventory.OnItemAdded += OnItemAdded;
-            playerInventory.OnItemRemoved += OnItemRemoved;
-            playerInventory.OnSelectionChanged += OnSelectionChanged;
-            playerInventory.OnInventoryToggle += OnInventoryToggle;
-        }
-        
-        private void UnsubscribeFromInventoryEvents()
-        {
-            if (playerInventory == null) return;
-            
-            playerInventory.OnItemAdded -= OnItemAdded;
-            playerInventory.OnItemRemoved -= OnItemRemoved;
-            playerInventory.OnSelectionChanged -= OnSelectionChanged;
-            playerInventory.OnInventoryToggle -= OnInventoryToggle;
-        }
+        #endregion
+
+        #region UI Handler
         
         private void InitializeUI()
         {
@@ -120,8 +105,15 @@ namespace PlatformerGame.Inventory
             }
             
             // Clear existing slots
-            ClearAllSlots();
+            //ClearAllSlots();
+            slotUIs.Clear();
+            existingSlotObjects.Clear();
             
+            if (inventorySlotsParent != null)
+            {
+                InitializeExistingSlots();
+            }
+            /*
             // Create slots based on inventory size
             for (int i = 0; i < playerInventory.InventorySize; i++)
             {
@@ -132,13 +124,95 @@ namespace PlatformerGame.Inventory
             if (playerInventory.CurrentSelectedPosition >= 0 && 
                 playerInventory.CurrentSelectedPosition < slotUIs.Count)
             {
-                UpdateSelection(playerInventory.CurrentSelectedPosition);
-            }
+                //UpdateSelection(playerInventory.CurrentSelectedPosition);
+            }*/
             
             Debug.Log($"InventoryUI: Initialized with {slotUIs.Count} slots");
         }
+
+        private void InitializeExistingSlots()
+        {
+            for (int i = 0; i < inventorySlotsParent.childCount; i++)
+            {
+                Transform child = inventorySlotsParent.GetChild(i);
+                GameObject slotObject = child.gameObject;
+                
+                // Skip if already added
+                if (existingSlotObjects.Contains(slotObject)) continue;
+                
+                existingSlotObjects.Add(slotObject);
+                
+                // Get or add InventorySlotUI component
+                InventorySlotUI slotUI = slotObject.GetComponent<InventorySlotUI>();
+                if (slotUI == null)
+                {
+                    // Try to find nested UI references automatically
+                    slotUI = AutoConfigureSlot(slotObject, i);
+                }
+                
+                if (slotUI != null)
+                {
+                    slotUIs.Add(slotUI);
+                }
+            }
+        }
+        #endregion
+
+        #region Slot Configuration
+
+        private InventorySlotUI AutoConfigureSlot(GameObject slotObject, int index)
+        {
+            // Get/Add the InventorySlotUI component
+            InventorySlotUI slotUI = slotObject.GetComponent<InventorySlotUI>();//AddComponent<InventorySlotUI>();
+            
+            // Look for Button component
+            Button button = slotObject.GetComponentInChildren<Button>();
+            if (button != null)
+            {
+                // Connect button click
+                button.onClick.AddListener(() => OnSlotClicked(index));
+            }
+            
+            // Look for Image components
+            Image[] allImages = slotObject.GetComponentsInChildren<Image>();
+            
+            // Try to identify which image is which based on hierarchy or naming
+            foreach (Image img in allImages)
+            {
+                // Background image (usually the parent image)
+                /*if (img.transform.parent == slotObject.transform && slotUI.backgroundImage == null)
+                {
+                    slotUI.backgroundImage = img;
+                }
+                // Item icon (often deeper in hierarchy)
+                else */if (img.name.ToLower().Contains("icon") || 
+                        img.transform.parent != null && 
+                        img.transform.parent.name.ToLower().Contains("icon"))
+                {
+                    slotUI.itemIcon = img;
+                }
+            }
+            
+            // Look for TextMeshProUGUI components
+            /*TextMeshProUGUI[] allTexts = slotObject.GetComponentsInChildren<TextMeshProUGUI>();
+            foreach (TextMeshProUGUI text in allTexts)
+            {
+                // Item count text
+                if (text.name.ToLower().Contains("count") || text.name.ToLower().Contains("number"))
+                {
+                    slotUI.itemCountText = text;
+                }
+                // Slot number text
+                else if (text.name.ToLower().Contains("slot") || text.text == (index + 1).ToString())
+                {
+                    slotUI.slotNumberText = text;
+                }
+            }*/
+            
+            return slotUI;
+        }
         
-        private void CreateSlot(int index)
+        /*private void CreateSlot(int index)
         {
             if (inventorySlotPrefab == null || inventorySlotsParent == null)
             {
@@ -161,7 +235,7 @@ namespace PlatformerGame.Inventory
             slotUI.Initialize(index, item);
             
             slotUIs.Add(slotUI);
-        }
+        }*/
         
         private void ClearAllSlots()
         {
@@ -171,8 +245,61 @@ namespace PlatformerGame.Inventory
             }
             slotUIs.Clear();
         }
+
+        public void RefreshAllSlots()
+        {
+            if (playerInventory == null) return;
+
+            if (slotUIs.Count != playerInventory.InventorySize)
+            {
+                InitializeUI();
+            }
+            
+            for (int i = 0; i < slotUIs.Count; i++)
+            {
+                if (i < playerInventory.InventorySize)
+                {
+                    Item item = playerInventory.GetItem(i);
+                    if (slotUIs[i] != null)
+                    {
+                        slotUIs[i].UpdateSlot(item);
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region Even Handlers
+
+        private void SubscribeToInventoryEvents()
+        {
+            if (playerInventory == null) return;
+            
+            playerInventory.OnItemAdded += OnItemAdded;
+            playerInventory.OnItemRemoved += OnItemRemoved;
+            playerInventory.OnSelectionChanged += OnSelectionChanged;
+            playerInventory.OnInventoryToggle += OnInventoryToggle;
+        }
         
-        // Event Handlers
+        private void UnsubscribeFromInventoryEvents()
+        {
+            if (playerInventory == null) return;
+            
+            playerInventory.OnItemAdded -= OnItemAdded;
+            playerInventory.OnItemRemoved -= OnItemRemoved;
+            playerInventory.OnSelectionChanged -= OnSelectionChanged;
+            playerInventory.OnInventoryToggle -= OnInventoryToggle;
+        }
+
+        private void OnSlotClicked(int slotIndex)
+        {
+            // Forward click to the InventorySlotUI
+            if (slotIndex >= 0 && slotIndex < slotUIs.Count && slotUIs[slotIndex] != null)
+            {
+                slotUIs[slotIndex].OnSlotClicked();
+            }
+        }
+        
         private void OnItemAdded(Item item)
         {
             if (item == null) return;
@@ -214,46 +341,36 @@ namespace PlatformerGame.Inventory
                 }
             }
         }
+        #endregion
         
-        // UI Update Methods
-        public void RefreshAllSlots()
-        {
-            if (playerInventory == null) return;
-            
-            for (int i = 0; i < slotUIs.Count; i++)
-            {
-                Item item = playerInventory.GetItem(i);
-                slotUIs[i].UpdateSlot(item);
-            }
-        }
-        
+        #region Update UI Selection
         private void UpdateSelection(int newPosition)
         {
             // Deselect previous slot
-            if (currentSelectedIndex >= 0 && currentSelectedIndex < slotUIs.Count)
+            /*if (currentSelectedIndex >= 0 && currentSelectedIndex < slotUIs.Count)
             {
                 slotUIs[currentSelectedIndex].SetSelected(false, normalSlotColor);
-            }
+            }*/
             
             // Select new slot
             if (newPosition >= 0 && newPosition < slotUIs.Count)
             {
-                slotUIs[newPosition].SetSelected(true, selectedSlotColor);
+                //slotUIs[newPosition].SetSelected(true, selectedSlotColor);
                 currentSelectedIndex = newPosition;
                 
                 // Update item info display
                 UpdateItemInfoDisplay(newPosition);
                 
                 // Update highlight position
-                if (selectedSlotHighlight != null)
+                /*if (selectedSlotHighlight != null)
                 {
                     selectedSlotHighlight.transform.SetParent(slotUIs[newPosition].transform);
                     selectedSlotHighlight.rectTransform.anchoredPosition = Vector2.zero;
                     selectedSlotHighlight.rectTransform.sizeDelta = Vector2.zero;
-                }
+                }*/
             }
         }
-        
+
         private void UpdateItemInfoDisplay(int slotIndex)
         {
             if (playerInventory == null) return;
@@ -270,11 +387,14 @@ namespace PlatformerGame.Inventory
                 itemDescriptionText.text = item != null ? item.description : "";
             }
         }
-        
-        // Clean up
+        #endregion
+
+        #region Clean up
         private void OnDestroy()
         {
             UnsubscribeFromInventoryEvents();
         }
+
+        #endregion        
     }
 }
