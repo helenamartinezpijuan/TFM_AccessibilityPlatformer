@@ -100,6 +100,11 @@ namespace PlatformerGame.Managers
             isPaused = false;
             HidePauseMenu();
         }
+
+        public void RestartLevel()
+        {
+            
+        }
         
         public void ReturnToMainMenu()
         {

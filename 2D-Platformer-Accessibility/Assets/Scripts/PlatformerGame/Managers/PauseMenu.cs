@@ -9,9 +9,9 @@ namespace PlatformerGame.Managers
         [Header("UI Elements")]
         [SerializeField] private GameObject pauseMenuPanel;
         [SerializeField] private Button resumeButton;
+        [SerializeField] private Button restartButton;
         [SerializeField] private Button optionsButton;
         [SerializeField] private Button mainMenuButton;
-        [SerializeField] private Button quitButton;
         
         [Header("Options")]
         [SerializeField] private GameObject optionsPanel;
@@ -32,15 +32,15 @@ namespace PlatformerGame.Managers
         {
             if (resumeButton != null)
                 resumeButton.onClick.AddListener(ResumeGame);
+
+            if (restartButton != null)
+                restartButton.onClick.AddListener(RestartLevel);
                 
             if (optionsButton != null)
                 optionsButton.onClick.AddListener(ShowOptions);
                 
             if (mainMenuButton != null)
                 mainMenuButton.onClick.AddListener(ReturnToMainMenu);
-                
-            if (quitButton != null)
-                quitButton.onClick.AddListener(QuitGame);
             
             // Always show pause menu panel initially
             if (pauseMenuPanel != null)
@@ -83,6 +83,11 @@ namespace PlatformerGame.Managers
             Time.timeScale = 1f;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;*/
+        }
+
+        public void RestartLevel()
+        {
+            pauseMenuManager.RestartLevel();
         }
         
         public void ShowOptions()
