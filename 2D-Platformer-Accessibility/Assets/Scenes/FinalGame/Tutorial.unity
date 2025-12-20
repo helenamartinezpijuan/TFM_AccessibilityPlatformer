@@ -658,7 +658,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 531465796}
-  - {fileID: 2085980288}
   - {fileID: 148559567}
   - {fileID: 828410622}
   m_Father: {fileID: 0}
@@ -2202,7 +2201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &647090361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26599,7 +26598,7 @@ GameObject:
   - component: {fileID: 2085980288}
   - component: {fileID: 2085980287}
   m_Layer: 0
-  m_Name: Checkpoint1
+  m_Name: StartLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26627,11 +26626,11 @@ Transform:
   m_GameObject: {fileID: 2085980286}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.578358, y: -20.314812, z: -0.04214081}
+  m_LocalPosition: {x: -59, y: 1, z: 0.47509506}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 258946528}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2088212213
 PrefabInstance:
@@ -27019,5 +27018,6 @@ SceneRoots:
   - {fileID: 1034109954}
   - {fileID: 1142801860}
   - {fileID: 258946528}
+  - {fileID: 2085980288}
   - {fileID: 1725844976}
   - {fileID: 647090362}

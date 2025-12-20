@@ -8,15 +8,15 @@ namespace PlatformerGame.UI
 public class TextPanelController : MonoBehaviour
 {
     [Header("UI References")]
-    [SerializeField] private TextMeshProUGUI panelTitleText;
-    [SerializeField] private TextMeshProUGUI coreText;
-    [SerializeField] private GameObject backgroundPanel;
+    [SerializeField] private TextMeshProUGUI panelTitleText;        // Title - corresponds to current level
+    [SerializeField] private TextMeshProUGUI coreText;              // Message - text displayed to the player
+    [SerializeField] private GameObject backgroundPanel;            // Panel - set active/inactive based on player collision
     
     [Header("Text Settings")]
-    [SerializeField] private TextAsset textDataFile; // Optional: JSON text data
-    [SerializeField] private float charactersPerSecond = 20f; // Reading speed
-    [SerializeField] private float minDisplayTime = 2f; // Minimum seconds per message
-    [SerializeField] private float panelOffset = 100f; // Offset from player
+    [SerializeField] private TextAsset textDataFile;                // JSON text data with Title and Message values
+    [SerializeField] private float charactersPerSecond = 20f;       // Reading speed
+    [SerializeField] private float minDisplayTime = 2f;             // Minimum seconds per message
+    [SerializeField] private float panelOffset = 100f;              // Offset from player position
     
     [Header("Animation")]
     [SerializeField] private Animator panelAnimator;
