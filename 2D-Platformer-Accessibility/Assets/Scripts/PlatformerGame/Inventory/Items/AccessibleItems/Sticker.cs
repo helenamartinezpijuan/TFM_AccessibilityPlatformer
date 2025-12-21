@@ -8,7 +8,7 @@ namespace PlatformerGame.Inventory.Items
         [Header("Sticker Settings")]
         [SerializeField] private LeverType leverType;
         [SerializeField] private SpriteRenderer spriteRenderer;
-        [SerializeField] private Animator animator;
+        //[SerializeField] private Animator animator;
         
         private bool isCollected = false;
 
@@ -17,15 +17,15 @@ namespace PlatformerGame.Inventory.Items
         
         private void Start()
         {
-            if (animator == null)
-                animator = GetComponent<Animator>();
+            //if (animator == null)
+                //animator = GetComponent<Animator>();
             
             if (spriteRenderer == null)
                 spriteRenderer = GetComponent<SpriteRenderer>();
             
             // Start floating animation
-            if (animator != null)
-                animator.Play("StickerFloat");
+            //if (animator != null)
+                //animator.Play("StickerFloat");
         }
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -52,8 +52,8 @@ namespace PlatformerGame.Inventory.Items
             }
             
             // Play collection effect
-            if (animator != null)
-                animator.SetTrigger("Collect");
+            //if (animator != null)
+                //animator.SetTrigger("Collect");
             
             // Disable after collection
             spriteRenderer.enabled = false;
