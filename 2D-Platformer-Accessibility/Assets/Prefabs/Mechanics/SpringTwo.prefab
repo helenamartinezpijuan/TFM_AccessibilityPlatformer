@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8545371597400336185}
   - component: {fileID: 5370747048091521896}
   m_Layer: 11
-  m_Name: Spring2
+  m_Name: SpringTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -606304516, guid: 573fc5991783256499df1d691b8d7c09, type: 3}
+  m_Sprite: {fileID: 1748650282, guid: e1b12ccc402b9e14e923704ec7fecb9b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

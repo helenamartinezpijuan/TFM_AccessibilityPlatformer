@@ -8,6 +8,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
     {
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
+        [SerializeField] private bool isExclusive;
         private SpriteRenderer markerSprite;
         private Animator markerAnimator;
         //private Light2D markerLight;
