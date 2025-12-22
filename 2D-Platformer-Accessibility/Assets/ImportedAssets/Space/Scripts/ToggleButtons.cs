@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace SpaceGUI
 {
-    public class Toggle : MonoBehaviour
+    public class ToggleButtons : MonoBehaviour
     {
         public Image first;
         public Image second;
@@ -26,6 +26,7 @@ namespace SpaceGUI
                 background.gameObject.SetActive(true);
             }
         }
+
         public void On()
         {
             index = 1;
@@ -41,6 +42,13 @@ namespace SpaceGUI
             second.gameObject.SetActive(false);
             third.gameObject.SetActive(false);
             fourth.gameObject.SetActive(true);
+        }
+
+        // Added method
+        public bool IsOn()
+        {
+            if (index == 1) return true;
+            return false;
         }
     }
 }
