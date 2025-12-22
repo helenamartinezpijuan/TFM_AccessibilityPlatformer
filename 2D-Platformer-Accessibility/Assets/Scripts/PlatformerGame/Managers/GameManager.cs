@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
 
     public void LoadNewGame()
     {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            
+        }
         SceneTransitioner.Instance?.LoadScene(firstLevelScene, transitionEffect);
     }
 

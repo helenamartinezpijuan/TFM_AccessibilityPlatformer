@@ -56,7 +56,7 @@ namespace PixeLadder.EasyTransition
         /// </summary>
         /// <param name="sceneName">The name of the scene to load.</param>
         /// <param name="effect">The TransitionEffect ScriptableObject defining the visuals.</param>
-        public void LoadScene(string sceneName, TransitionEffect effect = null)
+        public void LoadScene(string sceneName, TransitionEffect effect, bool loadAsync)
         {
             var effectToUse = effect ?? defaultTransition;
             if (effectToUse == null)
@@ -66,10 +66,10 @@ namespace PixeLadder.EasyTransition
             }
 
             StopAllCoroutines();
-            StartCoroutine(TransitionRoutine(sceneName, effectToUse));
+            StartCoroutine(TransitionRoutine(sceneName, effectToUse, loadAsync));
         }
 
-        private IEnumerator TransitionRoutine(string sceneName, TransitionEffect effect)
+        private IEnumerator TransitionRoutine(string sceneName, TransitionEffect effect, bool loadAsync)
         {
             // Prepare the material and activate the image.
             transitionImageInstance.gameObject.SetActive(true);
@@ -81,7 +81,10 @@ namespace PixeLadder.EasyTransition
             yield return effect.AnimateOut(transitionImageInstance);
 
             // Load the new scene.
-            yield return SceneManager.LoadSceneAsync(sceneName);
+            if (loadAsync)
+                yield return SceneManager.LoadSceneAsync(sceneName);
+            else
+                yield return SceneManager.LoadScene(sceneName);
 
             // Fire the event to notify any listeners that the load is complete.
             OnSceneLoaded?.Invoke();
