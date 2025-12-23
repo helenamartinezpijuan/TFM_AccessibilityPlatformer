@@ -13,8 +13,6 @@ namespace PlatformerGame.Managers
 public class EndGameManager : MonoBehaviour
 {
     [Header("Transition Settings")]
-    [SerializeField] private SceneTransitioner sceneTransitioner;
-    [SerializeField] private TransitionEffect transitionEffect;
     [SerializeField] private float transitionTime = 1f;
     private AudioSource buttonAudioSource;
 
@@ -27,18 +25,11 @@ public class EndGameManager : MonoBehaviour
     {
         buttonAudioSource.Play();
         
-        StartCoroutine(ReturnToMenuRoutine());
-    }
-    
-    private IEnumerator ReturnToMenuRoutine()
-    {
         // Clear game data
         ClearSaveData();
         
-        yield return new WaitForSeconds(transitionTime);
-        
         // Load main menu scene
-        sceneTransitioner.LoadScene("MainMenu", transitionEffect);
+        SceneTransitionManager.Instance?.GameOver();
     }
 
     private void ClearSaveData()

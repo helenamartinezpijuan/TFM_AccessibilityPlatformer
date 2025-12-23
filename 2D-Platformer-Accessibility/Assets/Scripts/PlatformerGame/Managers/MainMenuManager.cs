@@ -25,9 +25,11 @@ namespace PlatformerGame.Managers
         [SerializeField] private Slider volumeSlider;
         [SerializeField] private Toggle fullscreenToggle;
         
+        [Header("Scene Settings")]
+        [SerializeField] private string firstLevelScene = "Tutorial";
+        [SerializeField] private string saveSceneName = "SavedScene";
+        
         [Header("Transition Settings")]
-        //[SerializeField] private SceneTransitioner sceneTransitioner;
-        //[SerializeField] private TransitionEffect transitionEffect;
         [SerializeField] private float transitionTime = 1f;
         
         [Header("Audio")]
@@ -36,7 +38,6 @@ namespace PlatformerGame.Managers
         [SerializeField] private AudioClip startGameSound;
         
         private bool hasSaveData = false;
-        private static int currentSceneIndex = 1;
     
 
         private void Start()
@@ -230,14 +231,14 @@ namespace PlatformerGame.Managers
             InitializeNewGame();
             
             // Load the first level
-            //SceneManager.LoadScene(firstLevelScene);
-            GameManager.Instance?.LoadNewGame();
+            SceneTransitionManager.Instance?.LoadScene(firstLevelScene);
         }
         
         private void InitializeNewGame()
         {
             // Reset player prefs for new game
             GameManager.Instance?.SetNewGamePrefs();
+            SceneTransitionManager.Instance?.LoadScene(firstLevelScene);
             
             // Initialize inventory manager for new game
             InventoryManager.Instance?.InitializeNewGame();
@@ -248,23 +249,9 @@ namespace PlatformerGame.Managers
             yield return new WaitForSeconds(transitionTime);
 
             GameManager.Instance?.ContinueGame();
-        }
 
-        // For pause menu access
-        public void ReturnToMainMenu()
-        {
-            StartCoroutine(ReturnToMenuRoutine());
-        }
-        
-        private IEnumerator ReturnToMenuRoutine()
-        {
-            // Save game before returning
-            GameManager.Instance?.SaveGameState();
-            
-            yield return new WaitForSeconds(transitionTime);
-            
-            // Load main menu scene
-            GameManager.Instance?.LoadMainMenu();
+            string savedScene = PlayerPrefs.GetString("LastScene", firstLevelScene);
+            SceneTransitionManager.Instance?.LoadScene(savedScene);
         }
 
         #endregion

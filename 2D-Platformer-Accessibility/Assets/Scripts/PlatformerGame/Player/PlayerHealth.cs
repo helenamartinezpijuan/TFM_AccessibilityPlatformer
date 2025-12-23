@@ -65,6 +65,8 @@ namespace PlatformerGame.Player
             {
                 playerAnimator = GetComponent<Animator>();
             }
+
+            //PlayerPrefs.SetInt("PlayerHealth", currentHealth);
         }
 
         public void TakeDamage(int damage)

@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using PlatformerGame.Managers;
 
 namespace PlatformerGame.Player
 {
-    public class EndLevel : MonoBehaviour
+    public class PreviousLevel : MonoBehaviour
     {
         void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player"))
             {
                 Debug.Log("Level Completed!");
-                SceneTransitionManager.Instance?.LoadNextLevel();
+                SceneTransitionManager.Instance?.LoadSceneByIndex(SceneManager.GetActiveScene().buildIndex - 1);
                 
             }
         }

@@ -12,27 +12,26 @@ namespace PlatformerGame.Managers
 {
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
 
     [Header("Scene Settings")]
     [SerializeField] private string firstLevelScene = "Tutorial";
-    [SerializeField] private string saveSceneName = "SavedScene";
 
     [Header("Transition Settings")]
-    [SerializeField] private TransitionEffect transitionEffect;
+    [SerializeField] private float transitionTime = 1f;
 
-    public void LoadNewGame()
+    private void Awake()
     {
-        switch (SceneManager.GetActiveScene().name)
+        // Singleton pattern
+        if (Instance == null)
         {
-            
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        SceneTransitioner.Instance?.LoadScene(firstLevelScene, transitionEffect);
-    }
-
-    public void LoadMainMenu()
-    {
-        SceneTransitioner.Instance?.LoadScene("MainMenu", transitionEffect);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void ContinueGame()
@@ -43,8 +42,6 @@ public class GameManager : MonoBehaviour
         // Mark as continuing, not new game
         PlayerPrefs.SetInt("IsNewGame", 0);
         PlayerPrefs.Save();
-
-        SceneTransitioner.Instance?.LoadScene(savedScene, transitionEffect);
     }
 
     public void SetNewGamePrefs()
@@ -53,6 +50,24 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("LastScene", firstLevelScene);
         PlayerPrefs.Save();
     }
+
+    #region Pause Menu Logic
+    public void ReturnToMainMenu()
+    {
+        StartCoroutine(ReturnToMenuRoutine());
+    }
+    
+    private IEnumerator ReturnToMenuRoutine()
+    {
+        // Save game before returning
+        SaveGameState();
+        
+        yield return new WaitForSeconds(transitionTime);
+        
+        // Load main menu scene
+        SceneTransitionManager.Instance?.LoadScene("MainMenu");
+    }
+    #endregion
 
     #region Player Prefs Configuration
 

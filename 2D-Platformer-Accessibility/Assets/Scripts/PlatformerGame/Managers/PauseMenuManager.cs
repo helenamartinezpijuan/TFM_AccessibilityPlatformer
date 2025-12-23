@@ -116,17 +116,8 @@ namespace PlatformerGame.Managers
                 Destroy(currentPauseMenu);
             }
             
-            // Use the main menu manager if it exists
-            MainMenuManager menuManager = FindObjectOfType<MainMenuManager>();
-            if (menuManager != null)
-            {
-                menuManager.ReturnToMainMenu();
-            }
-            else
-            {
-                // Load main menu
-                SceneManager.LoadScene("MainMenu");
-            }
+            // Load main menu
+            GameManager.Instance?.ReturnToMainMenu();
         }
         
         public void QuitGame()

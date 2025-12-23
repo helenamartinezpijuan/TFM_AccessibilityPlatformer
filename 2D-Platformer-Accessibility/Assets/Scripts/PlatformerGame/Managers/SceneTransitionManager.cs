@@ -13,9 +13,6 @@ namespace PlatformerGame.Managers
         public static SceneTransitionManager Instance { get; private set; }
         
         [Header("Transition Settings")]
-        [SerializeField] private Animator transitionAnimator;
-        [SerializeField] private SceneTransitioner sceneTransitioner;
-        [SerializeField] private TransitionEffect transitionEffect;
         [SerializeField] private float transitionTime = 1f;
         
         [Header("Loading Screen")]
@@ -38,16 +35,6 @@ namespace PlatformerGame.Managers
                 Destroy(gameObject);
             }
         }
-
-        private void ShowTransitionEffect()
-        {
-            // The "next scene" is just this same scene, which we will reload.
-            string sceneToLoad = SceneManager.GetActiveScene().name;
-            TransitionEffect effectToUse = transitionEffect;
-
-            // Call the SceneTransitioner to start the transition.
-            SceneTransitioner.Instance.LoadScene(sceneToLoad, effectToUse);
-        }
         
         public void LoadScene(string sceneName)
         {
@@ -59,14 +46,12 @@ namespace PlatformerGame.Managers
             // Save game state before transition
             SaveBeforeTransition();
             
-            // Start transition out
-            if (transitionAnimator != null)
-                transitionAnimator.SetTrigger("Start");
-            
             yield return new WaitForSeconds(transitionTime);
+
+            SceneManager.LoadScene(sceneName);
             
             // Show loading screen
-            if (loadingScreen != null)
+            /*if (loadingScreen != null)
                 loadingScreen.SetActive(true);
             
             // Load scene asynchronously
@@ -95,11 +80,7 @@ namespace PlatformerGame.Managers
                 }
                 
                 yield return null;
-            }
-            
-            // Transition in
-            if (transitionAnimator != null)
-                transitionAnimator.SetTrigger("End");
+            }*/
         }
         
         private void SaveBeforeTransition()
@@ -121,8 +102,7 @@ namespace PlatformerGame.Managers
                 PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
                 if (playerHealth != null)
                 {
-                    // You'll need to add CurrentHealth property to PlayerHealth
-                    // PlayerPrefs.SetInt("PlayerHealth", playerHealth.CurrentHealth);
+                    PlayerPrefs.SetInt("PlayerHealth", playerHealth.CurrentHealth);
                 }
             }
             
@@ -131,10 +111,6 @@ namespace PlatformerGame.Managers
         
         public void LoadNextLevel()
         {
-            if (transitionEffect != null)
-            {
-                ShowTransitionEffect();
-            }
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             int nextSceneIndex = currentSceneIndex + 1;
             
@@ -150,7 +126,7 @@ namespace PlatformerGame.Managers
         
         public void LoadSceneByIndex(int sceneIndex)
         {
-            string sceneName = SceneManager.GetSceneByBuildIndex(sceneIndex).name;
+            string sceneName = SceneManager.GetSceneByBuildIndex(sceneIndex).name; 
             LoadScene(sceneName);
         }
         
@@ -159,7 +135,6 @@ namespace PlatformerGame.Managers
             LoadScene(SceneManager.GetActiveScene().name);
         }
         
-        // Call this when player dies
         public void GameOver()
         {
             StartCoroutine(GameOverRoutine());
