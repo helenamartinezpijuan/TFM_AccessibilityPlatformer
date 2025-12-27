@@ -100,6 +100,19 @@ public class GameManager : MonoBehaviour
         
         PlayerPrefs.Save();
     }
+    #endregion
+
+    #region End Game
+
+    public void Defeat()
+    {
+        SceneTransitionManager.Instance?.LoadScene("Defeat");
+    }
+
+    public void Victory()
+    {
+        SceneTransitionManager.Instance?.LoadScene("Victory");
+    }
 
     #endregion
 }

@@ -13,7 +13,7 @@ namespace PlatformerGame.Managers
         public static SceneTransitionManager Instance { get; private set; }
         
         [Header("Transition Settings")]
-        [SerializeField] private float transitionTime = 1f;
+        [SerializeField] private float transitionTime = 0.1f;
         
         [Header("Loading Screen")]
         [SerializeField] private GameObject loadingScreen;

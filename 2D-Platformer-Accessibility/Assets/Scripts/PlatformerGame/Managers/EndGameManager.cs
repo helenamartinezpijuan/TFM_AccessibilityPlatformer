@@ -29,7 +29,7 @@ public class EndGameManager : MonoBehaviour
         ClearSaveData();
         
         // Load main menu scene
-        SceneTransitionManager.Instance?.GameOver();
+        GameManager.Instance?.Victory();
     }
 
     private void ClearSaveData()

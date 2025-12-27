@@ -11,7 +11,7 @@ namespace PlatformerGame.Inventory.Items
         {
             // Sunglasses auto-equip on pickup
         }
-        
+        /*
         public void OnObtained()
         {
             isEquipped = true;
@@ -20,7 +20,7 @@ namespace PlatformerGame.Inventory.Items
             Flashlight flashlight = FindFlashlightInInventory();
             if (flashlight != null)
             {
-                flashlight.OnSunglassesObtained();
+                //flashlight.OnSunglassesObtained();
             }
             
             Debug.Log("Sunglasses obtained - auto-equipped");
@@ -46,8 +46,6 @@ namespace PlatformerGame.Inventory.Items
         {
             // Auto-equip when added to inventory
             OnObtained();
-        }
-        
-        public bool IsEquipped => isEquipped;
+        }*/
     }
 }

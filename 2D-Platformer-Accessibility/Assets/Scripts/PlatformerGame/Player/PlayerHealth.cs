@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using PlatformerGame.Managers;
 
 namespace PlatformerGame.Player
 {
@@ -10,7 +11,7 @@ namespace PlatformerGame.Player
         private int currentHealth;
 
         [Header("Respawn Parameters")]
-        [SerializeField] private CheckpointSystem checkpointSystem;
+        [SerializeField] private Transform checkpoint;
         [SerializeField] private float respawnDelay = 1f;
 
         [Header("UI Elements")]
@@ -25,15 +26,9 @@ namespace PlatformerGame.Player
         private AudioSource audioSource;
 
         [Header("Animation References")]
-        [SerializeField] private Animator playerAnimator;
         [SerializeField] private ParticleSystem damageParticles;
         [SerializeField] private ParticleSystem deathParticles;
         [SerializeField] private ParticleSystem respawnParticles;
-
-        // Animation parameter names (use the same as in your Animator controller)
-        private const string DAMAGE_TRIGGER = "TakeDamage";
-        private const string DEATH_TRIGGER = "Die";
-        private const string RESPAWN_TRIGGER = "Respawn";
 
         // Public property for other scripts to check health
         public int CurrentHealth => currentHealth;
@@ -60,13 +55,8 @@ namespace PlatformerGame.Player
                 healthUI.Initialize(maxHealth);
             }
 
-            // Animator
-            if (playerAnimator == null)
-            {
-                playerAnimator = GetComponent<Animator>();
-            }
-
-            //PlayerPrefs.SetInt("PlayerHealth", currentHealth);
+            PlayerPrefs.SetInt("PlayerHealth", currentHealth);
+            PlayerPrefs.Save();
         }
 
         public void TakeDamage(int damage)
@@ -78,7 +68,10 @@ namespace PlatformerGame.Player
             int previousHealth = currentHealth;
             currentHealth -= damage;
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-            
+        
+            // Update Player Prefs
+            PlayerPrefs.SetInt("PlayerHealth", currentHealth);
+
             Debug.Log($"Player Health: {currentHealth} (Took {damage} damage)");
 
             // Update UI
@@ -93,12 +86,6 @@ namespace PlatformerGame.Player
                 audioSource.PlayOneShot(damageSound, soundVolume);
             }
 
-            // Trigger damage animation
-            if (playerAnimator != null)
-            {
-                playerAnimator.SetTrigger(DAMAGE_TRIGGER);
-            }
-
             // Play damage particles
             if (damageParticles != null)
             {
@@ -108,26 +95,21 @@ namespace PlatformerGame.Player
             // Check for death
             if (currentHealth <= 0)
             {
-                StartCoroutine(DieSequence());
+                Die(); //StartCoroutine(DieSequence());
             }
             else
             {
-                StartCoroutine(RespawnAfterDelay(0.2f));
+                //StartCoroutine(RespawnAfterDelay(0.2f));
+                StartCoroutine(RespawnSequence());
             }
         }
 
-        private IEnumerator DieSequence()
+        private void Die() //IEnumerator DieSequence()
         {
             // Play death sound
             if (deathSound != null && audioSource != null)
             {
                 audioSource.PlayOneShot(deathSound, soundVolume);
-            }
-
-            // Trigger death animation
-            if (playerAnimator != null)
-            {
-                playerAnimator.SetTrigger(DEATH_TRIGGER);
             }
 
             // Play death particles
@@ -136,16 +118,19 @@ namespace PlatformerGame.Player
                 deathParticles.Play();
             }
 
+            // Defeat
+            GameManager.Instance?.Defeat();
+
             Debug.Log("Player has died.");
 
             // Disable player controls temporarily
-            DisablePlayerControls();
+            //DisablePlayerControls();
 
             // Wait for death animation
-            yield return new WaitForSeconds(respawnDelay);
+            //yield return new WaitForSeconds(respawnDelay);
 
             // Respawn at checkpoint
-            StartCoroutine(RespawnSequence());
+            //StartCoroutine(RespawnSequence());
         }
 
         private IEnumerator RespawnSequence()
@@ -159,34 +144,28 @@ namespace PlatformerGame.Player
             // Play respawn particles at checkpoint
             if (respawnParticles != null)
             {
-                respawnParticles.transform.position = checkpointSystem.GetRespawnPosition();
+                respawnParticles.transform.position = checkpoint.position;
                 respawnParticles.Play();
             }
 
             // Move player to checkpoint
-            transform.position = checkpointSystem.GetRespawnPosition();
-
-            // Trigger respawn animation
-            if (playerAnimator != null)
-            {
-                playerAnimator.SetTrigger(RESPAWN_TRIGGER);
-            }
+            transform.position = checkpoint.position;
 
             // Reset health for respawn
-            ResetHealth();
+            //ResetHealth();
 
             // Re-enable player controls
             EnablePlayerControls();
 
             yield return null;
         }
-
+/*
         private IEnumerator RespawnAfterDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
             
             // Optional: Add knockback or visual feedback here
-            transform.position = checkpointSystem.GetRespawnPosition();
+            transform.position = checkpoint.position;
             
             // Play respawn effect for non-lethal damage too
             if (respawnSound != null && audioSource != null)
@@ -194,7 +173,7 @@ namespace PlatformerGame.Player
                 audioSource.PlayOneShot(respawnSound, soundVolume * 0.5f);
             }
         }
-
+*/
         public void Heal(int amount)
         {
             int previousHealth = currentHealth;
@@ -212,9 +191,6 @@ namespace PlatformerGame.Player
             {
                 audioSource.PlayOneShot(healSound, soundVolume);
             }
-
-            // Optional: Play heal particles
-            Debug.Log($"Player healed: {previousHealth} -> {currentHealth}");
         }
 
         public void ResetHealth()
