@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7890277, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.885085, b: 0.0141509175, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -362,7 +362,7 @@ MonoBehaviour:
   charactersPerSecond: 20
   minDisplayTime: 2
   panelOffset: 100
-  panelAnimator: {fileID: 0}
+  panelAnimator: {fileID: 5087203411935772567}
   showTrigger: Show
   hideTrigger: Hide
 --- !u!95 &5087203411935772567
