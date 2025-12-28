@@ -36,7 +36,9 @@ namespace PlatformerGame.Inventory
                 if (inventory.AddItem(item))
                 {
                     Debug.Log($"Picked up {item.itemName}");
-                    Destroy(gameObject);
+                    SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
+                    renderer.enabled = false;
+                    //Destroy(gameObject);
                 }
             }
         }

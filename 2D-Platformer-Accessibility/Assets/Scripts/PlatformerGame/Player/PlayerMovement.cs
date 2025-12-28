@@ -33,10 +33,10 @@ namespace PlatformerGame.Player
         #region Movement Logic
         private void Move()
         {
-            //float moveForce = horizontalAxis * speed;
-            //rb.linearVelocity = new Vector2(moveForce, rb.linearVelocity.y);
+            float moveForce = horizontalAxis * speed;
+            rb.linearVelocity = new Vector2(moveForce, rb.linearVelocity.y);
 
-            if (Mathf.Abs(horizontalAxis) > 0.01f)
+            /*if (Mathf.Abs(horizontalAxis) > 0.01f)
             {
                 // Cast rays to detect ground ahead
                 Vector2 direction = isFacingRight ? Vector2.right : Vector2.left;
@@ -46,7 +46,7 @@ namespace PlatformerGame.Player
                 Vector2 targetPosition = rb.position + new Vector2(horizontalAxis * speed * Time.fixedDeltaTime, stepHeight);
                 
                 rb.MovePosition(targetPosition);
-            }
+            }*/
 
             // Handle character flipping
             if (!isFacingRight && horizontalAxis > 0f)
@@ -127,13 +127,11 @@ namespace PlatformerGame.Player
         public void LockControls()
         {
             controlsLocked = true;
-            // Disable input or movement here
         }
 
         public void UnlockControls()
         {
             controlsLocked = false;
-            // Enable input or movement here
         }
 
         public bool AreControlsLocked()
