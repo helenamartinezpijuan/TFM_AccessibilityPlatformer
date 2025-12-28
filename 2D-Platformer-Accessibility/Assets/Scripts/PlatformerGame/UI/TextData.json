@@ -1,6 +1,31 @@
 {
     "messages": [
         {
+            "category": "Ayuda 1",
+            "texts": [
+                "¿Cómo? ¿Que no ves nada? Hmm...",
+                "Yo pensaba que podías ver en la oscuridad.",
+                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles"
+            ]
+        },
+        {
+            "category": "Ayuda 2",
+            "texts": [
+                "¿Dices que sigues sin ver nada?",
+                "¡Ah! ¿Que solo ves los marcadores de las compuertas?",
+                "Ehem... creo que se me había olvidado darte esto",
+                "No olvides coleccionarlas todas"
+            ]
+        },
+        {
+            "category": "Ayuda 3",
+            "texts": [
+                "¿Cómo? ¿Que no ves nada? Hmm...",
+                "Yo pensaba que podías ver en la oscuridad.",
+                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles"
+            ]
+        },
+        {
             "category": "Tutorial",
             "texts": [
                 "¡Bienvenido al juego!",
@@ -59,14 +84,6 @@
             "category": "Primer puzle resuelto",
             "texts": [
                 "¡Enhorabuena! Has completado tu primer puzle."
-            ]
-        },
-        {
-            "category": "Ayuda 1",
-            "texts": [
-                "¿Cómo? ¿Que no ves nada? Hmm...",
-                "Yo pensaba que podías ver en la oscuridad.",
-                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles"
             ]
         },
         {
