@@ -25,7 +25,7 @@ namespace PlatformerGame.Managers
             pauseMenuManager = FindObjectOfType<PauseMenuManager>();
 
             // Initialize buttons
-            //InitializeUI();
+            InitializeUI();
         }
 
         private void InitializeUI()
@@ -51,7 +51,7 @@ namespace PlatformerGame.Managers
                 optionsPanel.SetActive(false);
         }
         
-        /*public void TogglePause()
+        public void TogglePause()
         {
             isPaused = !isPaused;
             
@@ -65,14 +65,14 @@ namespace PlatformerGame.Managers
             Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
             
             Debug.Log($"Game {(isPaused ? "Paused" : "Resumed")}");
-        }*/
+        }
 
         #region UI Button Handlers
         
         public void ResumeGame()
         {
             pauseMenuManager.ResumeGame();
-            /*isPaused = false;
+            isPaused = false;
             
             if (pauseMenuPanel != null)
                 pauseMenuPanel.SetActive(false);
@@ -82,7 +82,7 @@ namespace PlatformerGame.Managers
             
             Time.timeScale = 1f;
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;*/
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         public void RestartLevel()

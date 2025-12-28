@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6150813532939928446}
   - component: {fileID: 5454888430892018719}
   m_Layer: 0
-  m_Name: FlashLightItem
+  m_Name: FlashLight
   m_TagString: Flashlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

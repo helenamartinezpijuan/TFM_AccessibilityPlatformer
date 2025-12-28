@@ -9,6 +9,8 @@ TagManager:
   - Reverse
   - Fog
   - Reveal
+  - ItemIcon
+  - CoreText
   layers:
   - Default
   - TransparentFX

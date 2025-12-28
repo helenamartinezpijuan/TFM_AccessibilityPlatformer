@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -629162510, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+    - target: {fileID: 5229444184856653400, guid: 039ffb6087e57df45b5ec79af64cbf69, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229444184856653400, guid: 039ffb6087e57df45b5ec79af64cbf69, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229444184856653400, guid: 039ffb6087e57df45b5ec79af64cbf69, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6225322004018218248, guid: 039ffb6087e57df45b5ec79af64cbf69, type: 3}
       propertyPath: m_Name
       value: StickerG

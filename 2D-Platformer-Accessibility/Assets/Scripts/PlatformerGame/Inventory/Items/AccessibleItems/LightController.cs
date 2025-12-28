@@ -64,7 +64,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
 
             if (playerLight2D != null)
             {
-                playerLight2D.enabled = true;
+                globalLight2D.color = Color.white;
                 Debug.Log("Player flashlight light activated");
             }
             else

@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using PlatformerGame.Player;
 
 namespace PlatformerGame.UI
 {
@@ -11,6 +14,11 @@ public class TextTriggerZone : MonoBehaviour
     
     [Header("Trigger Settings")]
     [SerializeField] private bool oneTimeOnly = false;              // Some messages will only appear once
+
+    [Header("Help Item Settings")]
+    [SerializeField] private bool hasItem = false;
+    [SerializeField] private string itemName = "Flashlight";
+    private float transitionTime = 3f;
     
     private bool hasBeenTriggered = false;
     
@@ -32,9 +40,9 @@ public class TextTriggerZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        Debug.Log("Player entered text trigger zone.");
-
         if (oneTimeOnly && hasBeenTriggered) return;
+
+        if (hasItem) textPanel.SendHelp(itemName);
         
         ShowText();
         hasBeenTriggered = true;
@@ -73,5 +81,6 @@ public class TextTriggerZone : MonoBehaviour
         }
     }
     #endregion
+
 }
 }

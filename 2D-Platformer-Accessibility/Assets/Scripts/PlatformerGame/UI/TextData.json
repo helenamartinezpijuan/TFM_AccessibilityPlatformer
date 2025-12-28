@@ -8,32 +8,32 @@
             ]
         },
         {
-            "category": "InteractSpring",
+            "category": "Interactuar",
             "texts": [
                 "Presiona E para interactuar con los objetos."
             ]
         },
         {
-            "category": "InteractButton",
+            "category": "Botones",
             "texts": [
                 "Los botones activan plataformas móviles."
             ]
         },
         {
-            "category": "InteractLever",
+            "category": "Palancas",
             "texts": [
                 "Las palancas activan las compuertas de su mismo color."
             ]
         },
         {
-            "category": "ButtonExclusive",
+            "category": "Boton de color",
             "texts": [
                 "¡Ten cuidado!",
                 "Si el botón es rojo significa que solo puede haber una plataforma activa a la vez."
             ]
         },
         {
-            "category": "SpringColor",
+            "category": "Muelle de color",
             "texts": [
                 "¡Fijate bien!",
                 "Los muelles amarillos te harán saltar a tu destino...",
@@ -41,14 +41,14 @@
             ]
         },
         {
-            "category": "SpringColorDeath",
+            "category": "Muelle de color 2",
             "texts": [
                 "¡Mucho cuidado!",
                 "O el muelle azul te hará saltar hasta los pinchos"
             ]
         },
         {
-            "category": "LeverPuzzle",
+            "category": "Primer puzle",
             "texts": [
                 "¡Tu primer puzle!",
                 "Deberás elegir los colores de las palancas cuya combinación forme el color de la puerta.",
@@ -56,17 +56,23 @@
             ]
         },
         {
-            "category": "FirstPuzzleSolved",
+            "category": "Primer puzle resuelto",
             "texts": [
                 "¡Enhorabuena! Has completado tu primer puzle."
             ]
         },
         {
-            "category": "HELP1",
+            "category": "Ayuda 1",
             "texts": [
                 "¿Cómo? ¿Que no ves nada? Hmm...",
                 "Yo pensaba que podías ver en la oscuridad.",
                 "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles"
+            ]
+        },
+        {
+            "category": "Coger item",
+            "texts": [
+                "Presiona E para añadir el objeto a tu inventario"
             ]
         }
     ]

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using TMPro;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -11,7 +12,16 @@ public class TextPanelController : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI panelTitleText;        // Title - corresponds to current level
     [SerializeField] private TextMeshProUGUI coreText;              // Message - text displayed to the player
+    [SerializeField] private Image itemIcon;                        // Item icon - active on collection
     [SerializeField] private GameObject backgroundPanel;            // Panel - set active/inactive based on player collision
+
+    [Header("Item References")]
+    [SerializeField] private GameObject flashlight;
+    [SerializeField] private GameObject stickerBag;
+    [SerializeField] private GameObject sunglasses;
+    [SerializeField] private Sprite[] iconList;
+    [SerializeField] private GameObject itemIconObject;
+    [SerializeField] private GameObject coreTextObject;
     
     [Header("Text Settings")]
     [SerializeField] private TextAsset textDataFile;                // JSON text data with Title and Message values
@@ -22,7 +32,9 @@ public class TextPanelController : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator panelAnimator;
     [SerializeField] private string showTrigger = "Show";
-    [SerializeField] private string hideTrigger = "Hide";
+    //[SerializeField] private string hideTrigger = "Hide";
+
+    private AudioSource audioSource;
     
     // Text data storage
     private Dictionary<string, string[]> textDatabase = new Dictionary<string, string[]>();
@@ -39,6 +51,8 @@ public class TextPanelController : MonoBehaviour
     {
         // Hide panel initially
         backgroundPanel.SetActive(false);
+
+        audioSource = GetComponent<AudioSource>();
         
         // Load text data if provided
         if (textDataFile != null)
@@ -158,7 +172,7 @@ public class TextPanelController : MonoBehaviour
         if (panelAnimator != null)
         {
             panelAnimator.SetTrigger(showTrigger);
-            yield return new WaitForSeconds(0.3f); // Animation time
+            yield return new WaitForSeconds(0f); // Animation time
         }
         
         // Display each message
@@ -182,7 +196,7 @@ public class TextPanelController : MonoBehaviour
             if (currentMessageQueue.Count > 0)
             {
                 coreText.text = "...";
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.4f);
             }
         }
         
@@ -200,15 +214,7 @@ public class TextPanelController : MonoBehaviour
             displayCoroutine = null;
         }
         
-        if (panelAnimator != null)
-        {
-            panelAnimator.SetTrigger(hideTrigger);
-            StartCoroutine(DeactivateAfterAnimation(0.3f));
-        }
-        else
-        {
-            backgroundPanel.SetActive(false);
-        }
+        backgroundPanel.SetActive(false);
         
         isShowing = false;
         currentMessageQueue.Clear();
@@ -220,20 +226,50 @@ public class TextPanelController : MonoBehaviour
         backgroundPanel.SetActive(false);
     }
     
-    // For manual text updates (in case you want to change text dynamically)
-    public void UpdateCurrentText(string newText)
+    public void SendHelp(string itemName)
     {
-        coreText.text = newText;
+        if (itemName == "Flashlight")
+        {
+            itemIcon.sprite = iconList[0];
+            flashlight.SetActive(true);
+        }  
+        else if (itemName == "StickerBag")
+        {
+            itemIcon.sprite = iconList[1];
+            stickerBag.SetActive(true);
+        }  
+        else if (itemName == "Sunglasses")
+        {
+            itemIcon.sprite = iconList[2];
+            sunglasses.SetActive(true);
+        }
+
+        DisplayItem();
+    }
+
+    private IEnumerator DisplayItem()
+    {
+        backgroundPanel.SetActive(true);
+        coreTextObject.SetActive(false);
+        itemIconObject.SetActive(true);
+
+        audioSource.Play();
+
+        yield return new WaitForSeconds(2f);
+
+        coreTextObject.SetActive(true);
+        itemIconObject.SetActive(false);
+        backgroundPanel.SetActive(false);
     }
     
     // Data classes for JSON parsing
-    [System.Serializable]
+    [Serializable]
     private class TextDataWrapper
     {
         public TextMessage[] messages;
     }
     
-    [System.Serializable]
+    [Serializable]
     private class TextMessage
     {
         public string category;
