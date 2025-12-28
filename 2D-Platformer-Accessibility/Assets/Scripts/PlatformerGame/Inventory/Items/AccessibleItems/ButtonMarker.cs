@@ -33,10 +33,10 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         
         private void OnTriggerExit2D(Collider2D other)
         {
-            bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
-
             if (other.CompareTag("Player"))
             {
+                bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
+                
                 if (hasFlahslight)
                 {
                     HideMarker();

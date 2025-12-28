@@ -47,8 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab004f8e59ac364eb1eaf5de77defed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FollowObject: {fileID: 0}
-  FollowOffset: {x: 0, y: 0}
+  followOffset: {x: 3, y: 3}
   speed: 3
 --- !u!20 &1432787114530770126
 Camera:

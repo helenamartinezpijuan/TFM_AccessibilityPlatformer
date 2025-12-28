@@ -271,6 +271,35 @@ namespace PlatformerGame.Inventory
             return false;
         }
 
+        public bool HasSticker(Sticker sticker)
+        {
+            foreach (var item in items)
+            {
+                if (item is StickerBag stickerBag)
+                {
+                    foreach (var collectedSticker in stickerBag.GetStickers())
+                    {
+                        if (sticker == collectedSticker)
+                            return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool HasNumberStickers()
+        {
+            foreach (var item in items)
+            {
+                if (item is StickerBag stickerBag)
+                {
+                    if (stickerBag.GetNumberStickers() != null)
+                        return true;
+                }
+            }
+            return false;
+        }
+
         // Input System Callbacks
         public void OnNavigate(InputAction.CallbackContext context)
         {

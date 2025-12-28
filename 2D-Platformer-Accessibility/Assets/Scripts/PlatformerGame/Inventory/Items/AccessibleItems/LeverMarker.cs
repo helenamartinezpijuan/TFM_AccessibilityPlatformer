@@ -5,11 +5,11 @@ using UnityEngine.Rendering.Universal;
 
 namespace PlatformerGame.Inventory.Items.AccessibleItems
 {
-    public class GateMarker : MonoBehaviour
+    public class LeverMarker : MonoBehaviour
     {
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
-        [SerializeField] private bool isExclusive;
+        [SerializeField] private Sticker sticker;
 
         private SpriteRenderer markerSprite;
         private Animator markerAnimator;
@@ -41,8 +41,9 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (other.CompareTag("Player"))
             {
                 bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
+                bool hasSticker = other.GetComponent<PlayerInventory>().HasSticker(sticker);
 
-                if (hasFlahslight)
+                if (hasFlahslight && hasSticker)
                 {
                     ShowMarker();
                 }
@@ -53,7 +54,12 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         {
             if (other.CompareTag("Player"))
             {
-                HideMarker();
+                bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
+
+                if (hasFlahslight)
+                {
+                    HideMarker();
+                }
             }
         }
         #endregion
@@ -67,9 +73,6 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
                 markerSprite.enabled = true;
                 markerAnimator.enabled = true;
                 markerLight.enabled = true;
-
-                if (isExclusive)
-                    markerLight.color = Color.red;
             }
         }
         

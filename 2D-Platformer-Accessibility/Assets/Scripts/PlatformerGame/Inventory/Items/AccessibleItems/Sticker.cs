@@ -8,6 +8,7 @@ namespace PlatformerGame.Inventory.Items
         [Header("Sticker Settings")]
         [SerializeField] private LeverType leverType;
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private bool isNumbers;
         //[SerializeField] private Animator animator;
         
         private bool isCollected = false;

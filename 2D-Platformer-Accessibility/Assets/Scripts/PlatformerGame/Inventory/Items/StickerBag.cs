@@ -9,7 +9,7 @@ namespace PlatformerGame.Inventory.Items
     {
         [Header("Sticker Management")]
         [SerializeField] private List<Sticker> collectedStickers = new List<Sticker>();
-        [SerializeField] private List<Sticker> collectedNumberStickers = new List<Sticker>();
+        [SerializeField] private Sticker collectedNumberStickers;
         [SerializeField] private int maxStickers = 8;
         //[SerializeField] private GameObject numberSticker;
         
@@ -17,7 +17,7 @@ namespace PlatformerGame.Inventory.Items
         [SerializeField] private GameObject collectionEffectPrefab;
 
         public List<Sticker> GetStickers() => new List<Sticker>(collectedStickers);
-        public List<Sticker> GetNumberStickers() => new List<Sticker>(collectedNumberStickers);
+        public Sticker GetNumberStickers() => collectedNumberStickers;
         public int GetStickerCount() => collectedStickers.Count;
         public int GetMaxStickers() => maxStickers;
         
@@ -44,6 +44,17 @@ namespace PlatformerGame.Inventory.Items
             }
             
             Debug.Log($"Added sticker {sticker.GetLeverType()} to bag. Total: {collectedStickers.Count}/{maxStickers}");
+        }
+
+        public void AddNumbersSticker(Sticker sticker)
+        {            
+            collectedNumberStickers = sticker;
+            
+            // Show collection effect
+            if (collectionEffectPrefab != null)
+            {
+                Instantiate(collectionEffectPrefab, sticker.transform.position, Quaternion.identity);
+            }
         }
         
         public bool HasSticker(LeverType leverType)

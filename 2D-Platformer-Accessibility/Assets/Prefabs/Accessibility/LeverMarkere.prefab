@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 3410889396798014036}
   - component: {fileID: 5825094187767575562}
-  - component: {fileID: 1517550608489469099}
   - component: {fileID: 3672932912105947759}
   - component: {fileID: 2299669507420972227}
   - component: {fileID: 5193252360889241116}
+  - component: {fileID: 2365796903802797201}
   m_Layer: 0
-  m_Name: GateMarker
+  m_Name: LeverMarkere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -91,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1517550608489469099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521843236299037952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredLever: 0
-  isExclusive: 0
 --- !u!95 &3672932912105947759
 Animator:
   serializedVersion: 7
@@ -215,3 +201,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 5
+--- !u!114 &2365796903802797201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521843236299037952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be380b3d81fe2eb4fa5ed2f8da7f58ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredLever: 0
+  sticker: {fileID: 0}
