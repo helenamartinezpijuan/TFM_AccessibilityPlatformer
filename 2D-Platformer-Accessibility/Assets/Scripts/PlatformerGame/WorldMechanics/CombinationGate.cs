@@ -28,7 +28,13 @@ namespace PlatformerGame.WorldMechanics
         private BoxCollider2D gateCollider;
         private GameObject currentClueInstance;
         private bool isOpen = false;
+        private AudioSource audioSource;
         
+        private void Awake()
+        {
+            // Initialize audio source
+            audioSource = GetComponent<AudioSource>();
+        }
         private void Start()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -78,6 +84,7 @@ namespace PlatformerGame.WorldMechanics
             if (shouldOpen != isOpen)
             {
                 isOpen = shouldOpen;
+                audioSource.Play();
                 Debug.Log($"[{gateId} DEBUG] Is open: {isOpen}. Should open: {shouldOpen}");
                 UpdateGateState();
             }

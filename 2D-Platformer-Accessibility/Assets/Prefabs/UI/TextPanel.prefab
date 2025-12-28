@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 1738831746408088977}
   - component: {fileID: 2315229223444094470}
   - component: {fileID: 6226571846151522054}
+  - component: {fileID: 5087203411935772567}
   m_Layer: 5
   m_Name: TextPanel
   m_TagString: Untagged
@@ -364,6 +365,28 @@ MonoBehaviour:
   panelAnimator: {fileID: 0}
   showTrigger: Show
   hideTrigger: Hide
+--- !u!95 &5087203411935772567
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715974109108817553}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7342808494fc92f4e90eeef8eead9521, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8262199890138736173
 GameObject:
   m_ObjectHideFlags: 0

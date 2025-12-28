@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
@@ -146,7 +147,7 @@ public class TextPanelController : MonoBehaviour
     // Direct text input
     public void ShowDirectText(string title, string message)
     {
-        string[] messages = message.Split(new string[] { "\\n" }, System.StringSplitOptions.None);
+        string[] messages = message.Split(new string[] { "\\n" }, StringSplitOptions.None);
         ShowText(title, messages);
     }
     

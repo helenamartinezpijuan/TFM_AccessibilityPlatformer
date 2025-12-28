@@ -3,24 +3,70 @@
         {
             "category": "Tutorial",
             "texts": [
-                "¡Bienvenido al juego! Usa las flechas ← y → para desplazarte.",
+                "¡Bienvenido al juego!",
+                "Usa las flechas ← y → para desplazarte."
+            ]
+        },
+        {
+            "category": "InteractSpring",
+            "texts": [
                 "Presiona E para interactuar con los objetos."
             ]
         },
         {
-            "category": "Story",
+            "category": "InteractButton",
             "texts": [
-                "Parece que esta palanca es de color rojo.",
-                "You must find the four elemental crystals.",
-                "Beware of the temple guardians!"
+                "Los botones activan plataformas móviles."
             ]
         },
         {
-            "category": "Hint",
+            "category": "InteractLever",
             "texts": [
-                "Try jumping on the moving platforms.",
-                "The red door requires a special key.",
-                "Listen for audio clues in dark areas."
+                "Las palancas activan las compuertas de su mismo color."
+            ]
+        },
+        {
+            "category": "ButtonExclusive",
+            "texts": [
+                "¡Ten cuidado!",
+                "Si el botón es rojo significa que solo puede haber una plataforma activa a la vez."
+            ]
+        },
+        {
+            "category": "SpringColor",
+            "texts": [
+                "¡Fijate bien!",
+                "Los muelles amarillos te harán saltar a tu destino...",
+                "Pero los muelles azules te harán retroceder"
+            ]
+        },
+        {
+            "category": "SpringColorDeath",
+            "texts": [
+                "¡Mucho cuidado!",
+                "O el muelle azul te hará saltar hasta los pinchos"
+            ]
+        },
+        {
+            "category": "LeverPuzzle",
+            "texts": [
+                "¡Tu primer puzle!",
+                "Deberás elegir los colores de las palancas cuya combinación forme el color de la puerta.",
+                "Pista: el rojo y el azul forman morado"
+            ]
+        },
+        {
+            "category": "FirstPuzzleSolved",
+            "texts": [
+                "¡Enhorabuena! Has completado tu primer puzle."
+            ]
+        },
+        {
+            "category": "HELP1",
+            "texts": [
+                "¿Cómo? ¿Que no ves nada? Hmm...",
+                "Yo pensaba que podías ver en la oscuridad.",
+                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles"
             ]
         }
     ]

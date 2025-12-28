@@ -196,6 +196,14 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: requiredLever
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328740691040495771, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerD
+      objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: gateId
       value: GateDE
@@ -213,6 +221,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 87137111}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'gateMarkers.Array.data[1]'
       value: 
       objectReference: {fileID: 756010096}
@@ -227,6 +239,18 @@ PrefabInstance:
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'requiredLeverTypes.Array.data[1]'
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1766572112402960728, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -268,10 +292,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3861537357263452148, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4314084736604182606, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Name
       value: Gate-DE
       objectReference: {fileID: 0}
+    - target: {fileID: 6321059978835132817, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 908778991, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 6725967784156432049, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: requiredLever
       value: 3
@@ -389,7 +421,7 @@ GameObject:
   - component: {fileID: 24916508}
   - component: {fileID: 24916507}
   m_Layer: 0
-  m_Name: AccessibleMarkerC
+  m_Name: GateMarkerC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +436,7 @@ Transform:
   m_GameObject: {fileID: 24916500}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.95, y: -0.109999776, z: 0}
+  m_LocalPosition: {x: -2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -458,8 +490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLever: 0
-  isExclusive: 0
+  requiredLever: 2
+  isExclusive: 1
 --- !u!212 &24916506
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -504,7 +536,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -353815071, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -589,6 +621,17 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &34622091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 61008148}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &61008148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -617,6 +660,10 @@ PrefabInstance:
       propertyPath: requireExactMatch
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 34622091}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: requiredLeverTypes.Array.size
       value: 1
@@ -749,6 +796,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8979379816356082915, guid: 7d1e600ba782fb54a8c62905ecf80898, type: 3}
   m_PrefabInstance: {fileID: 63024546}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &87137111 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 5431262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &103041595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -810,6 +868,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 039ffb6087e57df45b5ec79af64cbf69, type: 3}
+--- !u!114 &112819273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 2029543791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &120310771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1408,6 +1477,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8909356ffaaca9345be659210426f2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &248180350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 660766114}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &261264179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1566,6 +1646,10 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1328740691040495771, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerA
+      objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: gateId
       value: GateH
@@ -1590,13 +1674,21 @@ PrefabInstance:
       propertyPath: 'requiredLeverTypes.Array.data[1]'
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.367294
+      value: -16
       objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9910822
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2440,6 +2532,14 @@ PrefabInstance:
       propertyPath: 'requiredLeverTypes.Array.data[0]'
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50
@@ -2518,7 +2618,7 @@ GameObject:
   - component: {fileID: 429022058}
   - component: {fileID: 429022057}
   m_Layer: 0
-  m_Name: AccessibleMarkerH
+  m_Name: GateMarkerG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2533,7 +2633,7 @@ Transform:
   m_GameObject: {fileID: 429022055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.52, y: -0.23, z: 0}
+  m_LocalPosition: {x: -2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2661,8 +2761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLever: 7
-  isExclusive: 0
+  requiredLever: 6
+  isExclusive: 1
 --- !u!212 &429022061
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2707,7 +2807,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 4271576514838806035, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: 594709543, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2754,6 +2854,10 @@ PrefabInstance:
       propertyPath: 'requiredLeverTypes.Array.data[1]'
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2801826366436469033, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 908778991, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 3066945449026977175, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42
@@ -2795,6 +2899,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3351648540722924082, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: isExclusive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3351648540722924082, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: requiredLever
       value: 3
       objectReference: {fileID: 0}
@@ -2804,15 +2912,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7482484499821518575, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Name
-      value: AccessibleMarkerD
+      value: GateMarkerD
       objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5200005
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1499991
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2853,7 +2961,7 @@ GameObject:
   - component: {fileID: 439317449}
   - component: {fileID: 439317448}
   m_Layer: 0
-  m_Name: AccessibleMarkerH
+  m_Name: GateMarkerH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2868,7 +2976,7 @@ Transform:
   m_GameObject: {fileID: 439317446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8799992, y: -0.33, z: 0}
+  m_LocalPosition: {x: -2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3042,7 +3150,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 4271576514838806035, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -1794127612, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3873,7 +3981,7 @@ GameObject:
   - component: {fileID: 472548160}
   - component: {fileID: 472548159}
   m_Layer: 0
-  m_Name: AccessibleMarkerC
+  m_Name: GateMarkerC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3888,7 +3996,7 @@ Transform:
   m_GameObject: {fileID: 472548152}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.95, y: -0.09, z: 0}
+  m_LocalPosition: {x: -2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3942,8 +4050,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLever: 0
-  isExclusive: 0
+  requiredLever: 2
+  isExclusive: 1
 --- !u!212 &472548158
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3988,7 +4096,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -353815071, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4110,6 +4218,10 @@ PrefabInstance:
       propertyPath: 'requiredLeverTypes.Array.data[0]'
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2801826366436469033, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1598622826, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 3066945449026977175, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24
@@ -4157,6 +4269,18 @@ PrefabInstance:
     - target: {fileID: 4314084736604182606, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Name
       value: Gate-F
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482484499821518575, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerF
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4485,6 +4609,18 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: isExclusive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: requiredLever
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328740691040495771, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerB
+      objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: gateId
       value: GateBC
@@ -4501,6 +4637,10 @@ PrefabInstance:
       propertyPath: gateMarkers.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1304109934}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'gateMarkers.Array.data[1]'
       value: 
@@ -4520,6 +4660,14 @@ PrefabInstance:
     - target: {fileID: 2154530958497775834, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4573,6 +4721,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.1800003
       objectReference: {fileID: 0}
+    - target: {fileID: 6321059978835132817, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 909232110, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 7956102285006477949, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Name
       value: AccessibleMarkerB
@@ -4684,6 +4836,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 675300510}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: requiredLeverTypes.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -4730,6 +4886,14 @@ PrefabInstance:
     - target: {fileID: 4314084736604182606, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Name
       value: Gate-A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490769417739775781, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Volume
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5490769417739775781, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6010811468362002021, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5137,6 +5301,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1939415612}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: requiredLeverTypes.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5266,6 +5434,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1600332246}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: requiredLeverTypes.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -5358,6 +5530,18 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: isExclusive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: requiredLever
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328740691040495771, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerB
+      objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: gateId
       value: GateBC
@@ -5374,6 +5558,10 @@ PrefabInstance:
       propertyPath: gateMarkers.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 248180350}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'gateMarkers.Array.data[1]'
       value: 
@@ -5393,6 +5581,14 @@ PrefabInstance:
     - target: {fileID: 2154530958497775834, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5446,6 +5642,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.1800003
       objectReference: {fileID: 0}
+    - target: {fileID: 6321059978835132817, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 909232110, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 7956102285006477949, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Name
       value: AccessibleMarkerB
@@ -5467,6 +5667,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
   m_PrefabInstance: {fileID: 660766114}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &675300510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 566469249}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &678966212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 1531781511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &700123471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5482,7 +5704,7 @@ GameObject:
   - component: {fileID: 700123474}
   - component: {fileID: 700123473}
   m_Layer: 0
-  m_Name: AccessibleMarkerE
+  m_Name: GateMarkerE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5497,7 +5719,7 @@ Transform:
   m_GameObject: {fileID: 700123471}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.007, y: 2.697, z: 0}
+  m_LocalPosition: {x: -2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5671,7 +5893,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 4271576514838806035, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: 594709543, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -72614,7 +72836,7 @@ GameObject:
   - component: {fileID: 756010094}
   - component: {fileID: 756010093}
   m_Layer: 0
-  m_Name: AccessibleMarkerE
+  m_Name: GateMarkerE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72629,7 +72851,7 @@ Transform:
   m_GameObject: {fileID: 756010091}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.007, y: 2.697, z: 0}
+  m_LocalPosition: {x: -2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72695,7 +72917,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756010091}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 636e2b98a90ea8047be06268e5b87221, type: 2}
   m_CullingMode: 0
@@ -72803,7 +73025,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 4271576514838806035, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: 594709543, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -73239,6 +73461,10 @@ PrefabInstance:
       propertyPath: 'requiredLeverTypes.Array.data[0]'
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2801826366436469033, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1598622826, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 3066945449026977175, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
       value: -57
@@ -73279,17 +73505,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351648540722924082, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: requiredLever
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4314084736604182606, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Name
       value: Gate-F
       objectReference: {fileID: 0}
     - target: {fileID: 7482484499821518575, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Name
-      value: AccessibleMarkerF
+      value: GateMarkerF
       objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.5
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.y
@@ -73344,6 +73574,10 @@ PrefabInstance:
       propertyPath: 'requiredLeverTypes.Array.data[0]'
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2801826366436469033, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1598622826, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 3066945449026977175, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
       value: -52
@@ -73384,17 +73618,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351648540722924082, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: requiredLever
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4314084736604182606, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Name
       value: Gate-F
       objectReference: {fileID: 0}
     - target: {fileID: 7482484499821518575, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Name
-      value: AccessibleMarkerF
+      value: GateMarkerF
       objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.y
@@ -73659,7 +73897,7 @@ GameObject:
   - component: {fileID: 893900411}
   - component: {fileID: 893900410}
   m_Layer: 0
-  m_Name: AccessibleMarkerC
+  m_Name: GateMarkerC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73674,7 +73912,7 @@ Transform:
   m_GameObject: {fileID: 893900403}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.95, y: -0.069999784, z: 0}
+  m_LocalPosition: {x: -2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73728,8 +73966,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLever: 0
-  isExclusive: 0
+  requiredLever: 2
+  isExclusive: 1
 --- !u!212 &893900409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73774,7 +74012,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -353815071, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -73966,6 +74204,18 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: isExclusive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: requiredLever
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328740691040495771, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerB
+      objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: gateId
       value: GateBC
@@ -73987,6 +74237,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1080014026}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'gateMarkers.Array.data[1]'
       value: 
       objectReference: {fileID: 1442310583}
@@ -74005,6 +74259,14 @@ PrefabInstance:
     - target: {fileID: 2154530958497775834, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74058,6 +74320,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.1800003
       objectReference: {fileID: 0}
+    - target: {fileID: 6321059978835132817, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 909232110, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 7956102285006477949, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Name
       value: AccessibleMarkerB
@@ -74577,6 +74843,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8979379816356082915, guid: 7d1e600ba782fb54a8c62905ecf80898, type: 3}
   m_PrefabInstance: {fileID: 1076640762}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1080014026 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 914353522}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1092847479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 574944560331618802, guid: 98fb73503653dd344aeab765553ed5ad, type: 3}
@@ -74675,7 +74952,7 @@ GameObject:
   - component: {fileID: 1118186993}
   - component: {fileID: 1118186996}
   m_Layer: 13
-  m_Name: FakeWall2
+  m_Name: TestFakeWall
   m_TagString: Reveal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74689,12 +74966,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118186991}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1955171741}
+  m_Father: {fileID: 2133225976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &1118186993
 TilemapCollider2D:
@@ -74777,7 +75054,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -89388,6 +89665,42 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: isExclusive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: requiredLever
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328740691040495771, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerF
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: gateId
+      value: GateF
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1508825161}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: requiredLeverTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'requiredLeverTypes.Array.data[0]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28
@@ -89432,6 +89745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Gate-[F]'
       objectReference: {fileID: 0}
+    - target: {fileID: 6321059978835132817, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1598622826, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 6725967784156432049, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: isExclusive
       value: 1
@@ -90138,6 +90455,17 @@ Transform:
   - {fileID: 244896643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1304109934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 561521930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1312052789
 GameObject:
   m_ObjectHideFlags: 0
@@ -90662,8 +90990,9 @@ GameObject:
   - component: {fileID: 1404226220}
   - component: {fileID: 1404226219}
   - component: {fileID: 1404226218}
+  - component: {fileID: 1404226221}
   m_Layer: 13
-  m_Name: FakeWall1
+  m_Name: HiddenWall1
   m_TagString: Reveal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90677,12 +91006,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404226216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1955171741}
+  m_Father: {fileID: 2133225976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!19719996 &1404226218
 TilemapCollider2D:
@@ -91224,6 +91553,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1404226221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404226216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa11c4648bf5c1e4f94d54849bc5a26a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemEvents: {fileID: 11400000, guid: 37f0ab2fbad4f9440bf69a31ca314f03, type: 2}
 --- !u!1001 &1405857760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91435,7 +91777,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1427563961216797515, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: gateId
-      value: GateD
+      value: GateE
       objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: requireExactMatch
@@ -91452,7 +91794,7 @@ PrefabInstance:
     - target: {fileID: 2801826366436469033, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 787218588, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+      objectReference: {fileID: 594709543, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 3066945449026977175, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41
@@ -91493,17 +91835,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3351648540722924082, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: requiredLever
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4314084736604182606, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Name
       value: Gate-E
       objectReference: {fileID: 0}
+    - target: {fileID: 7482484499821518575, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerE
+      objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.63
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.85
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -91592,7 +91942,7 @@ GameObject:
   - component: {fileID: 1442310585}
   - component: {fileID: 1442310586}
   m_Layer: 0
-  m_Name: AccessibleMarkerC
+  m_Name: GateMarkerC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91607,7 +91957,7 @@ Transform:
   m_GameObject: {fileID: 1442310578}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.95, y: -0.13999978, z: 0}
+  m_LocalPosition: {x: -2, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91661,8 +92011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredLever: 0
-  isExclusive: 0
+  requiredLever: 2
+  isExclusive: 1
 --- !u!212 &1442310584
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91707,7 +92057,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+  m_Sprite: {fileID: -353815071, guid: 32f098274dbca22429070b8047d6126a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92144,6 +92494,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f82ab62d4926ee44b6608c123fd4948, type: 3}
+--- !u!114 &1508825161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 1167260793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1513327625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 574944560331618802, guid: 98fb73503653dd344aeab765553ed5ad, type: 3}
@@ -92214,6 +92575,10 @@ PrefabInstance:
       propertyPath: requireExactMatch
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 678966212}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: requiredLeverTypes.Array.size
       value: 1
@@ -92545,6 +92910,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1843057885}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: requiredLeverTypes.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -92726,6 +93095,17 @@ Transform:
   - {fileID: 1988107332}
   m_Father: {fileID: 1992690505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1600332246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 647190115}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628568946
 GameObject:
   m_ObjectHideFlags: 0
@@ -93143,6 +93523,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
   m_PrefabInstance: {fileID: 647190115}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1733138996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 1850170833}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1741682452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93318,7 +93709,7 @@ PrefabInstance:
     - target: {fileID: 2801826366436469033, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+      objectReference: {fileID: -353815071, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 3066945449026977175, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
       value: -39
@@ -93367,13 +93758,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate-C
       objectReference: {fileID: 0}
+    - target: {fileID: 7482484499821518575, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerC
+      objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.63
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7678978971214282259, guid: 85b032d631096dd44aee8dc3370a3538, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.11
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -93616,6 +94011,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8979379816356082915, guid: 7d1e600ba782fb54a8c62905ecf80898, type: 3}
   m_PrefabInstance: {fileID: 1839737637}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1843057885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 1574233107}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1844201333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8447669754313335201, guid: 7e1f5fd2ba3224e42882d53252cab952, type: 3}
@@ -93669,6 +94075,14 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: requiredLever
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328740691040495771, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerD
+      objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: gateId
       value: GateDE
@@ -93681,6 +94095,10 @@ PrefabInstance:
       propertyPath: gateMarkers.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1733138996}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'gateMarkers.Array.data[1]'
       value: 
@@ -93696,6 +94114,14 @@ PrefabInstance:
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'requiredLeverTypes.Array.data[1]'
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93739,8 +94165,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4314084736604182606, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Name
-      value: Gate-DE (1)
+      value: Gate-DE
       objectReference: {fileID: 0}
+    - target: {fileID: 6321059978835132817, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 908778991, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 6725967784156432049, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: requiredLever
       value: 3
@@ -94490,6 +94920,17 @@ Transform:
   - {fileID: 320468361}
   m_Father: {fileID: 1992690505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1939415612 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+  m_PrefabInstance: {fileID: 625979144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f5e602ba81c5846b9767cc7b13b5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1941287782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94613,8 +95054,7 @@ Transform:
   - {fileID: 725190509}
   - {fileID: 465753061}
   - {fileID: 1126110317}
-  - {fileID: 1404226217}
-  - {fileID: 1118186992}
+  - {fileID: 2133225976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1988107332 stripped
@@ -94928,6 +95368,18 @@ PrefabInstance:
       propertyPath: m_LocalBounds.m_Extent.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: isExclusive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324448610981339440, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: requiredLever
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328740691040495771, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Name
+      value: GateMarkerB
+      objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: gateId
       value: GateBC
@@ -94949,6 +95401,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: 'gateMarkers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 112819273}
+    - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'gateMarkers.Array.data[1]'
       value: 
       objectReference: {fileID: 472548157}
@@ -94963,6 +95419,14 @@ PrefabInstance:
     - target: {fileID: 1427563961216797515, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: 'requiredLeverTypes.Array.data[1]'
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899164874724014031, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3066945449026977175, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -95020,6 +95484,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1.1800003
       objectReference: {fileID: 0}
+    - target: {fileID: 6321059978835132817, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 909232110, guid: 32f098274dbca22429070b8047d6126a, type: 3}
     - target: {fileID: 7956102285006477949, guid: c0c525a302cf9c54189f5d218afd78d0, type: 3}
       propertyPath: m_Name
       value: AccessibleMarkerB
@@ -95406,6 +95874,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6822236786823150829, guid: 281c906202521c9489be4f454356605a, type: 3}
   m_PrefabInstance: {fileID: 1437589497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2133225975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2133225976}
+  m_Layer: 0
+  m_Name: HiddenWalls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2133225976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133225975}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1118186992}
+  - {fileID: 1404226217}
+  m_Father: {fileID: 1955171741}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5841198069509453514
 PrefabInstance:
   m_ObjectHideFlags: 0
