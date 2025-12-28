@@ -18,3 +18,4 @@ MonoBehaviour:
   maxStackSize: 1
   isConsumable: 0
   inventoryPosition: -1
+  itemEvents: {fileID: 11400000, guid: 37f0ab2fbad4f9440bf69a31ca314f03, type: 2}
