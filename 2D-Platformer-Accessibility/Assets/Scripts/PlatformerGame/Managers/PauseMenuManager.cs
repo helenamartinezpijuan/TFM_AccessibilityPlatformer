@@ -67,13 +67,13 @@ namespace PlatformerGame.Managers
             }
 
             // Switch input to UI
-            /*if (playerInput != null)
+            if (playerInput != null)
             {
                 playerInput.SwitchCurrentActionMap("UI");
             }
             
             Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;*/
+            Cursor.lockState = CursorLockMode.None;
         }
         
         private void HidePauseMenu()
@@ -86,13 +86,13 @@ namespace PlatformerGame.Managers
             }
 
             // Switch input back to player
-            /*if (playerInput != null)
+            if (playerInput != null)
             {
                 playerInput.SwitchCurrentActionMap("Player");
             }
             
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;*/
+            Cursor.lockState = CursorLockMode.Locked;
         }
         
         public void ResumeGame()

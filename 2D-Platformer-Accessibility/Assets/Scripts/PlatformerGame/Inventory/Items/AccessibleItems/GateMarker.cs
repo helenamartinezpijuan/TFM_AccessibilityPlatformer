@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using PlatformerGame.WorldMechanics;
 using UnityEngine.Rendering.Universal;
 
@@ -9,9 +10,10 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         [Header("Marker Settings")]
         [SerializeField] private LeverType requiredLever;
         [SerializeField] private bool isExclusive;
+
         private SpriteRenderer markerSprite;
         private Animator markerAnimator;
-        //private Light2D markerLight;
+        private Light2D markerLight;
         
         public LeverType GetRequiredLever() => requiredLever;
         
@@ -19,7 +21,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         {
             markerSprite = GetComponent<SpriteRenderer>();
             markerAnimator = GetComponent<Animator>();
-            //markerLight = GetComponent<Light2D>();
+            markerLight = GetComponent<Light2D>();
 
             // Start hidden
             if (markerSprite != null)
@@ -28,17 +30,19 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             if (markerAnimator != null)
                 markerAnimator.enabled = false;
             
-            //if (markerLight != null)
-                //markerLight.enabled = false;
+            if (markerLight != null)
+                markerLight.enabled = false;
         }
         
+        #region Trigger Detection
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
-            bool hasSunglasses = other.GetComponent<PlayerInventory>().HasSunglasses();
-
             if (other.CompareTag("Player"))
             {
+                bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
+                bool hasSunglasses = other.GetComponent<PlayerInventory>().HasSunglasses();
+
                 if (hasFlahslight && !hasSunglasses)
                 {
                     ShowMarker();
@@ -58,6 +62,9 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
                 }
             }
         }
+        #endregion
+
+        #region Enable/Disable Markers
         
         public void ShowMarker()
         {
@@ -65,7 +72,10 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             {
                 markerSprite.enabled = true;
                 markerAnimator.enabled = true;
-                //markerLight.enabled = true;
+                markerLight.enabled = true;
+
+                if (isExclusive)
+                    markerLight.color = Color.red;
             }
         }
         
@@ -75,8 +85,15 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             {
                 markerSprite.enabled = false;
                 markerAnimator.enabled = false;
-                //markerLight.enabled = false;
+                markerLight.enabled = false;
             }
         }
+
+        public void ShowAllMarkers()
+        {
+            Destroy(GetComponent<CircleCollider2D>());
+            ShowMarker();
+        }
     }
+    #endregion
 }

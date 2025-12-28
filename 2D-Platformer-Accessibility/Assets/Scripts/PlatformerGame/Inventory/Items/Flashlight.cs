@@ -6,7 +6,7 @@ using PlatformerGame.Inventory.Items.AccessibleItems;
 
 namespace PlatformerGame.Inventory.Items
 {
-    [CreateAssetMenu(fileName = "Flashlight", menuName = "PlatformerGame/Inventory/Items/Flashlight")]
+    [CreateAssetMenu(fileName = "Flashlight", menuName = "PlatformerGame/Inventory/Flashlight")]
     public class Flashlight : Item
     {
         [Header("Phase 1: Marker Reveal")]

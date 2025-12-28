@@ -290,7 +290,7 @@ public class BeamEffectController : MonoBehaviour
         }
     }
     
-    // Public methods for runtime control
+    #region Runtime Control
     public void ActivateBeam(string connectionName)
     {
         BeamConnection connection = beamConnections.Find(c => c.connectionName == connectionName);
@@ -312,6 +312,7 @@ public class BeamEffectController : MonoBehaviour
                 connection.lineRenderer.enabled = false;
         }
     }
+    #endregion
     
     public void AddBeamConnection(Transform start, Transform end, List<Vector2> waypoints = null)
     {
@@ -329,25 +330,5 @@ public class BeamEffectController : MonoBehaviour
         
         beamConnections.Add(newConnection);
         InitializeBeam(newConnection);
-    }
-    
-    void OnDrawGizmosSelected()
-    {
-        // Draw gizmos for beam connections in editor
-        foreach (BeamConnection connection in beamConnections)
-        {
-            if (connection.startPoint != null && connection.endPoint != null)
-            {
-                Gizmos.color = connection.beamColor;
-                Gizmos.DrawLine(connection.startPoint.position, connection.endPoint.position);
-                
-                // Draw waypoints
-                Gizmos.color = Color.cyan;
-                foreach (Vector2 waypoint in connection.manualWaypoints)
-                {
-                    Gizmos.DrawSphere(waypoint, 0.1f);
-                }
-            }
-        }
     }
 }

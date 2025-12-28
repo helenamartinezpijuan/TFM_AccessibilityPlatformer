@@ -4,8 +4,8 @@ namespace PlatformerGame
 {
     public class CameraFollow : MonoBehaviour
     {
-        public GameObject FollowObject;
-        public Vector2 FollowOffset;
+        public Vector2 followOffset;
+        private GameObject followObject;
         public float speed = 3;
 
         private Vector2 threshold;
@@ -17,12 +17,13 @@ namespace PlatformerGame
         {
             //offset = player.transform.position - transform.position;
             threshold = calculateThreshold();
-            player = FollowObject.GetComponent<Rigidbody2D>();
+            followObject = GameObject.FindGameObjectWithTag("Player");
+            player = followObject.GetComponent<Rigidbody2D>();
         }
 
         private void FixedUpdate()
         {
-            Vector2 follow = FollowObject.transform.position;
+            Vector2 follow = followObject.transform.position;
             float xDifference = Vector2.Distance(Vector2.right * transform.position.x, Vector2.right * follow.x);
             float yDifference = Vector2.Distance(Vector2.up * transform.position.y, Vector2.up * follow.y);
 
@@ -45,8 +46,8 @@ namespace PlatformerGame
         {
             Rect aspect = Camera.main.pixelRect;
             Vector2 t = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
-            t.x -= FollowOffset.x;
-            t.y -= FollowOffset.y;
+            t.x -= followOffset.x;
+            t.y -= followOffset.y;
             return t;
         }
     }

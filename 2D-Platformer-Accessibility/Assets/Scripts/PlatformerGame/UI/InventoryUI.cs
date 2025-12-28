@@ -9,13 +9,13 @@ namespace PlatformerGame.Inventory
     {
         [Header("UI References")]
         [SerializeField] private Transform inventorySlotsParent;
-        //[SerializeField] private GameObject inventorySlotPrefab;
-        //[SerializeField] private Image selectedSlotHighlight;
+        [SerializeField] private GameObject inventorySlotPrefab;
+        [SerializeField] private Image selectedSlotHighlight;
         [SerializeField] private TextMeshProUGUI itemNameText;
         [SerializeField] private TextMeshProUGUI itemDescriptionText;
         
         [Header("Settings")]
-        //[SerializeField] private Color normalSlotColor = Color.white;
+        [SerializeField] private Color normalSlotColor = Color.white;
         //[SerializeField] private Color selectedSlotColor = Color.yellow;
         //[SerializeField] private Color emptySlotColor = new Color(0.3f, 0.3f, 0.3f, 0.5f);
         
@@ -105,15 +105,15 @@ namespace PlatformerGame.Inventory
             }
             
             // Clear existing slots
-            //ClearAllSlots();
+            ClearAllSlots();
             slotUIs.Clear();
             existingSlotObjects.Clear();
             
-            if (inventorySlotsParent != null)
+            /*if (inventorySlotsParent != null)
             {
                 InitializeExistingSlots();
-            }
-            /*
+            }*/
+            
             // Create slots based on inventory size
             for (int i = 0; i < playerInventory.InventorySize; i++)
             {
@@ -124,8 +124,8 @@ namespace PlatformerGame.Inventory
             if (playerInventory.CurrentSelectedPosition >= 0 && 
                 playerInventory.CurrentSelectedPosition < slotUIs.Count)
             {
-                //UpdateSelection(playerInventory.CurrentSelectedPosition);
-            }*/
+                UpdateSelection(playerInventory.CurrentSelectedPosition);
+            }
             
             Debug.Log($"InventoryUI: Initialized with {slotUIs.Count} slots");
         }
@@ -212,7 +212,7 @@ namespace PlatformerGame.Inventory
             return slotUI;
         }
         
-        /*private void CreateSlot(int index)
+        private void CreateSlot(int index)
         {
             if (inventorySlotPrefab == null || inventorySlotsParent == null)
             {
@@ -235,7 +235,7 @@ namespace PlatformerGame.Inventory
             slotUI.Initialize(index, item);
             
             slotUIs.Add(slotUI);
-        }*/
+        }
         
         private void ClearAllSlots()
         {
@@ -347,10 +347,10 @@ namespace PlatformerGame.Inventory
         private void UpdateSelection(int newPosition)
         {
             // Deselect previous slot
-            /*if (currentSelectedIndex >= 0 && currentSelectedIndex < slotUIs.Count)
+            if (currentSelectedIndex >= 0 && currentSelectedIndex < slotUIs.Count)
             {
                 slotUIs[currentSelectedIndex].SetSelected(false, normalSlotColor);
-            }*/
+            }
             
             // Select new slot
             if (newPosition >= 0 && newPosition < slotUIs.Count)
@@ -362,12 +362,12 @@ namespace PlatformerGame.Inventory
                 UpdateItemInfoDisplay(newPosition);
                 
                 // Update highlight position
-                /*if (selectedSlotHighlight != null)
+                if (selectedSlotHighlight != null)
                 {
                     selectedSlotHighlight.transform.SetParent(slotUIs[newPosition].transform);
                     selectedSlotHighlight.rectTransform.anchoredPosition = Vector2.zero;
                     selectedSlotHighlight.rectTransform.sizeDelta = Vector2.zero;
-                }*/
+                }
             }
         }
 

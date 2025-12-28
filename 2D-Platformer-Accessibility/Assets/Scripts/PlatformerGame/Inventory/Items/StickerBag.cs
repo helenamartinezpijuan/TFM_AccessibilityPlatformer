@@ -4,11 +4,12 @@ using PlatformerGame.WorldMechanics;
 
 namespace PlatformerGame.Inventory.Items
 {
-    [CreateAssetMenu(fileName = "StickerBag", menuName = "PlatformerGame/Inventory/Items/StickerBag")]
+    [CreateAssetMenu(fileName = "StickerBag", menuName = "PlatformerGame/Inventory/StickerBag")]
     public class StickerBag : Item
     {
         [Header("Sticker Management")]
         [SerializeField] private List<Sticker> collectedStickers = new List<Sticker>();
+        [SerializeField] private List<Sticker> collectedNumberStickers = new List<Sticker>();
         [SerializeField] private int maxStickers = 8;
         //[SerializeField] private GameObject numberSticker;
         
@@ -16,6 +17,7 @@ namespace PlatformerGame.Inventory.Items
         [SerializeField] private GameObject collectionEffectPrefab;
 
         public List<Sticker> GetStickers() => new List<Sticker>(collectedStickers);
+        public List<Sticker> GetNumberStickers() => new List<Sticker>(collectedNumberStickers);
         public int GetStickerCount() => collectedStickers.Count;
         public int GetMaxStickers() => maxStickers;
         
