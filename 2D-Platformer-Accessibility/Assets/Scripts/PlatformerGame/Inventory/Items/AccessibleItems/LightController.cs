@@ -29,14 +29,20 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             }
             
             // Initialize lights as disabled
-            if (!isGlobalLight)
+            if(!isGlobalLight)
             {
                 playerLight2D = GetComponent<Light2D>();
+
                 if (playerLight2D != null)
-                {
                     playerLight2D.enabled = false;
-                }
             }
+            else
+            {
+                globalLight2D = GetComponent<Light2D>();
+
+                if (playerLight2D != null)
+                    playerLight2D.enabled = false;
+            }  
         }
 
         private void OnDestroy()
@@ -64,7 +70,8 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
 
             if (playerLight2D != null)
             {
-                globalLight2D.color = Color.white;
+                playerLight2D.enabled = true;
+                playerLight2D.color = Color.white;
                 Debug.Log("Player flashlight light activated");
             }
             else
@@ -80,6 +87,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             
             if (globalLight2D != null)
             {
+                globalLight2D.enabled = true;
                 globalLight2D.color = Color.white;
                 Debug.Log("Global light activated");
             }

@@ -7,10 +7,6 @@ namespace PlatformerGame.WorldMechanics
         [Header("Lever Type")]
         [SerializeField] private LeverType leverType = LeverType.A;
         [SerializeField] private bool isOne = true; // For animation only
-        
-        [Header("Accessibility Visuals")]
-        [SerializeField] private GameObject accessibleVisualsPrefab;
-        [SerializeField] private float clueRadius = 5f;
 
         [Header("Enemy Check")]
         [SerializeField] private GameObject linkedEnemy; // Enemy behind the gate
@@ -20,7 +16,6 @@ namespace PlatformerGame.WorldMechanics
         
         private Animator leverAnimator;
         private bool isActive = false;
-        private GameObject currentClueInstance;
 
         public LeverType GetLeverType() => leverType;
         public bool IsActive() => isActive;

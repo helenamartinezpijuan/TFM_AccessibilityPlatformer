@@ -5,7 +5,7 @@
             "texts": [
                 "¿Cómo? ¿Que no ves nada? Hmm...",
                 "Yo pensaba que podías ver en la oscuridad.",
-                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles"
+                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles."
             ]
         },
         {
@@ -14,7 +14,7 @@
                 "¿Dices que sigues sin ver nada?",
                 "¡Ah! ¿Que solo ves los marcadores de las compuertas?",
                 "Ehem... creo que se me había olvidado darte esto",
-                "No olvides coleccionarlas todas"
+                "No olvides coleccionarlas todas, te las he dejado fáciles."
             ]
         },
         {
@@ -22,7 +22,7 @@
             "texts": [
                 "¿Cómo? ¿Que no ves nada? Hmm...",
                 "Yo pensaba que podías ver en la oscuridad.",
-                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles"
+                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles."
             ]
         },
         {
@@ -90,6 +90,14 @@
             "category": "Coger item",
             "texts": [
                 "Presiona E para añadir el objeto a tu inventario"
+            ]
+        },
+        {
+            "category": "Nivel 1",
+            "texts": [
+                "Bienvenido al Nivel 1.",
+                "Como verás, aquí se complica más el tema de palancas.",
+                "Menos mal que lo dominas a la perfección con la linterna que te he dado."
             ]
         }
     ]
