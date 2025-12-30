@@ -992,7 +992,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.55828, y: 0.446624, z: 0.446624}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1023081000}
   m_Father: {fileID: 1462499808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1256,15 +1257,15 @@ RectTransform:
   m_GameObject: {fileID: 1023080999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.62031, y: 0.62031, z: 0.62031}
+  m_LocalScale: {x: 1.1111093, y: 1.3888865, z: 1.3888865}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 45661606}
-  m_Father: {fileID: 1462499808}
+  m_Father: {fileID: 727689450}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.0000308, y: 59.824154}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1023081001
@@ -1820,7 +1821,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1023081000}
   - {fileID: 312505591}
   - {fileID: 727689450}
   - {fileID: 1863703713}
@@ -1886,7 +1886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySlotsParent: {fileID: 1863703713}
   inventorySlotPrefab: {fileID: 519324667643896367, guid: 8ff72661382d6444485f36709afaba1c, type: 3}
-  selectedSlotHighlight: {fileID: 45661607}
+  itemIcon: {fileID: 176892402}
   itemNameText: {fileID: 174561894}
   itemDescriptionText: {fileID: 1122810622}
   normalSlotColor: {r: 1, g: 1, b: 1, a: 1}

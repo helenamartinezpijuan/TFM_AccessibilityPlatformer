@@ -20,7 +20,7 @@ public class FallSpikes : MonoBehaviour
             {
                 enemy.TakeDamage();
                 renderer.enabled = false;
-                // Trigger animation of spikes falling
+                // Trigger animation of spikes falling [PENDING]
             }
         }
     }

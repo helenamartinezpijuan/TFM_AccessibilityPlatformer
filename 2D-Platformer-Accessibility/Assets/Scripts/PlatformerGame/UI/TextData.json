@@ -20,9 +20,11 @@
         {
             "category": "Ayuda 3",
             "texts": [
-                "¿Cómo? ¿Que no ves nada? Hmm...",
-                "Yo pensaba que podías ver en la oscuridad.",
-                "En fin, toma esto o no vas a poder apreciar mis fantásticos puzles."
+                "No me lo puedo creer",
+                "Que sigues sin ver nada. ¿No te sirve mi linterna?",
+                "¿Y no puedes cruzar, dices?",
+                "Mira. Prueba esto. Filtran la oscuridad y proyectan luz.",
+                "Por cierto, yo que tu recogería las pegatinas que te has dejado antes."
             ]
         },
         {
@@ -30,6 +32,23 @@
             "texts": [
                 "¡Bienvenido al juego!",
                 "Usa las flechas ← y → para desplazarte."
+            ]
+        },
+        {
+            "category": "Nivel 1",
+            "texts": [
+                "Bienvenido al Nivel 1.",
+                "Como verás, aquí se complica más el tema de palancas.",
+                "Menos mal que lo dominas a la perfección con la linterna que te he dado."
+            ]
+        },
+        {
+            "category": "Nivel Final",
+            "texts": [
+                "Bienvenido al Nivel Final.",
+                "Enhorabuena por llegar tan lejos.",
+                "Ahora se viene el reto de verdad. Espero que hayas encontrado todas las pegatinas...",
+                "Porqué las vas a necesitar"
             ]
         },
         {
@@ -93,11 +112,17 @@
             ]
         },
         {
-            "category": "Nivel 1",
+            "category": "Otro",
             "texts": [
-                "Bienvenido al Nivel 1.",
-                "Como verás, aquí se complica más el tema de palancas.",
-                "Menos mal que lo dominas a la perfección con la linterna que te he dado."
+                "Cuidado con ese bicho.",
+                "No dudará en atacarte si te acercas."
+            ]
+        },
+        {
+            "category": "Enemigos",
+            "texts": [
+                "Cuidado con ese bicho.",
+                "No dudará en atacarte si te acercas."
             ]
         }
     ]

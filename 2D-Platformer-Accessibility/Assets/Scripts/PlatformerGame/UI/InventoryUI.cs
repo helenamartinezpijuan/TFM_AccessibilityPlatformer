@@ -10,7 +10,7 @@ namespace PlatformerGame.Inventory
         [Header("UI References")]
         [SerializeField] private Transform inventorySlotsParent;
         [SerializeField] private GameObject inventorySlotPrefab;
-        [SerializeField] private Image selectedSlotHighlight;
+        [SerializeField] private Image itemIcon;
         [SerializeField] private TextMeshProUGUI itemNameText;
         [SerializeField] private TextMeshProUGUI itemDescriptionText;
         
@@ -362,12 +362,12 @@ namespace PlatformerGame.Inventory
                 UpdateItemInfoDisplay(newPosition);
                 
                 // Update highlight position
-                if (selectedSlotHighlight != null)
+                /*if (selectedSlotHighlight != null)
                 {
                     selectedSlotHighlight.transform.SetParent(slotUIs[newPosition].transform);
                     selectedSlotHighlight.rectTransform.anchoredPosition = Vector2.zero;
                     selectedSlotHighlight.rectTransform.sizeDelta = Vector2.zero;
-                }
+                }*/
             }
         }
 
@@ -376,6 +376,11 @@ namespace PlatformerGame.Inventory
             if (playerInventory == null) return;
             
             Item item = playerInventory.GetItem(slotIndex);
+
+            if (itemIcon != null)
+            {
+                itemIcon.sprite = item.icon;
+            }
             
             if (itemNameText != null)
             {

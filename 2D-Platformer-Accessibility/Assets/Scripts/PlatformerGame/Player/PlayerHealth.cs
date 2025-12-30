@@ -11,11 +11,11 @@ namespace PlatformerGame.Player
         private int currentHealth;
 
         [Header("Respawn Parameters")]
-        [SerializeField] private Transform checkpoint;
         [SerializeField] private float respawnDelay = 1f;
+        private Transform checkpoint;
 
-        [Header("UI Elements")]
-        [SerializeField] private HealthUI healthUI;
+        //[Header("UI Elements")]
+        private HealthUI healthUI;
 
         [Header("Sound Effects")]
         [SerializeField] private AudioClip damageSound;
@@ -39,6 +39,13 @@ namespace PlatformerGame.Player
         private void Awake()
         {
             currentHealth = maxHealth;
+
+            // Find checkpoint
+            checkpoint = GameObject.FindGameObjectWithTag("Checkpoint").transform;
+            this.transform.position = checkpoint.position;
+
+            // Find 
+            healthUI = GameObject.FindObjectOfType<HealthUI>();
             
             // Initialize audio source
             audioSource = GetComponent<AudioSource>();

@@ -10,7 +10,7 @@ namespace PlatformerGame.Player
         {
             if (other.CompareTag("Player"))
             {
-                Debug.Log("Level Completed!");
+                Debug.Log("Going to previous Scene");
                 SceneTransitionManager.Instance?.LoadSceneByIndex(SceneManager.GetActiveScene().buildIndex - 1);
                 
             }

@@ -11,6 +11,8 @@ TagManager:
   - Reveal
   - ItemIcon
   - CoreText
+  - Checkpoint
+  - EndLevel
   layers:
   - Default
   - TransparentFX
