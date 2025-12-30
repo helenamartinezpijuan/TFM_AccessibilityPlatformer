@@ -39,13 +39,14 @@ namespace PlatformerGame.Player
         private void Awake()
         {
             currentHealth = maxHealth;
+            Debug.Log($"Current health: {currentHealth}");
 
-            // Find checkpoint
+            // Find start position
             checkpoint = GameObject.FindGameObjectWithTag("Checkpoint").transform;
-            this.transform.position = checkpoint.position;
+            //this.transform.position = checkpoint.position;
 
-            // Find 
-            healthUI = GameObject.FindObjectOfType<HealthUI>();
+            // Find Health UI reference
+            healthUI = GameObject.FindGameObjectWithTag("HealthUI").GetComponent<HealthUI>();
             
             // Initialize audio source
             audioSource = GetComponent<AudioSource>();
@@ -59,11 +60,13 @@ namespace PlatformerGame.Player
             // Initialize UI
             if (healthUI != null)
             {
-                healthUI.Initialize(maxHealth);
+                healthUI.Initialize(currentHealth);
             }
 
             PlayerPrefs.SetInt("PlayerHealth", currentHealth);
             PlayerPrefs.Save();
+
+            Debug.Log($"Current health: {currentHealth}");
         }
 
         public void TakeDamage(int damage)

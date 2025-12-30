@@ -112,7 +112,7 @@ namespace PlatformerGame.Managers
             else
             {
                 // Fallback
-                SceneTransitionManager.Instance?.LoadScene("MainMenu");
+                SceneTransitionManager.Instance?.LoadScene(0);
             }*/
         }
         

@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab004f8e59ac364eb1eaf5de77defed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followOffset: {x: 3, y: 3}
-  speed: 3
+  followOffset: {x: 6, y: 6}
+  speed: 10
 --- !u!20 &1432787114530770126
 Camera:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ Camera:
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
-  m_FOVAxisMode: 0
+  m_FOVAxisMode: 1
   m_Iso: 200
   m_ShutterSpeed: 0.005
   m_Aperture: 16
@@ -83,7 +83,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: 0
   m_CullingMask:

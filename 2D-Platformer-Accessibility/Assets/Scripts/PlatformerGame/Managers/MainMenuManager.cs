@@ -26,8 +26,8 @@ namespace PlatformerGame.Managers
         [SerializeField] private Toggle fullscreenToggle;
         
         [Header("Scene Settings")]
-        [SerializeField] private string firstLevelScene = "Tutorial";
-        [SerializeField] private string saveSceneName = "SavedScene";
+        [SerializeField] private int firstLevelScene = 1;
+        [SerializeField] private int savedScene;
         
         [Header("Transition Settings")]
         [SerializeField] private float transitionTime = 1f;
@@ -250,7 +250,7 @@ namespace PlatformerGame.Managers
 
             GameManager.Instance?.ContinueGame();
 
-            string savedScene = PlayerPrefs.GetString("LastScene", firstLevelScene);
+            savedScene = PlayerPrefs.GetInt("LastScene", firstLevelScene);
             SceneTransitionManager.Instance?.LoadScene(savedScene);
         }
 

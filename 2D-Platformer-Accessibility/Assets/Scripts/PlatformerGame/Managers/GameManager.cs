@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [Header("Scene Settings")]
-    [SerializeField] private string firstLevelScene = "Tutorial";
+    [SerializeField] private int firstLevelScene = 1;
 
     [Header("Transition Settings")]
     [SerializeField] private float transitionTime = 1f;
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public void ContinueGame()
     {
         // Load the saved scene
-        string savedScene = PlayerPrefs.GetString("LastScene", firstLevelScene);
+        int savedScene = PlayerPrefs.GetInt("LastScene", firstLevelScene);
 
         // Mark as continuing, not new game
         PlayerPrefs.SetInt("IsNewGame", 0);
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     public void SetNewGamePrefs()
     {
         PlayerPrefs.SetInt("IsNewGame", 1);
-        PlayerPrefs.SetString("LastScene", firstLevelScene);
+        PlayerPrefs.SetInt("LastScene", firstLevelScene);
         PlayerPrefs.Save();
     }
 
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
         
         // Load main menu scene
-        SceneTransitionManager.Instance?.LoadScene("MainMenu");
+        SceneTransitionManager.Instance?.LoadScene(0);
     }
     #endregion
 
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
     public void SaveGameState()
     {
         // Save current scene
-        PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
         PlayerPrefs.SetInt("HasSaveData", 1);
         
         // Save inventory
@@ -106,12 +106,12 @@ public class GameManager : MonoBehaviour
 
     public void Defeat()
     {
-        SceneTransitionManager.Instance?.LoadScene("Defeat");
+        SceneTransitionManager.Instance?.LoadScene(4); // Defeat Scene
     }
 
     public void Victory()
     {
-        SceneTransitionManager.Instance?.LoadScene("Victory");
+        SceneTransitionManager.Instance?.LoadScene(5); // Victory Scene
     }
 
     #endregion

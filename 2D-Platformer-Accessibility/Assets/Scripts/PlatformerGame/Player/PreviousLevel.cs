@@ -11,7 +11,7 @@ namespace PlatformerGame.Player
             if (other.CompareTag("Player"))
             {
                 Debug.Log("Going to previous Scene");
-                SceneTransitionManager.Instance?.LoadSceneByIndex(SceneManager.GetActiveScene().buildIndex - 1);
+                SceneTransitionManager.Instance?.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
                 
             }
         }

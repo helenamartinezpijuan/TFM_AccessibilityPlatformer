@@ -13,6 +13,7 @@ TagManager:
   - CoreText
   - Checkpoint
   - EndLevel
+  - HealthUI
   layers:
   - Default
   - TransparentFX

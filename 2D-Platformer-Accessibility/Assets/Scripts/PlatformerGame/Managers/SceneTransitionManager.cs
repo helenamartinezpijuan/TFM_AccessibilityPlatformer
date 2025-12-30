@@ -36,26 +36,27 @@ namespace PlatformerGame.Managers
             }
         }
         
-        public void LoadScene(string sceneName)
+        public void LoadScene (int sceneIndex)
         {
-            StartCoroutine(LoadSceneRoutine(sceneName));
+            SceneManager.LoadScene(sceneIndex);
+            //StartCoroutine(LoadSceneRoutine(sceneIndex));
         }
         
-        private IEnumerator LoadSceneRoutine(string sceneName)
+        /*private IEnumerator LoadSceneRoutine(int sceneIndex)
         {
             // Save game state before transition
             SaveBeforeTransition();
             
             yield return new WaitForSeconds(transitionTime);
 
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneIndex);
             
             // Show loading screen
-            /*if (loadingScreen != null)
+            if (loadingScreen != null)
                 loadingScreen.SetActive(true);
             
             // Load scene asynchronously
-            loadingOperation = SceneManager.LoadSceneAsync(sceneName);
+            loadingOperation = SceneManager.LoadSceneAsync(sceneIndex);
             loadingOperation.allowSceneActivation = false;
             
             // Update loading progress
@@ -80,13 +81,13 @@ namespace PlatformerGame.Managers
                 }
                 
                 yield return null;
-            }*/
-        }
+            }
+        }*/
         
         private void SaveBeforeTransition()
         {
             // Save current scene
-            PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
+            PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
             
             // Save inventory
             InventoryManager.Instance?.SaveInventory();
@@ -114,25 +115,18 @@ namespace PlatformerGame.Managers
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             int nextSceneIndex = currentSceneIndex + 1;
             
-            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-            {
-                LoadSceneByIndex(nextSceneIndex);
-            }
-            else
-            {
-                LoadScene("MainMenu");
-            }
+            LoadScene(nextSceneIndex);
         }
         
-        public void LoadSceneByIndex(int sceneIndex)
+        /*public void LoadSceneByIndex(int sceneIndex)
         {
             string sceneName = SceneManager.GetSceneByBuildIndex(sceneIndex).name; 
             LoadScene(sceneName);
-        }
+        }*/
         
         public void RestartCurrentScene()
         {
-            LoadScene(SceneManager.GetActiveScene().name);
+            LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         
         public void GameOver()
@@ -147,7 +141,7 @@ namespace PlatformerGame.Managers
             yield return new WaitForSeconds(3f);
             
             // Return to main menu or restart
-            LoadScene("MainMenu");
+            LoadScene(0);
         }
     }
 }

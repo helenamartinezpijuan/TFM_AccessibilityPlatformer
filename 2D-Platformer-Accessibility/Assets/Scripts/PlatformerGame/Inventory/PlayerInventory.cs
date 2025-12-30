@@ -11,7 +11,7 @@ namespace PlatformerGame.Inventory
     public class PlayerInventory : MonoBehaviour
     {
         [Header("Inventory Settings")]
-        [SerializeField] private string inventorySceneName = "InventoryUI";
+        [SerializeField] private int inventoryScene = 6;
         [SerializeField] private int inventorySize = 4;
         [SerializeField] private bool debugMode = false;
 
@@ -138,11 +138,8 @@ namespace PlatformerGame.Inventory
             if (debugMode) Debug.Log("Inventory opened");
 
             // Load additive scene for inventory UI
-            if (!string.IsNullOrEmpty(inventorySceneName))
-            {
-                SceneManager.LoadScene(inventorySceneName, LoadSceneMode.Additive);
-                inventorySceneLoaded = true;
-            }
+            SceneManager.LoadScene(inventoryScene, LoadSceneMode.Additive);
+            inventorySceneLoaded = true;
 
             OnInventoryToggle?.Invoke(true);
             Time.timeScale = 0f; // Pause game
@@ -160,9 +157,9 @@ namespace PlatformerGame.Inventory
             if (debugMode) Debug.Log("Inventory closed");
 
             // Unload inventory scene
-            if (inventorySceneLoaded && !string.IsNullOrEmpty(inventorySceneName))
+            if (inventorySceneLoaded)
             {
-                SceneManager.UnloadSceneAsync(inventorySceneName);
+                SceneManager.UnloadSceneAsync(inventoryScene);
                 inventorySceneLoaded = false;
             }
 
