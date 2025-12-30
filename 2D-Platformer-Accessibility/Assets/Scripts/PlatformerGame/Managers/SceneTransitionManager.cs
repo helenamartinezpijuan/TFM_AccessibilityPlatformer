@@ -15,9 +15,9 @@ namespace PlatformerGame.Managers
         [Header("Transition Settings")]
         [SerializeField] private float transitionTime = 0.1f;
         
-        [Header("Loading Screen")]
-        [SerializeField] private GameObject loadingScreen;
-        [SerializeField] private Slider loadingSlider;
+        //[Header("Loading Screen")]
+        //[SerializeField] private GameObject loadingScreen;
+        //[SerializeField] private Slider loadingSlider;
         
         private static int currentSceneIndex = 1;
         private AsyncOperation loadingOperation;

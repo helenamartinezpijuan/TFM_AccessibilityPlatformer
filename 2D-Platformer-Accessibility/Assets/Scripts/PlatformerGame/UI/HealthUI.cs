@@ -12,17 +12,17 @@ public class HealthUI : MonoBehaviour
     private Image[] heartImages;
     private Coroutine[] transitionCoroutines;
     
-    public void Initialize(int maxHealth)
+    public void Initialize(int health)
     {
-        heartImages = new Image[maxHealth];
-        transitionCoroutines = new Coroutine[maxHealth];
+        heartImages = new Image[health];
+        transitionCoroutines = new Coroutine[health];
         
-        for (int i = 0; i < heartsContainer.childCount && i < maxHealth; i++)
+        for (int i = 0; i < heartsContainer.childCount && i < health; i++)
         {
             heartImages[i] = heartsContainer.GetChild(i).GetComponent<Image>();
         }
         
-        SetHealth(maxHealth);
+        SetHealth(health);
     }
     
     public void SetHealth(int currentHealth)
@@ -30,6 +30,7 @@ public class HealthUI : MonoBehaviour
         for (int i = 0; i < heartImages.Length; i++)
         {
             bool shouldBeFull = i < currentHealth;
+            Debug.Log($"Current health: {currentHealth} - Should be full: {shouldBeFull}");
             
             if (heartImages[i].sprite == (shouldBeFull ? emptyHeartSprite : fullHeartSprite))
             {
@@ -38,9 +39,7 @@ public class HealthUI : MonoBehaviour
                 {
                     StopCoroutine(transitionCoroutines[i]);
                 }
-                transitionCoroutines[i] = StartCoroutine(
-                    AnimateHeartTransition(heartImages[i], shouldBeFull)
-                );
+                transitionCoroutines[i] = StartCoroutine(AnimateHeartTransition(heartImages[i], shouldBeFull));
             }
         }
     }
