@@ -4,13 +4,18 @@ using System.Collections;
 
 public class HealthUI : MonoBehaviour
 {
-    [SerializeField] private Transform heartsContainer;
+    private Transform heartsContainer;
     [SerializeField] private Sprite fullHeartSprite;
     [SerializeField] private Sprite emptyHeartSprite;
     [SerializeField] private float transitionDuration = 0.3f;
     
     private Image[] heartImages;
     private Coroutine[] transitionCoroutines;
+
+    private void Start()
+    {
+        heartsContainer = GameObject.FindWithTag("HeartContainer").transform;
+    }
     
     public void Initialize(int health)
     {

@@ -35,7 +35,6 @@ namespace PlatformerGame.WorldMechanics
             else if (platformToActivate != null)
             {
                 platformToActivate.OnInteractorActivated();
-                Debug.Log("Platform activated directly from Interactor");
             }
             else if (gateToActivate != null)
             {

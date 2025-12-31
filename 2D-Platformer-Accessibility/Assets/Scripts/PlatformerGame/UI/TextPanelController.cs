@@ -226,7 +226,7 @@ public class TextPanelController : MonoBehaviour
         backgroundPanel.SetActive(false);
     }
     
-    public void SendHelp(string itemName)
+    /*public void SendHelp(string itemName)
     {
         if (itemName == "Flashlight")
         {
@@ -260,7 +260,7 @@ public class TextPanelController : MonoBehaviour
         coreTextObject.SetActive(true);
         itemIconObject.SetActive(false);
         backgroundPanel.SetActive(false);
-    }
+    }*/
     
     // Data classes for JSON parsing
     [Serializable]

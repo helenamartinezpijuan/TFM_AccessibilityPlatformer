@@ -15,10 +15,9 @@ public class TextTriggerZone : MonoBehaviour
     [Header("Trigger Settings")]
     [SerializeField] private bool oneTimeOnly = false;              // Some messages will only appear once
 
-    [Header("Help Item Settings")]
-    [SerializeField] private bool hasItem = false;
-    [SerializeField] private string itemName = "Flashlight";
-    private float transitionTime = 3f;
+    //[Header("Help Item Settings")]
+    //[SerializeField] private bool hasItem = false;
+    //[SerializeField] private string itemName = "Flashlight";
     
     private bool hasBeenTriggered = false;
     
@@ -42,7 +41,7 @@ public class TextTriggerZone : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         if (oneTimeOnly && hasBeenTriggered) return;
 
-        if (hasItem) textPanel.SendHelp(itemName);
+        //if (hasItem) textPanel.SendHelp(itemName);
         
         ShowText();
         hasBeenTriggered = true;

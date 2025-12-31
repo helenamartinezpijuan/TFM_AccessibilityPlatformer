@@ -9,7 +9,7 @@ namespace PlatformerGame.WorldMechanics
         [SerializeField] private Transform destination;
         
         [Header("Accessibility Settings")]
-       [SerializeField] private SpriteRenderer numberSprite;
+        [SerializeField] private SpriteRenderer numberSprite;
         private AudioSource audio;
         
         private void Awake()

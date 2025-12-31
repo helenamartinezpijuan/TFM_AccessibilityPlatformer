@@ -30,6 +30,9 @@ namespace PlatformerGame.WorldMechanics
         public Action OnSpringLaunch;
         public Action OnSpringLand;
 
+        // Audio
+        AudioSource audio;
+
         void Awake()
         {
             // Set animator parameters
@@ -41,6 +44,8 @@ namespace PlatformerGame.WorldMechanics
 
             // Set destination parameters
             destinationPosition = destination.transform.position;
+
+            audio = GetComponent<AudioSource>();
         }
 
         public bool CanInteract()
@@ -63,6 +68,12 @@ namespace PlatformerGame.WorldMechanics
         {
             // Lock player controls
             playerMovement.LockControls();
+
+            // Trigger audio
+            if (audio != null)
+            {
+                audio.Play();
+            }
 
             // Disable physics and enable kinematic to prevent falling during jump
             playerRigidbody.linearVelocity = Vector2.zero;

@@ -129,11 +129,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8583920351098819632, guid: 56df678f62a036a4d91ed8305f57a1cc, type: 3}
   m_PrefabInstance: {fileID: 338074051}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &76382944 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-  m_PrefabInstance: {fileID: 640415160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &90457813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -298,8 +293,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!1001 &130326702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -570,8 +563,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 76382944}
-  - {fileID: 484713120}
+  - {fileID: 1466287136}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &228880919
@@ -958,8 +950,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 1
-  itemName: Flashlight
 --- !u!1001 &338074051
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1236,7 +1226,7 @@ Tilemap:
       - {fileID: -8776955691478782504, guid: d4e3ef3f5231f1a4e93bc54d607aac40, type: 3}
       - {fileID: 3631711987976753066, guid: d4e3ef3f5231f1a4e93bc54d607aac40, type: 3}
       - {fileID: -5004557270010090193, guid: d4e3ef3f5231f1a4e93bc54d607aac40, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -62, y: 11, z: 0}
@@ -1528,8 +1518,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!1001 &357972039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2221,11 +2209,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8875380266649643712, guid: ffa57b51dcfb72343a4860c5b8386f95, type: 3}
   m_PrefabInstance: {fileID: 1671336761}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &484713120 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-  m_PrefabInstance: {fileID: 714050610}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &521551001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2340,8 +2323,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!61 &523539815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2540,63 +2521,6 @@ Transform:
   - {fileID: 772072756}
   m_Father: {fileID: 1034109954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &640415160
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 228093303}
-    m_Modifications:
-    - target: {fileID: 2094137301982799979, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_Name
-      value: HealthPotionGood
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -12.474228
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.508976
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.1056712
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
 --- !u!1 &642331072
 GameObject:
   m_ObjectHideFlags: 0
@@ -19643,63 +19567,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4196728800470959222, guid: ae8ab62462819a249ae34c8945d3d896, type: 3}
   m_PrefabInstance: {fileID: 358552117}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &714050610
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 228093303}
-    m_Modifications:
-    - target: {fileID: 2094137301982799979, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_Name
-      value: HealthPotionGood
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.525772
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -11.508976
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.1056712
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150813532939928446, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 103ddb995e0fb3e4ca57d5199e366e42, type: 3}
 --- !u!1001 &724813885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20302,8 +20169,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!1 &875445666
 GameObject:
   m_ObjectHideFlags: 0
@@ -20399,8 +20264,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!4 &903168614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4196728800470959222, guid: 0f82ab62d4926ee44b6608c123fd4948, type: 3}
@@ -21212,8 +21075,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!1001 &1245260390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21450,7 +21311,7 @@ GameObject:
   - component: {fileID: 1290931452}
   m_Layer: 5
   m_Name: HeartGrid
-  m_TagString: Untagged
+  m_TagString: HeartContainer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21682,8 +21543,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!4 &1395041589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 574944560331618802, guid: 98fb73503653dd344aeab765553ed5ad, type: 3}
@@ -27093,7 +26952,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 228093303}
     m_Modifications:
     - target: {fileID: 2094137301982799979, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_Name
@@ -27105,15 +26964,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.77
+      value: -16.244228
       objectReference: {fileID: 0}
     - target: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.881756
+      value: 3.3727798
       objectReference: {fileID: 0}
     - target: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.47192746
+      value: 1.5775986
       objectReference: {fileID: 0}
     - target: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27121,15 +26980,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27148,6 +27007,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
+--- !u!4 &1466287136 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6150813532939928446, guid: 57da5964bd5f42c49a7b615d9759994e, type: 3}
+  m_PrefabInstance: {fileID: 1466287135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1501931502
 GameObject:
   m_ObjectHideFlags: 0
@@ -27429,8 +27293,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!61 &1599972376
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28277,8 +28139,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!61 &1873139972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28683,8 +28543,6 @@ MonoBehaviour:
   customMessages: []
   textPanel: {fileID: 1639736554}
   oneTimeOnly: 0
-  hasItem: 0
-  itemName: Flashlight
 --- !u!1001 &2088212213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29048,6 +28906,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 852253728}
     m_Modifications:
+    - target: {fileID: 3369222017047233519, guid: eba374a41d224774d9585ddddae24f2e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5668563111547163350, guid: eba374a41d224774d9585ddddae24f2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -29149,7 +29011,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6366443189024448462, guid: eba374a41d224774d9585ddddae24f2e, type: 3}
+    - {fileID: 3369222017047233519, guid: eba374a41d224774d9585ddddae24f2e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eba374a41d224774d9585ddddae24f2e, type: 3}
@@ -29168,4 +29032,3 @@ SceneRoots:
   - {fileID: 1142801860}
   - {fileID: 258946528}
   - {fileID: 647090362}
-  - {fileID: 1466287135}

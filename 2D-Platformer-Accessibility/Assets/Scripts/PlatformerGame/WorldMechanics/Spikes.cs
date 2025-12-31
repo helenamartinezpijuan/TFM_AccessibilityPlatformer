@@ -14,6 +14,12 @@ public class Spikes : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(1);
+
+                AudioSource audio = GetComponent<AudioSource>();
+                if (audio != null)
+                {
+                    audio.Play();
+                }
             }
         }
     }

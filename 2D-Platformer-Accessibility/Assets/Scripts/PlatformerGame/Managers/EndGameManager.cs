@@ -29,7 +29,7 @@ public class EndGameManager : MonoBehaviour
         ClearSaveData();
         
         // Load main menu scene
-        GameManager.Instance?.Victory();
+        GameManager.Instance?.ReturnToMainMenu();
     }
 
     private void ClearSaveData()
