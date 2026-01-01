@@ -38,7 +38,7 @@ public class HealthUI : MonoBehaviour
             bool shouldBeFull = i < currentHealth;
             Debug.Log($"Current health: {currentHealth} - Should be full: {shouldBeFull}");
             
-            if (emptyHeartSprite != null && fullHeartSprite != null)
+            if (heartImages != null && emptyHeartSprite != null && fullHeartSprite != null)
             {
                 if (heartImages[i].sprite == (shouldBeFull ? emptyHeartSprite : fullHeartSprite))
                 {
