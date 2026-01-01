@@ -4,7 +4,7 @@ using System.Collections;
 
 public class HealthUI : MonoBehaviour
 {
-    private Transform heartsContainer;
+    [SerializeField] private Transform heartsContainer;
     [SerializeField] private Sprite fullHeartSprite;
     [SerializeField] private Sprite emptyHeartSprite;
     [SerializeField] private float transitionDuration = 0.3f;
@@ -27,7 +27,7 @@ public class HealthUI : MonoBehaviour
             heartImages[i] = heartsContainer.GetChild(i).GetComponent<Image>();
         }
         
-        if (health != null && heartsContainer != null && heartImages != null)
+        if (health != null)
             SetHealth(health);
     }
     

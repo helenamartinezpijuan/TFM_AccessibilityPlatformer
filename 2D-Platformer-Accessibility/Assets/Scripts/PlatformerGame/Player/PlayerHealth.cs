@@ -14,8 +14,8 @@ namespace PlatformerGame.Player
         [SerializeField] private float respawnDelay = 1f;
         private Transform checkpoint;
 
-        //[Header("UI Elements")]
-        private HealthUI healthUI;
+        [Header("UI Elements")]
+        [SerializeField]private HealthUI healthUI;
 
         [Header("Sound Effects")]
         [SerializeField] private AudioClip damageSound;
@@ -44,9 +44,6 @@ namespace PlatformerGame.Player
             // Find start position
             checkpoint = GameObject.FindGameObjectWithTag("Checkpoint").transform;
             //this.transform.position = checkpoint.position;
-
-            // Find Health UI reference
-            healthUI = GameObject.FindGameObjectWithTag("HealthUI").GetComponent<HealthUI>();
             
             // Initialize audio source
             audioSource = GetComponent<AudioSource>();
@@ -57,6 +54,11 @@ namespace PlatformerGame.Player
                 audioSource.spatialBlend = 0.7f; // 2D with some spatial awareness
             }
 
+            // Find Health UI reference
+            if (healthUI == null)
+            {
+                healthUI = GameObject.FindGameObjectWithTag("HealthUI").GetComponent<HealthUI>();
+            }
             // Initialize UI
             if (healthUI != null)
             {

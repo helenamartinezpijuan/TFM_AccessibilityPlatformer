@@ -3,15 +3,13 @@ using UnityEngine;
 namespace PlatformerGame.WorldMechanics
 {
     public class PlatformButton : MonoBehaviour, IInteractable
-    {
-        [Header("Button Settings")]
-        [SerializeField] private bool isOne; // For animation
-        
+    {       
         [Header("Activation Target")]
         [SerializeField] private bool isExclusive = false;
         [SerializeField] private MovingPlatform platformToActivate;
         [SerializeField] private MovingPlatform platformToDeactivate;
-        
+
+        // Button animation
         private Animator buttonAnimator;
         private bool isPressed = false;
         
@@ -21,7 +19,6 @@ namespace PlatformerGame.WorldMechanics
             
             if (buttonAnimator != null)
             {
-                buttonAnimator.SetBool("IsOne", isOne);
                 buttonAnimator.SetBool("IsPressed", isPressed);
             }
         }
