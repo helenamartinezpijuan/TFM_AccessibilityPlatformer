@@ -1074,7 +1074,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeverD
       objectReference: {fileID: 0}
+    - target: {fileID: 2209914016130290665, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Name
+      value: LeverMarkerD
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129093103273348230, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: da6014d3713d95842aa2369af0ba01f2, type: 2}
     - target: {fileID: 6341267601419759546, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 787218588, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+    - target: {fileID: 6585240154907163363, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 787218588, guid: 32f098274dbca22429070b8047d6126a, type: 3}
@@ -1186,7 +1198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1630520574263769638, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -61.46
+      value: -62.2
       objectReference: {fileID: 0}
     - target: {fileID: 1630520574263769638, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1231,6 +1243,10 @@ PrefabInstance:
     - target: {fileID: 2550353124218349470, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550353124218349470, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2550353124218349470, guid: 7238b3a6351a6e84f9988d893f5b9904, type: 3}
       propertyPath: m_TagString
@@ -4106,7 +4122,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeverB
       objectReference: {fileID: 0}
+    - target: {fileID: 2209914016130290665, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Name
+      value: LeverMarkerB
+      objectReference: {fileID: 0}
     - target: {fileID: 6341267601419759546, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 431939311, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+    - target: {fileID: 6585240154907163363, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 431939311, guid: 32f098274dbca22429070b8047d6126a, type: 3}
@@ -74473,7 +74497,15 @@ PrefabInstance:
       propertyPath: markerAnimator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2209914016130290665, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Name
+      value: LeverMarkerA
+      objectReference: {fileID: 0}
     - target: {fileID: 6341267601419759546, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+    - target: {fileID: 6585240154907163363, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 1652827651, guid: 32f098274dbca22429070b8047d6126a, type: 3}
@@ -89888,13 +89920,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1202725351}
   - component: {fileID: 1202725350}
+  - component: {fileID: 1202725353}
+  - component: {fileID: 1202725352}
   m_Layer: 0
   m_Name: Fog
   m_TagString: Fog
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1202725350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89965,6 +89999,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 395651666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1202725352
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202725349}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_EdgeRadius: 0
+--- !u!114 &1202725353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1202725349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a33edb8f59560ec4aaa14744a9e1df89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1213623647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91551,7 +91643,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeverC
       objectReference: {fileID: 0}
+    - target: {fileID: 2209914016130290665, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Name
+      value: LeverMarkerC
+      objectReference: {fileID: 0}
     - target: {fileID: 6341267601419759546, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
+    - target: {fileID: 6585240154907163363, guid: 58917502c9b10e844a7c30191be6cae0, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -416281217, guid: 32f098274dbca22429070b8047d6126a, type: 3}
@@ -92912,7 +93012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1612678518
 Transform:
   m_ObjectHideFlags: 0

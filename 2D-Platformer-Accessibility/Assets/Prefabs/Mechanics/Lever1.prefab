@@ -127,8 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leverType: 0
   isOne: 0
-  accessibleVisualsPrefab: {fileID: 0}
-  clueRadius: 2
   linkedEnemy: {fileID: 0}
   resetOnPlayerDeath: 1
 --- !u!61 &2872479682232873008
@@ -228,6 +226,14 @@ PrefabInstance:
     - target: {fileID: 3410889396798014036, guid: b765749ad14f0b84dab47773b227cc4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3672932912105947759, guid: b765749ad14f0b84dab47773b227cc4f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: da6014d3713d95842aa2369af0ba01f2, type: 2}
+    - target: {fileID: 3672932912105947759, guid: b765749ad14f0b84dab47773b227cc4f, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

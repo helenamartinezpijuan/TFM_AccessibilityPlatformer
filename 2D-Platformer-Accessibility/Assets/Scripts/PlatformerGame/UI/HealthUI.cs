@@ -14,7 +14,7 @@ public class HealthUI : MonoBehaviour
 
     private void Start()
     {
-        heartsContainer = GameObject.FindWithTag("HeartContainer").transform;
+        heartsContainer = GameObject.FindGameObjectWithTag("HeartContainer").transform;
     }
     
     public void Initialize(int health)
@@ -27,7 +27,8 @@ public class HealthUI : MonoBehaviour
             heartImages[i] = heartsContainer.GetChild(i).GetComponent<Image>();
         }
         
-        SetHealth(health);
+        if (health != null && heartsContainer != null && heartImages != null)
+            SetHealth(health);
     }
     
     public void SetHealth(int currentHealth)
@@ -37,14 +38,17 @@ public class HealthUI : MonoBehaviour
             bool shouldBeFull = i < currentHealth;
             Debug.Log($"Current health: {currentHealth} - Should be full: {shouldBeFull}");
             
-            if (heartImages[i].sprite == (shouldBeFull ? emptyHeartSprite : fullHeartSprite))
+            if (emptyHeartSprite != null && fullHeartSprite != null)
             {
-                // Heart state changed, trigger transition
-                if (transitionCoroutines[i] != null)
+                if (heartImages[i].sprite == (shouldBeFull ? emptyHeartSprite : fullHeartSprite))
                 {
-                    StopCoroutine(transitionCoroutines[i]);
+                    // Heart state changed, trigger transition
+                    if (transitionCoroutines[i] != null)
+                    {
+                        StopCoroutine(transitionCoroutines[i]);
+                    }
+                    transitionCoroutines[i] = StartCoroutine(AnimateHeartTransition(heartImages[i], shouldBeFull));
                 }
-                transitionCoroutines[i] = StartCoroutine(AnimateHeartTransition(heartImages[i], shouldBeFull));
             }
         }
     }
