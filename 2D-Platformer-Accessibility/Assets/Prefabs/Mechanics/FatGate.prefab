@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e3394a7116f2341b73653db136f839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gateId: Gate1
-  requiredLeverTypes: 
+  gateId: GateBC
+  requiredLeverTypes: 0100000002000000
   requireExactMatch: 1
   isReverse: 0
   clueRadius: 5

@@ -33,8 +33,7 @@
                 "No me lo puedo creer",
                 "Que sigues sin ver nada. ¿No te sirve mi linterna?",
                 "¿Y no puedes cruzar, dices?",
-                "Mira. Prueba esto. Filtran la oscuridad y proyectan luz.",
-                "Por cierto, yo que tu recogería las pegatinas que te has dejado antes."
+                "Mira. Prueba esto. Filtran la oscuridad y proyectan luz."
             ]
         },
         {
@@ -64,7 +63,8 @@
         {
             "category": "Interactuar",
             "texts": [
-                "Presiona E para interactuar con los objetos."
+                "Presiona E para interactuar con los objetos.",
+                "E"
             ]
         },
         {
