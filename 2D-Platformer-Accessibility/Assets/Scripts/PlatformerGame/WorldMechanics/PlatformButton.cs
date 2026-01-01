@@ -51,8 +51,6 @@ namespace PlatformerGame.WorldMechanics
                 if (isExclusive && platformToDeactivate != null)
                     platformToDeactivate.OnInteractorActivated();
             }
-
-            
         }
         
         public void TriggerAnimation()

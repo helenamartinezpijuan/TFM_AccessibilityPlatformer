@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea5bc81115b02946b0070b475f1d456, type: 3}
+  m_Name: Gloves
+  m_EditorClassIdentifier: 
+  itemName: Guantes
+  description: "Estos guante te permiten sentir la conexi\xF3n entre las plataformas
+    y el bot\xF3n que las activa"
+  icon: {fileID: 8033092973025764044, guid: 93eadc4dcb030f443b13385345c4420c, type: 3}
+  maxStackSize: 1
+  isConsumable: 0
+  inventoryPosition: -1
+  itemEvents: {fileID: 11400000, guid: 37f0ab2fbad4f9440bf69a31ca314f03, type: 2}

@@ -547,8 +547,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4724f13dbc0856c47801a954610c51f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 4
   respawnDelay: 1
+  healthUI: {fileID: 0}
   damageSound: {fileID: 8300000, guid: 8b58d404874a68e4f8c33ea881c7a458, type: 3}
   deathSound: {fileID: 8300000, guid: 858d71b919232b748afd593d0dc094a7, type: 3}
   respawnSound: {fileID: 8300000, guid: cea70c3e52c4b6b44863443b0e993b0c, type: 3}

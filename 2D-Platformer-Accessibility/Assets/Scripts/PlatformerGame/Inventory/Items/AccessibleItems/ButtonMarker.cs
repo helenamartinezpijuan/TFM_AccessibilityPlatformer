@@ -22,9 +22,9 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         {
             if (other.CompareTag("Player"))
             {
-                bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
+                bool hasGloves = other.GetComponent<PlayerInventory>().HasGloves();
 
-                if (hasFlahslight)
+                if (hasGloves)
                 {
                     ShowMarker();
                 }
@@ -35,9 +35,9 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
         {
             if (other.CompareTag("Player"))
             {
-                bool hasFlahslight = other.GetComponent<PlayerInventory>().HasFlashlight();
+                bool hasGloves = other.GetComponent<PlayerInventory>().HasGloves();
                 
-                if (hasFlahslight)
+                if (hasGloves)
                 {
                     HideMarker();
                 }

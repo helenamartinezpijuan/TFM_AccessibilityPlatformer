@@ -1,6 +1,16 @@
 {
     "messages": [
         {
+            "category": "Ayuda 0",
+            "texts": [
+                "¡Ten cuidado!",
+                "Si el botón tiene un efecto rojo significa que solo puede haber una plataforma activa a la vez.",
+                "¿Qué? ¿No lo ves?",
+                "Hmmm... Toma mis guantes.",
+                "Cuando estés cerca de un botón podrás ver a qué plataforma conecta y sentir su color."
+            ]
+        },
+        {
             "category": "Ayuda 1",
             "texts": [
                 "¿Cómo? ¿Que no ves nada? Hmm...",
@@ -67,13 +77,6 @@
             "category": "Palancas",
             "texts": [
                 "Las palancas activan las compuertas de su mismo color."
-            ]
-        },
-        {
-            "category": "Boton de color",
-            "texts": [
-                "¡Ten cuidado!",
-                "Si el botón es rojo significa que solo puede haber una plataforma activa a la vez."
             ]
         },
         {

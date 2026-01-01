@@ -16,6 +16,7 @@ TagManager:
   - HealthUI
   - Platform
   - HeartContainer
+  - Gloves
   layers:
   - Default
   - TransparentFX

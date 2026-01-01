@@ -243,6 +243,18 @@ namespace PlatformerGame.Inventory
                 }
             }
         }
+
+        public bool HasGloves()
+        {
+            foreach (var item in items)
+            {
+                if (item is Gloves gloves)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         
         public bool HasFlashlight()
         {
