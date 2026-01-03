@@ -32,6 +32,7 @@ public class MovingPlatform : MonoBehaviour
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         endPosition = endPositionTransform.position;
+        movementCoroutine = StartCoroutine(MovementRoutine());
     }
 
     private IEnumerator MovementRoutine()
