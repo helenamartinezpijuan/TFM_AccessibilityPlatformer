@@ -5751,7 +5751,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstLevelScene: 1
-  transitionTime: 1
 --- !u!114 &1788042451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5765,6 +5764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionTime: 0.1
+  transitionAnimator: {fileID: 9190441434899873965, guid: d85ad193fa39c6443b538b99ae95f288, type: 3}
 --- !u!114 &1788042452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5778,6 +5778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   persistBetweenScenes: 1
+  itemDatabase: {fileID: 11400000, guid: e061cf82990a0f3409659456e1162193, type: 2}
 --- !u!82 &1788042453
 AudioSource:
   m_ObjectHideFlags: 0

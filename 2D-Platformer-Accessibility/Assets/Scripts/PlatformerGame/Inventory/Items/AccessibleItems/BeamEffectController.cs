@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using PlatformerGame.Inventory.Items;
 
 [System.Serializable]
 public class BeamConnection
@@ -30,10 +31,13 @@ public class BeamConnection
 
 public class BeamEffectController : MonoBehaviour
 {
+    [Header("Events")]
+    [SerializeField] private ItemEvents itemEvents;
+
     [Header("Beam Connections")]
     public List<BeamConnection> beamConnections = new List<BeamConnection>();
     
-    [Header("Default Prefabs (Optional)")]
+    [Header("Default Prefabs")]
     public ParticleSystem defaultStartParticles;
     public ParticleSystem defaultEndParticles;
     public ParticleSystem defaultBeamParticles;
@@ -41,11 +45,25 @@ public class BeamEffectController : MonoBehaviour
     [Header("Global Settings")]
     public Material beamMaterial;
     public float particleDensity = 3f;
-    public bool updateInRealTime = true;
+    public bool updateInRealTime = false;
     
     private void Start()
     {
         InitializeAllBeams();
+
+        // Register event listeners
+        if (itemEvents != null)
+        {
+            itemEvents.OnGlovesObtained += UpdateInRealTime;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (itemEvents != null)
+        {
+            itemEvents.OnGlovesObtained -= UpdateInRealTime;
+        }
     }
     
     private void Update()
@@ -54,6 +72,11 @@ public class BeamEffectController : MonoBehaviour
         {
             UpdateAllBeams();
         }
+    }
+
+    private void UpdateInRealTime()
+    {
+        updateInRealTime = true;
     }
     
     private void InitializeAllBeams()

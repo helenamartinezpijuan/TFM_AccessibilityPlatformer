@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using PlatformerGame.UI;
 using PlatformerGame.Inventory.Items;
+using PlatformerGame.Managers;
 
 namespace PlatformerGame.Inventory
 {
@@ -14,6 +15,7 @@ namespace PlatformerGame.Inventory
         [SerializeField] private int inventoryScene = 6;
         [SerializeField] private int inventorySize = 4;
         [SerializeField] private bool debugMode = false;
+        [SerializeField] private ItemDatabase itemDatabase;
 
         private int currentSelectedPosition = 0;
         [SerializeField] private List<Item> items = new List<Item>();
@@ -37,18 +39,6 @@ namespace PlatformerGame.Inventory
 
         private void Awake()
         {
-            // Singleton pattern
-            /*if (Instance == null)
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-                return;
-            }*/
-
             // Initialize empty inventory slots
             items.Clear();
             for (int i = 0; i < inventorySize; i++)
@@ -57,6 +47,9 @@ namespace PlatformerGame.Inventory
             }
             
             if (debugMode) Debug.Log($"Inventory initialized with {inventorySize} slots");
+        
+            // Load inventory from save data
+            LoadInventoryFromSave();
         }
 
         private void Start()
@@ -64,6 +57,69 @@ namespace PlatformerGame.Inventory
             // Find any existing InventoryUI and connect it
             ConnectToInventoryUI();
         }
+
+        #region Load Inventory Between Scenes
+
+        private void LoadInventoryFromSave()
+        {
+            if (InventoryManager.Instance != null)
+            {
+                // Get saved item names from InventoryManager
+                List<string> savedItemNames = InventoryManager.Instance.GetSavedItemNames();
+                
+                if (savedItemNames.Count > 0)
+                {
+                    // Clear current inventory
+                    for (int i = 0; i < inventorySize; i++)
+                    {
+                        items[i] = null;
+                    }
+                    
+                    // Load items
+                    foreach (string itemName in savedItemNames)
+                    {
+                        if (!string.IsNullOrEmpty(itemName))
+                        {
+                            // Get item from database
+                            Item item = GetItemFromDatabase(itemName);
+                            if (item != null)
+                            {
+                                AddItem(item, true); // Silent add (no UI refresh)
+                            }
+                        }
+                    }
+                    
+                    if (debugMode) Debug.Log($"Loaded {savedItemNames.Count} items from save");
+                    
+                    // Refresh UI
+                    RefreshInventoryUI();
+                }
+            }
+        }
+
+        private Item GetItemFromDatabase(string itemName)
+        {
+            if (itemDatabase != null)
+            {
+                return itemDatabase.GetItemByName(itemName);
+            }
+            
+            // Fallback: Try to find item in resources
+            Item[] allItems = Resources.FindObjectsOfTypeAll<Item>();
+            foreach (Item item in allItems)
+            {
+                if (item.itemName == itemName)
+                {
+                    return Instantiate(item); // Create instance to avoid sharing
+                }
+            }
+            
+            Debug.LogWarning($"Item '{itemName}' not found!");
+            return null;
+        }
+        #endregion
+
+        #region Update Inventory Items
 
         public Item GetItem(int position)
         {
@@ -74,7 +130,7 @@ namespace PlatformerGame.Inventory
             return null;
         }
 
-        public bool AddItem(Item newItem)
+        public bool AddItem(Item newItem, bool silent = false)
         {
             if (newItem == null)
             {
@@ -87,29 +143,47 @@ namespace PlatformerGame.Inventory
             {
                 if (items[i] == null)
                 {
-                    items[i] = newItem;
-                    newItem.inventoryPosition = i;
+                    // Create instance to avoid sharing ScriptableObject references
+                    Item itemInstance = Instantiate(newItem);
+                    itemInstance.itemName = newItem.itemName;
+                    itemInstance.description = newItem.description;
+                    itemInstance.icon = newItem.icon;
+                    
+                    items[i] = itemInstance;
+                    itemInstance.inventoryPosition = i;
                     
                     // Notify item was added
-                    newItem.OnAddToInventory(this);
+                    itemInstance.OnAddToInventory(this);
                     
-                    if (debugMode) Debug.Log($"Added {newItem.itemName} to slot {i}");
+                    if (debugMode && !silent) Debug.Log($"Added {itemInstance.itemName} to slot {i}");
                     
                     // Trigger event
-                    OnItemAdded?.Invoke(newItem);
+                    if (!silent) OnItemAdded?.Invoke(itemInstance);
+                    
+                    // Save inventory
+                    if (!silent && InventoryManager.Instance != null)
+                    {
+                        InventoryManager.Instance.SaveCurrentInventory(this);
+                    }
                     
                     // Force refresh UI
-                    RefreshInventoryUI();
+                    if (!silent) RefreshInventoryUI();
                     
                     return true;
                 }
             }
             
-            if (debugMode) Debug.Log("Inventory full, cannot add item.");
+            if (debugMode && !silent) Debug.Log("Inventory full, cannot add item.");
             return false;
         }
 
-        public bool RemoveItem(int position)
+        // Overload for regular use
+        public bool AddItem(Item newItem)
+        {
+            return AddItem(newItem, false);
+        }
+
+        public bool RemoveItem(int position, bool silent = false)
         {
             if (position >= 0 && position < inventorySize && items[position] != null)
             {
@@ -119,15 +193,39 @@ namespace PlatformerGame.Inventory
                 // Notify item was removed
                 removedItem.OnRemoveFromInventory(this);
                 
-                OnItemRemoved?.Invoke(removedItem);
+                if (!silent) OnItemRemoved?.Invoke(removedItem);
+                
+                // Save inventory
+                if (!silent && InventoryManager.Instance != null)
+                {
+                    InventoryManager.Instance.SaveCurrentInventory(this);
+                }
                 
                 // Force refresh UI
-                RefreshInventoryUI();
+                if (!silent) RefreshInventoryUI();
                 
                 return true;
             }
             return false;
         }
+        
+        // Overload for regular use
+        public bool RemoveItem(int position)
+        {
+            return RemoveItem(position, false);
+        }
+
+        // Save current inventory to InventoryManager
+        public void SaveInventory()
+        {
+            if (InventoryManager.Instance != null)
+            {
+                InventoryManager.Instance.SaveCurrentInventory(this);
+            }
+        }
+        #endregion
+
+        #region UI logic
 
         // Public method to open inventory
         public void OpenInventory()
@@ -209,12 +307,6 @@ namespace PlatformerGame.Inventory
                 if (selectedItem.CanUse(this))
                 {
                     selectedItem.Use(this);
-                    
-                    // If item is consumable, remove it after use
-                    if (selectedItem.isConsumable)
-                    {
-                        RemoveItem(currentSelectedPosition);
-                    }
                 }
             }
         }
@@ -243,6 +335,7 @@ namespace PlatformerGame.Inventory
                 }
             }
         }
+        #endregion
 
         public bool HasGloves()
         {
@@ -309,7 +402,7 @@ namespace PlatformerGame.Inventory
             return false;
         }
 
-        // Input System Callbacks
+        #region Input System Callbacks
         public void OnNavigate(InputAction.CallbackContext context)
         {
             if (context.performed && isOpen)
@@ -357,13 +450,17 @@ namespace PlatformerGame.Inventory
                 CloseInventory();
             }
         }
+        #endregion
 
-        // Clean up when destroyed
         private void OnDestroy()
         {
-            if (Instance == this)
+            // Destroy any instantiated items
+            foreach (Item item in items)
             {
-                Instance = null;
+                if (item != null && !Application.isPlaying)
+                {
+                    Destroy(item);
+                }
             }
         }
     }

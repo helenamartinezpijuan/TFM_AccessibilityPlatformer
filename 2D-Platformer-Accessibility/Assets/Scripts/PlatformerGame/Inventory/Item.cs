@@ -10,8 +10,6 @@ namespace PlatformerGame.Inventory
         public string itemName;
         public string description;
         public Sprite icon;
-        public int maxStackSize = 1;
-        public bool isConsumable = false;
 
         [HideInInspector] public int inventoryPosition = -1;
 

@@ -16,7 +16,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             HideMarker();
         }
 
-        #region Trigger Detection
+        /*#region Trigger Detection
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -43,7 +43,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
                 }
             }
         }
-        #endregion
+        #endregion*/
 
         #region Enable/Disable Markers
         
@@ -61,7 +61,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
 
         public void ShowAllMarkers()
         {
-            Destroy(GetComponent<CircleCollider2D>());
+            //Destroy(GetComponent<CircleCollider2D>());
             ShowMarker();
         }
     }

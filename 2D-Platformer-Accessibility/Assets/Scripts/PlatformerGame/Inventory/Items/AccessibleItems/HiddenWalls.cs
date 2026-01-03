@@ -27,7 +27,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             }
         }
 
-        #region Trigger Detection
+       /*#region Trigger Detection
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -41,7 +41,7 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
                 }
             }
         }
-        #endregion
+        #endregion*/
 
         public void RevealHiddenWall()
         {

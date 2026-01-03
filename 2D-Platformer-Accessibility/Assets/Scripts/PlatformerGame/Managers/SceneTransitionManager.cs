@@ -1,10 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using PlatformerGame.Inventory;
 using PlatformerGame.Player;
-using PixeLadder.EasyTransition;
 
 namespace PlatformerGame.Managers
 {
@@ -13,14 +11,10 @@ namespace PlatformerGame.Managers
         public static SceneTransitionManager Instance { get; private set; }
         
         [Header("Transition Settings")]
-        [SerializeField] private float transitionTime = 0.1f;
+        [SerializeField] private float transitionTime = 0.5f;
+        [SerializeField] private Animator transitionAnimator;
         
-        //[Header("Loading Screen")]
-        //[SerializeField] private GameObject loadingScreen;
-        //[SerializeField] private Slider loadingSlider;
-        
-        private static int currentSceneIndex = 1;
-        private AsyncOperation loadingOperation;
+        private bool isTransitioning = false;
         
         private void Awake()
         {
@@ -33,64 +27,62 @@ namespace PlatformerGame.Managers
             else
             {
                 Destroy(gameObject);
+                return;
             }
+            
+            Debug.Log("SceneTransitionManager initialized");
         }
         
-        public void LoadScene (int sceneIndex)
+        public void LoadScene(int sceneIndex)
         {
-            SceneManager.LoadScene(sceneIndex);
-            //StartCoroutine(LoadSceneRoutine(sceneIndex));
+            if (isTransitioning) return;
+            
+            StartCoroutine(LoadSceneRoutine(sceneIndex));
         }
         
-        /*private IEnumerator LoadSceneRoutine(int sceneIndex)
+        private IEnumerator LoadSceneRoutine(int sceneIndex)
         {
+            if (isTransitioning) yield break;
+            isTransitioning = true;
+            
+            Debug.Log($"Transitioning to scene {sceneIndex}");
+            
+            // Play transition animation
+            if (transitionAnimator != null)
+            {
+                transitionAnimator.SetTrigger("Start");
+            }
+            
             // Save game state before transition
             SaveBeforeTransition();
             
+            // Wait for transition
             yield return new WaitForSeconds(transitionTime);
-
+            
+            // Load scene
             SceneManager.LoadScene(sceneIndex);
             
-            // Show loading screen
-            if (loadingScreen != null)
-                loadingScreen.SetActive(true);
+            // Wait for scene to load
+            yield return new WaitForSeconds(0.1f);
             
-            // Load scene asynchronously
-            loadingOperation = SceneManager.LoadSceneAsync(sceneIndex);
-            loadingOperation.allowSceneActivation = false;
-            
-            // Update loading progress
-            while (!loadingOperation.isDone)
+            // End transition
+            if (transitionAnimator != null)
             {
-                float progress = Mathf.Clamp01(loadingOperation.progress / 0.9f);
-                
-                if (loadingSlider != null)
-                    loadingSlider.value = progress;
-                
-                if (loadingOperation.progress >= 0.9f)
-                {
-                    // Wait a moment for effect
-                    yield return new WaitForSeconds(0.5f);
-                    
-                    // Hide loading screen
-                    if (loadingScreen != null)
-                        loadingScreen.SetActive(false);
-                    
-                    // Allow scene activation
-                    loadingOperation.allowSceneActivation = true;
-                }
-                
-                yield return null;
+                transitionAnimator.SetTrigger("End");
             }
-        }*/
+            
+            isTransitioning = false;
+        }
         
         private void SaveBeforeTransition()
         {
+            Debug.Log("Saving before scene transition");
+            
             // Save current scene
             PlayerPrefs.SetInt("LastScene", SceneManager.GetActiveScene().buildIndex);
             
-            // Save inventory
-            InventoryManager.Instance?.SaveInventory();
+            // Save inventory through GameManager
+            GameManager.Instance?.SaveGameState();
             
             // Save player position if possible
             GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -115,33 +107,59 @@ namespace PlatformerGame.Managers
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             int nextSceneIndex = currentSceneIndex + 1;
             
-            LoadScene(nextSceneIndex);
+            // Check if next scene exists
+            if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            {
+                LoadScene(nextSceneIndex);
+            }
+            else
+            {
+                Debug.LogWarning("No next level available, returning to main menu");
+                LoadScene(0); // Main menu
+            }
         }
-        
-        /*public void LoadSceneByIndex(int sceneIndex)
-        {
-            string sceneName = SceneManager.GetSceneByBuildIndex(sceneIndex).name; 
-            LoadScene(sceneName);
-        }*/
         
         public void RestartCurrentScene()
         {
             LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         
-        public void GameOver()
+        public void ReturnToMainMenu()
         {
-            StartCoroutine(GameOverRoutine());
+            LoadScene(0);
         }
         
-        private IEnumerator GameOverRoutine()
+        // Quick load methods for common scenes
+        //public void LoadMainMenu() => LoadScene(0);
+        //public void LoadFirstLevel() => LoadScene(GameManager.Instance?.firstLevelScene ?? 1);
+        
+        // Transition with callback
+        public void LoadSceneWithCallback(int sceneIndex, System.Action onComplete = null)
         {
-            // gameOverScreen.SetActive(true);
-            
-            yield return new WaitForSeconds(3f);
-            
-            // Return to main menu or restart
-            LoadScene(0);
+            StartCoroutine(LoadSceneWithCallbackRoutine(sceneIndex, onComplete));
+        }
+        
+        private IEnumerator LoadSceneWithCallbackRoutine(int sceneIndex, System.Action onComplete)
+        {
+            yield return StartCoroutine(LoadSceneRoutine(sceneIndex));
+            onComplete?.Invoke();
+        }
+        
+        // Check if scene exists
+        public bool SceneExists(int sceneIndex)
+        {
+            return sceneIndex >= 0 && sceneIndex < SceneManager.sceneCountInBuildSettings;
+        }
+        
+        // Get current scene info
+        public string GetCurrentSceneName()
+        {
+            return SceneManager.GetActiveScene().name;
+        }
+        
+        public int GetCurrentSceneIndex()
+        {
+            return SceneManager.GetActiveScene().buildIndex;
         }
     }
 }

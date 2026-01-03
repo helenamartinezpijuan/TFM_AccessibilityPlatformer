@@ -70,7 +70,7 @@ namespace PlatformerGame.Managers
             {
                 continueButton.onClick.AddListener(OnContinueGame);
                 // Check if save data exists
-                hasSaveData = GameManager.Instance.CheckForSaveData();
+                hasSaveData = GameManager.Instance?.CheckForSaveData() ?? false;
                 continueButton.interactable = hasSaveData;
             }
                 
@@ -192,15 +192,8 @@ namespace PlatformerGame.Managers
         public void OnQuitGame()
         {
             PlayButtonSound(buttonClickSound);
-            
-            #if UNITY_EDITOR
-            Debug.Log("Quit game (would quit in build)");
-            UnityEditor.EditorApplication.isPlaying = false;
-            #else
-            Application.Quit();
-            #endif
+            GameManager.Instance?.QuitGame();
         }
-
         #endregion
 
         #region Options Menu Handlers
@@ -226,15 +219,16 @@ namespace PlatformerGame.Managers
         {
             // Wait for transition
             yield return new WaitForSeconds(transitionTime);
+            GameManager.Instance?.NewGame();
 
             // Initialize new game state
-            InitializeNewGame();
+            //InitializeNewGame();
             
             // Load the first level
-            SceneTransitionManager.Instance?.LoadScene(firstLevelScene);
+            //SceneTransitionManager.Instance?.LoadScene(firstLevelScene);
         }
         
-        private void InitializeNewGame()
+        /*private void InitializeNewGame()
         {
             // Reset player prefs for new game
             GameManager.Instance?.SetNewGamePrefs();
@@ -242,16 +236,18 @@ namespace PlatformerGame.Managers
             
             // Initialize inventory manager for new game
             InventoryManager.Instance?.InitializeNewGame();
-        }
+        }*/
         
         private IEnumerator ContinueGameRoutine()
         {           
             yield return new WaitForSeconds(transitionTime);
 
-            GameManager.Instance?.ContinueGame();
+            //GameManager.Instance?.ContinueGame();
 
             savedScene = PlayerPrefs.GetInt("LastScene", firstLevelScene);
-            SceneTransitionManager.Instance?.LoadScene(savedScene);
+            //SceneTransitionManager.Instance?.LoadScene(savedScene);
+
+            GameManager.Instance?.ContinueGame();
         }
 
         #endregion

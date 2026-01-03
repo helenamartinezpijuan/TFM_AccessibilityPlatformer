@@ -512,6 +512,7 @@ MonoBehaviour:
   inventoryScene: 6
   inventorySize: 4
   debugMode: 0
+  itemDatabase: {fileID: 11400000, guid: e061cf82990a0f3409659456e1162193, type: 2}
   items: []
 --- !u!114 &918525457515328682
 MonoBehaviour:

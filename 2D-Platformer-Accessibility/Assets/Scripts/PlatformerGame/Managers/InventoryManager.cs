@@ -11,8 +11,10 @@ namespace PlatformerGame.Managers
         
         [Header("Inventory Settings")]
         [SerializeField] private bool persistBetweenScenes = true;
+        [SerializeField] private ItemDatabase itemDatabase;
         
-        private List<Item> savedItems = new List<Item>();
+        //private List<Item> savedItems = new List<Item>();
+        private List<string> savedItemNames = new List<string>();
         private Dictionary<string, object> gameState = new Dictionary<string, object>();
         
         private void Awake()
@@ -29,11 +31,18 @@ namespace PlatformerGame.Managers
                 Destroy(gameObject);
                 return;
             }
+
+            // Initialize item database if assigned
+            if (itemDatabase != null)
+            {
+                itemDatabase.Initialize();
+            }
             
             Debug.Log("Inventory Manager initialized");
+            LoadSavedItemNames();
         }
         
-        public void InitializeNewGame()
+        /*public void InitializeNewGame()
         {
             savedItems.Clear();
             gameState.Clear();
@@ -44,7 +53,8 @@ namespace PlatformerGame.Managers
         public void SaveInventory()
         {
             // Get current inventory if it exists
-            PlayerInventory inventory = FindObjectOfType<PlayerInventory>();
+            //PlayerInventory inventory = FindObjectOfType<PlayerInventory>();
+            PlayerInventory inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
             if (inventory != null)
             {
                 savedItems.Clear();
@@ -55,15 +65,16 @@ namespace PlatformerGame.Managers
                 
                 Debug.Log($"Inventory saved with {savedItems.Count} items");
             }
-        }
+        }*/
         
-        public void LoadInventory()
+        /*public void LoadInventory()
         {
             // Load from PlayerPrefs
             LoadFromPlayerPrefs();
             
             // Apply to current inventory
-            PlayerInventory inventory = FindObjectOfType<PlayerInventory>();
+            //PlayerInventory inventory = FindObjectOfType<PlayerInventory>();
+            PlayerInventory inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
             if (inventory != null)
             {
                 // Clear current inventory
@@ -83,26 +94,78 @@ namespace PlatformerGame.Managers
                 
                 Debug.Log($"Inventory loaded with {savedItems.Count} items");
             }
+        }*/
+
+        #region PlayerPrefs Logic
+
+        private void LoadSavedItemNames()
+        {
+            savedItemNames.Clear();
+            
+            int itemCount = PlayerPrefs.GetInt("InventoryItemCount", 0);
+            
+            for (int i = 0; i < itemCount; i++)
+            {
+                string itemName = PlayerPrefs.GetString($"InventoryItem_{i}", "");
+                if (!string.IsNullOrEmpty(itemName))
+                {
+                    savedItemNames.Add(itemName);
+                }
+            }
+            
+            Debug.Log($"Loaded {savedItemNames.Count} item names from save");
+        }
+        
+        // NEW: Get saved item names
+        public List<string> GetSavedItemNames()
+        {
+            return new List<string>(savedItemNames);
+        }
+        
+        // NEW: Save current inventory
+        public void SaveCurrentInventory(PlayerInventory inventory)
+        {
+            if (inventory == null) return;
+            
+            savedItemNames.Clear();
+            
+            // Save item names
+            foreach (Item item in inventory.Items)
+            {
+                if (item != null)
+                {
+                    savedItemNames.Add(item.itemName);
+                }
+            }
+            
+            // Save to PlayerPrefs
+            SaveToPlayerPrefs();
+            
+            Debug.Log($"Inventory saved with {savedItemNames.Count} items");
+        }
+        
+        // NEW: Clear current save
+        public void ClearCurrentSave()
+        {
+            savedItemNames.Clear();
+            SaveToPlayerPrefs();
         }
         
         private void SaveToPlayerPrefs()
         {
             // Save item count
-            PlayerPrefs.SetInt("InventoryItemCount", savedItems.Count);
+            PlayerPrefs.SetInt("InventoryItemCount", savedItemNames.Count);
             
-            // Save each item (simplified - you'd need a better serialization system)
-            for (int i = 0; i < savedItems.Count; i++)
+            // Save each item name
+            for (int i = 0; i < savedItemNames.Count; i++)
             {
-                if (savedItems[i] != null)
-                {
-                    PlayerPrefs.SetString($"InventoryItem_{i}", savedItems[i].itemName);
-                }
+                PlayerPrefs.SetString($"InventoryItem_{i}", savedItemNames[i]);
             }
             
             PlayerPrefs.Save();
         }
         
-        private void LoadFromPlayerPrefs()
+        /*private void LoadFromPlayerPrefs()
         {
             savedItems.Clear();
             
@@ -118,15 +181,15 @@ namespace PlatformerGame.Managers
                     Debug.Log($"Need to load item: {itemName}");
                     
                     // In a real implementation, you'd load the Item ScriptableObject
-                    // Item item = Resources.Load<Item>($"Items/{itemName}");
-                    // if (item != null) savedItems.Add(item);
+                    Item item = Resources.Load<Item>($"Items/{itemName}");
+                    if (item != null) savedItems.Add(item);
                 }
             }
-        }
+        }*/
         
         public void ClearSavedInventory()
         {
-            savedItems.Clear();
+            savedItemNames.Clear();
             
             // Clear PlayerPrefs
             PlayerPrefs.DeleteKey("InventoryItemCount");
@@ -178,6 +241,7 @@ namespace PlatformerGame.Managers
             
             return defaultValue;
         }
+        #endregion
         
         // Called when scene changes
         private void OnEnable()
@@ -195,14 +259,18 @@ namespace PlatformerGame.Managers
             Debug.Log($"Scene loaded: {scene.name}");
             
             // Don't load inventory in main menu
-            if (scene.name == "MainMenu") return;
+            if (scene.name == "MainMenu" || scene.buildIndex == 0) return;
             
-            // Check if this is a new game
-            bool isNewGame = PlayerPrefs.GetInt("IsNewGame", 1) == 1;
-            
-            if (!isNewGame)
+            // Find player inventory in the new scene
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
             {
-                LoadInventory();
+                PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+                if (inventory != null)
+                {
+                    // The PlayerInventory will load from savedItemNames in its Awake()
+                    Debug.Log("Player inventory found in new scene");
+                }
             }
         }
     }
