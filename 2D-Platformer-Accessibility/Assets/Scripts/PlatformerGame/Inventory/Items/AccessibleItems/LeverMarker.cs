@@ -24,14 +24,14 @@ namespace PlatformerGame.Inventory.Items.AccessibleItems
             markerLight = GetComponent<Light2D>();
 
             // Start hidden
-            /*if (markerSprite != null)
+            if (markerSprite != null)
                 markerSprite.enabled = false;
 
             if (markerAnimator != null)
                 markerAnimator.enabled = false;
             
             if (markerLight != null)
-                markerLight.enabled = false;*/
+                markerLight.enabled = false;
         }
         
         #region Trigger Detection
