@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
-using PixeLadder.EasyTransition;
-using PixeLadder.EasyTransition.Effects;
 using PlatformerGame.Player;
 using PlatformerGame.Inventory;
 
