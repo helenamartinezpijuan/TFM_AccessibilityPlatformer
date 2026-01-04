@@ -32,7 +32,7 @@ public class MovingPlatform : MonoBehaviour
         startPosition = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         endPosition = endPositionTransform.position;
-        movementCoroutine = StartCoroutine(MovementRoutine());
+        //movementCoroutine = StartCoroutine(MovementRoutine()); // FOR VIDEO ONLY
     }
 
     private IEnumerator MovementRoutine()
